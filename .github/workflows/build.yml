@@ -49,8 +49,8 @@ jobs:
                   applicationId 'com.alerta.velocidade'
                   minSdk 26
                   targetSdk 34
-                  versionCode 6
-                  versionName '4.1'
+                  versionCode 7
+                  versionName '4.2'
               }
           }
           EOF
@@ -92,10 +92,8 @@ jobs:
           import android.content.pm.PackageManager;
           import android.graphics.Canvas;
           import android.graphics.Color;
-          import android.graphics.LinearGradient;
           import android.graphics.Matrix;
           import android.graphics.Paint;
-          import android.graphics.Path;
           import android.graphics.RadialGradient;
           import android.graphics.RectF;
           import android.graphics.Shader;
@@ -175,7 +173,9 @@ jobs:
                   l.setPadding(dp(16), dp(20), dp(16), dp(24));
                   l.setBackgroundColor(BG);
 
-                  l.addView(texto("Alerta de Velocidade", 18, MUT, true));
+                  TextView titulo = texto("Alerta de Velocidade", 18, MUT, true);
+                  titulo.setGravity(Gravity.CENTER);
+                  l.addView(titulo, margemTopo(0));
 
                   // Velocímetro com relógio
                   gauge = new Gauge(this);
@@ -359,7 +359,6 @@ jobs:
                   static final int VERDE = 0xFF2ED47A, LARANJA = 0xFFFF8A1F, VERMELHO = 0xFFFF3B3B;
                   final Paint p = new Paint(Paint.ANTI_ALIAS_FLAG);
                   final RectF r = new RectF();
-                  final Path estrada = new Path();
                   final Matrix giro = new Matrix();
                   final float d;
                   float alvo = -1, atual = 0, cx, cy;
@@ -483,33 +482,16 @@ jobs:
                       arco(c, rd, 135, 405);
                       p.setShader(null);
 
-                      // "Estrada" azul na base, como no painel
-                      estrada.reset();
-                      estrada.moveTo(cx - R * 0.42f, cy + R * 0.42f);
-                      estrada.lineTo(cx + R * 0.42f, cy + R * 0.42f);
-                      estrada.lineTo(cx + R * 0.98f, cy + R * 0.72f);
-                      estrada.lineTo(cx - R * 0.98f, cy + R * 0.72f);
-                      estrada.close();
-                      p.setStyle(Paint.Style.FILL);
-                      p.setShader(new LinearGradient(0, cy + R * 0.42f, 0, cy + R * 0.72f,
-                          0xFF07122A, 0xFF1D3F9E, Shader.TileMode.CLAMP));
-                      c.drawPath(estrada, p);
-                      p.setShader(null);
-                      p.setStyle(Paint.Style.STROKE);
-                      p.setStrokeWidth(1.5f * d);
-                      p.setColor(0xFF3B6FE0);
-                      c.drawPath(estrada, p);
-
                       // Velocidade, unidade e relógio
                       p.setStyle(Paint.Style.FILL);
                       p.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
-                      p.setTextSize(R * 0.36f);
+                      p.setTextSize(R * 0.48f);
                       p.setColor(alvo < 0 || cor(alvo) == VERDE ? 0xFFFFFFFF : cor(alvo));
-                      c.drawText(alvo < 0 ? "--" : String.valueOf(Math.round(alvo)), cx, cy + R * 0.12f, p);
+                      c.drawText(alvo < 0 ? "--" : String.valueOf(Math.round(alvo)), cx, cy + R * 0.16f, p);
                       p.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
-                      p.setTextSize(R * 0.075f);
+                      p.setTextSize(R * 0.085f);
                       p.setColor(0xFF9AA4B2);
-                      c.drawText("KM/H", cx, cy + R * 0.3f, p);
+                      c.drawText("KM/H", cx, cy + R * 0.36f, p);
                       p.setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
                       p.setTextSize(R * 0.14f);
                       p.setColor(0xFFFFFFFF);
