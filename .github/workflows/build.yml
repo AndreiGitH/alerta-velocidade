@@ -44,8 +44,8 @@ jobs:
                   applicationId 'com.alerta.velocidade'
                   minSdk 26
                   targetSdk 34
-                  versionCode 2
-                  versionName '2.0'
+                  versionCode 4
+                  versionName '3.1'
               }
           }
           EOF
@@ -85,6 +85,7 @@ jobs:
           import android.content.SharedPreferences;
           import android.content.pm.PackageManager;
           import android.graphics.Color;
+          import android.graphics.Typeface;
           import android.graphics.drawable.GradientDrawable;
           import android.os.Build;
           import android.os.Bundle;
@@ -92,100 +93,149 @@ jobs:
           import android.os.Looper;
           import android.text.InputType;
           import android.view.Gravity;
-          import android.widget.Button;
-          import android.widget.CheckBox;
+          import android.view.View;
+          import android.view.WindowManager;
           import android.widget.EditText;
           import android.widget.LinearLayout;
           import android.widget.ScrollView;
+          import android.widget.Switch;
           import android.widget.TextView;
           import java.util.ArrayList;
 
           public class MainActivity extends Activity {
               static final int[] PADRAO = {60, 80, 100};
+              static final int BG = Color.parseColor("#101418"), CARD = Color.parseColor("#1B2128"),
+                  FG = Color.parseColor("#EEF2F5"), MUT = Color.parseColor("#8A96A3"),
+                  OK = Color.parseColor("#3ECF8E"), BAD = Color.parseColor("#FF4D4F"),
+                  AMARELO = Color.parseColor("#3A3010"), VERMELHO = Color.parseColor("#3D1415");
+
               EditText[] lim = new EditText[3];
-              TextView vel, placa, via, st;
-              CheckBox usarVia;
-              Button btn;
+              LinearLayout[] limBox = new LinearLayout[3];
+              LinearLayout velBox, viaBox;
+              TextView vel, placa, via, st, btn;
+              Switch usarVia;
               Handler h = new Handler(Looper.getMainLooper());
               Runnable tick = new Runnable() {
                   public void run() { atualizar(); h.postDelayed(this, 500); }
               };
 
+              int dp(float v) { return Math.round(v * getResources().getDisplayMetrics().density); }
+
+              GradientDrawable fundo(int cor, float raio, int borda) {
+                  GradientDrawable g = new GradientDrawable();
+                  g.setColor(cor);
+                  g.setCornerRadius(dp(raio));
+                  if (borda != 0) g.setStroke(dp(2), borda);
+                  return g;
+              }
+
+              TextView texto(String s, float tam, int cor, boolean negrito) {
+                  TextView t = new TextView(this);
+                  t.setText(s);
+                  t.setTextSize(tam);
+                  t.setTextColor(cor);
+                  if (negrito) t.setTypeface(Typeface.DEFAULT_BOLD);
+                  return t;
+              }
+
+              LinearLayout.LayoutParams margemTopo(int m) {
+                  LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                      LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                  lp.topMargin = dp(m);
+                  return lp;
+              }
+
               @Override
               protected void onCreate(Bundle b) {
                   super.onCreate(b);
+                  getWindow().setStatusBarColor(BG);
+                  getWindow().setNavigationBarColor(BG);
+                  getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
                   SharedPreferences p = getSharedPreferences("cfg", 0);
+
                   LinearLayout l = new LinearLayout(this);
                   l.setOrientation(LinearLayout.VERTICAL);
-                  l.setPadding(48, 96, 48, 48);
-                  l.setBackgroundColor(Color.parseColor("#101418"));
+                  l.setPadding(dp(16), dp(20), dp(16), dp(24));
+                  l.setBackgroundColor(BG);
 
-                  LinearLayout topo = new LinearLayout(this);
-                  topo.setGravity(Gravity.CENTER);
+                  l.addView(texto("Alerta de Velocidade", 18, MUT, true));
 
-                  vel = new TextView(this);
-                  vel.setTextSize(88);
-                  vel.setTextColor(Color.WHITE);
-                  vel.setText("--");
-                  topo.addView(vel);
+                  // Cartão da velocidade
+                  velBox = new LinearLayout(this);
+                  velBox.setOrientation(LinearLayout.VERTICAL);
+                  velBox.setGravity(Gravity.CENTER);
+                  velBox.setPadding(0, dp(24), 0, dp(24));
+                  velBox.setBackground(fundo(CARD, 16, 0));
+                  vel = texto("--", 96, FG, true);
+                  vel.setGravity(Gravity.CENTER);
+                  vel.setIncludeFontPadding(false);
+                  velBox.addView(vel);
+                  TextView u = texto("km/h", 18, MUT, false);
+                  u.setGravity(Gravity.CENTER);
+                  velBox.addView(u);
+                  l.addView(velBox, margemTopo(16));
 
-                  // Placa de limite no estilo brasileiro (círculo vermelho)
-                  placa = new TextView(this);
-                  placa.setTextSize(30);
-                  placa.setTextColor(Color.BLACK);
+                  // Placa + nome da via
+                  viaBox = new LinearLayout(this);
+                  viaBox.setGravity(Gravity.CENTER_VERTICAL);
+                  viaBox.setPadding(dp(14), dp(12), dp(14), dp(12));
+                  viaBox.setBackground(fundo(CARD, 12, 0));
+                  placa = texto("?", 22, Color.BLACK, true);
                   placa.setGravity(Gravity.CENTER);
                   GradientDrawable g = new GradientDrawable();
                   g.setShape(GradientDrawable.OVAL);
                   g.setColor(Color.WHITE);
-                  g.setStroke(22, Color.parseColor("#D32F2F"));
+                  g.setStroke(dp(6), Color.parseColor("#D32F2F"));
                   placa.setBackground(g);
-                  LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(260, 260);
-                  lp.leftMargin = 48;
-                  placa.setLayoutParams(lp);
-                  placa.setText("?");
-                  topo.addView(placa);
-                  l.addView(topo);
+                  viaBox.addView(placa, new LinearLayout.LayoutParams(dp(64), dp(64)));
+                  via = texto("Limite da via aparece aqui", 15, FG, false);
+                  LinearLayout.LayoutParams vp = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1);
+                  vp.leftMargin = dp(14);
+                  viaBox.addView(via, vp);
+                  l.addView(viaBox, margemTopo(12));
 
-                  TextView u = new TextView(this);
-                  u.setText("km/h");
-                  u.setTextColor(Color.GRAY);
-                  u.setGravity(Gravity.CENTER);
-                  l.addView(u);
-
-                  via = new TextView(this);
-                  via.setTextColor(Color.LTGRAY);
-                  via.setGravity(Gravity.CENTER);
-                  via.setPadding(0, 16, 0, 40);
-                  l.addView(via);
-
-                  usarVia = new CheckBox(this);
-                  usarVia.setText("Usar limite da via (OpenStreetMap)");
-                  usarVia.setTextColor(Color.WHITE);
-                  usarVia.setChecked(p.getBoolean("via", true));
-                  l.addView(usarVia);
-
-                  TextView expl = new TextView(this);
-                  expl.setText("Limites fixos (usados quando a via não tem limite cadastrado):");
-                  expl.setTextColor(Color.GRAY);
-                  expl.setPadding(0, 24, 0, 0);
-                  l.addView(expl);
-
+                  // Três limites lado a lado
+                  LinearLayout lims = new LinearLayout(this);
                   for (int i = 0; i < 3; i++) {
-                      TextView t = new TextView(this);
-                      t.setText("Limite " + (i + 1) + " (km/h)");
-                      t.setTextColor(Color.GRAY);
-                      t.setPadding(0, 16, 0, 0);
-                      l.addView(t);
+                      limBox[i] = new LinearLayout(this);
+                      limBox[i].setOrientation(LinearLayout.VERTICAL);
+                      limBox[i].setGravity(Gravity.CENTER);
+                      limBox[i].setPadding(dp(8), dp(10), dp(8), dp(6));
+                      limBox[i].setBackground(fundo(CARD, 12, CARD));
+                      TextView t = texto("Limite " + (i + 1), 12, MUT, false);
+                      t.setGravity(Gravity.CENTER);
+                      limBox[i].addView(t);
                       lim[i] = new EditText(this);
                       lim[i].setInputType(InputType.TYPE_CLASS_NUMBER);
-                      lim[i].setTextColor(Color.WHITE);
+                      lim[i].setTextColor(FG);
                       lim[i].setTextSize(26);
+                      lim[i].setTypeface(Typeface.DEFAULT_BOLD);
+                      lim[i].setGravity(Gravity.CENTER);
+                      lim[i].setBackground(null);
+                      lim[i].setPadding(0, dp(2), 0, dp(2));
                       lim[i].setText(String.valueOf(p.getInt("l" + i, PADRAO[i])));
-                      l.addView(lim[i]);
+                      limBox[i].addView(lim[i], new LinearLayout.LayoutParams(
+                          LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                      LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1);
+                      if (i > 0) lp.leftMargin = dp(10);
+                      lims.addView(limBox[i], lp);
                   }
+                  l.addView(lims, margemTopo(12));
 
-                  btn = new Button(this);
-                  btn.setTextSize(22);
+                  // Opção do limite da via
+                  usarVia = new Switch(this);
+                  usarVia.setText("Usar limite da via (OpenStreetMap)");
+                  usarVia.setTextColor(FG);
+                  usarVia.setTextSize(15);
+                  usarVia.setChecked(p.getBoolean("via", true));
+                  usarVia.setPadding(dp(14), dp(14), dp(14), dp(14));
+                  usarVia.setBackground(fundo(CARD, 12, 0));
+                  l.addView(usarVia, margemTopo(12));
+
+                  // Botão Iniciar / Parar
+                  btn = texto("Iniciar", 20, Color.parseColor("#06210F"), true);
+                  btn.setGravity(Gravity.CENTER);
+                  btn.setPadding(0, dp(18), 0, dp(18));
                   btn.setOnClickListener(v -> {
                       if (SpeedService.rodando) {
                           stopService(new Intent(this, SpeedService.class));
@@ -194,15 +244,16 @@ jobs:
                           pedirPermissoes();
                       }
                   });
-                  l.addView(btn);
+                  l.addView(btn, margemTopo(16));
 
-                  st = new TextView(this);
-                  st.setTextColor(Color.GRAY);
-                  st.setPadding(0, 32, 0, 0);
-                  st.setText("Depois de iniciar, pode abrir o Maps. O alerta continua em segundo plano.\nPara mudar os limites, toque em Parar, ajuste e inicie de novo.");
-                  l.addView(st);
+                  st = texto("Depois de iniciar, pode abrir o Maps: o alerta continua em segundo plano. "
+                      + "Para mudar os limites, toque em Parar.", 14, MUT, false);
+                  st.setGravity(Gravity.CENTER);
+                  l.addView(st, margemTopo(12));
 
                   ScrollView s = new ScrollView(this);
+                  s.setBackgroundColor(BG);
+                  s.setFillViewport(true);
                   s.addView(l);
                   setContentView(s);
               }
@@ -250,14 +301,28 @@ jobs:
                   boolean r = SpeedService.rodando;
                   float k = SpeedService.kmh;
                   vel.setText(!r || k < 0 ? "--" : String.valueOf(Math.round(k)));
+
+                  int nivel = r ? SpeedService.nivel : 0;
+                  velBox.setBackground(fundo(nivel == 0 ? CARD : nivel == 1 ? AMARELO : VERMELHO, 16, 0));
+
                   int lv = SpeedService.limVia;
-                  placa.setText(r && lv > 0 ? String.valueOf(lv) : "?");
-                  if (!r) via.setText("");
-                  else if (lv > 0) via.setText(SpeedService.nomeVia);
-                  else via.setText(SpeedService.statusVia);
-                  btn.setText(r ? "Parar" : "Iniciar");
+                  boolean temVia = r && lv > 0;
+                  placa.setText(temVia ? String.valueOf(lv) : "?");
+                  viaBox.setVisibility(!r || SpeedService.usandoVia ? View.VISIBLE : View.GONE);
+                  if (!r) via.setText(usarVia.isChecked() ? "Limite da via aparece aqui" : "Limite da via desligado");
+                  else via.setText(temVia ? SpeedService.nomeVia : SpeedService.statusVia);
+
+                  for (int i = 0; i < 3; i++) {
+                      boolean on = r && !temVia && SpeedService.acimaFixo[i];
+                      limBox[i].setBackground(fundo(CARD, 12, on ? BAD : CARD));
+                      limBox[i].setAlpha(temVia ? 0.45f : 1f); // fixos apagados quando vale o limite da via
+                      lim[i].setEnabled(!r);
+                  }
                   usarVia.setEnabled(!r);
-                  for (EditText e : lim) e.setEnabled(!r);
+
+                  btn.setText(r ? "Parar" : "Iniciar");
+                  btn.setTextColor(r ? Color.WHITE : Color.parseColor("#06210F"));
+                  btn.setBackground(fundo(r ? BAD : OK, 14, 0));
               }
 
               @Override protected void onResume() { super.onResume(); h.post(tick); }
@@ -306,6 +371,9 @@ jobs:
               static volatile int limVia = -1;          // limite da via atual (-1 = desconhecido)
               static volatile String nomeVia = "";
               static volatile String statusVia = "";
+              static volatile boolean usandoVia = false;
+              static volatile int nivel = 0;              // 0 normal, 1 acima do 1º limite, 2 acima do 2º/da via
+              static final boolean[] acimaFixo = new boolean[3];
 
               static final int MARGEM = 3;               // km/h abaixo do limite para rearmar
               static final long INTERVALO_MS = 10000;    // consulta a cada 10 s...
@@ -313,6 +381,8 @@ jobs:
               static final long VALIDADE_MS = 60000;     // descarta limite antigo após 60 s sem atualizar
               static final String[] SERVIDORES = {
                   "https://overpass-api.de/api/interpreter",
+                  "https://overpass.private.coffee/api/interpreter",
+                  "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
                   "https://overpass.kumi.systems/api/interpreter"
               };
               static final String TIPOS =
@@ -331,13 +401,15 @@ jobs:
               volatile boolean consultando = false;
               long ultimaConsulta = 0, ultimoSucesso = 0;
               Location locUltimaConsulta;
-              int servidor = 0;
+              volatile int servidor = 0;
+              volatile String erro = "";
 
               @Override
               public int onStartCommand(Intent intent, int flags, int id) {
                   SharedPreferences p = getSharedPreferences("cfg", 0);
                   for (int i = 0; i < 3; i++) lims[i] = p.getInt("l" + i, MainActivity.PADRAO[i]);
                   usarVia = p.getBoolean("via", true);
+                  usandoVia = usarVia;
 
                   nm = getSystemService(NotificationManager.class);
                   nm.createNotificationChannel(new NotificationChannel("vel", "Velocidade", NotificationManager.IMPORTANCE_LOW));
@@ -403,6 +475,9 @@ jobs:
                       }
                       txt = Math.round(v) + " km/h  ·  limites " + lims[0] + " / " + lims[1] + " / " + lims[2];
                   }
+                  for (int i = 0; i < 3; i++) acimaFixo[i] = acima[i];
+                  if (limVia > 0) nivel = acimaVia ? 2 : 0;
+                  else nivel = acima[1] || acima[2] ? 2 : acima[0] ? 1 : 0;
                   nm.notify(1, notif(txt));
               }
 
@@ -421,12 +496,15 @@ jobs:
                       Object[] r = null;
                       for (int t = 0; t < SERVIDORES.length && r == null; t++) {
                           try { r = consultar(SERVIDORES[servidor], lat, lon); }
-                          catch (Exception e) { servidor = (servidor + 1) % SERVIDORES.length; }
+                          catch (Exception e) {
+                              erro = e.getClass().getSimpleName() + (e.getMessage() != null ? ": " + e.getMessage() : "");
+                              servidor = (servidor + 1) % SERVIDORES.length;
+                          }
                       }
                       final Object[] res = r;
                       h.post(() -> {
                           consultando = false;
-                          if (res == null) { statusVia = "Sem conexão com o OpenStreetMap"; return; }
+                          if (res == null) { statusVia = "Sem conexão com o OpenStreetMap (" + erro + ")"; return; }
                           ultimoSucesso = System.currentTimeMillis();
                           int novo = (Integer) res[0];
                           if (novo != limVia) acimaVia = false; // limite mudou: rearma o alerta
@@ -442,18 +520,20 @@ jobs:
               // Retorna {limite, nome da via}. Limite -1 se a via mais próxima não tiver maxspeed.
               Object[] consultar(String url, double lat, double lon) throws Exception {
                   String q = String.format(Locale.US,
-                      "[out:json][timeout:8];way(around:30,%.6f,%.6f)[highway~\"%s\"];out tags geom;",
+                      "[out:json][timeout:20];way(around:30,%.6f,%.6f)[highway~\"%s\"];out tags geom;",
                       lat, lon, TIPOS);
                   HttpURLConnection c = (HttpURLConnection) new URL(url).openConnection();
-                  c.setConnectTimeout(6000);
-                  c.setReadTimeout(9000);
+                  c.setConnectTimeout(10000);
+                  c.setReadTimeout(25000);
                   c.setDoOutput(true);
-                  c.setRequestProperty("User-Agent", "AlertaVelocidade/2.0 (app pessoal)");
+                  c.setRequestProperty("User-Agent", "AlertaVelocidade/3.1 (Android; uso pessoal)");
+                  c.setRequestProperty("Accept", "application/json");
                   c.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
                   try (OutputStream o = c.getOutputStream()) {
                       o.write(("data=" + URLEncoder.encode(q, "UTF-8")).getBytes("UTF-8"));
                   }
-                  if (c.getResponseCode() != 200) throw new Exception("HTTP " + c.getResponseCode());
+                  int cod = c.getResponseCode();
+                  if (cod != 200) throw new Exception("HTTP " + cod + (cod == 429 ? " servidor ocupado" : ""));
                   ByteArrayOutputStream buf = new ByteArrayOutputStream();
                   try (InputStream in = c.getInputStream()) {
                       byte[] b = new byte[8192]; int n;
@@ -519,6 +599,8 @@ jobs:
                   kmh = -1;
                   limVia = -1;
                   nomeVia = "";
+                  nivel = 0;
+                  for (int i = 0; i < 3; i++) acimaFixo[i] = false;
                   if (lm != null) lm.removeUpdates(this);
                   h.removeCallbacksAndMessages(null);
                   rede.shutdownNow();
