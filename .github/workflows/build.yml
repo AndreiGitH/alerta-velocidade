@@ -1,0 +1,335 @@
+name: Compilar APK
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.7'
+
+      - name: Criar projeto
+        run: |
+          mkdir -p app/src/main/java/com/alerta/velocidade
+
+          cat > settings.gradle <<'EOF'
+          pluginManagement { repositories { google(); mavenCentral(); gradlePluginPortal() } }
+          dependencyResolutionManagement { repositories { google(); mavenCentral() } }
+          rootProject.name = "AlertaVelocidade"
+          include ':app'
+          EOF
+
+          cat > build.gradle <<'EOF'
+          plugins { id 'com.android.application' version '8.5.2' apply false }
+          EOF
+
+          cat > app/build.gradle <<'EOF'
+          plugins { id 'com.android.application' }
+          android {
+              namespace 'com.alerta.velocidade'
+              compileSdk 34
+              defaultConfig {
+                  applicationId 'com.alerta.velocidade'
+                  minSdk 26
+                  targetSdk 34
+                  versionCode 1
+                  versionName '1.0'
+              }
+          }
+          EOF
+
+          cat > app/src/main/AndroidManifest.xml <<'EOF'
+          <?xml version="1.0" encoding="utf-8"?>
+          <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+              <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+              <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+              <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+              <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION"/>
+              <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+              <application
+                  android:label="Alerta de Velocidade"
+                  android:icon="@android:drawable/ic_menu_mylocation"
+                  android:theme="@android:style/Theme.Material.NoActionBar">
+                  <activity android:name=".MainActivity" android:exported="true">
+                      <intent-filter>
+                          <action android:name="android.intent.action.MAIN"/>
+                          <category android:name="android.intent.category.LAUNCHER"/>
+                      </intent-filter>
+                  </activity>
+                  <service android:name=".SpeedService"
+                      android:exported="false"
+                      android:foregroundServiceType="location"/>
+              </application>
+          </manifest>
+          EOF
+
+          cat > app/src/main/java/com/alerta/velocidade/MainActivity.java <<'EOF'
+          package com.alerta.velocidade;
+
+          import android.Manifest;
+          import android.app.Activity;
+          import android.content.Intent;
+          import android.content.SharedPreferences;
+          import android.content.pm.PackageManager;
+          import android.graphics.Color;
+          import android.os.Build;
+          import android.os.Bundle;
+          import android.os.Handler;
+          import android.os.Looper;
+          import android.text.InputType;
+          import android.view.Gravity;
+          import android.widget.Button;
+          import android.widget.EditText;
+          import android.widget.LinearLayout;
+          import android.widget.ScrollView;
+          import android.widget.TextView;
+          import java.util.ArrayList;
+
+          public class MainActivity extends Activity {
+              static final int[] PADRAO = {60, 80, 100};
+              EditText[] lim = new EditText[3];
+              TextView vel, st;
+              Button btn;
+              Handler h = new Handler(Looper.getMainLooper());
+              Runnable tick = new Runnable() {
+                  public void run() { atualizar(); h.postDelayed(this, 500); }
+              };
+
+              @Override
+              protected void onCreate(Bundle b) {
+                  super.onCreate(b);
+                  SharedPreferences p = getSharedPreferences("cfg", 0);
+                  LinearLayout l = new LinearLayout(this);
+                  l.setOrientation(LinearLayout.VERTICAL);
+                  l.setPadding(48, 96, 48, 48);
+                  l.setBackgroundColor(Color.parseColor("#101418"));
+
+                  vel = new TextView(this);
+                  vel.setTextSize(96);
+                  vel.setTextColor(Color.WHITE);
+                  vel.setGravity(Gravity.CENTER);
+                  vel.setText("--");
+                  l.addView(vel);
+
+                  TextView u = new TextView(this);
+                  u.setText("km/h");
+                  u.setTextColor(Color.GRAY);
+                  u.setGravity(Gravity.CENTER);
+                  u.setPadding(0, 0, 0, 48);
+                  l.addView(u);
+
+                  for (int i = 0; i < 3; i++) {
+                      TextView t = new TextView(this);
+                      t.setText("Limite " + (i + 1) + " (km/h)");
+                      t.setTextColor(Color.GRAY);
+                      l.addView(t);
+                      lim[i] = new EditText(this);
+                      lim[i].setInputType(InputType.TYPE_CLASS_NUMBER);
+                      lim[i].setTextColor(Color.WHITE);
+                      lim[i].setTextSize(28);
+                      lim[i].setText(String.valueOf(p.getInt("l" + i, PADRAO[i])));
+                      l.addView(lim[i]);
+                  }
+
+                  btn = new Button(this);
+                  btn.setTextSize(22);
+                  btn.setOnClickListener(v -> {
+                      if (SpeedService.rodando) {
+                          stopService(new Intent(this, SpeedService.class));
+                      } else {
+                          salvar();
+                          pedirPermissoes();
+                      }
+                  });
+                  l.addView(btn);
+
+                  st = new TextView(this);
+                  st.setTextColor(Color.GRAY);
+                  st.setPadding(0, 32, 0, 0);
+                  st.setText("Pode abrir o Maps depois de iniciar. O alerta continua em segundo plano.");
+                  l.addView(st);
+
+                  ScrollView s = new ScrollView(this);
+                  s.addView(l);
+                  setContentView(s);
+              }
+
+              void salvar() {
+                  SharedPreferences.Editor e = getSharedPreferences("cfg", 0).edit();
+                  for (int i = 0; i < 3; i++) {
+                      int v;
+                      try { v = Integer.parseInt(lim[i].getText().toString()); }
+                      catch (Exception ex) { v = PADRAO[i]; }
+                      e.putInt("l" + i, v);
+                  }
+                  e.apply();
+              }
+
+              void pedirPermissoes() {
+                  ArrayList<String> faltam = new ArrayList<>();
+                  if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                      faltam.add(Manifest.permission.ACCESS_FINE_LOCATION);
+                      faltam.add(Manifest.permission.ACCESS_COARSE_LOCATION);
+                  }
+                  if (Build.VERSION.SDK_INT >= 33 &&
+                      checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                      faltam.add(Manifest.permission.POST_NOTIFICATIONS);
+                  }
+                  if (faltam.isEmpty()) iniciar();
+                  else requestPermissions(faltam.toArray(new String[0]), 1);
+              }
+
+              @Override
+              public void onRequestPermissionsResult(int c, String[] perms, int[] res) {
+                  if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                      iniciar();
+                  } else {
+                      st.setText("Sem permissão de localização o app não consegue medir a velocidade.");
+                  }
+              }
+
+              void iniciar() {
+                  startForegroundService(new Intent(this, SpeedService.class));
+              }
+
+              void atualizar() {
+                  if (SpeedService.rodando) {
+                      float k = SpeedService.kmh;
+                      vel.setText(k < 0 ? "--" : String.valueOf(Math.round(k)));
+                      btn.setText("Parar");
+                  } else {
+                      vel.setText("--");
+                      btn.setText("Iniciar");
+                  }
+              }
+
+              @Override protected void onResume() { super.onResume(); h.post(tick); }
+              @Override protected void onPause() { super.onPause(); h.removeCallbacks(tick); }
+          }
+          EOF
+
+          cat > app/src/main/java/com/alerta/velocidade/SpeedService.java <<'EOF'
+          package com.alerta.velocidade;
+
+          import android.app.Notification;
+          import android.app.NotificationChannel;
+          import android.app.NotificationManager;
+          import android.app.PendingIntent;
+          import android.app.Service;
+          import android.content.Intent;
+          import android.content.SharedPreferences;
+          import android.content.pm.ServiceInfo;
+          import android.location.Location;
+          import android.location.LocationListener;
+          import android.location.LocationManager;
+          import android.media.AudioManager;
+          import android.media.ToneGenerator;
+          import android.os.Build;
+          import android.os.Bundle;
+          import android.os.Handler;
+          import android.os.IBinder;
+          import android.os.Looper;
+
+          public class SpeedService extends Service implements LocationListener {
+              static volatile boolean rodando = false;
+              static volatile float kmh = -1;
+              static final int MARGEM = 3; // km/h abaixo do limite para rearmar o alerta
+
+              boolean[] acima = new boolean[3];
+              int[] lims = new int[3];
+              ToneGenerator tg;
+              LocationManager lm;
+              NotificationManager nm;
+              Handler h = new Handler(Looper.getMainLooper());
+
+              @Override
+              public int onStartCommand(Intent intent, int flags, int id) {
+                  SharedPreferences p = getSharedPreferences("cfg", 0);
+                  for (int i = 0; i < 3; i++) lims[i] = p.getInt("l" + i, MainActivity.PADRAO[i]);
+
+                  nm = getSystemService(NotificationManager.class);
+                  nm.createNotificationChannel(new NotificationChannel("vel", "Velocidade", NotificationManager.IMPORTANCE_LOW));
+                  Notification n = notif("Aguardando GPS...");
+                  if (Build.VERSION.SDK_INT >= 29) startForeground(1, n, ServiceInfo.FOREGROUND_SERVICE_TYPE_LOCATION);
+                  else startForeground(1, n);
+
+                  if (tg == null) tg = new ToneGenerator(AudioManager.STREAM_MUSIC, 100);
+                  if (lm == null) {
+                      lm = getSystemService(LocationManager.class);
+                      try { lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 500, 0, this, Looper.getMainLooper()); }
+                      catch (SecurityException e) { stopSelf(); }
+                  }
+                  rodando = true;
+                  return START_STICKY;
+              }
+
+              Notification notif(String txt) {
+                  PendingIntent pi = PendingIntent.getActivity(this, 0,
+                      new Intent(this, MainActivity.class), PendingIntent.FLAG_IMMUTABLE);
+                  return new Notification.Builder(this, "vel")
+                      .setSmallIcon(android.R.drawable.ic_menu_mylocation)
+                      .setContentTitle("Alerta de Velocidade")
+                      .setContentText(txt)
+                      .setOngoing(true)
+                      .setOnlyAlertOnce(true)
+                      .setContentIntent(pi)
+                      .build();
+              }
+
+              void bip(int n) {
+                  for (int k = 0; k <= n; k++) {
+                      h.postDelayed(() -> { if (tg != null) tg.startTone(ToneGenerator.TONE_PROP_BEEP, 200); }, k * 300L);
+                  }
+              }
+
+              @Override
+              public void onLocationChanged(Location loc) {
+                  if (!loc.hasSpeed()) return;
+                  float v = loc.getSpeed() * 3.6f;
+                  kmh = v;
+                  for (int i = 0; i < 3; i++) {
+                      if (!acima[i] && v >= lims[i]) { acima[i] = true; bip(i + 1); }
+                      else if (acima[i] && v < lims[i] - MARGEM) { acima[i] = false; }
+                  }
+                  nm.notify(1, notif(Math.round(v) + " km/h  (limites " + lims[0] + " / " + lims[1] + " / " + lims[2] + ")"));
+              }
+
+              @Override public void onStatusChanged(String p, int s, Bundle b) {}
+              @Override public void onProviderEnabled(String p) {}
+              @Override public void onProviderDisabled(String p) {}
+
+              @Override
+              public void onDestroy() {
+                  rodando = false;
+                  kmh = -1;
+                  if (lm != null) lm.removeUpdates(this);
+                  h.removeCallbacksAndMessages(null);
+                  if (tg != null) { tg.release(); tg = null; }
+                  super.onDestroy();
+              }
+
+              @Override public IBinder onBind(Intent i) { return null; }
+          }
+          EOF
+
+      - name: Compilar
+        run: gradle assembleDebug --no-daemon
+
+      - name: Publicar APK
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ github.run_number }}
+          name: Alerta de Velocidade v${{ github.run_number }}
+          files: app/build/outputs/apk/debug/app-debug.apk
