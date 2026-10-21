@@ -49,8 +49,8 @@ jobs:
                   applicationId 'com.alerta.velocidade'
                   minSdk 26
                   targetSdk 34
-                  versionCode 8
-                  versionName '4.3'
+                  versionCode 9
+                  versionName '4.4'
               }
           }
           EOF
@@ -86,6 +86,7 @@ jobs:
 
           import android.Manifest;
           import android.app.Activity;
+          import android.app.AlertDialog;
           import android.content.Context;
           import android.content.Intent;
           import android.content.SharedPreferences;
@@ -108,8 +109,10 @@ jobs:
           import android.text.format.DateFormat;
           import android.view.Gravity;
           import android.view.View;
+          import android.view.ViewGroup;
           import android.view.WindowManager;
           import android.widget.EditText;
+          import android.widget.FrameLayout;
           import android.widget.LinearLayout;
           import android.widget.ScrollView;
           import android.widget.Switch;
@@ -129,6 +132,8 @@ jobs:
               TextView placa, via, st, btn;
               Switch usarVia;
               EditText chave;
+              LinearLayout config;
+              TextView engrenagem;
               Handler h = new Handler(Looper.getMainLooper());
               Runnable tick = new Runnable() {
                   public void run() { atualizar(); h.postDelayed(this, 500); }
@@ -173,9 +178,16 @@ jobs:
                   l.setPadding(dp(16), dp(20), dp(16), dp(24));
                   l.setBackgroundColor(BG);
 
+                  // Título centralizado com engrenagem de configurações à direita
+                  FrameLayout topo = new FrameLayout(this);
                   TextView titulo = texto("Alerta de Velocidade", 18, MUT, true);
                   titulo.setGravity(Gravity.CENTER);
-                  l.addView(titulo, margemTopo(0));
+                  topo.addView(titulo, new FrameLayout.LayoutParams(-1, -2, Gravity.CENTER_VERTICAL));
+                  engrenagem = texto("⚙", 26, MUT, false);
+                  engrenagem.setPadding(dp(12), 0, dp(4), 0);
+                  engrenagem.setOnClickListener(v -> abrirConfig());
+                  topo.addView(engrenagem, new FrameLayout.LayoutParams(-2, -2, Gravity.END | Gravity.CENTER_VERTICAL));
+                  l.addView(topo, margemTopo(0));
 
                   // Velocímetro com relógio
                   gauge = new Gauge(this);
@@ -228,28 +240,7 @@ jobs:
                   }
                   l.addView(lims, margemTopo(12));
 
-                  // Opção do limite da via
-                  usarVia = new Switch(this);
-                  usarVia.setText("Usar limite da via (TomTom / OpenStreetMap)");
-                  usarVia.setTextColor(FG);
-                  usarVia.setTextSize(15);
-                  usarVia.setChecked(p.getBoolean("via", true));
-                  usarVia.setPadding(dp(14), dp(14), dp(14), dp(14));
-                  usarVia.setBackground(fundo(CARD, 12, 0));
-                  l.addView(usarVia, margemTopo(12));
-
-                  // Chave TomTom fica só no celular (não vai para o repositório público)
-                  chave = new EditText(this);
-                  chave.setHint("Chave da API TomTom (opcional)");
-                  chave.setHintTextColor(MUT);
-                  chave.setTextColor(FG);
-                  chave.setTextSize(14);
-                  chave.setSingleLine(true);
-                  chave.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                  chave.setText(p.getString("tomtom", ""));
-                  chave.setPadding(dp(14), dp(14), dp(14), dp(14));
-                  chave.setBackground(fundo(CARD, 12, 0));
-                  l.addView(chave, margemTopo(8));
+                  criarConfig(p);
 
                   // Botão Iniciar / Parar
                   btn = texto("Iniciar", 20, Color.parseColor("#06210F"), true);
@@ -275,6 +266,50 @@ jobs:
                   s.setFillViewport(true);
                   s.addView(l);
                   setContentView(s);
+              }
+
+              // Configurações (limite da via e chave TomTom) ficam num diálogo, fora da tela principal
+              void criarConfig(SharedPreferences p) {
+                  // Opção do limite da via
+                  usarVia = new Switch(this);
+                  usarVia.setText("Usar limite da via (TomTom / OpenStreetMap)");
+                  usarVia.setTextColor(FG);
+                  usarVia.setTextSize(15);
+                  usarVia.setChecked(p.getBoolean("via", true));
+                  usarVia.setPadding(dp(14), dp(14), dp(14), dp(14));
+                  usarVia.setBackground(fundo(CARD, 12, 0));
+
+                  // Chave TomTom fica só no celular (não vai para o repositório público)
+                  chave = new EditText(this);
+                  chave.setHint("Chave da API TomTom (opcional)");
+                  chave.setHintTextColor(MUT);
+                  chave.setTextColor(FG);
+                  chave.setTextSize(14);
+                  chave.setSingleLine(true);
+                  chave.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                  chave.setText(p.getString("tomtom", ""));
+                  chave.setPadding(dp(14), dp(14), dp(14), dp(14));
+                  chave.setBackground(fundo(CARD, 12, 0));
+                  config = new LinearLayout(this);
+                  config.setOrientation(LinearLayout.VERTICAL);
+                  config.setPadding(dp(20), dp(12), dp(20), dp(4));
+                  config.addView(usarVia, margemTopo(0));
+                  config.addView(chave, margemTopo(10));
+              }
+
+              void abrirConfig() {
+                  if (SpeedService.rodando) { st.setText("Toque em Parar para mudar as configurações."); return; }
+                  if (config.getParent() != null) ((ViewGroup) config.getParent()).removeView(config);
+                  new AlertDialog.Builder(this, android.R.style.Theme_DeviceDefault_Dialog_Alert)
+                      .setTitle("Configurações")
+                      .setView(config)
+                      .setPositiveButton("Salvar", (dlg, w) -> salvar())
+                      .setNegativeButton("Cancelar", (dlg, w) -> {
+                          SharedPreferences p = getSharedPreferences("cfg", 0);
+                          usarVia.setChecked(p.getBoolean("via", true));
+                          chave.setText(p.getString("tomtom", ""));
+                      })
+                      .show();
               }
 
               void salvar() {
@@ -336,9 +371,7 @@ jobs:
                       limBox[i].setAlpha(temVia ? 0.45f : 1f); // fixos apagados quando vale o limite da via
                       lim[i].setEnabled(!r);
                   }
-                  usarVia.setEnabled(!r);
-                  chave.setEnabled(!r);
-                  chave.setVisibility(usarVia.isChecked() ? View.VISIBLE : View.GONE);
+                  engrenagem.setAlpha(r ? 0.35f : 1f);
 
                   btn.setText(r ? "Parar" : "Iniciar");
                   btn.setTextColor(r ? Color.WHITE : Color.parseColor("#06210F"));
@@ -493,7 +526,7 @@ jobs:
                       p.setColor(0xFF9AA4B2);
                       c.drawText("KM/H", cx, cy + R * 0.36f, p);
                       p.setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
-                      p.setTextSize(R * 0.14f);
+                      p.setTextSize(R * 0.22f);
                       p.setColor(0xFFFFFFFF);
                       c.drawText(DateFormat.format("HH:mm", System.currentTimeMillis()).toString(), cx, cy + R * 0.93f, p);
                   }
