@@ -49,8 +49,8 @@ jobs:
                   applicationId 'com.alerta.velocidade'
                   minSdk 26
                   targetSdk 34
-                  versionCode 5
-                  versionName '4.0'
+                  versionCode 6
+                  versionName '4.1'
               }
           }
           EOF
@@ -130,6 +130,7 @@ jobs:
               Gauge gauge;
               TextView placa, via, st, btn;
               Switch usarVia;
+              EditText chave;
               Handler h = new Handler(Looper.getMainLooper());
               Runnable tick = new Runnable() {
                   public void run() { atualizar(); h.postDelayed(this, 500); }
@@ -229,13 +230,26 @@ jobs:
 
                   // Opção do limite da via
                   usarVia = new Switch(this);
-                  usarVia.setText("Usar limite da via (OpenStreetMap)");
+                  usarVia.setText("Usar limite da via (TomTom / OpenStreetMap)");
                   usarVia.setTextColor(FG);
                   usarVia.setTextSize(15);
                   usarVia.setChecked(p.getBoolean("via", true));
                   usarVia.setPadding(dp(14), dp(14), dp(14), dp(14));
                   usarVia.setBackground(fundo(CARD, 12, 0));
                   l.addView(usarVia, margemTopo(12));
+
+                  // Chave TomTom fica só no celular (não vai para o repositório público)
+                  chave = new EditText(this);
+                  chave.setHint("Chave da API TomTom (opcional)");
+                  chave.setHintTextColor(MUT);
+                  chave.setTextColor(FG);
+                  chave.setTextSize(14);
+                  chave.setSingleLine(true);
+                  chave.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                  chave.setText(p.getString("tomtom", ""));
+                  chave.setPadding(dp(14), dp(14), dp(14), dp(14));
+                  chave.setBackground(fundo(CARD, 12, 0));
+                  l.addView(chave, margemTopo(8));
 
                   // Botão Iniciar / Parar
                   btn = texto("Iniciar", 20, Color.parseColor("#06210F"), true);
@@ -272,6 +286,7 @@ jobs:
                       e.putInt("l" + i, v);
                   }
                   e.putBoolean("via", usarVia.isChecked());
+                  e.putString("tomtom", chave.getText().toString().trim());
                   e.apply();
               }
 
@@ -322,6 +337,8 @@ jobs:
                       lim[i].setEnabled(!r);
                   }
                   usarVia.setEnabled(!r);
+                  chave.setEnabled(!r);
+                  chave.setVisibility(usarVia.isChecked() ? View.VISIBLE : View.GONE);
 
                   btn.setText(r ? "Parar" : "Iniciar");
                   btn.setTextColor(r ? Color.WHITE : Color.parseColor("#06210F"));
@@ -565,6 +582,7 @@ jobs:
                   "motorway_link|trunk_link|primary_link|secondary_link|tertiary_link)$";
 
               boolean usarVia;
+              String chaveTomTom = "";
               boolean[] acima = new boolean[3];
               boolean acimaVia = false;
               int[] lims = new int[3];
@@ -586,6 +604,7 @@ jobs:
                   SharedPreferences p = getSharedPreferences("cfg", 0);
                   for (int i = 0; i < 3; i++) lims[i] = p.getInt("l" + i, MainActivity.PADRAO[i]);
                   usarVia = p.getBoolean("via", true);
+                  chaveTomTom = p.getString("tomtom", "");
                   usandoVia = usarVia;
 
                   nm = getSystemService(NotificationManager.class);
@@ -694,29 +713,72 @@ jobs:
                   ultimaConsulta = agora;
                   locUltimaConsulta = new Location(loc);
                   final double lat = loc.getLatitude(), lon = loc.getLongitude();
+                  final float rumo = loc.hasBearing() && loc.hasSpeed() && loc.getSpeed() > 2 ? loc.getBearing() : -1;
+                  final String tt = chaveTomTom;
                   rede.execute(() -> {
+                      // 1º TomTom (se tiver chave); sem limite lá, tenta o OpenStreetMap
                       Object[] r = null;
-                      for (int t = 0; t < SERVIDORES.length && r == null; t++) {
-                          try { r = consultar(SERVIDORES[servidor], lat, lon); }
-                          catch (Exception e) {
-                              erro = e.getClass().getSimpleName() + (e.getMessage() != null ? ": " + e.getMessage() : "");
-                              servidor = (servidor + 1) % SERVIDORES.length;
+                      String fonte = "TomTom";
+                      if (!tt.isEmpty()) {
+                          try { r = consultarTomTom(tt, lat, lon, rumo); }
+                          catch (Exception e) { erro = "TomTom " + e.getMessage(); }
+                      }
+                      if (r == null || (Integer) r[0] <= 0) {
+                          Object[] o = null;
+                          for (int t = 0; t < SERVIDORES.length && o == null; t++) {
+                              try { o = consultar(SERVIDORES[servidor], lat, lon); }
+                              catch (Exception e) {
+                                  erro = e.getClass().getSimpleName() + (e.getMessage() != null ? ": " + e.getMessage() : "");
+                                  servidor = (servidor + 1) % SERVIDORES.length;
+                              }
                           }
+                          if (o != null && (r == null || (Integer) o[0] > 0)) { r = o; fonte = "OSM"; }
                       }
                       final Object[] res = r;
+                      final String f = fonte;
                       h.post(() -> {
                           consultando = false;
-                          if (res == null) { statusVia = "Sem conexão com o OpenStreetMap (" + erro + ")"; return; }
+                          if (res == null) { statusVia = "Sem conexão com TomTom/OpenStreetMap (" + erro + ")"; return; }
                           ultimoSucesso = System.currentTimeMillis();
                           int novo = (Integer) res[0];
                           if (novo != limVia) acimaVia = false; // limite mudou: rearma o alerta
                           limVia = novo;
-                          nomeVia = (String) res[1];
+                          nomeVia = res[1] + "  ·  " + f;
                           statusVia = novo > 0 ? "" : ((String) res[1]).isEmpty()
                               ? "Nenhuma via encontrada, usando limites fixos"
                               : res[1] + ": sem limite cadastrado, usando limites fixos";
                       });
                   });
+              }
+
+              // TomTom Reverse Geocoding com returnSpeedLimit. Retorna {limite, nome da via}; limite -1 se não houver.
+              static Object[] consultarTomTom(String chave, double lat, double lon, float rumo) throws Exception {
+                  String url = String.format(Locale.US,
+                      "https://api.tomtom.com/search/2/reverseGeocode/%.6f,%.6f.json?key=%s&returnSpeedLimit=true&radius=50&language=pt-BR",
+                      lat, lon, URLEncoder.encode(chave, "UTF-8"));
+                  if (rumo >= 0) url += "&heading=" + Math.round(rumo); // ajuda a escolher a via certa num cruzamento
+                  HttpURLConnection c = (HttpURLConnection) new URL(url).openConnection();
+                  c.setConnectTimeout(8000);
+                  c.setReadTimeout(10000);
+                  int cod = c.getResponseCode();
+                  if (cod == 403 || cod == 401) throw new Exception("chave inválida");
+                  if (cod == 429) throw new Exception("cota diária esgotada");
+                  if (cod != 200) throw new Exception("HTTP " + cod);
+                  ByteArrayOutputStream buf = new ByteArrayOutputStream();
+                  try (InputStream in = c.getInputStream()) {
+                      byte[] b = new byte[8192]; int n;
+                      while ((n = in.read(b)) > 0) buf.write(b, 0, n);
+                  }
+                  JSONArray ads = new JSONObject(buf.toString("UTF-8")).optJSONArray("addresses");
+                  if (ads == null || ads.length() == 0) return new Object[]{-1, ""};
+                  JSONObject a = ads.getJSONObject(0).optJSONObject("address");
+                  if (a == null) return new Object[]{-1, ""};
+                  String nome = a.optString("streetName", "");
+                  JSONArray rotas = a.optJSONArray("routeNumbers");
+                  String ref = rotas != null && rotas.length() > 0 ? rotas.optString(0) : "";
+                  if (nome.isEmpty()) nome = ref.isEmpty() ? "Via sem nome" : ref;
+                  else if (!ref.isEmpty() && !nome.contains(ref)) nome = nome + " (" + ref + ")";
+                  return new Object[]{lerLimite(a.optString("speedLimit", "")), nome};
               }
 
               // Retorna {limite, nome da via}. Limite -1 se a via mais próxima não tiver maxspeed.
@@ -765,7 +827,7 @@ jobs:
                   Matcher m = Pattern.compile("(\\d+)").matcher(s);
                   if (!m.find()) return -1;
                   int v = Integer.parseInt(m.group(1));
-                  if (s.contains("mph")) v = Math.round(v * 1.609f);
+                  if (s.toLowerCase(Locale.ROOT).contains("mph")) v = Math.round(v * 1.609f);
                   return v >= 5 && v <= 150 ? v : -1;
               }
 
