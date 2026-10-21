@@ -49,8 +49,8 @@ jobs:
                   applicationId 'com.alerta.velocidade'
                   minSdk 26
                   targetSdk 34
-                  versionCode 9
-                  versionName '4.4'
+                  versionCode 10
+                  versionName '4.5'
               }
           }
           EOF
@@ -132,6 +132,8 @@ jobs:
               TextView placa, via, st, btn;
               Switch usarVia;
               EditText chave;
+              Switch forcar;
+              TextView[] menos = new TextView[3], mais = new TextView[3];
               LinearLayout config;
               TextView engrenagem;
               Handler h = new Handler(Looper.getMainLooper());
@@ -212,6 +214,21 @@ jobs:
                   viaBox.addView(via, vp);
                   l.addView(viaBox, margemTopo(12));
 
+                  // Chave única: forçar meus limites mesmo quando houver limite da via
+                  forcar = new Switch(this);
+                  forcar.setText("Forçar meus limites");
+                  forcar.setTextColor(FG);
+                  forcar.setTextSize(15);
+                  forcar.setChecked(p.getBoolean("forcar", false));
+                  SpeedService.forcar = forcar.isChecked();
+                  forcar.setPadding(dp(14), dp(10), dp(14), dp(10));
+                  forcar.setBackground(fundo(CARD, 12, 0));
+                  forcar.setOnCheckedChangeListener((bt, on) -> {
+                      SpeedService.forcar = on; // vale na hora, mesmo com o alerta ligado
+                      getSharedPreferences("cfg", 0).edit().putBoolean("forcar", on).apply();
+                  });
+                  l.addView(forcar, margemTopo(12));
+
                   // Três limites lado a lado
                   LinearLayout lims = new LinearLayout(this);
                   for (int i = 0; i < 3; i++) {
@@ -234,11 +251,19 @@ jobs:
                       lim[i].setText(String.valueOf(p.getInt("l" + i, PADRAO[i])));
                       limBox[i].addView(lim[i], new LinearLayout.LayoutParams(
                           LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                      LinearLayout passos = new LinearLayout(this);
+                      menos[i] = passo("−", i, -5);
+                      mais[i] = passo("+", i, 5);
+                      passos.addView(menos[i], new LinearLayout.LayoutParams(0, dp(34), 1));
+                      LinearLayout.LayoutParams pm = new LinearLayout.LayoutParams(0, dp(34), 1);
+                      pm.leftMargin = dp(6);
+                      passos.addView(mais[i], pm);
+                      limBox[i].addView(passos, margemTopo(4));
                       LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1);
                       if (i > 0) lp.leftMargin = dp(10);
                       lims.addView(limBox[i], lp);
                   }
-                  l.addView(lims, margemTopo(12));
+                  l.addView(lims, margemTopo(8));
 
                   criarConfig(p);
 
@@ -295,6 +320,18 @@ jobs:
                   config.setPadding(dp(20), dp(12), dp(20), dp(4));
                   config.addView(usarVia, margemTopo(0));
                   config.addView(chave, margemTopo(10));
+              }
+
+              // Botão − / + que muda o limite de 5 em 5 km/h
+              TextView passo(String s, int i, int d) {
+                  TextView t = texto(s, 20, FG, true);
+                  t.setGravity(Gravity.CENTER);
+                  t.setBackground(fundo(BG, 10, 0));
+                  t.setOnClickListener(v -> {
+                      int n = Math.max(5, Math.min(300, (limite(i) + d) / 5 * 5));
+                      lim[i].setText(String.valueOf(n));
+                  });
+                  return t;
               }
 
               void abrirConfig() {
@@ -356,20 +393,24 @@ jobs:
                   boolean r = SpeedService.rodando;
                   float k = r ? SpeedService.kmh : -1;
                   int lv = SpeedService.limVia;
-                  boolean temVia = r && lv > 0;
+                  boolean temVia = r && lv > 0 && !SpeedService.forcar;
                   // Com limite da via: laranja nos 10 km/h antes dele, vermelho a partir dele
                   if (temVia) gauge.mostrar(k, lv - 10, lv);
                   else gauge.mostrar(k, limite(0), limite(1));
-                  placa.setText(temVia ? String.valueOf(lv) : "?");
+                  placa.setText(r && lv > 0 ? String.valueOf(lv) : "?");
                   viaBox.setVisibility(!r || SpeedService.usandoVia ? View.VISIBLE : View.GONE);
                   if (!r) via.setText(usarVia.isChecked() ? "Limite da via aparece aqui" : "Limite da via desligado");
-                  else via.setText(temVia ? SpeedService.nomeVia : SpeedService.statusVia);
+                  else via.setText(lv > 0 ? SpeedService.nomeVia + (temVia ? "" : "  ·  usando meus limites") : SpeedService.statusVia);
 
                   for (int i = 0; i < 3; i++) {
                       boolean on = r && !temVia && SpeedService.acimaFixo[i];
                       limBox[i].setBackground(fundo(CARD, 12, on ? BAD : CARD));
                       limBox[i].setAlpha(temVia ? 0.45f : 1f); // fixos apagados quando vale o limite da via
                       lim[i].setEnabled(!r);
+                      menos[i].setEnabled(!r);
+                      mais[i].setEnabled(!r);
+                      menos[i].setAlpha(r ? 0.35f : 1f);
+                      mais[i].setAlpha(r ? 0.35f : 1f);
                   }
                   engrenagem.setAlpha(r ? 0.35f : 1f);
 
@@ -579,6 +620,7 @@ jobs:
               static volatile String nomeVia = "";
               static volatile String statusVia = "";
               static volatile boolean usandoVia = false;
+              static volatile boolean forcar = false;      // ignora o limite da via e usa os 3 limites fixos
               static volatile int nivel = 0;              // 0 normal, 1 acima do 1º limite, 2 acima do 2º/da via
               static final boolean[] acimaFixo = new boolean[3];
 
@@ -697,7 +739,8 @@ jobs:
                   }
 
                   String txt;
-                  if (limVia > 0) {
+                  boolean via = limVia > 0 && !forcar;
+                  if (via) {
                       // Usa o limite da via
                       if (!acimaVia && v >= limVia) { acimaVia = true; alertar(limVia, 3, ToneGenerator.TONE_PROP_BEEP2); }
                       else if (acimaVia && v < limVia - MARGEM) { acimaVia = false; }
@@ -712,7 +755,7 @@ jobs:
                       txt = Math.round(v) + " km/h  ·  limites " + lims[0] + " / " + lims[1] + " / " + lims[2];
                   }
                   for (int i = 0; i < 3; i++) acimaFixo[i] = acima[i];
-                  if (limVia > 0) nivel = acimaVia ? 2 : 0;
+                  if (via) nivel = acimaVia ? 2 : 0;
                   else nivel = acima[1] || acima[2] ? 2 : acima[0] ? 1 : 0;
                   nm.notify(1, notif(txt));
               }
