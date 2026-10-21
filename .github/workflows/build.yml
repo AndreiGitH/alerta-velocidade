@@ -49,8 +49,8 @@ jobs:
                   applicationId 'com.alerta.velocidade'
                   minSdk 26
                   targetSdk 34
-                  versionCode 7
-                  versionName '4.2'
+                  versionCode 8
+                  versionName '4.3'
               }
           }
           EOF
@@ -245,7 +245,7 @@ jobs:
                   chave.setTextColor(FG);
                   chave.setTextSize(14);
                   chave.setSingleLine(true);
-                  chave.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                  chave.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
                   chave.setText(p.getString("tomtom", ""));
                   chave.setPadding(dp(14), dp(14), dp(14), dp(14));
                   chave.setBackground(fundo(CARD, 12, 0));
