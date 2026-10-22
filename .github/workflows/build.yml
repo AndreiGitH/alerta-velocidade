@@ -26,8 +26,8 @@ jobs:
         run: |
           mkdir -p app/src/main/java/com/alerta/velocidade app/src/main/res/raw
 
-          # Locuções do repositório: audio/60.wav vira o recurso raw "v60"
-          for f in audio/*.wav; do cp "$f" "app/src/main/res/raw/v$(basename "$f")"; done
+          # Locuções do repositório: audio/60.mp3 vira o recurso raw "v60"
+          for f in audio/*.mp3; do cp "$f" "app/src/main/res/raw/v$(basename "$f")"; done
 
           cat > settings.gradle <<'EOF'
           pluginManagement { repositories { google(); mavenCentral(); gradlePluginPortal() } }
@@ -49,8 +49,8 @@ jobs:
                   applicationId 'com.alerta.velocidade'
                   minSdk 26
                   targetSdk 34
-                  versionCode 10
-                  versionName '4.5'
+                  versionCode 11
+                  versionName '4.6'
               }
           }
           EOF
@@ -320,6 +320,12 @@ jobs:
                   config.setPadding(dp(20), dp(12), dp(20), dp(4));
                   config.addView(usarVia, margemTopo(0));
                   config.addView(chave, margemTopo(10));
+                  TextView testar = texto("▶  Testar vozes", 15, FG, true);
+                  testar.setGravity(Gravity.CENTER);
+                  testar.setPadding(0, dp(12), 0, dp(12));
+                  testar.setBackground(fundo(CARD, 12, 0));
+                  testar.setOnClickListener(v -> testarVozes(0));
+                  config.addView(testar, margemTopo(10));
               }
 
               // Botão − / + que muda o limite de 5 em 5 km/h
@@ -332,6 +338,20 @@ jobs:
                       lim[i].setText(String.valueOf(n));
                   });
                   return t;
+              }
+
+              // Toca as locuções dos 3 limites em sequência, para conferir o som
+              void testarVozes(int i) {
+                  if (i >= 3) return;
+                  int id = getResources().getIdentifier("v" + limite(i), "raw", getPackageName());
+                  android.media.MediaPlayer mp = id == 0 ? null : android.media.MediaPlayer.create(this, id);
+                  if (mp == null) {
+                      st.setText("Sem locução para " + limite(i) + " km/h (vai tocar bipes).");
+                      h.postDelayed(() -> testarVozes(i + 1), 600);
+                      return;
+                  }
+                  mp.setOnCompletionListener(m -> { m.release(); testarVozes(i + 1); });
+                  mp.start();
               }
 
               void abrirConfig() {
@@ -605,6 +625,7 @@ jobs:
           import java.net.HttpURLConnection;
           import java.net.URL;
           import java.net.URLEncoder;
+          import java.util.ArrayDeque;
           import java.util.Locale;
           import java.util.concurrent.ExecutorService;
           import java.util.concurrent.Executors;
@@ -700,29 +721,48 @@ jobs:
                   }
               }
 
-              // Fala o limite (audio/40.wav, 60, 80, 100 viram v40, v60...). Sem locução para esse valor: bipes.
+              // Fala o limite (audio/40.mp3, 60, 80, 100 viram v40, v60...). Sem locução para esse valor: bipes.
+              // Os alertas entram numa fila: se passar de dois limites seguidos, fala um depois do outro.
+              final ArrayDeque<int[]> fila = new ArrayDeque<>();
+              boolean ocupado = false;
+
               void alertar(int limite, int bipes, int tom) {
-                  int id = getResources().getIdentifier("v" + limite, "raw", getPackageName());
+                  fila.add(new int[]{limite, bipes, tom});
+                  if (!ocupado) proximo();
+              }
+
+              void proximo() {
+                  int[] a = fila.poll();
+                  if (a == null) { ocupado = false; soltarFoco(); return; }
+                  ocupado = true;
+                  int id = getResources().getIdentifier("v" + a[0], "raw", getPackageName());
                   AudioAttributes attrs = new AudioAttributes.Builder()
                       .setUsage(AudioAttributes.USAGE_ASSISTANCE_NAVIGATION_GUIDANCE)
                       .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
                       .build();
                   MediaPlayer mp = id == 0 ? null : MediaPlayer.create(this, id, attrs, AudioManager.AUDIO_SESSION_ID_GENERATE);
-                  if (mp == null) { bip(bipes, tom); return; }
-                  pararVoz();
-                  // Abaixa o som do Maps/música enquanto fala
-                  AudioManager am = getSystemService(AudioManager.class);
-                  foco = new AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK)
-                      .setAudioAttributes(attrs).build();
-                  am.requestAudioFocus(foco);
+                  if (mp == null) { bip(a[1], a[2]); h.postDelayed(this::proximo, a[1] * 300L + 300); return; }
+                  if (foco == null) {
+                      // Abaixa o som do Maps/música enquanto fala
+                      foco = new AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK)
+                          .setAudioAttributes(attrs).build();
+                      getSystemService(AudioManager.class).requestAudioFocus(foco);
+                  }
                   voz = mp;
-                  mp.setOnCompletionListener(m -> { if (voz == m) pararVoz(); });
+                  mp.setOnCompletionListener(m -> { m.release(); if (voz == m) voz = null; proximo(); });
+                  mp.setOnErrorListener((m, w, x) -> { m.release(); if (voz == m) voz = null; proximo(); return true; });
                   mp.start();
               }
 
-              void pararVoz() {
-                  if (voz != null) { voz.release(); voz = null; }
+              void soltarFoco() {
                   if (foco != null) { getSystemService(AudioManager.class).abandonAudioFocusRequest(foco); foco = null; }
+              }
+
+              void pararVoz() {
+                  fila.clear();
+                  ocupado = false;
+                  if (voz != null) { voz.release(); voz = null; }
+                  soltarFoco();
               }
 
               @Override
