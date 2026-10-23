@@ -53,8 +53,8 @@ jobs:
                   applicationId 'com.alerta.velocidade'
                   minSdk 26
                   targetSdk 34
-                  versionCode 12
-                  versionName '5.0'
+                  versionCode 13
+                  versionName '5.1'
               }
           }
           EOF
@@ -853,7 +853,9 @@ jobs:
                       Location.distanceBetween(rLat[alvo], rLon[alvo], rLat[j], rLon[j], res);
                       if (res[0] < 150) avisados.add(j);
                   }
+                  // "Radar 200 metros" + o limite falado ("sessenta"), se houver locução para ele
                   alertar(-1, 2, ToneGenerator.TONE_PROP_BEEP2);
+                  if (rLim[alvo] > 0) alertar(rLim[alvo], 0, ToneGenerator.TONE_PROP_BEEP);
               }
 
               @Override
