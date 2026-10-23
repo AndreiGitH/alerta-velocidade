@@ -1,0 +1,1523 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="radar_15092026" id="radar_15092026">
+	<SimpleField name="F1" type="float"></SimpleField>
+	<SimpleField name="ANO" type="float"></SimpleField>
+	<SimpleField name="TIPO" type="string"></SimpleField>
+	<SimpleField name="MARCA" type="string"></SimpleField>
+	<SimpleField name="MODELO" type="string"></SimpleField>
+	<SimpleField name="COD__ORGAO" type="string"></SimpleField>
+	<SimpleField name="Nº_SERIE" type="string"></SimpleField>
+	<SimpleField name="Nº_INMETR" type="float"></SimpleField>
+	<SimpleField name="VELOCIDADE" type="string"></SimpleField>
+	<SimpleField name="MUNICIPIO" type="string"></SimpleField>
+	<SimpleField name="RODOVIA" type="string"></SimpleField>
+	<SimpleField name="KM" type="string"></SimpleField>
+	<SimpleField name="LATITUDE" type="float"></SimpleField>
+	<SimpleField name="LONGITUDE" type="float"></SimpleField>
+</Schema>
+<Folder><name>radar_15092026</name>
+  <Placemark id="radar_15092026.1">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">1.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0005 / FIGCT0006</SimpleData>
+		<SimpleData name="Nº_SERIE">2100006</SimpleData>
+		<SimpleData name="Nº_INMETR">13854596.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">50km</SimpleData>
+		<SimpleData name="MUNICIPIO">SENHOR DO BONFIM</SimpleData>
+		<SimpleData name="RODOVIA">BA131</SimpleData>
+		<SimpleData name="KM">9+500m</SimpleData>
+		<SimpleData name="LATITUDE">-10.517700</SimpleData>
+		<SimpleData name="LONGITUDE">-40.229500</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-40.2295,-10.5177</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.2">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">2.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0007 / FIGCT0008</SimpleData>
+		<SimpleData name="Nº_SERIE">2100008</SimpleData>
+		<SimpleData name="Nº_INMETR">13854597.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">JACOBINA</SimpleData>
+		<SimpleData name="RODOVIA">BA144</SimpleData>
+		<SimpleData name="KM">248+250m</SimpleData>
+		<SimpleData name="LATITUDE">-11.052700</SimpleData>
+		<SimpleData name="LONGITUDE">-40.786100</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-40.7861,-11.0527</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.3">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">3.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0009 / FIGCT0010</SimpleData>
+		<SimpleData name="Nº_SERIE">2100014</SimpleData>
+		<SimpleData name="Nº_INMETR">13854599.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">50km</SimpleData>
+		<SimpleData name="MUNICIPIO">ALCOBAÇA</SimpleData>
+		<SimpleData name="RODOVIA">BA290</SimpleData>
+		<SimpleData name="KM">13+500m</SimpleData>
+		<SimpleData name="LATITUDE">-17.528500</SimpleData>
+		<SimpleData name="LONGITUDE">-39.287100</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-39.2871,-17.5285</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.4">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">4.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0011 / FIGCT0012</SimpleData>
+		<SimpleData name="Nº_SERIE">2100001</SimpleData>
+		<SimpleData name="Nº_INMETR">13854600.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">50km</SimpleData>
+		<SimpleData name="MUNICIPIO">ILHÉUS</SimpleData>
+		<SimpleData name="RODOVIA">BA001</SimpleData>
+		<SimpleData name="KM">271+200m</SimpleData>
+		<SimpleData name="LATITUDE">-14.645000</SimpleData>
+		<SimpleData name="LONGITUDE">-39.071500</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-39.0715,-14.645</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.5">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">5.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0013 / FIGCT0014</SimpleData>
+		<SimpleData name="Nº_SERIE">2100003</SimpleData>
+		<SimpleData name="Nº_INMETR">13854521.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">CAMAÇARI</SimpleData>
+		<SimpleData name="RODOVIA">BA099</SimpleData>
+		<SimpleData name="KM">13+080m</SimpleData>
+		<SimpleData name="LATITUDE">-12.826300</SimpleData>
+		<SimpleData name="LONGITUDE">-38.261600</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.2616,-12.8263</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.6">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">6.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0015 / FIGCT0016</SimpleData>
+		<SimpleData name="Nº_SERIE">2100004</SimpleData>
+		<SimpleData name="Nº_INMETR">13854522.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">CAMAÇARI</SimpleData>
+		<SimpleData name="RODOVIA">BA099</SimpleData>
+		<SimpleData name="KM">13+230m</SimpleData>
+		<SimpleData name="LATITUDE">-12.825400</SimpleData>
+		<SimpleData name="LONGITUDE">-38.259400</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.2594,-12.8254</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.7">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">7.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0017 / FIGCT0018</SimpleData>
+		<SimpleData name="Nº_SERIE">2100005</SimpleData>
+		<SimpleData name="Nº_INMETR">13854523.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">40km</SimpleData>
+		<SimpleData name="MUNICIPIO">MATA DE SÃO JOÃO</SimpleData>
+		<SimpleData name="RODOVIA">BA099</SimpleData>
+		<SimpleData name="KM">64+660m</SimpleData>
+		<SimpleData name="LATITUDE">-12.489700</SimpleData>
+		<SimpleData name="LONGITUDE">-37.967600</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-37.9676,-12.4897</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.8">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">8.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0019 / FIGCT0020</SimpleData>
+		<SimpleData name="Nº_SERIE">2100011</SimpleData>
+		<SimpleData name="Nº_INMETR">14751035.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">URUÇUCA</SimpleData>
+		<SimpleData name="RODOVIA">BA262</SimpleData>
+		<SimpleData name="KM">38+500m</SimpleData>
+		<SimpleData name="LATITUDE">-14.577800</SimpleData>
+		<SimpleData name="LONGITUDE">-39.306900</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-39.3069,-14.5778</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.9">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">9.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0021 / FIGCT0022</SimpleData>
+		<SimpleData name="Nº_SERIE">CSX2100017</SimpleData>
+		<SimpleData name="Nº_INMETR">13854526.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">LUÍS EDUARDO MAGALHÃES</SimpleData>
+		<SimpleData name="RODOVIA">BA460</SimpleData>
+		<SimpleData name="KM">55+200m</SimpleData>
+		<SimpleData name="LATITUDE">-12.111200</SimpleData>
+		<SimpleData name="LONGITUDE">-45.973800</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-45.9738,-12.1112</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.10">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">10.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0023 / FIGCT0024</SimpleData>
+		<SimpleData name="Nº_SERIE">2100018</SimpleData>
+		<SimpleData name="Nº_INMETR">13854525.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">CAMAÇARI</SimpleData>
+		<SimpleData name="RODOVIA">BA099</SimpleData>
+		<SimpleData name="KM">34+000m</SimpleData>
+		<SimpleData name="LATITUDE">-12.699600</SimpleData>
+		<SimpleData name="LONGITUDE">-38.130200</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.1302,-12.6996</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.11">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">11.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0025 / FIGCT0026</SimpleData>
+		<SimpleData name="Nº_SERIE">2100019</SimpleData>
+		<SimpleData name="Nº_INMETR">13854524.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">CAMAÇARI</SimpleData>
+		<SimpleData name="RODOVIA">BA099</SimpleData>
+		<SimpleData name="KM">34+000m</SimpleData>
+		<SimpleData name="LATITUDE">-12.698800</SimpleData>
+		<SimpleData name="LONGITUDE">-38.129700</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.1297,-12.6988</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.12">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">12.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0027 / FIGCT0028</SimpleData>
+		<SimpleData name="Nº_SERIE">2100002</SimpleData>
+		<SimpleData name="Nº_INMETR">13854532.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">50km</SimpleData>
+		<SimpleData name="MUNICIPIO">ILHÉUS</SimpleData>
+		<SimpleData name="RODOVIA">BA001</SimpleData>
+		<SimpleData name="KM">304+700m</SimpleData>
+		<SimpleData name="LATITUDE">-14.910000</SimpleData>
+		<SimpleData name="LONGITUDE">-39.022900</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-39.0229,-14.91</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.13">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">13.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0031 / FIGCT0032</SimpleData>
+		<SimpleData name="Nº_SERIE">2100015</SimpleData>
+		<SimpleData name="Nº_INMETR">13854531.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">TEIXEIRA DE FREITAS</SimpleData>
+		<SimpleData name="RODOVIA">BA290</SimpleData>
+		<SimpleData name="KM">76+800m</SimpleData>
+		<SimpleData name="LATITUDE">-17.503900</SimpleData>
+		<SimpleData name="LONGITUDE">-39.841900</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-39.8419,-17.5039</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.14">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">14.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0033 / FIGCT0034</SimpleData>
+		<SimpleData name="Nº_SERIE">2100020</SimpleData>
+		<SimpleData name="Nº_INMETR">13854530.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">MUCURI</SimpleData>
+		<SimpleData name="RODOVIA">BA698</SimpleData>
+		<SimpleData name="KM">34+700m</SimpleData>
+		<SimpleData name="LATITUDE">-18.054600</SimpleData>
+		<SimpleData name="LONGITUDE">-39.742300</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-39.7423,-18.0546</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.15">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">15.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0037 / FIGCT0038</SimpleData>
+		<SimpleData name="Nº_SERIE">6219</SimpleData>
+		<SimpleData name="Nº_INMETR">14751059.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">CAMAÇARI</SimpleData>
+		<SimpleData name="RODOVIA">BA099</SimpleData>
+		<SimpleData name="KM">10+370m</SimpleData>
+		<SimpleData name="LATITUDE">-12.843100</SimpleData>
+		<SimpleData name="LONGITUDE">-38.278000</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.278,-12.8431</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.16">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">16.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0039 / FIGCT0040</SimpleData>
+		<SimpleData name="Nº_SERIE">6220</SimpleData>
+		<SimpleData name="Nº_INMETR">14751058.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">CAMAÇARI</SimpleData>
+		<SimpleData name="RODOVIA">BA099</SimpleData>
+		<SimpleData name="KM">10+900m</SimpleData>
+		<SimpleData name="LATITUDE">-12.839700</SimpleData>
+		<SimpleData name="LONGITUDE">-38.275200</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.2752,-12.8397</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.17">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">17.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0041 / FIGCT0042</SimpleData>
+		<SimpleData name="Nº_SERIE">6221</SimpleData>
+		<SimpleData name="Nº_INMETR">15681291.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">CAMAÇARI</SimpleData>
+		<SimpleData name="RODOVIA">BA099</SimpleData>
+		<SimpleData name="KM">11+100m</SimpleData>
+		<SimpleData name="LATITUDE">-12.837700</SimpleData>
+		<SimpleData name="LONGITUDE">-38.274200</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.2742,-12.8377</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.18">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">18.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0043 / FIGCT0044</SimpleData>
+		<SimpleData name="Nº_SERIE">6222</SimpleData>
+		<SimpleData name="Nº_INMETR">14812843.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">CAMAÇARI</SimpleData>
+		<SimpleData name="RODOVIA">BA099</SimpleData>
+		<SimpleData name="KM">23+400m</SimpleData>
+		<SimpleData name="LATITUDE">-12.769400</SimpleData>
+		<SimpleData name="LONGITUDE">-38.190000</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.19,-12.7694</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.19">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">19.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0045 / FIGCT0046</SimpleData>
+		<SimpleData name="Nº_SERIE">6223</SimpleData>
+		<SimpleData name="Nº_INMETR">14812844.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">CAMAÇARI</SimpleData>
+		<SimpleData name="RODOVIA">BA099</SimpleData>
+		<SimpleData name="KM">23+600m</SimpleData>
+		<SimpleData name="LATITUDE">-12.767600</SimpleData>
+		<SimpleData name="LONGITUDE">-38.188400</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.1884,-12.7676</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.20">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">20.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0047 / FIGCT0048</SimpleData>
+		<SimpleData name="Nº_SERIE">6224</SimpleData>
+		<SimpleData name="Nº_INMETR">14751079.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">50km</SimpleData>
+		<SimpleData name="MUNICIPIO">CANDEIAS</SimpleData>
+		<SimpleData name="RODOVIA">BA522</SimpleData>
+		<SimpleData name="KM">28+520m</SimpleData>
+		<SimpleData name="LATITUDE">-12.673100</SimpleData>
+		<SimpleData name="LONGITUDE">-38.510800</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.5108,-12.6731</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.21">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">21.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0049 / FIGCT0050</SimpleData>
+		<SimpleData name="Nº_SERIE">6225</SimpleData>
+		<SimpleData name="Nº_INMETR">14751078.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">50km</SimpleData>
+		<SimpleData name="MUNICIPIO">SÃO FRANCISCO DO CONDE</SimpleData>
+		<SimpleData name="RODOVIA">BA523</SimpleData>
+		<SimpleData name="KM">18+400m</SimpleData>
+		<SimpleData name="LATITUDE">-12.701700</SimpleData>
+		<SimpleData name="LONGITUDE">-38.583100</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.5831,-12.7017</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.22">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">22.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0051 / FIGCT0052</SimpleData>
+		<SimpleData name="Nº_SERIE">6235</SimpleData>
+		<SimpleData name="Nº_INMETR">14812858.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">ANAGÉ</SimpleData>
+		<SimpleData name="RODOVIA">BA262</SimpleData>
+		<SimpleData name="KM">347+070m</SimpleData>
+		<SimpleData name="LATITUDE">-14.663100</SimpleData>
+		<SimpleData name="LONGITUDE">-41.046500</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-41.0465,-14.6631</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.23">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">23.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0053 / FIGCT0054</SimpleData>
+		<SimpleData name="Nº_SERIE">6236</SimpleData>
+		<SimpleData name="Nº_INMETR">14751081.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">50km</SimpleData>
+		<SimpleData name="MUNICIPIO">BRUMADO</SimpleData>
+		<SimpleData name="RODOVIA">BA262</SimpleData>
+		<SimpleData name="KM">441+200m</SimpleData>
+		<SimpleData name="LATITUDE">-14.230700</SimpleData>
+		<SimpleData name="LONGITUDE">-41.629200</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-41.6292,-14.2307</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.24">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">24.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0055 / FIGCT0056</SimpleData>
+		<SimpleData name="Nº_SERIE">6237</SimpleData>
+		<SimpleData name="Nº_INMETR">16034959.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">50km</SimpleData>
+		<SimpleData name="MUNICIPIO">TREMEDAL</SimpleData>
+		<SimpleData name="RODOVIA">BA263</SimpleData>
+		<SimpleData name="KM">163+900m</SimpleData>
+		<SimpleData name="LATITUDE">-14.990300</SimpleData>
+		<SimpleData name="LONGITUDE">-41.317100</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-41.3171,-14.9903</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.25">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">25.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0065 / FIGCT0066</SimpleData>
+		<SimpleData name="Nº_SERIE">6230</SimpleData>
+		<SimpleData name="Nº_INMETR">14761278.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">50km</SimpleData>
+		<SimpleData name="MUNICIPIO">VERA CRUZ</SimpleData>
+		<SimpleData name="RODOVIA">BA001</SimpleData>
+		<SimpleData name="KM">10+600m</SimpleData>
+		<SimpleData name="LATITUDE">-13.015700</SimpleData>
+		<SimpleData name="LONGITUDE">-38.651100</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.6511,-13.0157</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.26">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">26.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0067 / FIGCT0068</SimpleData>
+		<SimpleData name="Nº_SERIE">6231</SimpleData>
+		<SimpleData name="Nº_INMETR">14812854.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">50km</SimpleData>
+		<SimpleData name="MUNICIPIO">JAGUARIPE</SimpleData>
+		<SimpleData name="RODOVIA">BA001</SimpleData>
+		<SimpleData name="KM">33+750m</SimpleData>
+		<SimpleData name="LATITUDE">-13.028100</SimpleData>
+		<SimpleData name="LONGITUDE">-38.831800</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.8318,-13.0281</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.27">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">27.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0073 / FIGCT0074</SimpleData>
+		<SimpleData name="Nº_SERIE">CSX2100013</SimpleData>
+		<SimpleData name="Nº_INMETR">13854577.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">50km</SimpleData>
+		<SimpleData name="MUNICIPIO">SÃO FRANCISCO DO CONDE</SimpleData>
+		<SimpleData name="RODOVIA">BA522</SimpleData>
+		<SimpleData name="KM">16+600m</SimpleData>
+		<SimpleData name="LATITUDE">-12.647000</SimpleData>
+		<SimpleData name="LONGITUDE">-38.596000</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.596,-12.647</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.28">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">28.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0075 / FIGCT0076</SimpleData>
+		<SimpleData name="Nº_SERIE">2100012</SimpleData>
+		<SimpleData name="Nº_INMETR">13854571.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">50km</SimpleData>
+		<SimpleData name="MUNICIPIO">ALCOBAÇA</SimpleData>
+		<SimpleData name="RODOVIA">BA290</SimpleData>
+		<SimpleData name="KM">9+900m</SimpleData>
+		<SimpleData name="LATITUDE">-17.528700</SimpleData>
+		<SimpleData name="LONGITUDE">-39.255400</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-39.2554,-17.5287</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.29">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">29.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0077 / FIGCT0078</SimpleData>
+		<SimpleData name="Nº_SERIE">2100016</SimpleData>
+		<SimpleData name="Nº_INMETR">13854578.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">FILADÉLFIA</SimpleData>
+		<SimpleData name="RODOVIA">BA381</SimpleData>
+		<SimpleData name="KM">143+900m</SimpleData>
+		<SimpleData name="LATITUDE">-10.717800</SimpleData>
+		<SimpleData name="LONGITUDE">-40.088600</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-40.0886,-10.7178</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.30">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">30.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0081 / FIGCT0082</SimpleData>
+		<SimpleData name="Nº_SERIE">6465</SimpleData>
+		<SimpleData name="Nº_INMETR">14813512.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">50km</SimpleData>
+		<SimpleData name="MUNICIPIO">ITUAÇU</SimpleData>
+		<SimpleData name="RODOVIA">BA142</SimpleData>
+		<SimpleData name="KM">311+400m</SimpleData>
+		<SimpleData name="LATITUDE">-13.809275</SimpleData>
+		<SimpleData name="LONGITUDE">-41.301911</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-41.301911,-13.809275</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.31">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">31.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0085 / FIGCT0086</SimpleData>
+		<SimpleData name="Nº_SERIE">2100022</SimpleData>
+		<SimpleData name="Nº_INMETR">15979601.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">ILHÉUS</SimpleData>
+		<SimpleData name="RODOVIA">BA001</SimpleData>
+		<SimpleData name="KM">292+900m</SimpleData>
+		<SimpleData name="LATITUDE">-14.811100</SimpleData>
+		<SimpleData name="LONGITUDE">-39.024500</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-39.0245,-14.8111</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.32">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">32.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0087 / FIGCT0088</SimpleData>
+		<SimpleData name="Nº_SERIE">2100021</SimpleData>
+		<SimpleData name="Nº_INMETR">15979602.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">ILHÉUS</SimpleData>
+		<SimpleData name="RODOVIA">BA001</SimpleData>
+		<SimpleData name="KM">292+000m</SimpleData>
+		<SimpleData name="LATITUDE">-14.866100</SimpleData>
+		<SimpleData name="LONGITUDE">-39.030200</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-39.0302,-14.8661</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.33">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">33.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0089 / FIGCT0090</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII-6462</SimpleData>
+		<SimpleData name="Nº_INMETR">14813513.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">URUÇUCA</SimpleData>
+		<SimpleData name="RODOVIA">BA001</SimpleData>
+		<SimpleData name="KM">248+100m</SimpleData>
+		<SimpleData name="LATITUDE">-14.462100</SimpleData>
+		<SimpleData name="LONGITUDE">-39.039700</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-39.0397,-14.4621</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.34">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">34.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0093 / FIGCT0094</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII-6464</SimpleData>
+		<SimpleData name="Nº_INMETR">14813516.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">CAMAÇARI</SimpleData>
+		<SimpleData name="RODOVIA">BA093</SimpleData>
+		<SimpleData name="KM">18+500m</SimpleData>
+		<SimpleData name="LATITUDE">-12.639400</SimpleData>
+		<SimpleData name="LONGITUDE">-38.350300</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.3503,-12.6394</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.35">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">35.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0095 / FIGCT0096</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII6463</SimpleData>
+		<SimpleData name="Nº_INMETR">15027808.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">FEIRA DE SANTANA</SimpleData>
+		<SimpleData name="RODOVIA">BA052</SimpleData>
+		<SimpleData name="KM">5+910m</SimpleData>
+		<SimpleData name="LATITUDE">-12.258600</SimpleData>
+		<SimpleData name="LONGITUDE">-39.070200</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-39.0702,-12.2586</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.36">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">36.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0097 / FIGCT0098</SimpleData>
+		<SimpleData name="Nº_SERIE">2100010</SimpleData>
+		<SimpleData name="Nº_INMETR">14812861.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">50km</SimpleData>
+		<SimpleData name="MUNICIPIO">MUNIZ FERREIRA</SimpleData>
+		<SimpleData name="RODOVIA">BA046</SimpleData>
+		<SimpleData name="KM">7+550m</SimpleData>
+		<SimpleData name="LATITUDE">-13.010700</SimpleData>
+		<SimpleData name="LONGITUDE">-39.071500</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-39.0715,-13.0107</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.37">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">37.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0099 / FIGCT0100</SimpleData>
+		<SimpleData name="Nº_SERIE">2100024</SimpleData>
+		<SimpleData name="Nº_INMETR">14812865.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">RETIROLÂNDIA</SimpleData>
+		<SimpleData name="RODOVIA">BA120</SimpleData>
+		<SimpleData name="KM">371+500m</SimpleData>
+		<SimpleData name="LATITUDE">-11.494973</SimpleData>
+		<SimpleData name="LONGITUDE">-39.411531</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-39.411531,-11.4949729</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.38">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">38.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0103 / FIGCT0104</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII-6468</SimpleData>
+		<SimpleData name="Nº_INMETR">14812889.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">CAMAÇARI</SimpleData>
+		<SimpleData name="RODOVIA">BA099</SimpleData>
+		<SimpleData name="KM">30+000m</SimpleData>
+		<SimpleData name="LATITUDE">-12.721500</SimpleData>
+		<SimpleData name="LONGITUDE">-38.158500</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.1585,-12.7215</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.39">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">39.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0105 / FIGCT0106</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII-6469</SimpleData>
+		<SimpleData name="Nº_INMETR">14812890.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">80km</SimpleData>
+		<SimpleData name="MUNICIPIO">CAMAÇARI</SimpleData>
+		<SimpleData name="RODOVIA">BA099</SimpleData>
+		<SimpleData name="KM">29+910m</SimpleData>
+		<SimpleData name="LATITUDE">-12.722100</SimpleData>
+		<SimpleData name="LONGITUDE">-38.159000</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.159,-12.7221</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.40">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">40.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0107 / FIGCT0108</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII-6471</SimpleData>
+		<SimpleData name="Nº_INMETR">15680724.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">IPIRÁ</SimpleData>
+		<SimpleData name="RODOVIA">BA052</SimpleData>
+		<SimpleData name="KM">074+900m</SimpleData>
+		<SimpleData name="LATITUDE">-12.203600</SimpleData>
+		<SimpleData name="LONGITUDE">-39.662800</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-39.6628,-12.2036</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.41">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">41.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0109 / FIGCT0110</SimpleData>
+		<SimpleData name="Nº_SERIE">2100025</SimpleData>
+		<SimpleData name="Nº_INMETR">15681307.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">VERA CRUZ</SimpleData>
+		<SimpleData name="RODOVIA">BA001</SimpleData>
+		<SimpleData name="KM">6+400m</SimpleData>
+		<SimpleData name="LATITUDE">-12.984700</SimpleData>
+		<SimpleData name="LONGITUDE">-38.632200</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.6322,-12.9847</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.42">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">42.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0111 / FIGCT0112</SimpleData>
+		<SimpleData name="Nº_SERIE">2100026</SimpleData>
+		<SimpleData name="Nº_INMETR">15681276.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">PAULO AFONSO</SimpleData>
+		<SimpleData name="RODOVIA">BA210</SimpleData>
+		<SimpleData name="KM">40+300m</SimpleData>
+		<SimpleData name="LATITUDE">-9.429110</SimpleData>
+		<SimpleData name="LONGITUDE">-38.228400</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.2284,-9.42911</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.43">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">43.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0113 / FIGCT0114</SimpleData>
+		<SimpleData name="Nº_SERIE">2100027</SimpleData>
+		<SimpleData name="Nº_INMETR">14812886.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">PAULO AFONSO</SimpleData>
+		<SimpleData name="RODOVIA">BA210</SimpleData>
+		<SimpleData name="KM">42+000m</SimpleData>
+		<SimpleData name="LATITUDE">-9.414020</SimpleData>
+		<SimpleData name="LONGITUDE">-38.234320</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.23432,-9.41402</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.44">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">44.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0115 / FIGCT0116</SimpleData>
+		<SimpleData name="Nº_SERIE">6229</SimpleData>
+		<SimpleData name="Nº_INMETR">14751080.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">VERA CRUZ</SimpleData>
+		<SimpleData name="RODOVIA">BA001</SimpleData>
+		<SimpleData name="KM">13+500m</SimpleData>
+		<SimpleData name="LATITUDE">-13.032900</SimpleData>
+		<SimpleData name="LONGITUDE">-38.670400</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.6704,-13.0329</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.45">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">45.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0117 / FIGCT0118</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII6234</SimpleData>
+		<SimpleData name="Nº_INMETR">14761388.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">50km</SimpleData>
+		<SimpleData name="MUNICIPIO">ITUAÇU</SimpleData>
+		<SimpleData name="RODOVIA">BA140</SimpleData>
+		<SimpleData name="KM">315+600m</SimpleData>
+		<SimpleData name="LATITUDE">-13.841824</SimpleData>
+		<SimpleData name="LONGITUDE">-41.302802</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-41.302802,-13.841824</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.46">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">46.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0119 / FIGCT0120</SimpleData>
+		<SimpleData name="Nº_SERIE">6233</SimpleData>
+		<SimpleData name="Nº_INMETR">14751061.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">ILHÉUS</SimpleData>
+		<SimpleData name="RODOVIA">BA001</SimpleData>
+		<SimpleData name="KM">267+900m</SimpleData>
+		<SimpleData name="LATITUDE">-14.618612</SimpleData>
+		<SimpleData name="LONGITUDE">-39.063360</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-39.06336,-14.618612</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.47">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">47.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0121 / FIGCT0122</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII6470</SimpleData>
+		<SimpleData name="Nº_INMETR">14813524.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">URUÇUCA</SimpleData>
+		<SimpleData name="RODOVIA">BA001</SimpleData>
+		<SimpleData name="KM">254+000m</SimpleData>
+		<SimpleData name="LATITUDE">-14.990900</SimpleData>
+		<SimpleData name="LONGITUDE">-39.001500</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-39.0015,-14.9909</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.48">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">48.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0123 / FIGCT0124</SimpleData>
+		<SimpleData name="Nº_SERIE">2100028</SimpleData>
+		<SimpleData name="Nº_INMETR">14813586.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">CONCEIÇÃO DO COITÉ</SimpleData>
+		<SimpleData name="RODOVIA">BA120</SimpleData>
+		<SimpleData name="KM">391+720m</SimpleData>
+		<SimpleData name="LATITUDE">-11.579800</SimpleData>
+		<SimpleData name="LONGITUDE">-39.308103</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-39.308103,-11.5798</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.49">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">49.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0125 / FIGCT0126 FIGCT0127 / FIGCT0128</SimpleData>
+		<SimpleData name="Nº_SERIE">2100023</SimpleData>
+		<SimpleData name="Nº_INMETR">14812860.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">JUAZEIRO</SimpleData>
+		<SimpleData name="RODOVIA">BA210</SimpleData>
+		<SimpleData name="KM">398+400m</SimpleData>
+		<SimpleData name="LATITUDE">-9.451400</SimpleData>
+		<SimpleData name="LONGITUDE">-40.514200</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-40.5142,-9.4514</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.50">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">50.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0129 / FIGCT0130</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII7137</SimpleData>
+		<SimpleData name="Nº_INMETR">15341191.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">CAMAÇARI</SimpleData>
+		<SimpleData name="RODOVIA">BA099</SimpleData>
+		<SimpleData name="KM">36+300m</SimpleData>
+		<SimpleData name="LATITUDE">-12.686200</SimpleData>
+		<SimpleData name="LONGITUDE">-38.113500</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.1135,-12.6862</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.51">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">51.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0131 / FIGCT0132</SimpleData>
+		<SimpleData name="Nº_SERIE">2100029</SimpleData>
+		<SimpleData name="Nº_INMETR">15341160.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">CAMAÇARI</SimpleData>
+		<SimpleData name="RODOVIA">BA099</SimpleData>
+		<SimpleData name="KM">16+800m</SimpleData>
+		<SimpleData name="LATITUDE">-12.808100</SimpleData>
+		<SimpleData name="LONGITUDE">-38.232700</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.2327,-12.8081</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.52">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">52.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0133 / FIGCT0134</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII7138</SimpleData>
+		<SimpleData name="Nº_INMETR">15341159.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">CAMAÇARI</SimpleData>
+		<SimpleData name="RODOVIA">BA099</SimpleData>
+		<SimpleData name="KM">36+300m</SimpleData>
+		<SimpleData name="LATITUDE">-12.686200</SimpleData>
+		<SimpleData name="LONGITUDE">-38.113500</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.1135,-12.6862</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.53">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">53.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0135 / FIGCT0136</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII7153</SimpleData>
+		<SimpleData name="Nº_INMETR">15521108.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">CAMAÇARI</SimpleData>
+		<SimpleData name="RODOVIA">BA099</SimpleData>
+		<SimpleData name="KM">16+600m</SimpleData>
+		<SimpleData name="LATITUDE">-12.809300</SimpleData>
+		<SimpleData name="LONGITUDE">-38.234100</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.2341,-12.8093</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.54">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">54.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0137 / FIGCT0138</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII7212</SimpleData>
+		<SimpleData name="Nº_INMETR">15341190.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">MATA DE SÃO JOÃO</SimpleData>
+		<SimpleData name="RODOVIA">BA099</SimpleData>
+		<SimpleData name="KM">66+300m</SimpleData>
+		<SimpleData name="LATITUDE">-12.475050</SimpleData>
+		<SimpleData name="LONGITUDE">-37.962273</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-37.9622734,-12.4750501</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.55">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">55.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0139 / FIGCT0140</SimpleData>
+		<SimpleData name="Nº_SERIE">2100007</SimpleData>
+		<SimpleData name="Nº_INMETR">13854537.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">50km</SimpleData>
+		<SimpleData name="MUNICIPIO">JUAZEIRO</SimpleData>
+		<SimpleData name="RODOVIA">BA210</SimpleData>
+		<SimpleData name="KM">399+400m</SimpleData>
+		<SimpleData name="LATITUDE">-9.450136</SimpleData>
+		<SimpleData name="LONGITUDE">-40.524192</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-40.524192,-9.450136</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.56">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">56.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0141 / FIGCT0142</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII7210</SimpleData>
+		<SimpleData name="Nº_INMETR">15341164.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">50km</SimpleData>
+		<SimpleData name="MUNICIPIO">JUAZEIRO</SimpleData>
+		<SimpleData name="RODOVIA">BA210</SimpleData>
+		<SimpleData name="KM">399+350m</SimpleData>
+		<SimpleData name="LATITUDE">-9.400370</SimpleData>
+		<SimpleData name="LONGITUDE">-40.522781</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-40.522781,-9.40037</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.57">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">57.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0143 / FIGCT0144</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII7211</SimpleData>
+		<SimpleData name="Nº_INMETR">15341167.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">RIACHÃO DO JACUÍPE</SimpleData>
+		<SimpleData name="RODOVIA">BA120</SimpleData>
+		<SimpleData name="KM">415+600m</SimpleData>
+		<SimpleData name="LATITUDE">-11.775500</SimpleData>
+		<SimpleData name="LONGITUDE">-39.377000</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-39.377,-11.7755</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.58">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">58.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0145 / FIGCT0146</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII6226</SimpleData>
+		<SimpleData name="Nº_INMETR">14751082.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">MATA DE SÃO JOÃO</SimpleData>
+		<SimpleData name="RODOVIA">BA099</SimpleData>
+		<SimpleData name="KM">69+800m</SimpleData>
+		<SimpleData name="LATITUDE">-12.447410</SimpleData>
+		<SimpleData name="LONGITUDE">-37.951020</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-37.95102,-12.44741</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.59">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">59.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0147 / FIGCT0148</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII7209</SimpleData>
+		<SimpleData name="Nº_INMETR">15341189.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">50km</SimpleData>
+		<SimpleData name="MUNICIPIO">CAMAÇARI</SimpleData>
+		<SimpleData name="RODOVIA">BA099</SimpleData>
+		<SimpleData name="KM">39+900m</SimpleData>
+		<SimpleData name="LATITUDE">-12.691918</SimpleData>
+		<SimpleData name="LONGITUDE">-38.288621</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.288621,-12.691918</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.60">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">60.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0149 / FIGCT0150</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII7213</SimpleData>
+		<SimpleData name="Nº_INMETR">15341192.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">SIMÕES FILHO</SimpleData>
+		<SimpleData name="RODOVIA">BA524</SimpleData>
+		<SimpleData name="KM">5+700m</SimpleData>
+		<SimpleData name="LATITUDE">-12.681200</SimpleData>
+		<SimpleData name="LONGITUDE">-38.383400</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.3834,-12.6812</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.61">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">61.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0151 / FIGCT0152</SimpleData>
+		<SimpleData name="Nº_SERIE">2100009</SimpleData>
+		<SimpleData name="Nº_INMETR">13854587.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">CAMAÇARI</SimpleData>
+		<SimpleData name="RODOVIA">BA099</SimpleData>
+		<SimpleData name="KM">49+550m</SimpleData>
+		<SimpleData name="LATITUDE">-12.591081</SimpleData>
+		<SimpleData name="LONGITUDE">-38.042510</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.04251,-12.591081</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.62">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">62.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0153 / FIGCT0154</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII6228</SimpleData>
+		<SimpleData name="Nº_INMETR">14751083.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">CAMAÇARI</SimpleData>
+		<SimpleData name="RODOVIA">BA099</SimpleData>
+		<SimpleData name="KM">48+400m</SimpleData>
+		<SimpleData name="LATITUDE">-12.600200</SimpleData>
+		<SimpleData name="LONGITUDE">38.045530</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>38.04553,-12.6002</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.63">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">63.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">CONSILUX</SimpleData>
+		<SimpleData name="MODELO">CSC-II</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0155 / FIGCT0156</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII6218</SimpleData>
+		<SimpleData name="Nº_INMETR">14812859.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">CAMAÇARI</SimpleData>
+		<SimpleData name="RODOVIA">BA099</SimpleData>
+		<SimpleData name="KM">10+150m</SimpleData>
+		<SimpleData name="LATITUDE">-12.845330</SimpleData>
+		<SimpleData name="LONGITUDE">-38.278810</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.27881,-12.84533</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.64">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">64.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0157 / FIGCT0158</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII6227</SimpleData>
+		<SimpleData name="Nº_INMETR">14751040.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">CAMAÇARI</SimpleData>
+		<SimpleData name="RODOVIA">BA099</SimpleData>
+		<SimpleData name="KM">42+050m</SimpleData>
+		<SimpleData name="LATITUDE">-12.646781</SimpleData>
+		<SimpleData name="LONGITUDE">-38.078923</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.078923,-12.646781</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.65">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">65.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FIGCT0159 / FIGCT0160</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII6232</SimpleData>
+		<SimpleData name="Nº_INMETR">14751084.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">CAMAÇARI</SimpleData>
+		<SimpleData name="RODOVIA">BA099</SimpleData>
+		<SimpleData name="KM">42+700m</SimpleData>
+		<SimpleData name="LATITUDE">-12.642724</SimpleData>
+		<SimpleData name="LONGITUDE">-38.074421</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.074421,-12.642724</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.66">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">66.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FICBN0043 / FICBN0044</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII 7363</SimpleData>
+		<SimpleData name="Nº_INMETR">15681283.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">SALVADOR</SimpleData>
+		<SimpleData name="RODOVIA">BA526</SimpleData>
+		<SimpleData name="KM">14+950m</SimpleData>
+		<SimpleData name="LATITUDE">-12.835310</SimpleData>
+		<SimpleData name="LONGITUDE">-38.374490</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.37449,-12.83531</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.67">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">67.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FICBN0041 / FICBN0042</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII7364</SimpleData>
+		<SimpleData name="Nº_INMETR">15681301.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">SALVADOR</SimpleData>
+		<SimpleData name="RODOVIA">BA526</SimpleData>
+		<SimpleData name="KM">14+950m</SimpleData>
+		<SimpleData name="LATITUDE">-12.844890</SimpleData>
+		<SimpleData name="LONGITUDE">-38.361930</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.36193,-12.84489</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.68">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">68.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FICBN0015 / FICBN0016</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII7366</SimpleData>
+		<SimpleData name="Nº_INMETR">15681280.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">CAMAÇARI</SimpleData>
+		<SimpleData name="RODOVIA">BA535</SimpleData>
+		<SimpleData name="KM">4+800m</SimpleData>
+		<SimpleData name="LATITUDE">-12.655800</SimpleData>
+		<SimpleData name="LONGITUDE">-38.303260</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.30326,-12.6558</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.69">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">69.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FICBN0033 / FICBN0034</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII6031</SimpleData>
+		<SimpleData name="Nº_INMETR">14751076.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">80km</SimpleData>
+		<SimpleData name="MUNICIPIO">SALVADOR</SimpleData>
+		<SimpleData name="RODOVIA">BA526</SimpleData>
+		<SimpleData name="KM">12+000m</SimpleData>
+		<SimpleData name="LATITUDE">-12.830320</SimpleData>
+		<SimpleData name="LONGITUDE">-38.381970</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.38197,-12.83032</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.70">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">70.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FICBN0037 / FICBN0038</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII6033</SimpleData>
+		<SimpleData name="Nº_INMETR">15337514.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">80km</SimpleData>
+		<SimpleData name="MUNICIPIO">SALVADOR</SimpleData>
+		<SimpleData name="RODOVIA">BA526</SimpleData>
+		<SimpleData name="KM">16+650m</SimpleData>
+		<SimpleData name="LATITUDE">-12.859370</SimpleData>
+		<SimpleData name="LONGITUDE">-38.363430</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.36343,-12.85937</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.71">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">71.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FICBN0039 / FICBN0040</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII6034</SimpleData>
+		<SimpleData name="Nº_INMETR">14813591.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">80km</SimpleData>
+		<SimpleData name="MUNICIPIO">SALVADOR</SimpleData>
+		<SimpleData name="RODOVIA">BA526</SimpleData>
+		<SimpleData name="KM">16+000m</SimpleData>
+		<SimpleData name="LATITUDE">-12.855110</SimpleData>
+		<SimpleData name="LONGITUDE">-38.362330</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.36233,-12.85511</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.72">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">72.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FICBN0028 / FICBN0029</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII6906</SimpleData>
+		<SimpleData name="Nº_INMETR">14812911.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">80km</SimpleData>
+		<SimpleData name="MUNICIPIO">LAURO DE FREITAS</SimpleData>
+		<SimpleData name="RODOVIA">BA535</SimpleData>
+		<SimpleData name="KM">21+000m</SimpleData>
+		<SimpleData name="LATITUDE">-12.810070</SimpleData>
+		<SimpleData name="LONGITUDE">-38.346510</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.34651,-12.81007</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.73">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">73.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FICBN0009 / FICBN0010 / FICBN0011 / FICBN0012</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII7201</SimpleData>
+		<SimpleData name="Nº_INMETR">15341158.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">SIMÕES FILHO</SimpleData>
+		<SimpleData name="RODOVIA">BA093</SimpleData>
+		<SimpleData name="KM">17+500m</SimpleData>
+		<SimpleData name="LATITUDE">-12.646450</SimpleData>
+		<SimpleData name="LONGITUDE">-38.353680</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.35368,-12.64645</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.74">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">74.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FICBN0005 / FICBN0006 / FICBN0007</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII6905</SimpleData>
+		<SimpleData name="Nº_INMETR">14813557.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">80km</SimpleData>
+		<SimpleData name="MUNICIPIO">MATA DE SÃO JOÃO</SimpleData>
+		<SimpleData name="RODOVIA">BA093</SimpleData>
+		<SimpleData name="KM">42+500m</SimpleData>
+		<SimpleData name="LATITUDE">-12.451560</SimpleData>
+		<SimpleData name="LONGITUDE">-38.310160</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.31016,-12.45156</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.75">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">75.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FICBN0035 / FICBN0036</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII6032</SimpleData>
+		<SimpleData name="Nº_INMETR">15337513.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">80km</SimpleData>
+		<SimpleData name="MUNICIPIO">SALVADOR</SimpleData>
+		<SimpleData name="RODOVIA">BA526</SimpleData>
+		<SimpleData name="KM">12+000m</SimpleData>
+		<SimpleData name="LATITUDE">-12.830180</SimpleData>
+		<SimpleData name="LONGITUDE">-38.382800</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.3828,-12.83018</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.76">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">76.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FICBN0017 / FICBN0018</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII6907</SimpleData>
+		<SimpleData name="Nº_INMETR">14813558.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">80km</SimpleData>
+		<SimpleData name="MUNICIPIO">LAURO DE FREITAS</SimpleData>
+		<SimpleData name="RODOVIA">BA535</SimpleData>
+		<SimpleData name="KM">21+000m</SimpleData>
+		<SimpleData name="LATITUDE">-12.810140</SimpleData>
+		<SimpleData name="LONGITUDE">-38.346220</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.34622,-12.81014</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.77">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">77.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FICBN0013 / FICBN0014</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII7365</SimpleData>
+		<SimpleData name="Nº_INMETR">15681284.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">60km</SimpleData>
+		<SimpleData name="MUNICIPIO">CAMAÇARI</SimpleData>
+		<SimpleData name="RODOVIA">BA535</SimpleData>
+		<SimpleData name="KM">4+400m</SimpleData>
+		<SimpleData name="LATITUDE">-12.682870</SimpleData>
+		<SimpleData name="LONGITUDE">-38.306420</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.30642,-12.68287</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.78">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">78.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FICBN0004 / FICBN0025</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII6903</SimpleData>
+		<SimpleData name="Nº_INMETR">14813555.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">80km</SimpleData>
+		<SimpleData name="MUNICIPIO">DIAS D'ÁVILA</SimpleData>
+		<SimpleData name="RODOVIA">BA093</SimpleData>
+		<SimpleData name="KM">19+000m</SimpleData>
+		<SimpleData name="LATITUDE">-12.631590</SimpleData>
+		<SimpleData name="LONGITUDE">-38.346420</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.34642,-12.63159</coordinates></Point>
+  </Placemark>
+  <Placemark id="radar_15092026.79">
+	<ExtendedData><SchemaData schemaUrl="#radar_15092026">
+		<SimpleData name="F1">79.000000</SimpleData>
+		<SimpleData name="ANO">2026.000000</SimpleData>
+		<SimpleData name="TIPO">RADAR</SimpleData>
+		<SimpleData name="MARCA">FISCAL TECNOLOGIA</SimpleData>
+		<SimpleData name="MODELO">FSCII</SimpleData>
+		<SimpleData name="COD__ORGAO">FICBN0001 / FICBN0002</SimpleData>
+		<SimpleData name="Nº_SERIE">FSCII6904</SimpleData>
+		<SimpleData name="Nº_INMETR">14813556.000000</SimpleData>
+		<SimpleData name="VELOCIDADE">80km</SimpleData>
+		<SimpleData name="MUNICIPIO">MATA DE SÃO JOÃO</SimpleData>
+		<SimpleData name="RODOVIA">BA093</SimpleData>
+		<SimpleData name="KM">32+000m</SimpleData>
+		<SimpleData name="LATITUDE">-12.533350</SimpleData>
+		<SimpleData name="LONGITUDE">-38.307700</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-38.3077,-12.53335</coordinates></Point>
+  </Placemark>
+</Folder>
+</Document></kml>

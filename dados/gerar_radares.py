@@ -3,6 +3,9 @@
 Fontes:
   - ANTT, conjunto "Radar" (rodovias federais concedidas), licença CC-BY.
     https://dados.antt.gov.br/dataset/radar
+  - SEINFRA/SIT-Bahia, KML oficial dos radares das rodovias estaduais
+    (https://www.ba.gov.br/infraestrutura/12046/mapas). Baixe o KML novo e salve
+    como dados/radares_ba_seinfra.kml para atualizar.
   - Transalvador (Prefeitura de Salvador), mapa oficial de radares.
     https://transonline.salvador.ba.gov.br/geral_sistema/web/index.php/mapa/mapa-porticos
 
@@ -15,6 +18,7 @@ import json
 import os
 import re
 import urllib.request
+import xml.etree.ElementTree as ET
 
 TRANSALVADOR = "https://transonline.salvador.ba.gov.br/geral_sistema/web/index.php/mapa/mapa-porticos"
 ANTT_API = "https://dados.antt.gov.br/api/3/action/package_show?id=radar"
@@ -99,11 +103,39 @@ def radares_transalvador():
         }
 
 
+def radares_bahia():
+    caminho = os.path.join(os.path.dirname(SAIDA), "radares_ba_seinfra.kml")
+    if not os.path.exists(caminho):
+        return
+    ns = {"k": "http://www.opengis.net/kml/2.2"}
+    for pm in ET.parse(caminho).getroot().iter("{http://www.opengis.net/kml/2.2}Placemark"):
+        d = {sd.get("name"): (sd.text or "").strip() for sd in pm.iterfind(".//k:SimpleData", ns)}
+        try:
+            lat, lon = float(d["LATITUDE"]), float(d["LONGITUDE"])
+        except (KeyError, ValueError):
+            continue
+        if not (-19 < lat < -8 and -47 < lon < -37):  # fora da Bahia
+            continue
+        m = re.search(r"\d+", d.get("VELOCIDADE", ""))
+        yield {
+            "lat": round(lat, 6),
+            "lon": round(lon, 6),
+            "limite": int(m.group()) if m else 0,
+            "rodovia": d.get("RODOVIA", "").replace("BA", "BA-", 1) if d.get("RODOVIA", "").startswith("BA") else d.get("RODOVIA", ""),
+            "km": d.get("KM", ""),
+            "sentido": d.get("MUNICIPIO", "").title(),
+            "fonte": "SEINFRA-BA",
+        }
+
+
 def main():
     radares = list(radares_antt())
     ssa = list(radares_transalvador())
     print(f"Transalvador: {len(ssa)} radares")
     radares += ssa
+    ba = list(radares_bahia())
+    print(f"SEINFRA-BA: {len(ba)} radares")
+    radares += ba
     # Remove duplicados (mesma posição em ~10 m)
     vistos, unicos = set(), []
     for r in radares:
