@@ -29,6 +29,10 @@ jobs:
           # Locuções do repositório: audio/60.mp3 vira o recurso raw "v60"
           for f in audio/*.mp3; do cp "$f" "app/src/main/res/raw/v$(basename "$f")"; done
 
+          # Radares (gerado por dados/gerar_radares.py a partir dos dados abertos da ANTT)
+          mkdir -p app/src/main/assets
+          cp dados/radares.csv app/src/main/assets/radares.csv
+
           cat > settings.gradle <<'EOF'
           pluginManagement { repositories { google(); mavenCentral(); gradlePluginPortal() } }
           dependencyResolutionManagement { repositories { google(); mavenCentral() } }
@@ -49,8 +53,8 @@ jobs:
                   applicationId 'com.alerta.velocidade'
                   minSdk 26
                   targetSdk 34
-                  versionCode 11
-                  versionName '4.6'
+                  versionCode 12
+                  versionName '5.0'
               }
           }
           EOF
@@ -132,7 +136,8 @@ jobs:
               TextView placa, via, st, btn;
               Switch usarVia;
               EditText chave;
-              Switch forcar;
+              Switch forcar, alertaRadar;
+              TextView radarTxt;
               TextView[] menos = new TextView[3], mais = new TextView[3];
               LinearLayout config;
               TextView engrenagem;
@@ -194,6 +199,14 @@ jobs:
                   // Velocímetro com relógio
                   gauge = new Gauge(this);
                   l.addView(gauge, margemTopo(12));
+
+                  // Aviso de radar próximo (só aparece quando há um a menos de 200 m)
+                  radarTxt = texto("", 17, Color.WHITE, true);
+                  radarTxt.setGravity(Gravity.CENTER);
+                  radarTxt.setPadding(dp(12), dp(10), dp(12), dp(10));
+                  radarTxt.setBackground(fundo(Color.parseColor("#B3261E"), 12, 0));
+                  radarTxt.setVisibility(View.GONE);
+                  l.addView(radarTxt, margemTopo(8));
 
                   // Placa + nome da via
                   viaBox = new LinearLayout(this);
@@ -319,6 +332,14 @@ jobs:
                   config.setOrientation(LinearLayout.VERTICAL);
                   config.setPadding(dp(20), dp(12), dp(20), dp(4));
                   config.addView(usarVia, margemTopo(0));
+                  alertaRadar = new Switch(this);
+                  alertaRadar.setText("Avisar radares a 200 m");
+                  alertaRadar.setTextColor(FG);
+                  alertaRadar.setTextSize(15);
+                  alertaRadar.setChecked(p.getBoolean("radar", true));
+                  alertaRadar.setPadding(dp(14), dp(14), dp(14), dp(14));
+                  alertaRadar.setBackground(fundo(CARD, 12, 0));
+                  config.addView(alertaRadar, margemTopo(10));
                   config.addView(chave, margemTopo(10));
                   TextView testar = texto("▶  Testar vozes", 15, FG, true);
                   testar.setGravity(Gravity.CENTER);
@@ -365,6 +386,7 @@ jobs:
                           SharedPreferences p = getSharedPreferences("cfg", 0);
                           usarVia.setChecked(p.getBoolean("via", true));
                           chave.setText(p.getString("tomtom", ""));
+                          alertaRadar.setChecked(p.getBoolean("radar", true));
                       })
                       .show();
               }
@@ -379,6 +401,7 @@ jobs:
                   }
                   e.putBoolean("via", usarVia.isChecked());
                   e.putString("tomtom", chave.getText().toString().trim());
+                  e.putBoolean("radar", alertaRadar.isChecked());
                   e.apply();
               }
 
@@ -417,6 +440,9 @@ jobs:
                   // Com limite da via: laranja nos 10 km/h antes dele, vermelho a partir dele
                   if (temVia) gauge.mostrar(k, lv - 10, lv);
                   else gauge.mostrar(k, limite(0), limite(1));
+                  String ri = r ? SpeedService.radarInfo : "";
+                  radarTxt.setVisibility(ri.isEmpty() ? View.GONE : View.VISIBLE);
+                  radarTxt.setText("⚠  " + ri);
                   placa.setText(r && lv > 0 ? String.valueOf(lv) : "?");
                   viaBox.setVisibility(!r || SpeedService.usandoVia ? View.VISIBLE : View.GONE);
                   if (!r) via.setText(usarVia.isChecked() ? "Limite da via aparece aqui" : "Limite da via desligado");
@@ -625,7 +651,11 @@ jobs:
           import java.net.HttpURLConnection;
           import java.net.URL;
           import java.net.URLEncoder;
+          import java.io.BufferedReader;
+          import java.io.InputStreamReader;
           import java.util.ArrayDeque;
+          import java.util.ArrayList;
+          import java.util.HashSet;
           import java.util.Locale;
           import java.util.concurrent.ExecutorService;
           import java.util.concurrent.Executors;
@@ -637,6 +667,7 @@ jobs:
           public class SpeedService extends Service implements LocationListener {
               static volatile boolean rodando = false;
               static volatile float kmh = -1;
+              static volatile String radarInfo = "";         // "Radar a 150 m · 60 km/h" ou vazio
               static volatile int limVia = -1;          // limite da via atual (-1 = desconhecido)
               static volatile String nomeVia = "";
               static volatile String statusVia = "";
@@ -683,6 +714,8 @@ jobs:
                   for (int i = 0; i < 3; i++) lims[i] = p.getInt("l" + i, MainActivity.PADRAO[i]);
                   usarVia = p.getBoolean("via", true);
                   chaveTomTom = p.getString("tomtom", "");
+                  alertarRadar = p.getBoolean("radar", true);
+                  if (alertarRadar) carregarRadares();
                   usandoVia = usarVia;
 
                   nm = getSystemService(NotificationManager.class);
@@ -735,7 +768,7 @@ jobs:
                   int[] a = fila.poll();
                   if (a == null) { ocupado = false; soltarFoco(); return; }
                   ocupado = true;
-                  int id = getResources().getIdentifier("v" + a[0], "raw", getPackageName());
+                  int id = getResources().getIdentifier(a[0] < 0 ? "vradar" : "v" + a[0], "raw", getPackageName());
                   AudioAttributes attrs = new AudioAttributes.Builder()
                       .setUsage(AudioAttributes.USAGE_ASSISTANCE_NAVIGATION_GUIDANCE)
                       .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
@@ -765,12 +798,71 @@ jobs:
                   soltarFoco();
               }
 
+              // ---- Radares (assets/radares.csv: lat,lon,limite,rodovia,km,sentido,fonte) ----
+              static final float RADAR_M = 200;      // distância do aviso
+              static final float REARME_M = 400;     // longe disso, o radar pode ser avisado de novo
+              boolean alertarRadar;
+              double[] rLat, rLon;
+              int[] rLim;
+              final HashSet<Integer> avisados = new HashSet<>();
+
+              void carregarRadares() {
+                  if (rLat != null) return;
+                  ArrayList<String[]> linhas = new ArrayList<>();
+                  try (BufferedReader in = new BufferedReader(new InputStreamReader(getAssets().open("radares.csv"), "UTF-8"))) {
+                      in.readLine(); // cabeçalho
+                      String l;
+                      while ((l = in.readLine()) != null) { String[] c = l.split(","); if (c.length >= 3) linhas.add(c); }
+                  } catch (Exception e) { return; }
+                  int n = linhas.size();
+                  double[] la = new double[n], lo = new double[n];
+                  int[] li = new int[n];
+                  for (int i = 0; i < n; i++) {
+                      try {
+                          la[i] = Double.parseDouble(linhas.get(i)[0]);
+                          lo[i] = Double.parseDouble(linhas.get(i)[1]);
+                          li[i] = Integer.parseInt(linhas.get(i)[2]);
+                      } catch (Exception e) { la[i] = 99; }
+                  }
+                  rLat = la; rLon = lo; rLim = li;
+              }
+
+              // Avisa uma vez por radar que esteja à frente e a até 200 m. O radar do sentido
+              // oposto, logo ao lado, é marcado junto para não avisar duas vezes.
+              void verificarRadares(Location loc) {
+                  if (rLat == null) return;
+                  double lat = loc.getLatitude(), lon = loc.getLongitude();
+                  float rumo = loc.hasBearing() && loc.hasSpeed() && loc.getSpeed() > 3 ? loc.getBearing() : -1;
+                  float[] res = new float[2];
+                  ArrayList<Integer> perto = new ArrayList<>();
+                  float menor = Float.MAX_VALUE;
+                  int alvo = -1;
+                  for (int i = 0; i < rLat.length; i++) {
+                      if (Math.abs(rLat[i] - lat) > 0.005 || Math.abs(rLon[i] - lon) > 0.006) { avisados.remove(i); continue; }
+                      Location.distanceBetween(lat, lon, rLat[i], rLon[i], res);
+                      if (res[0] > REARME_M) { avisados.remove(i); continue; }
+                      perto.add(i);
+                      double dif = Math.abs((((res[1] - rumo) % 360) + 540) % 360 - 180);
+                      boolean frente = rumo < 0 || dif < 40;
+                      if (frente && res[0] <= RADAR_M && res[0] < menor) { menor = res[0]; alvo = i; }
+                  }
+                  if (alvo < 0) { radarInfo = ""; return; }
+                  radarInfo = "Radar a " + Math.round(menor) + " m" + (rLim[alvo] > 0 ? "  ·  " + rLim[alvo] + " km/h" : "");
+                  if (avisados.contains(alvo)) return;
+                  for (int j : perto) {
+                      Location.distanceBetween(rLat[alvo], rLon[alvo], rLat[j], rLon[j], res);
+                      if (res[0] < 150) avisados.add(j);
+                  }
+                  alertar(-1, 2, ToneGenerator.TONE_PROP_BEEP2);
+              }
+
               @Override
               public void onLocationChanged(Location loc) {
                   if (usarVia) talvezConsultar(loc);
                   if (!loc.hasSpeed()) return;
                   float v = loc.getSpeed() * 3.6f;
                   kmh = v;
+                  if (alertarRadar) verificarRadares(loc);
 
                   // Limite da via vencido (sem atualização recente)? Volta aos limites fixos.
                   if (limVia > 0 && System.currentTimeMillis() - ultimoSucesso > VALIDADE_MS) {
@@ -959,6 +1051,7 @@ jobs:
               public void onDestroy() {
                   rodando = false;
                   kmh = -1;
+                  radarInfo = "";
                   limVia = -1;
                   nomeVia = "";
                   nivel = 0;
