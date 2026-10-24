@@ -54,8 +54,8 @@ jobs:
                   applicationId 'com.alerta.velocidade'
                   minSdk 26
                   targetSdk 34
-                  versionCode 18
-                  versionName '5.6'
+                  versionCode 19
+                  versionName '5.7'
               }
           }
           EOF
@@ -516,7 +516,7 @@ jobs:
               }
 
               // Botão +: marca um radar na posição atual, com a velocidade escolhida numa tela grande
-              static final int[] VELOCIDADES_RADAR = {40, 60, 80, 100, 110};
+              static final int[] VELOCIDADES_RADAR = {40, 50, 60, 80, 100, 110};
               static final String EXTRA_MARCAR = "marcar_radar";
               boolean voltarAoTerminar = false; // aberto pela notificação: volta ao app anterior (Maps) no fim
 

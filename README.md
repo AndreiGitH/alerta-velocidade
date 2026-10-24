@@ -33,7 +33,7 @@ são mantidos.
 | Elemento | O que mostra |
 |---|---|
 | **? (canto superior esquerdo)** | Abre o manual. |
-| **+ (verde, ao lado do relógio)** | Marca um radar na posição atual: escolha 40, 60, 80, 100, 110 ou digite a velocidade. Fica salvo só no celular. Também dá para marcar pela ação **+ Radar** da notificação, sem sair do Maps. Para revisar e apagar: ⚙ → **☰ Meus radares**. |
+| **+ (verde, ao lado do relógio)** | Marca um radar na posição atual: escolha 40, 50, 60, 80, 100, 110 ou digite a velocidade. Fica salvo só no celular. Também dá para marcar pela ação **+ Radar** da notificação, sem sair do Maps. Para revisar e apagar: ⚙ → **☰ Meus radares**. |
 | **⚙ (canto superior direito)** | Abre as Configurações (inclui **⟳ Atualizar radares**). |
 | **Velocímetro** | Ponteiro e velocidade no centro. Faixas **verde** (abaixo do Limite 1), **laranja** (entre o Limite 1 e o 2) e **vermelha** (a partir do Limite 2). O número da velocidade fica laranja/vermelho quando você passa do limite. Embaixo, o **relógio**. |
 | **Faixa vermelha "⚠ Radar a 150 m · 60 km/h"** | Aparece só quando há um radar à frente a até 200 m. |
