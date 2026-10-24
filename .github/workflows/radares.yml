@@ -1,0 +1,38 @@
+name: Atualizar radares
+
+# Baixa as fontes oficiais (ANTT, Transalvador, SEINFRA-BA) e grava dados/radares.csv.
+# O botão "Atualizar radares" do app baixa esse arquivo direto do repositório.
+on:
+  schedule:
+    - cron: '0 9 * * 1'   # toda segunda-feira, 06:00 de Brasília
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Garantir 7-Zip (para o .rar da SEINFRA)
+        run: command -v 7z || (sudo apt-get update && sudo apt-get install -y p7zip-full p7zip-rar)
+
+      - name: Gerar radares.csv
+        run: python dados/gerar_radares.py
+
+      - name: Gravar no repositório se mudou
+        run: |
+          git add dados/radares.csv dados/radares_ba_seinfra.kml
+          if git diff --cached --quiet; then
+            echo "Nenhuma mudança nos radares."
+          else
+            git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+              commit -m "Atualiza radares (ANTT, Transalvador, SEINFRA-BA)"
+            git push
+          fi

@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual — Alerta de Velocidade</title>
+<style>
+  :root {
+    --fundo: #101418; --cartao: #1b2128; --borda: #2a323c;
+    --texto: #eef2f5; --mudo: #8a96a3;
+    --verde: #2ed47a; --laranja: #ff8a1f; --vermelho: #ff3b3b; --azul: #4c8dff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--fundo); color: var(--texto);
+    font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 20px 16px 48px; }
+  header { text-align: center; padding: 8px 0 20px; }
+  header h1 { margin: 0; font-size: 1.6rem; }
+  header p { margin: 6px 0 0; color: var(--mudo); }
+  nav {
+    display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 24px;
+  }
+  nav a {
+    color: var(--texto); text-decoration: none; background: var(--cartao);
+    border: 1px solid var(--borda); border-radius: 999px; padding: 6px 12px; font-size: .9rem;
+  }
+  section {
+    background: var(--cartao); border: 1px solid var(--borda); border-radius: 16px;
+    padding: 18px 18px 8px; margin-bottom: 16px;
+  }
+  h2 { margin: 0 0 12px; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; }
+  h2 .n {
+    display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 50%;
+    background: var(--verde); color: #06210f; font-size: .9rem; flex: none;
+  }
+  h3 { margin: 18px 0 6px; font-size: 1.02rem; color: var(--verde); }
+  p, li { color: #d6dde4; }
+  ol, ul { padding-left: 22px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0 14px; font-size: .95rem; }
+  th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--borda); vertical-align: top; }
+  th { color: var(--mudo); font-weight: 600; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+  .num { text-align: right; }
+  .dica {
+    border-left: 4px solid var(--azul); background: #16202c; padding: 10px 12px;
+    border-radius: 8px; margin: 10px 0 14px; color: #d6dde4;
+  }
+  .alerta { border-left-color: var(--laranja); background: #2a1f12; }
+  .faixa { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -1px; }
+  .v { background: var(--verde); } .l { background: var(--laranja); } .r { background: var(--vermelho); }
+  .radar {
+    display: inline-block; background: #b3261e; color: #fff; font-weight: 700;
+    border-radius: 10px; padding: 4px 10px; font-size: .9rem;
+  }
+  kbd, code {
+    background: #0b0f13; border: 1px solid var(--borda); border-radius: 6px;
+    padding: 1px 6px; font: .9em ui-monospace, Consolas, monospace; color: var(--texto);
+  }
+  pre {
+    background: #0b0f13; border: 1px solid var(--borda); border-radius: 10px;
+    padding: 12px; overflow-x: auto; font: .85rem ui-monospace, Consolas, monospace;
+  }
+  a { color: var(--azul); }
+  footer { text-align: center; color: var(--mudo); font-size: .85rem; margin-top: 24px; }
+  @media (max-width: 480px) { td:first-child { white-space: normal; } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Alerta de Velocidade</h1>
+    <p>Manual de uso</p>
+  </header>
+
+  <nav>
+    <a href="#instalar">Instalação</a>
+    <a href="#inicio">Primeiro uso</a>
+    <a href="#tela">A tela</a>
+    <a href="#avisos">Avisos</a>
+    <a href="#radares">Radares</a>
+    <a href="#config">Configurações</a>
+    <a href="#problemas">Problemas</a>
+  </nav>
+
+  <section>
+    <p>O app mostra sua velocidade num velocímetro estilo painel e <b>avisa por voz</b> quando
+      você passa dos seus limites, quando passa do limite da via e quando se aproxima de um
+      <b>radar</b> (a 200 m). Funciona em segundo plano, inclusive com o Google Maps ou o Waze abertos.</p>
+  </section>
+
+  <section id="instalar">
+    <h2><span class="n">1</span>Instalação</h2>
+    <ol>
+      <li>No celular, abra a página
+        <a href="https://github.com/AndreiGitH/alerta-velocidade/releases">Releases</a>
+        e baixe o <code>app-debug.apk</code> da versão mais recente.</li>
+      <li>Toque no arquivo. Se o Android bloquear, ative <b>Permitir desta fonte</b>.</li>
+      <li>Se o Play Protect avisar sobre "app desconhecido", toque em <b>Instalar mesmo assim</b>.</li>
+    </ol>
+    <div class="dica">Para atualizar, instale o APK novo por cima. Limites e configurações são mantidos.</div>
+  </section>
+
+  <section id="inicio">
+    <h2><span class="n">2</span>Primeiro uso</h2>
+    <ol>
+      <li>Toque em <b>Iniciar</b>.</li>
+      <li>Permita <b>Localização</b> ("Durante o uso do app") e <b>Notificações</b>.</li>
+      <li>Aparece a notificação fixa "Alerta de Velocidade". Pode abrir o Maps: os avisos continuam.</li>
+    </ol>
+    <div class="dica">Os avisos saem pelo <b>volume de mídia</b>; deixe-o alto. Enquanto o app fala,
+      o som do Maps ou da música abaixa sozinho.</div>
+  </section>
+
+  <section id="tela">
+    <h2><span class="n">3</span>A tela</h2>
+    <table>
+      <tr><th>Elemento</th><th>O que faz</th></tr>
+      <tr><td>? (topo, à esquerda)</td><td>Abre este manual.</td></tr>
+      <tr><td>⚙ (topo, à direita)</td><td>Abre as Configurações.</td></tr>
+      <tr><td>Velocímetro</td><td>Ponteiro e velocidade no centro, com o relógio embaixo. Faixas:
+        <span class="faixa v"></span> abaixo do Limite 1,
+        <span class="faixa l"></span> entre o Limite 1 e o 2,
+        <span class="faixa r"></span> a partir do Limite 2.
+        O número fica laranja ou vermelho quando você passa do limite.</td></tr>
+      <tr><td>Faixa de radar</td><td><span class="radar">⚠ Radar a 150 m · 60 km/h</span>
+        aparece só quando há um radar à frente a até 200 m.</td></tr>
+      <tr><td>Placa da via</td><td>Limite da rua onde você está (TomTom ou OpenStreetMap) e o nome dela.</td></tr>
+      <tr><td>Forçar meus limites</td><td>Ligada: os avisos usam sempre os seus 3 limites, mesmo havendo limite da via.
+        Pode ser mudada a qualquer momento.</td></tr>
+      <tr><td>Limite 1, 2 e 3</td><td>Seus limites em km/h. Use <b>−</b> / <b>+</b> (de 5 em 5) ou digite.</td></tr>
+      <tr><td>Iniciar / Parar</td><td>Liga e desliga o monitoramento.</td></tr>
+    </table>
+    <div class="dica alerta">Os limites e as Configurações só podem ser alterados com o alerta <b>parado</b>.</div>
+  </section>
+
+  <section id="avisos">
+    <h2><span class="n">4</span>Avisos de velocidade</h2>
+    <h3>Seus limites</h3>
+    <ul>
+      <li>Ao passar de um limite, o app <b>fala o número</b> ("sessenta", "oitenta"...).</li>
+      <li>Há voz para <b>30, 40, 50, 60, 70, 80, 90, 100, 110 e 120</b>. Para outros valores (ex.: 65)
+        tocam bipes: 1 no Limite 1, 2 no Limite 2, 3 no Limite 3.</li>
+      <li>O aviso de um limite só se repete depois que você desce <b>3 km/h abaixo</b> dele e volta a passar.</li>
+    </ul>
+    <h3>Limite da via</h3>
+    <ul>
+      <li>Com <b>Usar limite da via</b> ligado, o app consulta o limite da rua a cada 10 s ou 150 m.</li>
+      <li>Quando encontra, os avisos seguem o limite da via: laranja nos 10 km/h antes dele, vermelho a partir dele.</li>
+      <li>Sem limite cadastrado para a rua, o app volta aos seus 3 limites.</li>
+    </ul>
+  </section>
+
+  <section id="radares">
+    <h2><span class="n">5</span>Radares</h2>
+    <ul>
+      <li>Quando um radar <b>à sua frente</b> chega a <b>200 m</b>, o app fala
+        <b>"Radar 200 metros"</b> e em seguida o limite do radar (ex.: "sessenta").</li>
+      <li>Cada radar é avisado uma vez; o do sentido oposto, ao lado, não repete o aviso.</li>
+    </ul>
+    <h3>Fontes oficiais</h3>
+    <table>
+      <tr><th>Fonte</th><th>Cobertura</th><th class="num">Radares*</th></tr>
+      <tr><td>ANTT</td><td>Rodovias federais concedidas (pedagiadas), todo o Brasil</td><td class="num">1.168</td></tr>
+      <tr><td>Transalvador</td><td>Cidade de Salvador</td><td class="num">99</td></tr>
+      <tr><td>SEINFRA-BA</td><td>Rodovias estaduais da Bahia</td><td class="num">77</td></tr>
+    </table>
+    <p style="color:var(--mudo);font-size:.85rem;margin-top:-6px">* Quantidade em outubro/2026. Os números
+      atuais aparecem em ⚙ → Configurações.</p>
+
+    <h3>Atualizar os radares</h3>
+    <ol>
+      <li>Toda <b>segunda-feira</b>, o GitHub baixa as três fontes oficiais e gera uma lista nova
+        (inclusive o mapa da SEINFRA-BA, que é extraído automaticamente).</li>
+      <li>No app, toque em <b>⚙ → ⟳ Atualizar radares</b>. O app baixa a lista mais recente e mostra
+        quantos radares vieram de cada fonte.</li>
+      <li>A lista nova vale na hora, inclusive com o alerta ligado. Se o download falhar, a lista anterior continua.</li>
+    </ol>
+    <div class="dica alerta">Não estão incluídos radares do DNIT (federais sem concessão), de outros DERs
+      estaduais, de outras prefeituras, nem radares móveis.</div>
+  </section>
+
+  <section id="config">
+    <h2><span class="n">6</span>Configurações (⚙)</h2>
+    <table>
+      <tr><th>Opção</th><th>Para que serve</th></tr>
+      <tr><td>Usar limite da via</td><td>Liga a consulta do limite da rua (TomTom / OpenStreetMap).</td></tr>
+      <tr><td>Avisar radares a 200 m</td><td>Liga o aviso de radares.</td></tr>
+      <tr><td>Chave da API TomTom</td><td>Opcional; melhora muito o limite da via. Fica só no celular e aparece oculta.</td></tr>
+      <tr><td>▶ Testar vozes</td><td>Toca as vozes dos seus 3 limites.</td></tr>
+      <tr><td>⟳ Atualizar radares</td><td>Baixa a lista de radares mais recente.</td></tr>
+    </table>
+    <p>Toque em <b>Salvar</b> para guardar ou <b>Cancelar</b> para desfazer.</p>
+    <h3>Chave TomTom (grátis)</h3>
+    <ol>
+      <li>Crie uma conta em <a href="https://developer.tomtom.com">developer.tomtom.com</a>.</li>
+      <li>Em <b>Keys</b>, copie a chave (precisa ter acesso à <i>Search API</i>).</li>
+      <li>Cole em ⚙ → <b>Chave da API TomTom</b> → <b>Salvar</b>.</li>
+    </ol>
+    <p>O plano gratuito dá 2.500 consultas por dia (cerca de 7 horas de direção).</p>
+  </section>
+
+  <section id="problemas">
+    <h2><span class="n">7</span>Problemas comuns</h2>
+    <table>
+      <tr><th>Sintoma</th><th>O que fazer</th></tr>
+      <tr><td>Velocidade em "--"</td><td>Aguarde o sinal de GPS (céu aberto ajuda) e confira se a Localização está ligada.</td></tr>
+      <tr><td>Não ouço os avisos</td><td>Aumente o volume de mídia. Use ⚙ → Testar vozes.</td></tr>
+      <tr><td>Avisa outro número</td><td>Está valendo o limite da via. Ligue <b>Forçar meus limites</b>.</td></tr>
+      <tr><td>Um limite não foi falado</td><td>Já tinha sido avisado e você não desceu 3 km/h abaixo dele; ou não há voz para esse valor (tocam bipes).</td></tr>
+      <tr><td>"Chave inválida" ou "cota esgotada"</td><td>Confira a chave TomTom. Enquanto isso, o app usa o OpenStreetMap.</td></tr>
+      <tr><td>"Não foi possível atualizar" radares</td><td>Verifique a internet e tente de novo. A lista anterior continua valendo.</td></tr>
+      <tr><td>O app para sozinho</td><td>Android → Configurações → Apps → Alerta de Velocidade → Bateria → <b>Sem restrições</b>.</td></tr>
+    </table>
+  </section>
+
+  <footer>Alerta de Velocidade · <a href="https://github.com/AndreiGitH/alerta-velocidade">github.com/AndreiGitH/alerta-velocidade</a></footer>
+</main>
+</body>
+</html>

@@ -4,10 +4,13 @@ Fontes:
   - ANTT, conjunto "Radar" (rodovias federais concedidas), licença CC-BY.
     https://dados.antt.gov.br/dataset/radar
   - SEINFRA/SIT-Bahia, KML oficial dos radares das rodovias estaduais
-    (https://www.ba.gov.br/infraestrutura/12046/mapas). Baixe o KML novo e salve
-    como dados/radares_ba_seinfra.kml para atualizar.
+    (https://www.ba.gov.br/infraestrutura/12046/mapas). O script baixa o arquivo
+    "Mapa-Radar_*.rar" mais recente da página, extrai o KML (precisa do 7-Zip) e
+    salva por cima de dados/radares_ba_seinfra.kml.
   - Transalvador (Prefeitura de Salvador), mapa oficial de radares.
     https://transonline.salvador.ba.gov.br/geral_sistema/web/index.php/mapa/mapa-porticos
+
+Se uma fonte falhar, os radares dela da versão anterior de radares.csv são mantidos.
 
 Uso:  python dados/gerar_radares.py
 """
@@ -17,12 +20,21 @@ import io
 import json
 import os
 import re
+import shutil
+import subprocess
+import tempfile
+import zipfile
 import urllib.request
 import xml.etree.ElementTree as ET
+from urllib.parse import urljoin
 
 TRANSALVADOR = "https://transonline.salvador.ba.gov.br/geral_sistema/web/index.php/mapa/mapa-porticos"
+SEINFRA_MAPAS = "https://www.ba.gov.br/infraestrutura/12046/mapas"
 ANTT_API = "https://dados.antt.gov.br/api/3/action/package_show?id=radar"
-SAIDA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "radares.csv")
+PASTA = os.path.dirname(os.path.abspath(__file__))
+SAIDA = os.path.join(PASTA, "radares.csv")
+KML_BA = os.path.join(PASTA, "radares_ba_seinfra.kml")
+CAMPOS = ["lat", "lon", "limite", "rodovia", "km", "sentido", "fonte"]
 TIMEOUT = 280  # o portal da ANTT costuma ser lento
 
 
@@ -103,8 +115,47 @@ def radares_transalvador():
         }
 
 
+def sete_zip():
+    for c in (shutil.which("7z"), shutil.which("7zz"), r"C:\Program Files\7-Zip\7z.exe"):
+        if c and os.path.exists(c):
+            return c
+    raise RuntimeError("7-Zip não encontrado (necessário para abrir o .rar da SEINFRA)")
+
+
+def atualizar_kml_bahia():
+    """Baixa o mapa de radares mais recente da página da SEINFRA e grava o KML em KML_BA."""
+    pagina = baixar(SEINFRA_MAPAS).decode("utf-8", "replace")
+    links = re.findall(r'href="([^"]*Mapa-Radar[^"]*\.(?:rar|zip|kmz|kml))"', pagina, re.I)
+    if not links:
+        raise RuntimeError("link do Mapa-Radar não encontrado na página da SEINFRA")
+    url = urljoin(SEINFRA_MAPAS, links[0])
+    print("SEINFRA-BA:", url)
+    dados = baixar(url)
+    ext = url.rsplit(".", 1)[-1].lower()
+    with tempfile.TemporaryDirectory() as tmp:
+        arquivo = os.path.join(tmp, "mapa." + ext)
+        with open(arquivo, "wb") as f:
+            f.write(dados)
+        if ext == "kml":
+            kml = arquivo
+        elif ext in ("zip", "kmz"):
+            with zipfile.ZipFile(arquivo) as z:
+                z.extractall(tmp)
+            kml = None
+        else:
+            subprocess.run([sete_zip(), "x", "-y", "-o" + tmp, arquivo], check=True, capture_output=True)
+            kml = None
+        if kml is None:
+            achados = [os.path.join(r, n) for r, _, ns in os.walk(tmp) for n in ns if n.lower().endswith(".kml")]
+            if not achados:
+                raise RuntimeError("nenhum .kml dentro de " + url)
+            kml = achados[0]
+        ET.parse(kml)  # garante que é um KML válido antes de sobrescrever
+        shutil.copyfile(kml, KML_BA)
+
+
 def radares_bahia():
-    caminho = os.path.join(os.path.dirname(SAIDA), "radares_ba_seinfra.kml")
+    caminho = KML_BA
     if not os.path.exists(caminho):
         return
     ns = {"k": "http://www.opengis.net/kml/2.2"}
@@ -128,26 +179,62 @@ def radares_bahia():
         }
 
 
+def anteriores():
+    """Radares da versão atual de radares.csv, por fonte (usados se uma fonte falhar)."""
+    por_fonte = {}
+    if os.path.exists(SAIDA):
+        with open(SAIDA, encoding="utf-8") as f:
+            for r in csv.DictReader(f):
+                por_fonte.setdefault(r["fonte"], []).append(r)
+    return por_fonte
+
+
+def bahia_atualizada():
+    atualizar_kml_bahia()
+    return radares_bahia()
+
+
 def main():
-    radares = list(radares_antt())
-    ssa = list(radares_transalvador())
-    print(f"Transalvador: {len(ssa)} radares")
-    radares += ssa
-    ba = list(radares_bahia())
-    print(f"SEINFRA-BA: {len(ba)} radares")
-    radares += ba
+    antigos = anteriores()
+    fontes = [("ANTT", "federais concedidas", radares_antt),
+              ("Transalvador", "Salvador", radares_transalvador),
+              ("SEINFRA-BA", "estaduais da Bahia", bahia_atualizada)]
+    radares, resumo = [], []
+    for nome, descricao, funcao in fontes:
+        try:
+            lista = list(funcao())
+            if not lista:
+                raise RuntimeError("nenhum radar lido")
+            situacao = "atualizada"
+        except Exception as e:
+            lista = antigos.get(nome, [])
+            situacao = f"FALHOU ({e}); mantidos os dados anteriores"
+        radares += lista
+        resumo.append((nome, descricao, lista, situacao))
+
     # Remove duplicados (mesma posição em ~10 m)
     vistos, unicos = set(), []
     for r in radares:
-        chave = (round(r["lat"], 4), round(r["lon"], 4), r["sentido"])
+        chave = (round(float(r["lat"]), 4), round(float(r["lon"]), 4), r["sentido"])
         if chave not in vistos:
             vistos.add(chave)
             unicos.append(r)
     with open(SAIDA, "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=["lat", "lon", "limite", "rodovia", "km", "sentido", "fonte"])
+        w = csv.DictWriter(f, fieldnames=CAMPOS)
         w.writeheader()
         w.writerows(unicos)
-    print(f"{len(unicos)} radares gravados em {SAIDA}")
+
+    linhas = ["| Fonte | Radares | Situação |", "|---|---:|---|"]
+    for nome, descricao, _, situacao in resumo:
+        n = sum(1 for r in unicos if r["fonte"] == nome)
+        linhas.append(f"| {nome} ({descricao}) | {n} | {situacao} |")
+    linhas.append(f"| **Total** | **{len(unicos)}** | |")
+    tabela = "\n".join(linhas)
+    print(tabela)
+    # No GitHub Actions, a tabela aparece no resumo da execução
+    if os.environ.get("GITHUB_STEP_SUMMARY"):
+        with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
+            f.write("## Radares\n\n" + tabela + "\n")
 
 
 if __name__ == "__main__":

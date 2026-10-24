@@ -32,6 +32,7 @@ jobs:
           # Radares (gerado por dados/gerar_radares.py a partir dos dados abertos da ANTT)
           mkdir -p app/src/main/assets
           cp dados/radares.csv app/src/main/assets/radares.csv
+          cp docs/manual.html app/src/main/assets/manual.html
 
           cat > settings.gradle <<'EOF'
           pluginManagement { repositories { google(); mavenCentral(); gradlePluginPortal() } }
@@ -53,8 +54,8 @@ jobs:
                   applicationId 'com.alerta.velocidade'
                   minSdk 26
                   targetSdk 34
-                  versionCode 13
-                  versionName '5.1'
+                  versionCode 14
+                  versionName '5.2'
               }
           }
           EOF
@@ -115,13 +116,23 @@ jobs:
           import android.view.View;
           import android.view.ViewGroup;
           import android.view.WindowManager;
+          import android.webkit.WebView;
           import android.widget.EditText;
           import android.widget.FrameLayout;
           import android.widget.LinearLayout;
           import android.widget.ScrollView;
           import android.widget.Switch;
           import android.widget.TextView;
+          import java.io.ByteArrayOutputStream;
+          import java.io.File;
+          import java.io.FileInputStream;
+          import java.io.FileOutputStream;
+          import java.io.InputStream;
+          import java.net.HttpURLConnection;
+          import java.net.URL;
           import java.util.ArrayList;
+          import java.util.LinkedHashMap;
+          import java.util.Map;
 
           public class MainActivity extends Activity {
               static final int[] PADRAO = {60, 80, 100};
@@ -137,6 +148,7 @@ jobs:
               Switch usarVia;
               EditText chave;
               Switch forcar, alertaRadar;
+              TextView radaresInfo;
               TextView radarTxt;
               TextView[] menos = new TextView[3], mais = new TextView[3];
               LinearLayout config;
@@ -194,6 +206,12 @@ jobs:
                   engrenagem.setPadding(dp(12), 0, dp(4), 0);
                   engrenagem.setOnClickListener(v -> abrirConfig());
                   topo.addView(engrenagem, new FrameLayout.LayoutParams(-2, -2, Gravity.END | Gravity.CENTER_VERTICAL));
+                  TextView ajuda = texto("?", 22, MUT, true);
+                  ajuda.setGravity(Gravity.CENTER);
+                  ajuda.setBackground(fundo(CARD, 18, 0));
+                  ajuda.setOnClickListener(v -> abrirManual());
+                  FrameLayout.LayoutParams ap = new FrameLayout.LayoutParams(dp(36), dp(36), Gravity.START | Gravity.CENTER_VERTICAL);
+                  topo.addView(ajuda, ap);
                   l.addView(topo, margemTopo(0));
 
                   // Velocímetro com relógio
@@ -347,6 +365,15 @@ jobs:
                   testar.setBackground(fundo(CARD, 12, 0));
                   testar.setOnClickListener(v -> testarVozes(0));
                   config.addView(testar, margemTopo(10));
+                  TextView atualizarRadares = texto("\u27F3  Atualizar radares", 15, FG, true);
+                  atualizarRadares.setGravity(Gravity.CENTER);
+                  atualizarRadares.setPadding(0, dp(12), 0, dp(12));
+                  atualizarRadares.setBackground(fundo(CARD, 12, 0));
+                  atualizarRadares.setOnClickListener(v -> atualizarRadares());
+                  config.addView(atualizarRadares, margemTopo(10));
+                  radaresInfo = texto("", 13, MUT, false);
+                  radaresInfo.setPadding(dp(4), dp(8), dp(4), 0);
+                  config.addView(radaresInfo, margemTopo(0));
               }
 
               // Botão − / + que muda o limite de 5 em 5 km/h
@@ -375,9 +402,100 @@ jobs:
                   mp.start();
               }
 
+              static final String URL_RADARES =
+                  "https://raw.githubusercontent.com/AndreiGitH/alerta-velocidade/main/dados/radares.csv";
+
+              // Manual em HTML (assets/manual.html) numa janela de tela cheia
+              void abrirManual() {
+                  WebView w = new WebView(this);
+                  w.setBackgroundColor(BG);
+                  w.loadUrl("file:///android_asset/manual.html");
+                  new AlertDialog.Builder(this, android.R.style.Theme_DeviceDefault_NoActionBar)
+                      .setView(w)
+                      .setPositiveButton("Fechar", null)
+                      .show();
+              }
+
+              // Quantos radares há por fonte (última coluna do CSV)
+              static Map<String, Integer> contarFontes(String csv) {
+                  Map<String, Integer> n = new LinkedHashMap<>();
+                  String[] linhas = csv.split("\n");
+                  for (int i = 1; i < linhas.length; i++) {
+                      String l = linhas[i].trim();
+                      if (l.isEmpty()) continue;
+                      String fonte = l.substring(l.lastIndexOf(',') + 1);
+                      Integer v = n.get(fonte);
+                      n.put(fonte, v == null ? 1 : v + 1);
+                  }
+                  return n;
+              }
+
+              static String resumo(Map<String, Integer> n) {
+                  int total = 0;
+                  StringBuilder sb = new StringBuilder();
+                  for (Map.Entry<String, Integer> e : n.entrySet()) {
+                      sb.append(e.getKey()).append(": ").append(e.getValue()).append("\n");
+                      total += e.getValue();
+                  }
+                  return sb.append("Total: ").append(total).append(" radares").toString();
+              }
+
+              static String ler(InputStream in) throws Exception {
+                  ByteArrayOutputStream buf = new ByteArrayOutputStream();
+                  byte[] b = new byte[8192];
+                  int k;
+                  while ((k = in.read(b)) > 0) buf.write(b, 0, k);
+                  in.close();
+                  return buf.toString("UTF-8");
+              }
+
+              // Base em uso: a baixada pelo botão (files/radares.csv) ou a que veio no APK
+              void mostrarBaseRadares() {
+                  try {
+                      File f = new File(getFilesDir(), "radares.csv");
+                      String txt = ler(f.exists() ? new FileInputStream(f) : getAssets().open("radares.csv"));
+                      String quando = f.exists()
+                          ? "atualizada em " + DateFormat.format("dd/MM/yyyy HH:mm", f.lastModified())
+                          : "a que veio com o app";
+                      radaresInfo.setText("Base de radares (" + quando + "):\n" + resumo(contarFontes(txt)));
+                  } catch (Exception e) {
+                      radaresInfo.setText("Base de radares indisponível.");
+                  }
+              }
+
+              // Baixa a lista de radares mais recente do repositório (atualizada toda semana
+              // pelo GitHub a partir de ANTT, Transalvador e SEINFRA-BA)
+              void atualizarRadares() {
+                  radaresInfo.setText("Baixando radares...");
+                  new Thread(() -> {
+                      String msg;
+                      try {
+                          HttpURLConnection c = (HttpURLConnection) new URL(URL_RADARES).openConnection();
+                          c.setConnectTimeout(15000);
+                          c.setReadTimeout(30000);
+                          if (c.getResponseCode() != 200) throw new Exception("HTTP " + c.getResponseCode());
+                          String txt = ler(c.getInputStream());
+                          Map<String, Integer> n = contarFontes(txt);
+                          int total = 0;
+                          for (int v : n.values()) total += v;
+                          if (!txt.startsWith("lat,lon") || total < 100) throw new Exception("arquivo inválido");
+                          File tmp = new File(getFilesDir(), "radares.tmp");
+                          try (FileOutputStream o = new FileOutputStream(tmp)) { o.write(txt.getBytes("UTF-8")); }
+                          if (!tmp.renameTo(new File(getFilesDir(), "radares.csv"))) throw new Exception("falha ao gravar");
+                          SpeedService.recarregarRadares = true;
+                          msg = "Radares atualizados:\n" + resumo(n);
+                      } catch (Exception e) {
+                          msg = "Não foi possível atualizar (" + e.getMessage() + "). A base anterior continua valendo.";
+                      }
+                      final String m = msg;
+                      h.post(() -> radaresInfo.setText(m));
+                  }).start();
+              }
+
               void abrirConfig() {
                   if (SpeedService.rodando) { st.setText("Toque em Parar para mudar as configurações."); return; }
                   if (config.getParent() != null) ((ViewGroup) config.getParent()).removeView(config);
+                  mostrarBaseRadares();
                   new AlertDialog.Builder(this, android.R.style.Theme_DeviceDefault_Dialog_Alert)
                       .setTitle("Configurações")
                       .setView(config)
@@ -652,6 +770,8 @@ jobs:
           import java.net.URL;
           import java.net.URLEncoder;
           import java.io.BufferedReader;
+          import java.io.File;
+          import java.io.FileInputStream;
           import java.io.InputStreamReader;
           import java.util.ArrayDeque;
           import java.util.ArrayList;
@@ -667,6 +787,7 @@ jobs:
           public class SpeedService extends Service implements LocationListener {
               static volatile boolean rodando = false;
               static volatile float kmh = -1;
+              static volatile boolean recarregarRadares = false; // botão "Atualizar radares" baixou uma base nova
               static volatile String radarInfo = "";         // "Radar a 150 m · 60 km/h" ou vazio
               static volatile int limVia = -1;          // limite da via atual (-1 = desconhecido)
               static volatile String nomeVia = "";
@@ -809,7 +930,9 @@ jobs:
               void carregarRadares() {
                   if (rLat != null) return;
                   ArrayList<String[]> linhas = new ArrayList<>();
-                  try (BufferedReader in = new BufferedReader(new InputStreamReader(getAssets().open("radares.csv"), "UTF-8"))) {
+                  File baixado = new File(getFilesDir(), "radares.csv");
+                  try (BufferedReader in = new BufferedReader(new InputStreamReader(
+                          baixado.exists() ? new FileInputStream(baixado) : getAssets().open("radares.csv"), "UTF-8"))) {
                       in.readLine(); // cabeçalho
                       String l;
                       while ((l = in.readLine()) != null) { String[] c = l.split(","); if (c.length >= 3) linhas.add(c); }
@@ -830,6 +953,12 @@ jobs:
               // Avisa uma vez por radar que esteja à frente e a até 200 m. O radar do sentido
               // oposto, logo ao lado, é marcado junto para não avisar duas vezes.
               void verificarRadares(Location loc) {
+                  if (recarregarRadares) {
+                      recarregarRadares = false;
+                      rLat = null;
+                      avisados.clear();
+                      carregarRadares();
+                  }
                   if (rLat == null) return;
                   double lat = loc.getLatitude(), lon = loc.getLongitude();
                   float rumo = loc.hasBearing() && loc.hasSpeed() && loc.getSpeed() > 3 ? loc.getBearing() : -1;

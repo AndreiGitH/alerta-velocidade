@@ -32,7 +32,8 @@ são mantidos.
 
 | Elemento | O que mostra |
 |---|---|
-| **⚙ (canto superior direito)** | Abre as Configurações. |
+| **? (canto superior esquerdo)** | Abre o manual. |
+| **⚙ (canto superior direito)** | Abre as Configurações (inclui **⟳ Atualizar radares**). |
 | **Velocímetro** | Ponteiro e velocidade no centro. Faixas **verde** (abaixo do Limite 1), **laranja** (entre o Limite 1 e o 2) e **vermelha** (a partir do Limite 2). O número da velocidade fica laranja/vermelho quando você passa do limite. Embaixo, o **relógio**. |
 | **Faixa vermelha "⚠ Radar a 150 m · 60 km/h"** | Aparece só quando há um radar à frente a até 200 m. |
 | **Placa da via** | Limite da via onde você está (TomTom ou OpenStreetMap) e o nome da rua. |
@@ -125,12 +126,24 @@ ffmpeg -i 65.wav -ac 1 -ar 24000 -codec:a libmp3lame -b:a 48k audio/65.mp3
 ```
 
 ### Atualizar os radares
-1. (Bahia) Baixe o KML novo em <https://www.ba.gov.br/infraestrutura/12046/mapas> e
-   salve como `dados/radares_ba_seinfra.kml`.
-2. Rode o gerador, que baixa ANTT e Transalvador e junta tudo em `dados/radares.csv`:
+É automático. O workflow [`.github/workflows/radares.yml`](.github/workflows/radares.yml)
+roda toda segunda-feira (ou em **Actions → Atualizar radares → Run workflow**) e:
+
+1. baixa o CSV mais recente da ANTT;
+2. lê o mapa oficial da Transalvador;
+3. baixa o `Mapa-Radar_*.rar` mais recente da
+   [página da SEINFRA-BA](https://www.ba.gov.br/infraestrutura/12046/mapas), extrai o KML
+   e grava por cima de `dados/radares_ba_seinfra.kml`;
+4. gera `dados/radares.csv`, faz commit se mudou e mostra a tabela de radares por fonte
+   no resumo da execução.
+
+Se uma fonte falhar, os radares dela da versão anterior são mantidos. No app, o botão
+**⚙ → ⟳ Atualizar radares** baixa esse `radares.csv` direto do repositório.
+
+Para rodar no computador (precisa do 7-Zip instalado):
 
 ```bash
 python dados/gerar_radares.py
 ```
 
-3. Faça commit e push; o próximo APK já sai com os dados novos.
+O manual do app em HTML fica em [`docs/manual.html`](docs/manual.html) e abre pelo botão **?** do app.
