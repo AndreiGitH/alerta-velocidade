@@ -54,8 +54,8 @@ jobs:
                   applicationId 'com.alerta.velocidade'
                   minSdk 26
                   targetSdk 34
-                  versionCode 14
-                  versionName '5.2'
+                  versionCode 15
+                  versionName '5.3'
               }
           }
           EOF
@@ -204,6 +204,14 @@ jobs:
                   topo.addView(titulo, new FrameLayout.LayoutParams(-1, -2, Gravity.CENTER_VERTICAL));
                   engrenagem = texto("⚙", 26, MUT, false);
                   engrenagem.setPadding(dp(12), 0, dp(4), 0);
+                  TextView mais = texto("+", 26, Color.parseColor("#06210F"), true);
+                  mais.setGravity(Gravity.CENTER);
+                  mais.setIncludeFontPadding(false);
+                  mais.setBackground(fundo(OK, 18, 0));
+                  mais.setOnClickListener(v -> adicionarRadar());
+                  FrameLayout.LayoutParams mp = new FrameLayout.LayoutParams(dp(36), dp(36), Gravity.END | Gravity.CENTER_VERTICAL);
+                  mp.rightMargin = dp(48);
+                  topo.addView(mais, mp);
                   engrenagem.setOnClickListener(v -> abrirConfig());
                   topo.addView(engrenagem, new FrameLayout.LayoutParams(-2, -2, Gravity.END | Gravity.CENTER_VERTICAL));
                   TextView ajuda = texto("?", 22, MUT, true);
@@ -457,7 +465,10 @@ jobs:
                       String quando = f.exists()
                           ? "atualizada em " + DateFormat.format("dd/MM/yyyy HH:mm", f.lastModified())
                           : "a que veio com o app";
-                      radaresInfo.setText("Base de radares (" + quando + "):\n" + resumo(contarFontes(txt)));
+                      File meus = new File(getFilesDir(), "radares_usuario.csv");
+                      int nMeus = meus.exists() ? contarFontes("cabecalho\n" + ler(new FileInputStream(meus))).values().stream().mapToInt(Integer::intValue).sum() : 0;
+                      radaresInfo.setText("Base de radares (" + quando + "):\n" + resumo(contarFontes(txt))
+                          + "\nMarcados por você: " + nMeus);
                   } catch (Exception e) {
                       radaresInfo.setText("Base de radares indisponível.");
                   }
@@ -490,6 +501,105 @@ jobs:
                       final String m = msg;
                       h.post(() -> radaresInfo.setText(m));
                   }).start();
+              }
+
+              // Botão +: marca um radar na posição atual, com a velocidade escolhida numa tela grande
+              static final int[] VELOCIDADES_RADAR = {40, 60, 80, 100, 110};
+
+              void adicionarRadar() {
+                  if (!SpeedService.rodando || Double.isNaN(SpeedService.ultLat)) {
+                      st.setText("Para marcar um radar, toque em Iniciar e aguarde o sinal de GPS.");
+                      return;
+                  }
+                  final double lat = SpeedService.ultLat, lon = SpeedService.ultLon; // posição no momento do toque
+
+                  LinearLayout box = new LinearLayout(this);
+                  box.setOrientation(LinearLayout.VERTICAL);
+                  box.setPadding(dp(20), dp(28), dp(20), dp(12));
+                  box.setBackgroundColor(BG);
+                  TextView tit = texto("Novo radar aqui", 26, FG, true);
+                  tit.setGravity(Gravity.CENTER);
+                  box.addView(tit);
+                  TextView pos = texto(String.format(java.util.Locale.US, "%.5f, %.5f", lat, lon), 13, MUT, false);
+                  pos.setGravity(Gravity.CENTER);
+                  box.addView(pos, margemTopo(4));
+                  TextView perg = texto("Qual a velocidade do radar?", 17, FG, false);
+                  perg.setGravity(Gravity.CENTER);
+                  box.addView(perg, margemTopo(20));
+
+                  final AlertDialog[] d = new AlertDialog[1];
+                  // Placas de velocidade grandes, 3 por linha
+                  LinearLayout linha = null;
+                  for (int i = 0; i < VELOCIDADES_RADAR.length; i++) {
+                      if (i % 3 == 0) {
+                          linha = new LinearLayout(this);
+                          linha.setGravity(Gravity.CENTER);
+                          box.addView(linha, margemTopo(16));
+                      }
+                      final int v = VELOCIDADES_RADAR[i];
+                      TextView placa = texto(String.valueOf(v), 34, Color.BLACK, true);
+                      placa.setGravity(Gravity.CENTER);
+                      GradientDrawable g = new GradientDrawable();
+                      g.setShape(GradientDrawable.OVAL);
+                      g.setColor(Color.WHITE);
+                      g.setStroke(dp(9), Color.parseColor("#D32F2F"));
+                      placa.setBackground(g);
+                      placa.setOnClickListener(x -> { salvarRadarUsuario(lat, lon, v); d[0].dismiss(); });
+                      LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(dp(96), dp(96));
+                      lp.leftMargin = lp.rightMargin = dp(8);
+                      linha.addView(placa, lp);
+                  }
+
+                  // Ou digitação livre
+                  LinearLayout livre = new LinearLayout(this);
+                  livre.setGravity(Gravity.CENTER_VERTICAL);
+                  EditText outra = new EditText(this);
+                  outra.setInputType(InputType.TYPE_CLASS_NUMBER);
+                  outra.setHint("Outra (km/h)");
+                  outra.setHintTextColor(MUT);
+                  outra.setTextColor(FG);
+                  outra.setTextSize(24);
+                  outra.setGravity(Gravity.CENTER);
+                  outra.setPadding(dp(12), dp(12), dp(12), dp(12));
+                  outra.setBackground(fundo(CARD, 12, 0));
+                  livre.addView(outra, new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
+                  TextView okLivre = texto("OK", 20, Color.parseColor("#06210F"), true);
+                  okLivre.setGravity(Gravity.CENTER);
+                  okLivre.setBackground(fundo(OK, 12, 0));
+                  okLivre.setOnClickListener(x -> {
+                      int v;
+                      try { v = Integer.parseInt(outra.getText().toString().trim()); } catch (Exception e) { v = 0; }
+                      if (v < 10 || v > 200) { outra.setError("Digite entre 10 e 200"); return; }
+                      salvarRadarUsuario(lat, lon, v);
+                      d[0].dismiss();
+                  });
+                  LinearLayout.LayoutParams op = new LinearLayout.LayoutParams(dp(80), dp(56));
+                  op.leftMargin = dp(10);
+                  livre.addView(okLivre, op);
+                  box.addView(livre, margemTopo(24));
+
+                  ScrollView sv = new ScrollView(this);
+                  sv.setBackgroundColor(BG);
+                  sv.addView(box);
+                  d[0] = new AlertDialog.Builder(this, android.R.style.Theme_DeviceDefault_NoActionBar)
+                      .setView(sv)
+                      .setNegativeButton("Cancelar", null)
+                      .create();
+                  d[0].show();
+              }
+
+              // Radares marcados pelo usuário ficam em files/radares_usuario.csv (mesmo formato da base,
+              // sem cabeçalho) e não são apagados quando a base é atualizada.
+              void salvarRadarUsuario(double lat, double lon, int limite) {
+                  String linha = String.format(java.util.Locale.US, "%.6f,%.6f,%d,Marcado por mim,,%s,Usuário\n",
+                      lat, lon, limite, DateFormat.format("dd/MM/yyyy", System.currentTimeMillis()));
+                  try (FileOutputStream o = new FileOutputStream(new File(getFilesDir(), "radares_usuario.csv"), true)) {
+                      o.write(linha.getBytes("UTF-8"));
+                      SpeedService.recarregarRadares = true;
+                      st.setText("Radar de " + limite + " km/h adicionado nesta posição.");
+                  } catch (Exception e) {
+                      st.setText("Não foi possível salvar o radar (" + e.getMessage() + ").");
+                  }
               }
 
               void abrirConfig() {
@@ -787,6 +897,7 @@ jobs:
           public class SpeedService extends Service implements LocationListener {
               static volatile boolean rodando = false;
               static volatile float kmh = -1;
+              static volatile double ultLat = Double.NaN, ultLon = Double.NaN; // última posição (botão +)
               static volatile boolean recarregarRadares = false; // botão "Atualizar radares" baixou uma base nova
               static volatile String radarInfo = "";         // "Radar a 150 m · 60 km/h" ou vazio
               static volatile int limVia = -1;          // limite da via atual (-1 = desconhecido)
@@ -937,6 +1048,14 @@ jobs:
                       String l;
                       while ((l = in.readLine()) != null) { String[] c = l.split(","); if (c.length >= 3) linhas.add(c); }
                   } catch (Exception e) { return; }
+                  // Radares marcados pelo usuário com o botão + (sem cabeçalho)
+                  File meus = new File(getFilesDir(), "radares_usuario.csv");
+                  if (meus.exists()) {
+                      try (BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(meus), "UTF-8"))) {
+                          String l;
+                          while ((l = in.readLine()) != null) { String[] c = l.split(","); if (c.length >= 3) linhas.add(c); }
+                      } catch (Exception e) { /* mantém só a base */ }
+                  }
                   int n = linhas.size();
                   double[] la = new double[n], lo = new double[n];
                   int[] li = new int[n];
@@ -989,6 +1108,8 @@ jobs:
 
               @Override
               public void onLocationChanged(Location loc) {
+                  ultLat = loc.getLatitude();
+                  ultLon = loc.getLongitude();
                   if (usarVia) talvezConsultar(loc);
                   if (!loc.hasSpeed()) return;
                   float v = loc.getSpeed() * 3.6f;
@@ -1183,6 +1304,7 @@ jobs:
                   rodando = false;
                   kmh = -1;
                   radarInfo = "";
+                  ultLat = ultLon = Double.NaN;
                   limVia = -1;
                   nomeVia = "";
                   nivel = 0;
