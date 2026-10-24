@@ -54,8 +54,8 @@ jobs:
                   applicationId 'com.alerta.velocidade'
                   minSdk 26
                   targetSdk 34
-                  versionCode 17
-                  versionName '5.5'
+                  versionCode 18
+                  versionName '5.6'
               }
           }
           EOF
@@ -1172,6 +1172,7 @@ jobs:
               boolean alertarRadar;
               double[] rLat, rLon;
               int[] rLim;
+              boolean[] rPortatil; // ponto onde um radar portátil PODE estar
               final HashSet<Integer> avisados = new HashSet<>();
 
               void carregarRadares() {
@@ -1195,14 +1196,17 @@ jobs:
                   int n = linhas.size();
                   double[] la = new double[n], lo = new double[n];
                   int[] li = new int[n];
+                  boolean[] po = new boolean[n];
                   for (int i = 0; i < n; i++) {
+                      String[] c = linhas.get(i);
+                      po[i] = c[c.length - 1].toLowerCase().contains("port");
                       try {
                           la[i] = Double.parseDouble(linhas.get(i)[0]);
                           lo[i] = Double.parseDouble(linhas.get(i)[1]);
                           li[i] = Integer.parseInt(linhas.get(i)[2]);
                       } catch (Exception e) { la[i] = 99; }
                   }
-                  rLat = la; rLon = lo; rLim = li;
+                  rLat = la; rLon = lo; rLim = li; rPortatil = po;
               }
 
               // Avisa uma vez por radar que esteja à frente e a até 200 m. O radar do sentido
@@ -1231,7 +1235,7 @@ jobs:
                       if (frente && res[0] <= RADAR_M && res[0] < menor) { menor = res[0]; alvo = i; }
                   }
                   if (alvo < 0) { radarInfo = ""; return; }
-                  radarInfo = "Radar a " + Math.round(menor) + " m" + (rLim[alvo] > 0 ? "  ·  " + rLim[alvo] + " km/h" : "");
+                  radarInfo = (rPortatil[alvo] ? "Possível radar portátil a " : "Radar a ") + Math.round(menor) + " m" + (rLim[alvo] > 0 ? "  ·  " + rLim[alvo] + " km/h" : "");
                   if (avisados.contains(alvo)) return;
                   for (int j : perto) {
                       Location.distanceBetween(rLat[alvo], rLon[alvo], rLat[j], rLon[j], res);

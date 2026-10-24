@@ -8,6 +8,8 @@ Fontes:
     "Mapa-Radar_*.rar" mais recente da página, extrai o KML (precisa do 7-Zip) e
     salva por cima de dados/radares_ba_seinfra.kml.
   - Transalvador (Prefeitura de Salvador), mapa oficial de radares.
+  - dados/radares_ssa_extra.csv: redutores e pontos de radar portátil da Transalvador,
+    que o site lista só por endereço (coordenadas obtidas no OpenStreetMap, revisadas).
     https://transonline.salvador.ba.gov.br/geral_sistema/web/index.php/mapa/mapa-porticos
 
 Se uma fonte falhar, os radares dela da versão anterior de radares.csv são mantidos.
@@ -179,6 +181,14 @@ def radares_bahia():
         }
 
 
+def radares_extras():
+    caminho = os.path.join(PASTA, "radares_ssa_extra.csv")
+    if not os.path.exists(caminho):
+        return []
+    with open(caminho, encoding="utf-8") as f:
+        return list(csv.DictReader(l for l in f if not l.startswith("#")))
+
+
 def anteriores():
     """Radares da versão atual de radares.csv, por fonte (usados se uma fonte falhar)."""
     por_fonte = {}
@@ -211,6 +221,11 @@ def main():
             situacao = f"FALHOU ({e}); mantidos os dados anteriores"
         radares += lista
         resumo.append((nome, descricao, lista, situacao))
+
+    extras = radares_extras()
+    radares += extras
+    for nome in sorted({r["fonte"] for r in extras}):
+        resumo.append((nome, "endereços revisados", None, "arquivo radares_ssa_extra.csv"))
 
     # Remove duplicados (mesma posição em ~10 m)
     vistos, unicos = set(), []

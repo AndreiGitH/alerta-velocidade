@@ -1,0 +1,15 @@
+# Radares da Transalvador sem coordenadas no site (fixo-redutor e pontos de radar portátil).
+# Coordenadas obtidas pelo cruzamento/referência no OpenStreetMap e revisadas uma vez.
+# Não incluído: Av. Pres. Castelo Branco x Zignal (60 km/h) - referência não localizada.
+lat,lon,limite,rodovia,km,sentido,fonte
+-13.01241,-38.491637,40,Rua Guedes Cabral x Casa de Iemanjá,,Sentido Amaralina,Transalvador (redutor)
+-13.006086,-38.45715,40,Av. Octávio Mangabeira x Praça Nossa Senhora da Luz,,Sentido Itapuã,Transalvador (redutor)
+-12.970784,-38.412481,70,Rua Carimbamba x próximo ao Sal e Brasa,,Sentido Pituba,Transalvador (portátil)
+-12.971329,-38.412947,70,Av. Octávio Mangabeira x próximo ao Mundo Animal,,Sentido Itapuã,Transalvador (portátil)
+-12.957454,-38.391947,70,Av. Octávio Mangabeira x Rua Des. Polybio Mendes da Silva,,Sentido Pituba,Transalvador (portátil)
+-12.985977,-38.507039,60,Av. Vasco da Gama x Rua Reis Príncipe,,Sentido 7 Portas,Transalvador (portátil)
+-13.014042,-38.478085,60,Rua Marquês de Monte Santo x Quartel de Amaralina,,Sentido Itapuã,Transalvador (portátil)
+-12.953102,-38.378796,70,Av. Octávio Mangabeira em frente à Av. Iemanjá nº 44,,Sentido Itapuã,Transalvador (portátil)
+-12.9835,-38.492729,70,Av. Mário Leal Ferreira x Posto BR,,Sentido Centro,Transalvador (portátil)
+-12.994969,-38.510405,70,Av. Reitor Miguel Calmon x próximo ao Posto BR,,Sentido Comércio,Transalvador (portátil)
+-12.992156,-38.524348,70,Av. Reitor Miguel Calmon x Escola Odorico Tavares,,Sentido Barra,Transalvador (portátil)
