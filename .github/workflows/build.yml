@@ -54,8 +54,8 @@ jobs:
                   applicationId 'com.alerta.velocidade'
                   minSdk 26
                   targetSdk 34
-                  versionCode 15
-                  versionName '5.3'
+                  versionCode 16
+                  versionName '5.4'
               }
           }
           EOF
@@ -73,7 +73,8 @@ jobs:
                   android:label="Alerta de Velocidade"
                   android:icon="@android:drawable/ic_menu_mylocation"
                   android:theme="@android:style/Theme.Material.NoActionBar">
-                  <activity android:name=".MainActivity" android:exported="true">
+                  <activity android:name=".MainActivity" android:exported="true"
+                      android:launchMode="singleTop">
                       <intent-filter>
                           <action android:name="android.intent.action.MAIN"/>
                           <category android:name="android.intent.category.LAUNCHER"/>
@@ -330,6 +331,7 @@ jobs:
                   s.setFillViewport(true);
                   s.addView(l);
                   setContentView(s);
+                  tratarIntent(getIntent());
               }
 
               // Configurações (limite da via e chave TomTom) ficam num diálogo, fora da tela principal
@@ -382,6 +384,12 @@ jobs:
                   radaresInfo = texto("", 13, MUT, false);
                   radaresInfo.setPadding(dp(4), dp(8), dp(4), 0);
                   config.addView(radaresInfo, margemTopo(0));
+                  TextView meusRadares = texto("\u2630  Meus radares (revisar / apagar)", 15, FG, true);
+                  meusRadares.setGravity(Gravity.CENTER);
+                  meusRadares.setPadding(0, dp(12), 0, dp(12));
+                  meusRadares.setBackground(fundo(CARD, 12, 0));
+                  meusRadares.setOnClickListener(v -> abrirMeusRadares());
+                  config.addView(meusRadares, margemTopo(10));
               }
 
               // Botão − / + que muda o limite de 5 em 5 km/h
@@ -505,10 +513,27 @@ jobs:
 
               // Botão +: marca um radar na posição atual, com a velocidade escolhida numa tela grande
               static final int[] VELOCIDADES_RADAR = {40, 60, 80, 100, 110};
+              static final String EXTRA_MARCAR = "marcar_radar";
+              boolean voltarAoTerminar = false; // aberto pela notificação: volta ao app anterior (Maps) no fim
+
+              void tratarIntent(Intent i) {
+                  if (i == null || !i.getBooleanExtra(EXTRA_MARCAR, false)) return;
+                  i.removeExtra(EXTRA_MARCAR);
+                  voltarAoTerminar = true;
+                  adicionarRadar();
+              }
+
+              @Override
+              protected void onNewIntent(Intent i) {
+                  super.onNewIntent(i);
+                  setIntent(i);
+                  tratarIntent(i);
+              }
 
               void adicionarRadar() {
                   if (!SpeedService.rodando || Double.isNaN(SpeedService.ultLat)) {
                       st.setText("Para marcar um radar, toque em Iniciar e aguarde o sinal de GPS.");
+                      voltarAoTerminar = false;
                       return;
                   }
                   final double lat = SpeedService.ultLat, lon = SpeedService.ultLon; // posição no momento do toque
@@ -585,6 +610,9 @@ jobs:
                       .setView(sv)
                       .setNegativeButton("Cancelar", null)
                       .create();
+                  d[0].setOnDismissListener(x -> {
+                      if (voltarAoTerminar) { voltarAoTerminar = false; moveTaskToBack(true); }
+                  });
                   d[0].show();
               }
 
@@ -600,6 +628,100 @@ jobs:
                   } catch (Exception e) {
                       st.setText("Não foi possível salvar o radar (" + e.getMessage() + ").");
                   }
+              }
+
+              File arquivoMeus() { return new File(getFilesDir(), "radares_usuario.csv"); }
+
+              ArrayList<String> lerMeus() {
+                  ArrayList<String> l = new ArrayList<>();
+                  try {
+                      for (String x : ler(new FileInputStream(arquivoMeus())).split("\n"))
+                          if (x.split(",").length >= 3) l.add(x.trim());
+                  } catch (Exception e) { /* sem arquivo = lista vazia */ }
+                  return l;
+              }
+
+              void gravarMeus(ArrayList<String> l) {
+                  StringBuilder sb = new StringBuilder();
+                  for (String x : l) sb.append(x).append("\n");
+                  try (FileOutputStream o = new FileOutputStream(arquivoMeus())) { o.write(sb.toString().getBytes("UTF-8")); }
+                  catch (Exception e) { /* ignora */ }
+                  SpeedService.recarregarRadares = true;
+              }
+
+              // Lista dos radares marcados com o botão +, com "Mapa" para conferir e "Apagar"
+              void abrirMeusRadares() {
+                  final ArrayList<String> meus = lerMeus();
+                  LinearLayout box = new LinearLayout(this);
+                  box.setOrientation(LinearLayout.VERTICAL);
+                  box.setPadding(dp(16), dp(20), dp(16), dp(12));
+                  box.setBackgroundColor(BG);
+                  TextView tit = texto("Meus radares (" + meus.size() + ")", 22, FG, true);
+                  tit.setGravity(Gravity.CENTER);
+                  box.addView(tit);
+                  if (meus.isEmpty()) {
+                      TextView vazio = texto("Nenhum radar marcado. Use o botão + (no app ou na notificação) ao passar por um radar.", 15, MUT, false);
+                      vazio.setGravity(Gravity.CENTER);
+                      box.addView(vazio, margemTopo(24));
+                  }
+                  final AlertDialog[] d = new AlertDialog[1];
+                  for (int i = meus.size() - 1; i >= 0; i--) { // mais recentes primeiro
+                      final int idx = i;
+                      final String[] c = meus.get(i).split(",");
+                      LinearLayout linha = new LinearLayout(this);
+                      linha.setGravity(Gravity.CENTER_VERTICAL);
+                      linha.setPadding(dp(12), dp(10), dp(10), dp(10));
+                      linha.setBackground(fundo(CARD, 12, 0));
+                      TextView vel = texto(c[2], 20, Color.BLACK, true);
+                      vel.setGravity(Gravity.CENTER);
+                      GradientDrawable g = new GradientDrawable();
+                      g.setShape(GradientDrawable.OVAL);
+                      g.setColor(Color.WHITE);
+                      g.setStroke(dp(5), Color.parseColor("#D32F2F"));
+                      vel.setBackground(g);
+                      linha.addView(vel, new LinearLayout.LayoutParams(dp(52), dp(52)));
+                      String data = c.length > 5 ? c[5] : "";
+                      TextView info = texto(c[2] + " km/h" + (data.isEmpty() ? "" : "  \u00B7  " + data) + "\n" + c[0] + ", " + c[1], 14, FG, false);
+                      LinearLayout.LayoutParams ip = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1);
+                      ip.leftMargin = dp(12);
+                      linha.addView(info, ip);
+                      TextView mapa = texto("Mapa", 14, FG, true);
+                      mapa.setPadding(dp(10), dp(8), dp(10), dp(8));
+                      mapa.setBackground(fundo(BG, 10, 0));
+                      mapa.setOnClickListener(v -> {
+                          try {
+                              startActivity(new Intent(Intent.ACTION_VIEW, android.net.Uri.parse(
+                                  "geo:" + c[0] + "," + c[1] + "?q=" + c[0] + "," + c[1] + "(Radar " + c[2] + " km/h)")));
+                          } catch (Exception e) { st.setText("Nenhum app de mapa encontrado."); }
+                      });
+                      linha.addView(mapa);
+                      TextView apagar = texto("Apagar", 14, Color.WHITE, true);
+                      apagar.setPadding(dp(10), dp(8), dp(10), dp(8));
+                      apagar.setBackground(fundo(BAD, 10, 0));
+                      apagar.setOnClickListener(v -> new AlertDialog.Builder(this)
+                          .setMessage("Apagar o radar de " + c[2] + " km/h?")
+                          .setPositiveButton("Apagar", (x, w) -> {
+                              meus.remove(idx);
+                              gravarMeus(meus);
+                              d[0].dismiss();
+                              mostrarBaseRadares();
+                              abrirMeusRadares(); // reabre com a lista atualizada
+                          })
+                          .setNegativeButton("Cancelar", null)
+                          .show());
+                      LinearLayout.LayoutParams bp = new LinearLayout.LayoutParams(-2, -2);
+                      bp.leftMargin = dp(6);
+                      linha.addView(apagar, bp);
+                      box.addView(linha, margemTopo(10));
+                  }
+                  ScrollView sv = new ScrollView(this);
+                  sv.setBackgroundColor(BG);
+                  sv.addView(box);
+                  d[0] = new AlertDialog.Builder(this, android.R.style.Theme_DeviceDefault_NoActionBar)
+                      .setView(sv)
+                      .setPositiveButton("Fechar", null)
+                      .create();
+                  d[0].show();
               }
 
               void abrirConfig() {
@@ -970,7 +1092,17 @@ jobs:
               Notification notif(String txt) {
                   PendingIntent pi = PendingIntent.getActivity(this, 0,
                       new Intent(this, MainActivity.class), PendingIntent.FLAG_IMMUTABLE);
+                  // "+ Radar": abre o app direto na tela de escolher a velocidade e volta ao Maps depois
+                  Intent marcar = new Intent(this, MainActivity.class)
+                      .putExtra(MainActivity.EXTRA_MARCAR, true)
+                      .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                  PendingIntent piMarcar = PendingIntent.getActivity(this, 1, marcar,
+                      PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
+                  Notification.Action acao = new Notification.Action.Builder(
+                      android.graphics.drawable.Icon.createWithResource(this, android.R.drawable.ic_input_add),
+                      "+ Radar", piMarcar).build();
                   return new Notification.Builder(this, "vel")
+                      .addAction(acao)
                       .setSmallIcon(android.R.drawable.ic_menu_mylocation)
                       .setContentTitle("Alerta de Velocidade")
                       .setContentText(txt)
