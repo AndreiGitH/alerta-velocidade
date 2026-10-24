@@ -54,8 +54,8 @@ jobs:
                   applicationId 'com.alerta.velocidade'
                   minSdk 26
                   targetSdk 34
-                  versionCode 16
-                  versionName '5.4'
+                  versionCode 17
+                  versionName '5.5'
               }
           }
           EOF
@@ -205,14 +205,11 @@ jobs:
                   topo.addView(titulo, new FrameLayout.LayoutParams(-1, -2, Gravity.CENTER_VERTICAL));
                   engrenagem = texto("⚙", 26, MUT, false);
                   engrenagem.setPadding(dp(12), 0, dp(4), 0);
-                  TextView botaoMais = texto("+", 26, Color.parseColor("#06210F"), true);
+                  TextView botaoMais = texto("+", 32, Color.parseColor("#06210F"), true);
                   botaoMais.setGravity(Gravity.CENTER);
                   botaoMais.setIncludeFontPadding(false);
-                  botaoMais.setBackground(fundo(OK, 18, 0));
+                  botaoMais.setBackground(fundo(OK, 28, 0));
                   botaoMais.setOnClickListener(v -> adicionarRadar());
-                  FrameLayout.LayoutParams mp = new FrameLayout.LayoutParams(dp(36), dp(36), Gravity.END | Gravity.CENTER_VERTICAL);
-                  mp.rightMargin = dp(48);
-                  topo.addView(botaoMais, mp);
                   engrenagem.setOnClickListener(v -> abrirConfig());
                   topo.addView(engrenagem, new FrameLayout.LayoutParams(-2, -2, Gravity.END | Gravity.CENTER_VERTICAL));
                   TextView ajuda = texto("?", 22, MUT, true);
@@ -225,7 +222,13 @@ jobs:
 
                   // Velocímetro com relógio
                   gauge = new Gauge(this);
-                  l.addView(gauge, margemTopo(12));
+                  // Velocímetro com o botão + no canto inferior direito, ao lado do relógio
+                  FrameLayout gaugeBox = new FrameLayout(this);
+                  gaugeBox.addView(gauge, new FrameLayout.LayoutParams(-1, -2));
+                  FrameLayout.LayoutParams mp = new FrameLayout.LayoutParams(dp(56), dp(56), Gravity.END | Gravity.BOTTOM);
+                  mp.rightMargin = dp(6);
+                  gaugeBox.addView(botaoMais, mp);
+                  l.addView(gaugeBox, margemTopo(12));
 
                   // Aviso de radar próximo (só aparece quando há um a menos de 200 m)
                   radarTxt = texto("", 17, Color.WHITE, true);
@@ -267,7 +270,6 @@ jobs:
                       SpeedService.forcar = on; // vale na hora, mesmo com o alerta ligado
                       getSharedPreferences("cfg", 0).edit().putBoolean("forcar", on).apply();
                   });
-                  l.addView(forcar, margemTopo(12));
 
                   // Três limites lado a lado
                   LinearLayout lims = new LinearLayout(this);
@@ -368,6 +370,8 @@ jobs:
                   alertaRadar.setPadding(dp(14), dp(14), dp(14), dp(14));
                   alertaRadar.setBackground(fundo(CARD, 12, 0));
                   config.addView(alertaRadar, margemTopo(10));
+                  if (forcar.getParent() != null) ((ViewGroup) forcar.getParent()).removeView(forcar);
+                  config.addView(forcar, margemTopo(10));
                   config.addView(chave, margemTopo(10));
                   TextView testar = texto("▶  Testar vozes", 15, FG, true);
                   testar.setGravity(Gravity.CENTER);

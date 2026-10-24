@@ -33,17 +33,15 @@ são mantidos.
 | Elemento | O que mostra |
 |---|---|
 | **? (canto superior esquerdo)** | Abre o manual. |
-| **+ (canto superior direito)** | Marca um radar na posição atual: escolha 40, 60, 80, 100, 110 ou digite a velocidade. Fica salvo só no celular. Também dá para marcar pela ação **+ Radar** da notificação, sem sair do Maps. Para revisar e apagar: ⚙ → **☰ Meus radares**. |
+| **+ (verde, ao lado do relógio)** | Marca um radar na posição atual: escolha 40, 60, 80, 100, 110 ou digite a velocidade. Fica salvo só no celular. Também dá para marcar pela ação **+ Radar** da notificação, sem sair do Maps. Para revisar e apagar: ⚙ → **☰ Meus radares**. |
 | **⚙ (canto superior direito)** | Abre as Configurações (inclui **⟳ Atualizar radares**). |
 | **Velocímetro** | Ponteiro e velocidade no centro. Faixas **verde** (abaixo do Limite 1), **laranja** (entre o Limite 1 e o 2) e **vermelha** (a partir do Limite 2). O número da velocidade fica laranja/vermelho quando você passa do limite. Embaixo, o **relógio**. |
 | **Faixa vermelha "⚠ Radar a 150 m · 60 km/h"** | Aparece só quando há um radar à frente a até 200 m. |
 | **Placa da via** | Limite da via onde você está (TomTom ou OpenStreetMap) e o nome da rua. |
-| **Forçar meus limites** | Ligada: os avisos usam sempre os seus 3 limites, mesmo se houver limite da via. |
 | **Limite 1, 2 e 3** | Seus limites em km/h. Ajuste com **− / +** (de 5 em 5) ou digitando. |
 | **Iniciar / Parar** | Liga e desliga o monitoramento. |
 
 Os limites e as Configurações só podem ser alterados com o alerta **parado**.
-A chave **Forçar meus limites** pode ser mudada a qualquer momento.
 
 ## 4. Os avisos
 
@@ -82,6 +80,7 @@ A chave **Forçar meus limites** pode ser mudada a qualquer momento.
 |---|---|
 | **Usar limite da via (TomTom / OpenStreetMap)** | Liga a consulta do limite da rua. |
 | **Avisar radares a 200 m** | Liga o aviso de radares. |
+| **Forçar meus limites** | Ligada: os avisos usam sempre os seus 3 limites, mesmo se houver limite da via. |
 | **Chave da API TomTom** | Opcional. Melhora muito o limite da via (veja abaixo). Fica salva só no celular e aparece oculta. |
 | **▶ Testar vozes** | Toca as vozes dos seus 3 limites, para conferir o som. |
 
