@@ -1343,6 +1343,16 @@ lat,lon,limite,rodovia,km,sentido,fonte
 -12.68287,-38.30642,60,BA-535,4+400m,Camaçari,SEINFRA-BA
 -12.63159,-38.34642,80,BA-093,19+000m,Dias D'Ávila,SEINFRA-BA
 -12.53335,-38.3077,80,BA-093,32+000m,Mata De São João,SEINFRA-BA
+-12.892382,-38.324765,60,,,,OpenStreetMap
+-12.886068,-38.318933,60,,,,OpenStreetMap
+-12.863852,-38.292511,60,,,,OpenStreetMap
+-12.903266,-38.340156,60,,,,OpenStreetMap
+-12.885764,-38.318948,60,,,,OpenStreetMap
+-12.87374,-38.305477,60,,,,OpenStreetMap
+-12.863758,-38.292627,60,,,,OpenStreetMap
+-12.873818,-38.305412,60,,,,OpenStreetMap
+-12.896254,-38.326624,60,,,,OpenStreetMap
+-12.903413,-38.340975,60,,,,OpenStreetMap
 -13.01241,-38.491637,40,Rua Guedes Cabral x Casa de Iemanjá,,Sentido Amaralina,Transalvador (redutor)
 -13.006086,-38.45715,40,Av. Octávio Mangabeira x Praça Nossa Senhora da Luz,,Sentido Itapuã,Transalvador (redutor)
 -12.970784,-38.412481,70,Rua Carimbamba x próximo ao Sal e Brasa,,Sentido Pituba,Transalvador (portátil)

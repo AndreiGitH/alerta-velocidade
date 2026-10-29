@@ -8,6 +8,9 @@ Fontes:
     "Mapa-Radar_*.rar" mais recente da página, extrai o KML (precisa do 7-Zip) e
     salva por cima de dados/radares_ba_seinfra.kml.
   - Transalvador (Prefeitura de Salvador), mapa oficial de radares.
+  - OpenStreetMap (colaborativo, NÃO oficial): radares mapeados em Lauro de Freitas e
+    Camaçari, cujas prefeituras não publicam lista. Pontos a menos de 60 m de um radar
+    oficial são ignorados.
   - dados/radares_ssa_extra.csv: redutores e pontos de radar portátil da Transalvador,
     que o site lista só por endereço (coordenadas obtidas no OpenStreetMap, revisadas).
     https://transonline.salvador.ba.gov.br/geral_sistema/web/index.php/mapa/mapa-porticos
@@ -20,12 +23,15 @@ import csv
 import html
 import io
 import json
+import math
 import os
 import re
 import shutil
 import subprocess
 import tempfile
+import time
 import zipfile
+import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 from urllib.parse import urljoin
@@ -40,10 +46,17 @@ CAMPOS = ["lat", "lon", "limite", "rodovia", "km", "sentido", "fonte"]
 TIMEOUT = 280  # o portal da ANTT costuma ser lento
 
 
-def baixar(url):
-    req = urllib.request.Request(url, headers={"User-Agent": "AlertaVelocidade/1.0 (dados abertos)"})
-    with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
-        return r.read()
+def baixar(url, dados=None, tentativas=3):
+    """GET (ou POST, se houver dados) com novas tentativas: os portais oficiais oscilam."""
+    for t in range(tentativas):
+        try:
+            req = urllib.request.Request(url, dados, headers={"User-Agent": "AlertaVelocidade/1.0 (dados abertos)"})
+            with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
+                return r.read()
+        except Exception:
+            if t == tentativas - 1:
+                raise
+            time.sleep(10 * (t + 1))
 
 
 def numero(s):
@@ -181,6 +194,34 @@ def radares_bahia():
         }
 
 
+OSM_CIDADES = ["Lauro de Freitas", "Camaçari"]
+OVERPASS = "https://overpass-api.de/api/interpreter"
+
+
+def radares_osm():
+    areas = "".join(f'area["name"="{c}"]["boundary"="administrative"];' for c in OSM_CIDADES)
+    q = f"[out:json][timeout:90];({areas})->.a;node(area.a)[highway=speed_camera];out body;"
+    elementos = json.loads(baixar(OVERPASS, urllib.parse.urlencode({"data": q}).encode()))["elements"]
+    for e in elementos:
+        t = e.get("tags", {})
+        m = re.search(r"\d+", t.get("maxspeed", ""))
+        yield {
+            "lat": round(e["lat"], 6),
+            "lon": round(e["lon"], 6),
+            "limite": int(m.group()) if m else 0,
+            "rodovia": t.get("name", "") or t.get("ref", ""),
+            "km": "",
+            "sentido": "",
+            "fonte": "OpenStreetMap",
+        }
+
+
+def perto(a, b, metros):
+    dy = (float(a["lat"]) - float(b["lat"])) * 110540
+    dx = (float(a["lon"]) - float(b["lon"])) * 111320 * math.cos(math.radians(float(a["lat"])))
+    return dx * dx + dy * dy < metros * metros
+
+
 def radares_extras():
     caminho = os.path.join(PASTA, "radares_ssa_extra.csv")
     if not os.path.exists(caminho):
@@ -208,12 +249,15 @@ def main():
     antigos = anteriores()
     fontes = [("ANTT", "federais concedidas", radares_antt),
               ("Transalvador", "Salvador", radares_transalvador),
-              ("SEINFRA-BA", "estaduais da Bahia", bahia_atualizada)]
+              ("SEINFRA-BA", "estaduais da Bahia", bahia_atualizada),
+              ("OpenStreetMap", "Lauro de Freitas e Camaçari, não oficial", radares_osm)]
     radares, resumo = [], []
     for nome, descricao, funcao in fontes:
         try:
             lista = list(funcao())
-            if not lista:
+            if nome == "OpenStreetMap":  # só o que as fontes oficiais não cobrem
+                lista = [r for r in lista if not any(perto(r, o, 60) for o in radares)]
+            if not lista and nome != "OpenStreetMap":
                 raise RuntimeError("nenhum radar lido")
             situacao = "atualizada"
         except Exception as e:
