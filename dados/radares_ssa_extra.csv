@@ -1,6 +1,6 @@
 # Radares da Transalvador sem coordenadas no site (fixo-redutor e pontos de radar portátil).
 # Coordenadas obtidas pelo cruzamento/referência no OpenStreetMap e revisadas uma vez.
-# Não incluído: Av. Pres. Castelo Branco x Zignal (60 km/h) - referência não localizada.
+# Av. Pres. Castelo Branco x Zignal: posição informada pelo usuário (12°58'21.4"S 38°30'14.2"W).
 lat,lon,limite,rodovia,km,sentido,fonte
 -13.01241,-38.491637,40,Rua Guedes Cabral x Casa de Iemanjá,,Sentido Amaralina,Transalvador (redutor)
 -13.006086,-38.45715,40,Av. Octávio Mangabeira x Praça Nossa Senhora da Luz,,Sentido Itapuã,Transalvador (redutor)
@@ -13,3 +13,4 @@ lat,lon,limite,rodovia,km,sentido,fonte
 -12.9835,-38.492729,70,Av. Mário Leal Ferreira x Posto BR,,Sentido Centro,Transalvador (portátil)
 -12.994969,-38.510405,70,Av. Reitor Miguel Calmon x próximo ao Posto BR,,Sentido Comércio,Transalvador (portátil)
 -12.992156,-38.524348,70,Av. Reitor Miguel Calmon x Escola Odorico Tavares,,Sentido Barra,Transalvador (portátil)
+-12.972611,-38.503944,60,Av. Pres. Castelo Branco x Zignal,,Sentido Comércio,Transalvador (portátil)
