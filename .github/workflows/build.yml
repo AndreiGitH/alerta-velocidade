@@ -54,8 +54,8 @@ jobs:
                   applicationId 'com.alerta.velocidade'
                   minSdk 26
                   targetSdk 34
-                  versionCode 20
-                  versionName '5.8'
+                  versionCode 21
+                  versionName '5.9'
               }
           }
           EOF
@@ -480,7 +480,8 @@ jobs:
                       File meus = new File(getFilesDir(), "radares_usuario.csv");
                       int nMeus = meus.exists() ? contarFontes("cabecalho\n" + ler(new FileInputStream(meus))).values().stream().mapToInt(Integer::intValue).sum() : 0;
                       radaresInfo.setText("Base de radares (" + quando + "):\n" + resumo(contarFontes(txt))
-                          + "\nMarcados por você: " + nMeus);
+                          + "\nMarcados por você: " + nMeus
+                          + "\n\nInclui dados © colaboradores do OpenStreetMap (licença ODbL).");
                   } catch (Exception e) {
                       radaresInfo.setText("Base de radares indisponível.");
                   }
@@ -1174,6 +1175,7 @@ jobs:
               int[] rLim;
               boolean[] rPortatil; // ponto onde um radar portátil PODE estar
               boolean[] rNaoOficial; // vindo do OpenStreetMap (colaborativo)
+              int[] rAno;            // ano da última edição no OpenStreetMap (0 = desconhecido)
               final HashSet<Integer> avisados = new HashSet<>();
 
               void carregarRadares() {
@@ -1198,17 +1200,22 @@ jobs:
                   double[] la = new double[n], lo = new double[n];
                   int[] li = new int[n];
                   boolean[] po = new boolean[n], no = new boolean[n];
+                  int[] an = new int[n];
                   for (int i = 0; i < n; i++) {
                       String[] c = linhas.get(i);
                       po[i] = c[c.length - 1].toLowerCase().contains("port");
                       no[i] = c[c.length - 1].trim().equalsIgnoreCase("OpenStreetMap");
+                      // penúltima coluna = data da última edição ("2019-05-03"), só no OpenStreetMap
+                      if (no[i] && c.length >= 2 && c[c.length - 2].length() >= 4) {
+                          try { an[i] = Integer.parseInt(c[c.length - 2].substring(0, 4)); } catch (Exception e) { an[i] = 0; }
+                      }
                       try {
                           la[i] = Double.parseDouble(linhas.get(i)[0]);
                           lo[i] = Double.parseDouble(linhas.get(i)[1]);
                           li[i] = Integer.parseInt(linhas.get(i)[2]);
                       } catch (Exception e) { la[i] = 99; }
                   }
-                  rLat = la; rLon = lo; rLim = li; rPortatil = po; rNaoOficial = no;
+                  rLat = la; rLon = lo; rLim = li; rPortatil = po; rNaoOficial = no; rAno = an;
               }
 
               // Avisa uma vez por radar que esteja à frente e a até 200 m. O radar do sentido
@@ -1237,7 +1244,10 @@ jobs:
                       if (frente && res[0] <= RADAR_M && res[0] < menor) { menor = res[0]; alvo = i; }
                   }
                   if (alvo < 0) { radarInfo = ""; return; }
-                  radarInfo = (rPortatil[alvo] ? "Possível radar portátil a " : rNaoOficial[alvo] ? "Radar (não oficial) a " : "Radar a ")
+                  String rotulo = rPortatil[alvo] ? "Possível radar portátil a "
+                      : rNaoOficial[alvo] ? "Radar (não oficial" + (rAno[alvo] > 0 ? ", " + rAno[alvo] : "") + ") a "
+                      : "Radar a ";
+                  radarInfo = rotulo
                       + Math.round(menor) + " m" + (rLim[alvo] > 0 ? "  ·  " + rLim[alvo] + " km/h" : "");
                   if (avisados.contains(alvo)) return;
                   for (int j : perto) {

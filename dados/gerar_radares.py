@@ -43,7 +43,8 @@ ANTT_API = "https://dados.antt.gov.br/api/3/action/package_show?id=radar"
 PASTA = os.path.dirname(os.path.abspath(__file__))
 SAIDA = os.path.join(PASTA, "radares.csv")
 KML_BA = os.path.join(PASTA, "radares_ba_seinfra.kml")
-CAMPOS = ["lat", "lon", "limite", "rodovia", "km", "sentido", "fonte"]
+# "atualizado" = data da última edição do ponto (só OpenStreetMap). "fonte" fica sempre por último.
+CAMPOS = ["lat", "lon", "limite", "rodovia", "km", "sentido", "atualizado", "fonte"]
 TIMEOUT = 280  # o portal da ANTT costuma ser lento
 
 
@@ -201,7 +202,7 @@ OVERPASS = "https://overpass-api.de/api/interpreter"
 def radares_osm():
     q = ('[out:json][timeout:180];area["ISO3166-2"="BR-BA"]->.ba;'
          'area["name"="Salvador"]["admin_level"="8"]->.ssa;'
-         '(node(area.ba)[highway=speed_camera]; - node(area.ssa)[highway=speed_camera];);out body;')
+         '(node(area.ba)[highway=speed_camera]; - node(area.ssa)[highway=speed_camera];);out meta;')
     elementos = json.loads(baixar(OVERPASS, urllib.parse.urlencode({"data": q}).encode()))["elements"]
     for e in elementos:
         t = e.get("tags", {})
@@ -213,6 +214,7 @@ def radares_osm():
             "rodovia": t.get("name", "") or t.get("ref", ""),
             "km": "",
             "sentido": "",
+            "atualizado": e.get("timestamp", "")[:10],
             "fonte": "OpenStreetMap",
         }
 
@@ -280,7 +282,7 @@ def main():
             vistos.add(chave)
             unicos.append(r)
     with open(SAIDA, "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=CAMPOS)
+        w = csv.DictWriter(f, fieldnames=CAMPOS, extrasaction="ignore")
         w.writeheader()
         w.writerows(unicos)
 

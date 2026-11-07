@@ -63,16 +63,20 @@ Os limites e as Configurações só podem ser alterados com o alerta **parado**.
 - Quando um radar **à sua frente** chega a **200 m**, o app fala
   **"Radar 200 metros"** seguido do limite do radar (ex.: "sessenta").
 - Cada radar é avisado uma vez; o do sentido oposto, ao lado, não repete o aviso.
-- Fontes oficiais incluídas (cerca de 1.340 radares):
+- Fontes incluídas (cerca de 1.600 radares):
 
 | Fonte | Cobertura |
 |---|---|
 | ANTT | Rodovias federais concedidas (pedagiadas), todo o Brasil |
 | SEINFRA-BA | Rodovias estaduais da Bahia |
-| Transalvador | Cidade de Salvador |
+| Transalvador | Cidade de Salvador (fixos, redutores e pontos de radar portátil) |
+| OpenStreetMap (não oficial) | Bahia, exceto Salvador: rodovias federais sem concessão e cidades sem lista oficial |
 
-> Não estão incluídos radares do DNIT (federais sem concessão), de outros DERs
-> estaduais e de outras prefeituras. Radares móveis e de semáforo também não.
+> Os radares do OpenStreetMap aparecem como "Radar (não oficial, 2022)": o ano é a data da
+> última edição do ponto. Fora da Bahia, só há os radares da ANTT.
+
+Dados de radares do OpenStreetMap © [colaboradores do OpenStreetMap](https://www.openstreetmap.org/copyright),
+licença ODbL. Licenças de todas as fontes: [`dados/LICENCA-DADOS.md`](dados/LICENCA-DADOS.md).
 
 ## 5. Configurações (⚙)
 
