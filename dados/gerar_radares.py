@@ -8,9 +8,10 @@ Fontes:
     "Mapa-Radar_*.rar" mais recente da página, extrai o KML (precisa do 7-Zip) e
     salva por cima de dados/radares_ba_seinfra.kml.
   - Transalvador (Prefeitura de Salvador), mapa oficial de radares.
-  - OpenStreetMap (colaborativo, NÃO oficial): radares mapeados em Lauro de Freitas e
-    Camaçari, cujas prefeituras não publicam lista. Pontos a menos de 60 m de um radar
-    oficial são ignorados.
+  - OpenStreetMap (colaborativo, NÃO oficial): radares mapeados na Bahia, exceto Salvador
+    (que tem a lista oficial da Transalvador). Cobre rodovias federais sem concessão
+    (DNIT) e cidades sem lista oficial. Pontos a menos de 60 m de um radar oficial são
+    ignorados.
   - dados/radares_ssa_extra.csv: redutores e pontos de radar portátil da Transalvador,
     que o site lista só por endereço (coordenadas obtidas no OpenStreetMap, revisadas).
     https://transonline.salvador.ba.gov.br/geral_sistema/web/index.php/mapa/mapa-porticos
@@ -194,13 +195,13 @@ def radares_bahia():
         }
 
 
-OSM_CIDADES = ["Lauro de Freitas", "Camaçari"]
 OVERPASS = "https://overpass-api.de/api/interpreter"
 
 
 def radares_osm():
-    areas = "".join(f'area["name"="{c}"]["boundary"="administrative"];' for c in OSM_CIDADES)
-    q = f"[out:json][timeout:90];({areas})->.a;node(area.a)[highway=speed_camera];out body;"
+    q = ('[out:json][timeout:180];area["ISO3166-2"="BR-BA"]->.ba;'
+         'area["name"="Salvador"]["admin_level"="8"]->.ssa;'
+         '(node(area.ba)[highway=speed_camera]; - node(area.ssa)[highway=speed_camera];);out body;')
     elementos = json.loads(baixar(OVERPASS, urllib.parse.urlencode({"data": q}).encode()))["elements"]
     for e in elementos:
         t = e.get("tags", {})
@@ -250,7 +251,7 @@ def main():
     fontes = [("ANTT", "federais concedidas", radares_antt),
               ("Transalvador", "Salvador", radares_transalvador),
               ("SEINFRA-BA", "estaduais da Bahia", bahia_atualizada),
-              ("OpenStreetMap", "Lauro de Freitas e Camaçari, não oficial", radares_osm)]
+              ("OpenStreetMap", "Bahia exceto Salvador, não oficial", radares_osm)]
     radares, resumo = [], []
     for nome, descricao, funcao in fontes:
         try:
