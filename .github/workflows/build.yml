@@ -54,8 +54,8 @@ jobs:
                   applicationId 'com.alerta.velocidade'
                   minSdk 26
                   targetSdk 34
-                  versionCode 24
-                  versionName '6.2'
+                  versionCode 25
+                  versionName '6.3'
               }
           }
           EOF
@@ -671,12 +671,63 @@ jobs:
                   TextView tit = texto("Meus radares (" + meus.size() + ")", 22, FG, true);
                   tit.setGravity(Gravity.CENTER);
                   box.addView(tit);
+                  final AlertDialog[] d = new AlertDialog[1];
+                  // Cópia de segurança: exportar manda o texto para WhatsApp, e-mail, Drive...; importar cola de volta
+                  LinearLayout copia = new LinearLayout(this);
+                  TextView exportar = texto("Exportar", 15, FG, true);
+                  exportar.setGravity(Gravity.CENTER);
+                  exportar.setPadding(0, dp(12), 0, dp(12));
+                  exportar.setBackground(fundo(CARD, 12, 0));
+                  exportar.setOnClickListener(v -> {
+                      if (meus.isEmpty()) { st.setText("Nenhum radar para exportar."); return; }
+                      StringBuilder sb = new StringBuilder();
+                      for (String x : meus) sb.append(x).append("\n");
+                      Intent envio = new Intent(Intent.ACTION_SEND).setType("text/plain")
+                          .putExtra(Intent.EXTRA_SUBJECT, "Meus radares - Alerta de Velocidade")
+                          .putExtra(Intent.EXTRA_TEXT, sb.toString());
+                      startActivity(Intent.createChooser(envio, "Exportar meus radares"));
+                  });
+                  copia.addView(exportar, new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
+                  TextView importar = texto("Importar", 15, FG, true);
+                  importar.setGravity(Gravity.CENTER);
+                  importar.setPadding(0, dp(12), 0, dp(12));
+                  importar.setBackground(fundo(CARD, 12, 0));
+                  importar.setOnClickListener(v -> {
+                      EditText cola = new EditText(this);
+                      cola.setHint("Cole aqui o texto exportado");
+                      cola.setMinLines(4);
+                      cola.setTextSize(12);
+                      new AlertDialog.Builder(this)
+                          .setTitle("Importar radares")
+                          .setView(cola)
+                          .setPositiveButton("Importar", (x, w) -> {
+                              int novos = 0;
+                              for (String linha : cola.getText().toString().split("\n")) {
+                                  linha = linha.trim();
+                                  String[] c = linha.split(",");
+                                  if (c.length < 3) continue;
+                                  try { Double.parseDouble(c[0]); Double.parseDouble(c[1]); Integer.parseInt(c[2]); }
+                                  catch (Exception e) { continue; }
+                                  if (!meus.contains(linha)) { meus.add(linha); novos++; }
+                              }
+                              gravarMeus(meus);
+                              st.setText(novos + " radar(es) importado(s).");
+                              d[0].dismiss();
+                              mostrarBaseRadares();
+                              abrirMeusRadares();
+                          })
+                          .setNegativeButton("Cancelar", null)
+                          .show();
+                  });
+                  LinearLayout.LayoutParams ip2 = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1);
+                  ip2.leftMargin = dp(10);
+                  copia.addView(importar, ip2);
+                  box.addView(copia, margemTopo(14));
                   if (meus.isEmpty()) {
                       TextView vazio = texto("Nenhum radar marcado. Use o botão + (no app ou na notificação) ao passar por um radar.", 15, MUT, false);
                       vazio.setGravity(Gravity.CENTER);
                       box.addView(vazio, margemTopo(24));
                   }
-                  final AlertDialog[] d = new AlertDialog[1];
                   for (int i = meus.size() - 1; i >= 0; i--) { // mais recentes primeiro
                       final int idx = i;
                       final String[] c = meus.get(i).split(",");
@@ -1670,6 +1721,20 @@ jobs:
               static void apagarErro(Context c) { new File(c.getFilesDir(), "ultimo_erro.txt").delete(); }
           }
           EOF
+
+      - name: Assinatura fixa
+        env:
+          DEBUG_KEYSTORE: ${{ secrets.DEBUG_KEYSTORE }}
+        run: |
+          # Sem assinatura fixa, cada build gera um certificado novo e o Android recusa
+          # instalar por cima ("Atualizar" falha). O keystore fica num Secret do GitHub.
+          if [ -n "$DEBUG_KEYSTORE" ]; then
+            mkdir -p ~/.android
+            echo "$DEBUG_KEYSTORE" | base64 -d > ~/.android/debug.keystore
+            echo "Usando a assinatura fixa (secret DEBUG_KEYSTORE)."
+          else
+            echo "::warning::Secret DEBUG_KEYSTORE não configurado: este APK não atualiza por cima da versão instalada."
+          fi
 
       - name: Compilar
         run: |
