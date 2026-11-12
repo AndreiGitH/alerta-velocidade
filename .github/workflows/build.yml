@@ -54,8 +54,8 @@ jobs:
                   applicationId 'com.alerta.velocidade'
                   minSdk 26
                   targetSdk 34
-                  versionCode 23
-                  versionName '6.1'
+                  versionCode 24
+                  versionName '6.2'
               }
           }
           EOF
@@ -64,6 +64,7 @@ jobs:
           <?xml version="1.0" encoding="utf-8"?>
           <manifest xmlns:android="http://schemas.android.com/apk/res/android">
               <uses-permission android:name="android.permission.INTERNET"/>
+              <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
               <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
               <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
               <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
