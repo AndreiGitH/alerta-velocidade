@@ -163,7 +163,7 @@
     <table>
       <tr><th>Fonte</th><th>Cobertura</th><th class="num">Radares*</th></tr>
       <tr><td>ANTT</td><td>Rodovias federais concedidas (pedagiadas), todo o Brasil</td><td class="num">1.180</td></tr>
-      <tr><td>Transalvador</td><td>Cidade de Salvador</td><td class="num">99</td></tr>
+      <tr><td>Transalvador</td><td>Cidade de Salvador</td><td class="num">102</td></tr>
       <tr><td>Transalvador (redutor / portátil)</td><td>Salvador: 2 redutores e 10 pontos onde radares portáteis podem operar. O aviso aparece como "Possível radar portátil".</td><td class="num">12</td></tr>
       <tr><td>SEINFRA-BA</td><td>Rodovias estaduais da Bahia</td><td class="num">77</td></tr>
       <tr><td>OpenStreetMap</td><td>Bahia, exceto Salvador: rodovias federais sem concessão (BR-116, BR-101, BR-242…) e cidades sem lista oficial (Feira de Santana, Vitória da Conquista, Juazeiro, Eunápolis, Lauro de Freitas…). Mapeamento colaborativo, <b>não oficial</b>: a faixa mostra "Radar (não oficial)".</td><td class="num">237</td></tr>
@@ -189,10 +189,11 @@
 
     <h3>Atualizar os radares</h3>
     <ol>
-      <li>Toda <b>segunda-feira</b>, o GitHub baixa as três fontes oficiais e gera uma lista nova
+      <li>Toda <b>segunda-feira</b>, às 6h, o GitHub baixa as fontes e gera uma lista nova
         (inclusive o mapa da SEINFRA-BA, que é extraído automaticamente).</li>
-      <li>No app, toque em <b>⚙ → ⟳ Atualizar radares</b>. O app baixa a lista mais recente e mostra
-        quantos radares vieram de cada fonte.</li>
+      <li><b>O celular baixa sozinho:</b> a partir das 7h de segunda, na primeira vez que houver internet,
+        o app traz a lista nova, mesmo fechado. Não precisa fazer nada.</li>
+      <li>Para forçar na hora, toque em <b>⚙ → ⟳ Atualizar radares</b>. O app mostra quantos radares vieram de cada fonte.</li>
       <li>A lista nova vale na hora, inclusive com o alerta ligado. Se o download falhar, a lista anterior continua.</li>
     </ol>
     <div class="dica alerta">Os radares do OpenStreetMap aparecem como <b>"Radar (não oficial, 2022)"</b>:
@@ -208,6 +209,7 @@
       <tr><th>Opção</th><th>Para que serve</th></tr>
       <tr><td>Usar limite da via</td><td>Liga a consulta do limite da rua (TomTom / OpenStreetMap).</td></tr>
       <tr><td>Avisar radares a 200 m</td><td>Liga o aviso de radares.</td></tr>
+      <tr><td>Desligar após 5 min parado</td><td>Ligada (padrão): se o carro ficar 5 minutos parado (abaixo de 8 km/h), o app desliga o GPS e o alerta para economizar bateria. Aparece a notificação "Alerta de Velocidade desligado"; toque nela para ligar de novo.</td></tr>
       <tr><td>Forçar meus limites</td><td>Ligada: os avisos usam sempre os seus 3 limites, mesmo havendo limite da via.</td></tr>
       <tr><td>Chave da API TomTom</td><td>Opcional; melhora muito o limite da via. Fica só no celular e aparece oculta.</td></tr>
       <tr><td>▶ Testar vozes</td><td>Toca as vozes dos seus 3 limites.</td></tr>
@@ -233,7 +235,7 @@
       <tr><td>Um limite não foi falado</td><td>Já tinha sido avisado e você não desceu 3 km/h abaixo dele; ou não há voz para esse valor (tocam bipes).</td></tr>
       <tr><td>"Chave inválida" ou "cota esgotada"</td><td>Confira a chave TomTom. Enquanto isso, o app usa o OpenStreetMap.</td></tr>
       <tr><td>"Não foi possível atualizar" radares</td><td>Verifique a internet e tente de novo. A lista anterior continua valendo.</td></tr>
-      <tr><td>O app para sozinho</td><td>Android → Configurações → Apps → Alerta de Velocidade → Bateria → <b>Sem restrições</b>.</td></tr>
+      <tr><td>O app desligou sozinho</td><td>Se ficou 5 min parado, é a economia de bateria: toque na notificação para religar (ou desligue a opção em ⚙). Fora isso: Android → Configurações → Apps → Alerta de Velocidade → Bateria → <b>Sem restrições</b>.</td></tr>
     </table>
   </section>
 

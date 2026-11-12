@@ -54,8 +54,8 @@ jobs:
                   applicationId 'com.alerta.velocidade'
                   minSdk 26
                   targetSdk 34
-                  versionCode 21
-                  versionName '5.9'
+                  versionCode 22
+                  versionName '6.0'
               }
           }
           EOF
@@ -69,6 +69,7 @@ jobs:
               <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
               <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION"/>
               <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+              <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
               <application
                   android:label="Alerta de Velocidade"
                   android:icon="@android:drawable/ic_menu_mylocation"
@@ -80,6 +81,9 @@ jobs:
                           <category android:name="android.intent.category.LAUNCHER"/>
                       </intent-filter>
                   </activity>
+                  <service android:name=".AtualizadorRadares"
+                      android:permission="android.permission.BIND_JOB_SERVICE"
+                      android:exported="false"/>
                   <service android:name=".SpeedService"
                       android:exported="false"
                       android:foregroundServiceType="location"/>
@@ -148,7 +152,7 @@ jobs:
               TextView placa, via, st, btn;
               Switch usarVia;
               EditText chave;
-              Switch forcar, alertaRadar;
+              Switch forcar, alertaRadar, desligarParado;
               TextView radaresInfo;
               TextView radarTxt;
               TextView[] menos = new TextView[3], mais = new TextView[3];
@@ -188,6 +192,7 @@ jobs:
               @Override
               protected void onCreate(Bundle b) {
                   super.onCreate(b);
+                  AtualizadorRadares.agendar(this);
                   getWindow().setStatusBarColor(BG);
                   getWindow().setNavigationBarColor(BG);
                   getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -370,6 +375,14 @@ jobs:
                   alertaRadar.setPadding(dp(14), dp(14), dp(14), dp(14));
                   alertaRadar.setBackground(fundo(CARD, 12, 0));
                   config.addView(alertaRadar, margemTopo(10));
+                  desligarParado = new Switch(this);
+                  desligarParado.setText("Desligar após 5 min parado (economiza bateria)");
+                  desligarParado.setTextColor(FG);
+                  desligarParado.setTextSize(15);
+                  desligarParado.setChecked(p.getBoolean("parado", true));
+                  desligarParado.setPadding(dp(14), dp(14), dp(14), dp(14));
+                  desligarParado.setBackground(fundo(CARD, 12, 0));
+                  config.addView(desligarParado, margemTopo(10));
                   if (forcar.getParent() != null) ((ViewGroup) forcar.getParent()).removeView(forcar);
                   config.addView(forcar, margemTopo(10));
                   config.addView(chave, margemTopo(10));
@@ -421,9 +434,6 @@ jobs:
                   mp.setOnCompletionListener(m -> { m.release(); testarVozes(i + 1); });
                   mp.start();
               }
-
-              static final String URL_RADARES =
-                  "https://raw.githubusercontent.com/AndreiGitH/alerta-velocidade/main/dados/radares.csv";
 
               // Manual em HTML (assets/manual.html) numa janela de tela cheia
               void abrirManual() {
@@ -494,20 +504,7 @@ jobs:
                   new Thread(() -> {
                       String msg;
                       try {
-                          HttpURLConnection c = (HttpURLConnection) new URL(URL_RADARES).openConnection();
-                          c.setConnectTimeout(15000);
-                          c.setReadTimeout(30000);
-                          if (c.getResponseCode() != 200) throw new Exception("HTTP " + c.getResponseCode());
-                          String txt = ler(c.getInputStream());
-                          Map<String, Integer> n = contarFontes(txt);
-                          int total = 0;
-                          for (int v : n.values()) total += v;
-                          if (!txt.startsWith("lat,lon") || total < 100) throw new Exception("arquivo inválido");
-                          File tmp = new File(getFilesDir(), "radares.tmp");
-                          try (FileOutputStream o = new FileOutputStream(tmp)) { o.write(txt.getBytes("UTF-8")); }
-                          if (!tmp.renameTo(new File(getFilesDir(), "radares.csv"))) throw new Exception("falha ao gravar");
-                          SpeedService.recarregarRadares = true;
-                          msg = "Radares atualizados:\n" + resumo(n);
+                          msg = "Radares atualizados:\n" + resumo(AtualizadorRadares.baixar(this));
                       } catch (Exception e) {
                           msg = "Não foi possível atualizar (" + e.getMessage() + "). A base anterior continua valendo.";
                       }
@@ -521,7 +518,14 @@ jobs:
               static final String EXTRA_MARCAR = "marcar_radar";
               boolean voltarAoTerminar = false; // aberto pela notificação: volta ao app anterior (Maps) no fim
 
+              static final String EXTRA_RELIGAR = "religar";
+
               void tratarIntent(Intent i) {
+                  if (i != null && i.getBooleanExtra(EXTRA_RELIGAR, false)) {
+                      i.removeExtra(EXTRA_RELIGAR);
+                      if (!SpeedService.rodando) pedirPermissoes();
+                      return;
+                  }
                   if (i == null || !i.getBooleanExtra(EXTRA_MARCAR, false)) return;
                   i.removeExtra(EXTRA_MARCAR);
                   voltarAoTerminar = true;
@@ -742,6 +746,7 @@ jobs:
                           usarVia.setChecked(p.getBoolean("via", true));
                           chave.setText(p.getString("tomtom", ""));
                           alertaRadar.setChecked(p.getBoolean("radar", true));
+                          desligarParado.setChecked(p.getBoolean("parado", true));
                       })
                       .show();
               }
@@ -757,6 +762,7 @@ jobs:
                   e.putBoolean("via", usarVia.isChecked());
                   e.putString("tomtom", chave.getText().toString().trim());
                   e.putBoolean("radar", alertaRadar.isChecked());
+                  e.putBoolean("parado", desligarParado.isChecked());
                   e.apply();
               }
 
@@ -1025,6 +1031,34 @@ jobs:
               static volatile boolean rodando = false;
               static volatile float kmh = -1;
               static volatile double ultLat = Double.NaN, ultLon = Double.NaN; // última posição (botão +)
+              static final long PARADO_MS = 5 * 60 * 1000L;  // desliga após 5 min sem se mover
+              static final float MOVENDO_KMH = 8;            // abaixo disso conta como parado
+              boolean desligarParado;
+              long ultimoMovimento;
+              final Runnable vigiaParado = new Runnable() {
+                  public void run() {
+                      if (desligarParado && System.currentTimeMillis() - ultimoMovimento >= PARADO_MS) { desligarPorInatividade(); return; }
+                      h.postDelayed(this, 30000);
+                  }
+              };
+
+              // Para o GPS e o serviço; uma notificação comum permite religar com um toque
+              void desligarPorInatividade() {
+                  PendingIntent pi = PendingIntent.getActivity(this, 2,
+                      new Intent(this, MainActivity.class).putExtra(MainActivity.EXTRA_RELIGAR, true)
+                          .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP),
+                      PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
+                  nm.notify(2, new Notification.Builder(this, "vel")
+                      .setSmallIcon(android.R.drawable.ic_menu_mylocation)
+                      .setContentTitle("Alerta de Velocidade desligado")
+                      .setContentText("Parado há 5 minutos. Toque para ligar de novo.")
+                      .setAutoCancel(true)
+                      .setContentIntent(pi)
+                      .build());
+                  stopForeground(true);
+                  stopSelf();
+              }
+
               static volatile boolean recarregarRadares = false; // botão "Atualizar radares" baixou uma base nova
               static volatile String radarInfo = "";         // "Radar a 150 m · 60 km/h" ou vazio
               static volatile int limVia = -1;          // limite da via atual (-1 = desconhecido)
@@ -1074,11 +1108,16 @@ jobs:
                   usarVia = p.getBoolean("via", true);
                   chaveTomTom = p.getString("tomtom", "");
                   alertarRadar = p.getBoolean("radar", true);
+                  desligarParado = p.getBoolean("parado", true);
+                  ultimoMovimento = System.currentTimeMillis();
+                  h.removeCallbacks(vigiaParado);
+                  h.postDelayed(vigiaParado, 30000);
                   if (alertarRadar) carregarRadares();
                   usandoVia = usarVia;
 
                   nm = getSystemService(NotificationManager.class);
                   nm.createNotificationChannel(new NotificationChannel("vel", "Velocidade", NotificationManager.IMPORTANCE_LOW));
+                  nm.cancel(2); // some o aviso de "desligado por inatividade"
                   Notification n = notif("Aguardando GPS...");
                   if (Build.VERSION.SDK_INT >= 29) startForeground(1, n, ServiceInfo.FOREGROUND_SERVICE_TYPE_LOCATION);
                   else startForeground(1, n);
@@ -1267,6 +1306,7 @@ jobs:
                   if (!loc.hasSpeed()) return;
                   float v = loc.getSpeed() * 3.6f;
                   kmh = v;
+                  if (v >= MOVENDO_KMH) ultimoMovimento = System.currentTimeMillis();
                   if (alertarRadar) verificarRadares(loc);
 
                   // Limite da via vencido (sem atualização recente)? Volta aos limites fixos.
@@ -1471,6 +1511,86 @@ jobs:
               }
 
               @Override public IBinder onBind(Intent i) { return null; }
+          }
+          EOF
+
+          cat > app/src/main/java/com/alerta/velocidade/AtualizadorRadares.java <<'EOF'
+          package com.alerta.velocidade;
+
+          import android.app.job.JobInfo;
+          import android.app.job.JobParameters;
+          import android.app.job.JobScheduler;
+          import android.app.job.JobService;
+          import android.content.ComponentName;
+          import android.content.Context;
+          import java.io.File;
+          import java.io.FileOutputStream;
+          import java.net.HttpURLConnection;
+          import java.net.URL;
+          import java.util.Calendar;
+          import java.util.Map;
+
+          // Atualiza a base de radares sozinho: o GitHub gera a lista nova toda segunda às 06:00;
+          // a cada ~6 h (com internet) o Android roda este serviço, que só baixa se a base do
+          // celular for anterior à última segunda 07:00.
+          public class AtualizadorRadares extends JobService {
+              static final int JOB_ID = 42;
+              static final String URL_RADARES =
+                  "https://raw.githubusercontent.com/AndreiGitH/alerta-velocidade/main/dados/radares.csv";
+
+              static void agendar(Context c) {
+                  JobScheduler js = c.getSystemService(JobScheduler.class);
+                  if (js == null || js.getPendingJob(JOB_ID) != null) return;
+                  js.schedule(new JobInfo.Builder(JOB_ID, new ComponentName(c, AtualizadorRadares.class))
+                      .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
+                      .setPeriodic(6 * 60 * 60 * 1000L)
+                      .setPersisted(true) // continua agendado depois de reiniciar o celular
+                      .build());
+              }
+
+              static boolean desatualizada(Context c) {
+                  File f = new File(c.getFilesDir(), "radares.csv");
+                  long base = f.exists() ? f.lastModified() : 0;
+                  Calendar seg = Calendar.getInstance();
+                  seg.set(Calendar.HOUR_OF_DAY, 7);
+                  seg.set(Calendar.MINUTE, 0);
+                  seg.set(Calendar.SECOND, 0);
+                  seg.set(Calendar.MILLISECOND, 0);
+                  while (seg.get(Calendar.DAY_OF_WEEK) != Calendar.MONDAY || seg.getTimeInMillis() > System.currentTimeMillis())
+                      seg.add(Calendar.DAY_OF_MONTH, -1);
+                  return base < seg.getTimeInMillis();
+              }
+
+              // Baixa, confere e grava files/radares.csv. Usado também pelo botão "Atualizar radares".
+              static Map<String, Integer> baixar(Context ctx) throws Exception {
+                  HttpURLConnection c = (HttpURLConnection) new URL(URL_RADARES).openConnection();
+                  c.setConnectTimeout(15000);
+                  c.setReadTimeout(30000);
+                  if (c.getResponseCode() != 200) throw new Exception("HTTP " + c.getResponseCode());
+                  String txt = MainActivity.ler(c.getInputStream());
+                  Map<String, Integer> n = MainActivity.contarFontes(txt);
+                  int total = 0;
+                  for (int v : n.values()) total += v;
+                  if (!txt.startsWith("lat,lon") || total < 100) throw new Exception("arquivo inválido");
+                  File tmp = new File(ctx.getFilesDir(), "radares.tmp");
+                  try (FileOutputStream o = new FileOutputStream(tmp)) { o.write(txt.getBytes("UTF-8")); }
+                  if (!tmp.renameTo(new File(ctx.getFilesDir(), "radares.csv"))) throw new Exception("falha ao gravar");
+                  SpeedService.recarregarRadares = true;
+                  return n;
+              }
+
+              @Override
+              public boolean onStartJob(JobParameters params) {
+                  if (!desatualizada(this)) return false;
+                  new Thread(() -> {
+                      boolean ok;
+                      try { baixar(this); ok = true; } catch (Exception e) { ok = false; }
+                      jobFinished(params, !ok); // falhou: o Android tenta de novo mais tarde
+                  }).start();
+                  return true;
+              }
+
+              @Override public boolean onStopJob(JobParameters params) { return true; }
           }
           EOF
 

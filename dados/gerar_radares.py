@@ -109,11 +109,17 @@ def radares_transalvador():
         s = bruto.decode("utf-8")
     except UnicodeDecodeError:
         s = bruto.decode("latin-1")
-    padrao = re.compile(
-        r"\"position\":new google\.maps\.LatLng\((-?[\d.]+),\s*(-?[\d.]+)\).*?setContent\('<b><p>(.*?)<br/>.*?<br/><br/>([^<]*)<br/>.*?Velocidade:\s*(\d+)",
-        re.S)
-    for lat, lon, endereco, tipo, vel in padrao.findall(s):
-        lat, lon = float(lat), float(lon)
+    # Lê um marcador por vez: com uma regex única sobre a página inteira, um marcador
+    # com "Velocidade: N/A" fazia a busca seguir para o marcador seguinte e perdia radares.
+    for bloco in s.split('"position":new google.maps.LatLng(')[1:]:
+        m = re.match(r"\s*(-?[\d.]+),\s*(-?[\d.]+)\)", bloco)
+        balao = re.search(r"setContent\('<b><p>(.*?)<br/>.*?Velocidade:\s*([^<]*)<", bloco, re.S)
+        if not m or not balao:
+            continue
+        if "VSOCR" in bloco[:bloco.find("Velocidade:")]:  # câmera de leitura de placas, não mede velocidade
+            continue
+        vel = re.match(r"\d+", balao.group(2).strip())  # alguns radares vêm com "N/A": limite desconhecido
+        lat, lon, endereco, vel = float(m.group(1)), float(m.group(2)), balao.group(1), vel.group() if vel else 0
         if not (-13.1 < lat < -12.7 and -38.7 < lon < -38.2):  # fora de Salvador
             continue
         sentido = ""

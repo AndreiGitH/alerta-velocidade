@@ -84,6 +84,7 @@ licença ODbL. Licenças de todas as fontes: [`dados/LICENCA-DADOS.md`](dados/LI
 |---|---|
 | **Usar limite da via (TomTom / OpenStreetMap)** | Liga a consulta do limite da rua. |
 | **Avisar radares a 200 m** | Liga o aviso de radares. |
+| **Desligar após 5 min parado** | Desliga o GPS e o alerta após 5 min parado; a notificação permite religar com um toque. |
 | **Forçar meus limites** | Ligada: os avisos usam sempre os seus 3 limites, mesmo se houver limite da via. |
 | **Chave da API TomTom** | Opcional. Melhora muito o limite da via (veja abaixo). Fica salva só no celular e aparece oculta. |
 | **▶ Testar vozes** | Toca as vozes dos seus 3 limites, para conferir o som. |
@@ -141,8 +142,8 @@ roda toda segunda-feira (ou em **Actions → Atualizar radares → Run workflow*
 4. gera `dados/radares.csv`, faz commit se mudou e mostra a tabela de radares por fonte
    no resumo da execução.
 
-Se uma fonte falhar, os radares dela da versão anterior são mantidos. No app, o botão
-**⚙ → ⟳ Atualizar radares** baixa esse `radares.csv` direto do repositório.
+Se uma fonte falhar, os radares dela da versão anterior são mantidos. O app baixa esse `radares.csv` sozinho a partir das 7h de segunda (primeira vez que houver internet);
+o botão **⚙ → ⟳ Atualizar radares** força o download na hora.
 
 Para rodar no computador (precisa do 7-Zip instalado):
 
