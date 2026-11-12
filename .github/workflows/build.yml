@@ -54,8 +54,8 @@ jobs:
                   applicationId 'com.alerta.velocidade'
                   minSdk 26
                   targetSdk 34
-                  versionCode 22
-                  versionName '6.0'
+                  versionCode 23
+                  versionName '6.1'
               }
           }
           EOF
@@ -71,6 +71,7 @@ jobs:
               <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
               <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
               <application
+                  android:name=".App"
                   android:label="Alerta de Velocidade"
                   android:icon="@android:drawable/ic_menu_mylocation"
                   android:theme="@android:style/Theme.Material.NoActionBar">
@@ -192,7 +193,7 @@ jobs:
               @Override
               protected void onCreate(Bundle b) {
                   super.onCreate(b);
-                  AtualizadorRadares.agendar(this);
+                  try { AtualizadorRadares.agendar(this); } catch (Throwable t) { App.registrar(this, t); }
                   getWindow().setStatusBarColor(BG);
                   getWindow().setNavigationBarColor(BG);
                   getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -339,6 +340,7 @@ jobs:
                   s.addView(l);
                   setContentView(s);
                   tratarIntent(getIntent());
+                  mostrarUltimoErro();
               }
 
               // Configurações (limite da via e chave TomTom) ficam num diálogo, fora da tela principal
@@ -731,6 +733,27 @@ jobs:
                       .setPositiveButton("Fechar", null)
                       .create();
                   d[0].show();
+              }
+
+              void mostrarUltimoErro() {
+                  final String erro = App.lerErro(this);
+                  if (erro == null) return;
+                  TextView t = texto(erro, 12, FG, false);
+                  t.setTextIsSelectable(true);
+                  t.setPadding(dp(16), dp(8), dp(16), dp(8));
+                  ScrollView sv = new ScrollView(this);
+                  sv.addView(t);
+                  new AlertDialog.Builder(this, android.R.style.Theme_DeviceDefault_Dialog_Alert)
+                      .setTitle("O app encontrou um erro")
+                      .setView(sv)
+                      .setPositiveButton("Copiar relatório", (d, w) -> {
+                          android.content.ClipboardManager cb = getSystemService(android.content.ClipboardManager.class);
+                          cb.setPrimaryClip(android.content.ClipData.newPlainText("Erro Alerta de Velocidade", erro));
+                          App.apagarErro(this);
+                          st.setText("Relatório copiado. Cole e envie para o desenvolvedor.");
+                      })
+                      .setNegativeButton("Fechar", (d, w) -> App.apagarErro(this))
+                      .show();
               }
 
               void abrirConfig() {
@@ -1591,6 +1614,59 @@ jobs:
               }
 
               @Override public boolean onStopJob(JobParameters params) { return true; }
+          }
+          EOF
+
+          cat > app/src/main/java/com/alerta/velocidade/App.java <<'EOF'
+          package com.alerta.velocidade;
+
+          import android.app.Application;
+          import android.content.Context;
+          import android.os.Build;
+          import java.io.File;
+          import java.io.FileInputStream;
+          import java.io.FileOutputStream;
+          import java.io.PrintWriter;
+          import java.io.StringWriter;
+          import java.text.SimpleDateFormat;
+          import java.util.Date;
+          import java.util.Locale;
+
+          // Guarda o último erro em files/ultimo_erro.txt; a tela principal mostra na próxima abertura.
+          public class App extends Application {
+              @Override
+              public void onCreate() {
+                  super.onCreate();
+                  final Thread.UncaughtExceptionHandler padrao = Thread.getDefaultUncaughtExceptionHandler();
+                  Thread.setDefaultUncaughtExceptionHandler((th, e) -> {
+                      registrar(this, e);
+                      if (padrao != null) padrao.uncaughtException(th, e);
+                  });
+              }
+
+              static void registrar(Context c, Throwable e) {
+                  try {
+                      StringWriter sw = new StringWriter();
+                      e.printStackTrace(new PrintWriter(sw));
+                      String versao = "?";
+                      try { versao = c.getPackageManager().getPackageInfo(c.getPackageName(), 0).versionName; }
+                      catch (Exception ignorado) { }
+                      String txt = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.US).format(new Date())
+                          + "\nApp " + versao + " · Android " + Build.VERSION.RELEASE + " (API " + Build.VERSION.SDK_INT + ")"
+                          + " · " + Build.MANUFACTURER + " " + Build.MODEL + "\n\n" + sw;
+                      try (FileOutputStream o = new FileOutputStream(new File(c.getFilesDir(), "ultimo_erro.txt"))) {
+                          o.write(txt.getBytes("UTF-8"));
+                      }
+                  } catch (Throwable ignorado) { }
+              }
+
+              static String lerErro(Context c) {
+                  File f = new File(c.getFilesDir(), "ultimo_erro.txt");
+                  if (!f.exists()) return null;
+                  try { return MainActivity.ler(new FileInputStream(f)); } catch (Exception e) { return null; }
+              }
+
+              static void apagarErro(Context c) { new File(c.getFilesDir(), "ultimo_erro.txt").delete(); }
           }
           EOF
 
