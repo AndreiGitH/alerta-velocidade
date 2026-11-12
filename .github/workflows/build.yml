@@ -54,8 +54,8 @@ jobs:
                   applicationId 'com.alerta.velocidade'
                   minSdk 26
                   targetSdk 34
-                  versionCode 25
-                  versionName '6.3'
+                  versionCode 26
+                  versionName '6.4'
               }
           }
           EOF
