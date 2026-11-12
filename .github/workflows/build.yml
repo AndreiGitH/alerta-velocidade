@@ -54,8 +54,8 @@ jobs:
                   applicationId 'com.alerta.velocidade'
                   minSdk 26
                   targetSdk 34
-                  versionCode 26
-                  versionName '6.4'
+                  versionCode 27
+                  versionName '6.5'
               }
               // Assinatura fixa (gravada pelo passo "Assinatura fixa" a partir do secret)
               signingConfigs {
@@ -154,9 +154,20 @@ jobs:
 
           public class MainActivity extends Activity {
               static final int[] PADRAO = {60, 80, 100};
-              static final int BG = Color.parseColor("#101418"), CARD = Color.parseColor("#1B2128"),
-                  FG = Color.parseColor("#EEF2F5"), MUT = Color.parseColor("#8A96A3"),
-                  OK = Color.parseColor("#3ECF8E"), BAD = Color.parseColor("#FF4D4F");
+              // Tema: padrão (grafite e verde) ou azul neon, escolhido nas Configurações
+              static boolean neon = false;
+              static int BG, CARD, FG, MUT, OK;
+              static final int BAD = Color.parseColor("#FF4D4F");
+
+              static void aplicarTema(boolean n) {
+                  neon = n;
+                  BG = Color.parseColor(n ? "#050A18" : "#101418");
+                  CARD = Color.parseColor(n ? "#0B1832" : "#1B2128");
+                  FG = Color.parseColor(n ? "#E6FBFF" : "#EEF2F5");
+                  MUT = Color.parseColor(n ? "#6FB6D9" : "#8A96A3");
+                  OK = Color.parseColor(n ? "#00E5FF" : "#3ECF8E");
+                  Gauge.VERDE = n ? 0xFF00E5FF : 0xFF2ED47A; // faixa "abaixo do limite"
+              }
 
               EditText[] lim = new EditText[3];
               LinearLayout[] limBox = new LinearLayout[3];
@@ -165,7 +176,7 @@ jobs:
               TextView placa, via, st, btn;
               Switch usarVia;
               EditText chave;
-              Switch forcar, alertaRadar, desligarParado;
+              Switch forcar, alertaRadar, desligarParado, temaNeon;
               TextView radaresInfo;
               TextView radarTxt;
               TextView[] menos = new TextView[3], mais = new TextView[3];
@@ -206,6 +217,7 @@ jobs:
               protected void onCreate(Bundle b) {
                   super.onCreate(b);
                   try { AtualizadorRadares.agendar(this); } catch (Throwable t) { App.registrar(this, t); }
+                  aplicarTema(getSharedPreferences("cfg", 0).getBoolean("neon", false));
                   getWindow().setStatusBarColor(BG);
                   getWindow().setNavigationBarColor(BG);
                   getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -389,6 +401,14 @@ jobs:
                   alertaRadar.setPadding(dp(14), dp(14), dp(14), dp(14));
                   alertaRadar.setBackground(fundo(CARD, 12, 0));
                   config.addView(alertaRadar, margemTopo(10));
+                  temaNeon = new Switch(this);
+                  temaNeon.setText("Tema azul neon");
+                  temaNeon.setTextColor(FG);
+                  temaNeon.setTextSize(15);
+                  temaNeon.setChecked(p.getBoolean("neon", false));
+                  temaNeon.setPadding(dp(14), dp(14), dp(14), dp(14));
+                  temaNeon.setBackground(fundo(CARD, 12, 0));
+                  config.addView(temaNeon, margemTopo(10));
                   desligarParado = new Switch(this);
                   desligarParado.setText("Desligar após 5 min parado (economiza bateria)");
                   desligarParado.setTextColor(FG);
@@ -826,13 +846,18 @@ jobs:
                   new AlertDialog.Builder(this, android.R.style.Theme_DeviceDefault_Dialog_Alert)
                       .setTitle("Configurações")
                       .setView(config)
-                      .setPositiveButton("Salvar", (dlg, w) -> salvar())
+                      .setPositiveButton("Salvar", (dlg, w) -> {
+                          boolean mudouTema = temaNeon.isChecked() != neon;
+                          salvar();
+                          if (mudouTema) recreate(); // redesenha a tela com as cores novas
+                      })
                       .setNegativeButton("Cancelar", (dlg, w) -> {
                           SharedPreferences p = getSharedPreferences("cfg", 0);
                           usarVia.setChecked(p.getBoolean("via", true));
                           chave.setText(p.getString("tomtom", ""));
                           alertaRadar.setChecked(p.getBoolean("radar", true));
                           desligarParado.setChecked(p.getBoolean("parado", true));
+                          temaNeon.setChecked(p.getBoolean("neon", false));
                       })
                       .show();
               }
@@ -849,6 +874,7 @@ jobs:
                   e.putString("tomtom", chave.getText().toString().trim());
                   e.putBoolean("radar", alertaRadar.isChecked());
                   e.putBoolean("parado", desligarParado.isChecked());
+                  e.putBoolean("neon", temaNeon.isChecked());
                   e.apply();
               }
 
@@ -923,7 +949,8 @@ jobs:
               // Velocímetro estilo painel: aro metálico, escala, faixas verde/laranja/vermelha,
               // ponteiro com brilho, velocidade no centro e relógio embaixo.
               static class Gauge extends View {
-                  static final int VERDE = 0xFF2ED47A, LARANJA = 0xFFFF8A1F, VERMELHO = 0xFFFF3B3B;
+                  static int VERDE = 0xFF2ED47A; // azul neon no tema neon (MainActivity.aplicarTema)
+                  static final int LARANJA = 0xFFFF8A1F, VERMELHO = 0xFFFF3B3B;
                   final Paint p = new Paint(Paint.ANTI_ALIAS_FLAG);
                   final RectF r = new RectF();
                   final Matrix giro = new Matrix();
@@ -984,9 +1011,13 @@ jobs:
                       p.setStyle(Paint.Style.STROKE);
                       p.setStrokeCap(Paint.Cap.ROUND);
                       p.setStrokeWidth(5 * d);
-                      p.setShader(new SweepGradient(cx, cy,
-                          new int[]{0xFF4A5058, 0xFFF0F3F5, 0xFF4A5058, 0xFFC8CDD2, 0xFF4A5058}, null));
+                      boolean n = MainActivity.neon;
+                      p.setShader(new SweepGradient(cx, cy, n
+                          ? new int[]{0xFF003A66, 0xFF00E5FF, 0xFF003A66, 0xFF7DF9FF, 0xFF003A66}
+                          : new int[]{0xFF4A5058, 0xFFF0F3F5, 0xFF4A5058, 0xFFC8CDD2, 0xFF4A5058}, null));
+                      if (n) p.setShadowLayer(10 * d, 0, 0, 0xFF00E5FF); // aro com brilho neon
                       arco(c, R * 0.98f, 128, 412);
+                      p.clearShadowLayer();
                       p.setShader(null);
 
                       // Faixas coloridas que esmaecem em direção ao centro
@@ -1010,14 +1041,14 @@ jobs:
                       for (int v = 0; v <= max; v += 5) {
                           boolean grande = v % 20 == 0;
                           p.setStrokeWidth((grande ? 3 : 1.5f) * d);
-                          p.setColor(grande ? 0xFFFFFFFF : 0x99FFFFFF);
+                          p.setColor(n ? (grande ? 0xFF7DF9FF : 0x997DF9FF) : (grande ? 0xFFFFFFFF : 0x99FFFFFF));
                           raio(c, v, rf - (grande ? 14 : 7) * d, rf);
                       }
                       p.setStyle(Paint.Style.FILL);
                       p.setTextAlign(Paint.Align.CENTER);
                       p.setTypeface(Typeface.create(Typeface.SANS_SERIF, Typeface.BOLD_ITALIC));
                       p.setTextSize(R * 0.1f);
-                      p.setColor(0xFFE6E9EC);
+                      p.setColor(n ? 0xFFBFF6FF : 0xFFE6E9EC);
                       for (int v = 0; v <= max; v += 20) {
                           double t = Math.toRadians(ang(v));
                           float rr = R * 0.73f;
@@ -1029,15 +1060,16 @@ jobs:
                       p.setStyle(Paint.Style.STROKE);
                       p.setStrokeCap(Paint.Cap.ROUND);
                       p.setStrokeWidth(5 * d);
-                      p.setColor(0xFFFFC233);
-                      p.setShadowLayer(8 * d, 0, 0, 0xFFFF6A00);
+                      p.setColor(n ? 0xFFFFFFFF : 0xFFFFC233);
+                      p.setShadowLayer(8 * d, 0, 0, n ? 0xFF00E5FF : 0xFFFF6A00);
                       raio(c, atual, ri - 4 * d, R * 0.95f);
                       p.clearShadowLayer();
 
                       // Disco central escuro com anel verde → laranja → vermelho
                       float rd = R * 0.56f;
                       p.setStyle(Paint.Style.FILL);
-                      p.setShader(new RadialGradient(cx, cy - rd * 0.3f, rd * 1.2f, 0xFF16263D, 0xFF04060A, Shader.TileMode.CLAMP));
+                      p.setShader(new RadialGradient(cx, cy - rd * 0.3f, rd * 1.2f,
+                          n ? 0xFF06306A : 0xFF16263D, n ? 0xFF01030A : 0xFF04060A, Shader.TileMode.CLAMP));
                       c.drawCircle(cx, cy, rd, p);
                       p.setStyle(Paint.Style.STROKE);
                       p.setStrokeWidth(3 * d);
@@ -1057,11 +1089,11 @@ jobs:
                       c.drawText(alvo < 0 ? "--" : String.valueOf(Math.round(alvo)), cx, cy + R * 0.16f, p);
                       p.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
                       p.setTextSize(R * 0.085f);
-                      p.setColor(0xFF9AA4B2);
+                      p.setColor(n ? 0xFF7DF9FF : 0xFF9AA4B2);
                       c.drawText("KM/H", cx, cy + R * 0.36f, p);
                       p.setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
                       p.setTextSize(R * 0.22f);
-                      p.setColor(0xFFFFFFFF);
+                      p.setColor(n ? 0xFFBFF6FF : 0xFFFFFFFF);
                       c.drawText(DateFormat.format("HH:mm", System.currentTimeMillis()).toString(), cx, cy + R * 0.93f, p);
                   }
               }
