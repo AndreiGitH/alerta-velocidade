@@ -1367,7 +1367,6 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -16.386263,-39.58634,40,,,,2022-05-14,OpenStreetMap
 -9.424627,-40.519844,50,,,,2025-11-11,OpenStreetMap
 -10.971643,-38.791996,40,,,,2026-09-26,OpenStreetMap
--11.672576,-38.998179,50,,,,2026-11-12,OpenStreetMap
 -12.649461,-39.118441,60,,,,2022-05-13,OpenStreetMap
 -12.729563,-39.180843,60,,,,2023-02-18,OpenStreetMap
 -12.514102,-40.305559,40,,,,2019-07-06,OpenStreetMap
@@ -1396,7 +1395,7 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -12.358408,-38.86222,40,,,,2023-04-04,OpenStreetMap
 -15.512366,-41.236728,40,,,,2025-01-13,OpenStreetMap
 -13.483164,-40.043327,60,,,,2020-04-15,OpenStreetMap
--14.822271,-40.816107,60,,,,2026-11-12,OpenStreetMap
+-14.822271,-40.816107,60,,,,2026-11-14,OpenStreetMap
 -13.871701,-40.11544,60,,,,2020-02-14,OpenStreetMap
 -13.867035,-40.112815,60,,,,2020-02-14,OpenStreetMap
 -13.756353,-39.487967,60,,,,2020-07-16,OpenStreetMap
@@ -1518,7 +1517,7 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -14.791717,-39.032989,0,,,,2025-11-20,OpenStreetMap
 -14.787478,-39.032173,40,,,,2025-11-20,OpenStreetMap
 -14.802586,-39.14936,40,,,,2025-11-20,OpenStreetMap
--14.895312,-40.865191,40,,,,2026-11-12,OpenStreetMap
+-14.895312,-40.865191,40,,,,2026-11-14,OpenStreetMap
 -14.220229,-41.64034,50,,,,2026-01-15,OpenStreetMap
 -14.207173,-41.677563,40,,,,2026-02-07,OpenStreetMap
 -14.187038,-41.670143,60,,,,2026-02-07,OpenStreetMap
@@ -1596,7 +1595,14 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -14.01691,-39.434195,50,,,,2026-09-15,OpenStreetMap
 -12.148766,-38.395991,40,,,,2026-09-15,OpenStreetMap
 -12.148615,-38.395766,40,,,,2026-09-15,OpenStreetMap
--14.828476,-40.828023,60,,,,2026-11-12,OpenStreetMap
+-18.17424,-39.918221,40,,,,2026-11-15,OpenStreetMap
+-18.17034,-39.918664,40,,,,2026-11-15,OpenStreetMap
+-18.171942,-39.918476,40,,,,2026-11-15,OpenStreetMap
+-17.037488,-39.544707,0,,,,2026-11-15,OpenStreetMap
+-17.525991,-39.708749,40,,,,2026-11-15,OpenStreetMap
+-17.525164,-39.708252,40,,,,2026-11-15,OpenStreetMap
+-16.37831,-39.582025,40,,,,2026-11-15,OpenStreetMap
+-16.337567,-39.58125,40,,,,2026-11-15,OpenStreetMap
 -13.01241,-38.491637,40,Rua Guedes Cabral x Casa de Iemanjá,,Sentido Amaralina,,Transalvador (redutor)
 -13.006086,-38.45715,40,Av. Octávio Mangabeira x Praça Nossa Senhora da Luz,,Sentido Itapuã,,Transalvador (redutor)
 -12.970784,-38.412481,70,Rua Carimbamba x próximo ao Sal e Brasa,,Sentido Pituba,,Transalvador (portátil)
