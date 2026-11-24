@@ -1,7 +1,16 @@
-<html>
-<head><title>406 Not Acceptable</title></head>
-<body>
-<center><h1>406 Not Acceptable</h1></center>
-<hr><center>nginx</center>
-</body>
-</html>
+# 502 Gateway Timeout
+
+This Overpass API server is currently at capacity. All query workers are busy
+and the request queue is full.
+
+## What to do
+
+Retry your request using exponential backoff: wait a short interval, then retry.
+If the request fails again, double the wait time and retry again.
+
+## For heavy or automated use
+
+This public endpoint is intended for browser-based and human-operated tools.
+For automated or high-volume use, run a local Overpass API instance:
+
+https://github.com/b1tw153/Overpass-API/blob/main/README.md
