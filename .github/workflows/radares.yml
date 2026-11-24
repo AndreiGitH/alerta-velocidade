@@ -6,6 +6,9 @@ on:
   schedule:
     - cron: '0 9 * * 1'   # toda segunda-feira, 06:00 de Brasília
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['dados/gerar_radares.py']   # roda ao mudar as fontes
 
 permissions:
   contents: write

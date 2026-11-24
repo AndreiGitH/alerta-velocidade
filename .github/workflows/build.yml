@@ -54,8 +54,8 @@ jobs:
                   applicationId 'com.alerta.velocidade'
                   minSdk 26
                   targetSdk 34
-                  versionCode 27
-                  versionName '6.5'
+                  versionCode 28
+                  versionName '6.6'
               }
               // Assinatura fixa (gravada pelo passo "Assinatura fixa" a partir do secret)
               signingConfigs {
@@ -178,6 +178,9 @@ jobs:
               EditText chave;
               Switch forcar, alertaRadar, desligarParado, temaNeon;
               TextView radaresInfo;
+              static final int[] OPCOES_PARADO = {5, 10, 15, 30, 60}; // minutos
+              int paradoMin = 15;
+              TextView[] botoesParado = new TextView[OPCOES_PARADO.length];
               TextView radarTxt;
               TextView[] menos = new TextView[3], mais = new TextView[3];
               LinearLayout config;
@@ -410,13 +413,32 @@ jobs:
                   temaNeon.setBackground(fundo(CARD, 12, 0));
                   config.addView(temaNeon, margemTopo(10));
                   desligarParado = new Switch(this);
-                  desligarParado.setText("Desligar após 5 min parado (economiza bateria)");
+                  desligarParado.setText("Desligar quando parado (economiza bateria)");
                   desligarParado.setTextColor(FG);
                   desligarParado.setTextSize(15);
                   desligarParado.setChecked(p.getBoolean("parado", true));
                   desligarParado.setPadding(dp(14), dp(14), dp(14), dp(14));
                   desligarParado.setBackground(fundo(CARD, 12, 0));
                   config.addView(desligarParado, margemTopo(10));
+                  // Quantos minutos parado até desligar (padrão 15)
+                  paradoMin = p.getInt("paradoMin", 15);
+                  LinearLayout linhaParado = new LinearLayout(this);
+                  linhaParado.setGravity(Gravity.CENTER_VERTICAL);
+                  linhaParado.addView(texto("Minutos:", 14, MUT, false));
+                  for (int i = 0; i < OPCOES_PARADO.length; i++) {
+                      final int minutos = OPCOES_PARADO[i];
+                      TextView bp = texto(String.valueOf(minutos), 15, FG, true);
+                      bp.setGravity(Gravity.CENTER);
+                      bp.setPadding(0, dp(10), 0, dp(10));
+                      bp.setOnClickListener(vw -> { paradoMin = minutos; marcarParado(); });
+                      LinearLayout.LayoutParams lpb = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1);
+                      lpb.leftMargin = dp(6);
+                      linhaParado.addView(bp, lpb);
+                      botoesParado[i] = bp;
+                  }
+                  desligarParado.setOnCheckedChangeListener((cbx, ligado) -> marcarParado());
+                  marcarParado();
+                  config.addView(linhaParado, margemTopo(8));
                   if (forcar.getParent() != null) ((ViewGroup) forcar.getParent()).removeView(forcar);
                   config.addView(forcar, margemTopo(10));
                   config.addView(chave, margemTopo(10));
@@ -857,9 +879,25 @@ jobs:
                           chave.setText(p.getString("tomtom", ""));
                           alertaRadar.setChecked(p.getBoolean("radar", true));
                           desligarParado.setChecked(p.getBoolean("parado", true));
+                          paradoMin = p.getInt("paradoMin", 15);
+                          marcarParado();
                           temaNeon.setChecked(p.getBoolean("neon", false));
                       })
                       .show();
+              }
+
+              // Destaca o botão de minutos escolhido; apaga a linha se a opção estiver desligada
+              void marcarParado() {
+                  boolean on = desligarParado.isChecked();
+                  for (int i = 0; i < OPCOES_PARADO.length; i++) {
+                      TextView b = botoesParado[i];
+                      if (b == null) continue;
+                      boolean sel = OPCOES_PARADO[i] == paradoMin;
+                      b.setBackground(fundo(CARD, 10, sel ? OK : 0));
+                      b.setTextColor(sel ? OK : FG);
+                      b.setAlpha(on ? 1f : 0.4f);
+                      b.setEnabled(on);
+                  }
               }
 
               void salvar() {
@@ -874,6 +912,7 @@ jobs:
                   e.putString("tomtom", chave.getText().toString().trim());
                   e.putBoolean("radar", alertaRadar.isChecked());
                   e.putBoolean("parado", desligarParado.isChecked());
+                  e.putInt("paradoMin", paradoMin);
                   e.putBoolean("neon", temaNeon.isChecked());
                   e.apply();
               }
@@ -1149,13 +1188,13 @@ jobs:
               static volatile boolean rodando = false;
               static volatile float kmh = -1;
               static volatile double ultLat = Double.NaN, ultLon = Double.NaN; // última posição (botão +)
-              static final long PARADO_MS = 5 * 60 * 1000L;  // desliga após 5 min sem se mover
+              long paradoMs = 15 * 60 * 1000L;               // desliga após N min sem se mover (padrão 15)
               static final float MOVENDO_KMH = 8;            // abaixo disso conta como parado
               boolean desligarParado;
               long ultimoMovimento;
               final Runnable vigiaParado = new Runnable() {
                   public void run() {
-                      if (desligarParado && System.currentTimeMillis() - ultimoMovimento >= PARADO_MS) { desligarPorInatividade(); return; }
+                      if (desligarParado && System.currentTimeMillis() - ultimoMovimento >= paradoMs) { desligarPorInatividade(); return; }
                       h.postDelayed(this, 30000);
                   }
               };
@@ -1169,7 +1208,7 @@ jobs:
                   nm.notify(2, new Notification.Builder(this, "vel")
                       .setSmallIcon(android.R.drawable.ic_menu_mylocation)
                       .setContentTitle("Alerta de Velocidade desligado")
-                      .setContentText("Parado há 5 minutos. Toque para ligar de novo.")
+                      .setContentText("Parado há " + (paradoMs / 60000) + " minutos. Toque para ligar novamente.")
                       .setAutoCancel(true)
                       .setContentIntent(pi)
                       .build());
@@ -1227,6 +1266,7 @@ jobs:
                   chaveTomTom = p.getString("tomtom", "");
                   alertarRadar = p.getBoolean("radar", true);
                   desligarParado = p.getBoolean("parado", true);
+                  paradoMs = Math.max(1, p.getInt("paradoMin", 15)) * 60 * 1000L;
                   ultimoMovimento = System.currentTimeMillis();
                   h.removeCallbacks(vigiaParado);
                   h.postDelayed(vigiaParado, 30000);

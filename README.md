@@ -37,7 +37,7 @@ são mantidos.
 | **⚙ (canto superior direito)** | Abre as Configurações (inclui **⟳ Atualizar radares**). |
 | **Velocímetro** | Ponteiro e velocidade no centro. Faixas **verde** (abaixo do Limite 1), **laranja** (entre o Limite 1 e o 2) e **vermelha** (a partir do Limite 2). O número da velocidade fica laranja/vermelho quando você passa do limite. Embaixo, o **relógio**. |
 | **Faixa vermelha "⚠ Radar a 150 m · 60 km/h"** | Aparece só quando há um radar à frente a até 200 m. |
-| **Placa da via** | Limite da via onde você está (TomTom ou OpenStreetMap) e o nome da rua. |
+| **Placa da via** | Limite da via onde você está (TomTom ou OpenStreetMap) e o nome da via. |
 | **Limite 1, 2 e 3** | Seus limites em km/h. Ajuste com **− / +** (de 5 em 5) ou digitando. |
 | **Iniciar / Parar** | Liga e desliga o monitoramento. |
 
@@ -53,7 +53,7 @@ Os limites e as Configurações só podem ser alterados com o alerta **parado**.
   volta a passar. Isso evita repetição enquanto você anda perto do limite.
 
 ### Limite da via
-- Com **"Usar limite da via"** ligado (Configurações), o app consulta o limite da rua
+- Com **"Usar limite da via"** ligado (Configurações), o app consulta o limite da via
   a cada 10 s ou 150 m. Quando encontra, os avisos passam a seguir o limite da via
   (laranja nos 10 km/h antes dele, vermelho a partir dele).
 - Sem limite cadastrado para a via, o app volta aos seus 3 limites.
@@ -70,10 +70,10 @@ Os limites e as Configurações só podem ser alterados com o alerta **parado**.
 | ANTT | Rodovias federais concedidas (pedagiadas), todo o Brasil |
 | SEINFRA-BA | Rodovias estaduais da Bahia |
 | Transalvador | Cidade de Salvador (fixos, redutores e pontos de radar portátil) |
-| OpenStreetMap (não oficial) | Bahia, exceto Salvador: rodovias federais sem concessão e cidades sem lista oficial |
+| OpenStreetMap (não oficial) | Bahia, exceto Salvador: rodovias federais sem concessão e cidades sem lista oficial. **Distrito Federal**: Brasília e regiões administrativas (Taguatinga, Ceilândia, Gama, Sobradinho…) |
 
 > Os radares do OpenStreetMap aparecem como "Radar (não oficial, 2022)": o ano é a data da
-> última edição do ponto. Fora da Bahia, só há os radares da ANTT.
+> última edição do ponto. Fora da Bahia e do DF, só há os radares da ANTT.
 
 Dados de radares do OpenStreetMap © [colaboradores do OpenStreetMap](https://www.openstreetmap.org/copyright),
 licença ODbL. Licenças de todas as fontes: [`dados/LICENCA-DADOS.md`](dados/LICENCA-DADOS.md).
@@ -82,9 +82,9 @@ licença ODbL. Licenças de todas as fontes: [`dados/LICENCA-DADOS.md`](dados/LI
 
 | Opção | Para que serve |
 |---|---|
-| **Usar limite da via (TomTom / OpenStreetMap)** | Liga a consulta do limite da rua. |
+| **Usar limite da via (TomTom / OpenStreetMap)** | Liga a consulta do limite da via. |
 | **Avisar radares a 200 m** | Liga o aviso de radares. |
-| **Desligar após 5 min parado** | Desliga o GPS e o alerta após 5 min parado; a notificação permite religar com um toque. |
+| **Desligar quando parado** + **Minutos** | Desliga o GPS e o alerta depois de 5, 10, **15 (padrão)**, 30 ou 60 min parado; a notificação permite religar com um toque. |
 | **Forçar meus limites** | Ligada: os avisos usam sempre os seus 3 limites, mesmo se houver limite da via. |
 | **Chave da API TomTom** | Opcional. Melhora muito o limite da via (veja abaixo). Fica salva só no celular e aparece oculta. |
 | **▶ Testar vozes** | Toca as vozes dos seus 3 limites, para conferir o som. |

@@ -9,7 +9,8 @@ Fontes:
     salva por cima de dados/radares_ba_seinfra.kml.
   - Transalvador (Prefeitura de Salvador), mapa oficial de radares.
   - OpenStreetMap (colaborativo, NÃO oficial): radares mapeados na Bahia, exceto Salvador
-    (que tem a lista oficial da Transalvador). Cobre rodovias federais sem concessão
+    (que tem a lista oficial da Transalvador), e no Distrito Federal (Brasília e regiões
+    administrativas; os dados oficiais do Detran-DF/DER-DF não abrem fora do Brasil). Cobre rodovias federais sem concessão
     (DNIT) e cidades sem lista oficial. Pontos a menos de 60 m de um radar oficial são
     ignorados.
   - dados/radares_ssa_extra.csv: redutores e pontos de radar portátil da Transalvador,
@@ -202,14 +203,28 @@ def radares_bahia():
         }
 
 
-OVERPASS = "https://overpass-api.de/api/interpreter"
+# Servidores Overpass, tentados em ordem (o principal costuma ficar lotado)
+OVERPASS = ["https://overpass-api.de/api/interpreter",
+            "https://overpass.private.coffee/api/interpreter",
+            "https://maps.mail.ru/osm/tools/overpass/api/interpreter"]
 
 
 def radares_osm():
+    # Bahia (exceto Salvador, que tem lista oficial) + Distrito Federal (Brasília e regiões administrativas)
     q = ('[out:json][timeout:180];area["ISO3166-2"="BR-BA"]->.ba;'
-         'area["name"="Salvador"]["admin_level"="8"]->.ssa;'
-         '(node(area.ba)[highway=speed_camera]; - node(area.ssa)[highway=speed_camera];);out meta;')
-    elementos = json.loads(baixar(OVERPASS, urllib.parse.urlencode({"data": q}).encode()))["elements"]
+         'area["name"="Salvador"]["admin_level"="8"]->.ssa;area["ISO3166-2"="BR-DF"]->.df;'
+         '((node(area.ba)[highway=speed_camera]; - node(area.ssa)[highway=speed_camera];);'
+         'node(area.df)[highway=speed_camera];);out meta;')
+    dados = urllib.parse.urlencode({"data": q}).encode()
+    erro = None
+    for servidor in OVERPASS:
+        try:
+            elementos = json.loads(baixar(servidor, dados))["elements"]
+            break
+        except Exception as e:
+            erro = e
+    else:
+        raise RuntimeError(f"Overpass indisponível: {erro}")
     for e in elementos:
         t = e.get("tags", {})
         m = re.search(r"\d+", t.get("maxspeed", ""))
@@ -259,7 +274,7 @@ def main():
     fontes = [("ANTT", "federais concedidas", radares_antt),
               ("Transalvador", "Salvador", radares_transalvador),
               ("SEINFRA-BA", "estaduais da Bahia", bahia_atualizada),
-              ("OpenStreetMap", "Bahia exceto Salvador, não oficial", radares_osm)]
+              ("OpenStreetMap", "Bahia exceto Salvador + Distrito Federal, não oficial", radares_osm)]
     radares, resumo = [], []
     for nome, descricao, funcao in fontes:
         try:
