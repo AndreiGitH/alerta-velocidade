@@ -1,0 +1,24 @@
+name: Sonda DF
+on: push
+permissions:
+  contents: write
+jobs:
+  s:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          mkdir -p sonda
+          UA="Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 Chrome/124 Mobile Safari/537.36"
+          f() { curl -sSL -m 90 -A "$UA" -o "sonda/$1" -w "$1 %{http_code} %{size_download}\n" "$2" >> sonda/status.txt 2>>sonda/erros.txt || echo "$1 FALHOU" >> sonda/status.txt; }
+          f ckan.json "https://www.dados.df.gov.br/api/3/action/package_show?id=equipamentos-de-fiscalizacao-eletronica-nas-vias-urbanas-do-distrito-federal"
+          f ckan_busca.json "https://www.dados.df.gov.br/api/3/action/package_search?q=radar&rows=50"
+          f ckan_busca2.json "https://www.dados.df.gov.br/api/3/action/package_search?q=fiscalizacao%20eletronica&rows=50"
+          f wfs.json "https://geoservicos.detran.df.gov.br/geoserver/Detran/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Detran:equipamentos_eletronico&outputFormat=application/json"
+          f wfs.xml "https://geoservicos.detran.df.gov.br/geoserver/Detran/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Detran:equipamentos_eletronico&maxFeatures=5"
+          f caps.xml "https://geoservicos.detran.df.gov.br/geoserver/ows?service=WFS&version=1.0.0&request=GetCapabilities"
+          f detran.html "https://www.detran.df.gov.br/equipamentos-eletronicos/"
+          f der.html "https://www.der.df.gov.br/equipamentos-eletronicos-e-resolucoes/"
+          cat sonda/status.txt
+          git config user.name bot; git config user.email bot@x
+          git add sonda; git commit -m "resultado sonda"; git push
