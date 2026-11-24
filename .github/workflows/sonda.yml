@@ -9,6 +9,6 @@ jobs:
       - uses: actions/checkout@v4
       - run: |
           mkdir -p sonda
-          curl -sS -m 200 --data-urlencode 'data=[out:json][timeout:180];area["ISO3166-2"="BR-DF"]->.df;node(area.df)[highway=speed_camera];out meta;' https://overpass-api.de/api/interpreter -o sonda/osm_df.json -w "%{http_code}\n"
+          curl -sS -m 200 -A 'AlertaVelocidade/1.0 (github.com/AndreiGitH/alerta-velocidade)' --data-urlencode 'data=[out:json][timeout:180];area["ISO3166-2"="BR-DF"]->.df;node(area.df)[highway=speed_camera];out meta;' https://overpass-api.de/api/interpreter -o sonda/osm_df.json -w "%{http_code}\n"
           git config user.name bot; git config user.email bot@x
-          git add sonda; git commit -m "resultado sonda osm"; git push
+          git add sonda; git commit -m "resultado sonda osm2"; git push
