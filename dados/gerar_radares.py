@@ -10,7 +10,8 @@ Fontes:
   - Transalvador (Prefeitura de Salvador), mapa oficial de radares.
   - OpenStreetMap (colaborativo, NÃO oficial): radares mapeados na Bahia, exceto Salvador
     (que tem a lista oficial da Transalvador), e no Distrito Federal (Brasília e regiões
-    administrativas; os dados oficiais do Detran-DF/DER-DF não abrem fora do Brasil). Cobre rodovias federais sem concessão
+    administrativas; os dados oficiais do Detran-DF/DER-DF não abrem fora do Brasil) e em Minas Gerais
+    (o DER-MG publica só rodovia + km, sem coordenadas). Cobre rodovias federais sem concessão
     (DNIT) e cidades sem lista oficial. Pontos a menos de 60 m de um radar oficial são
     ignorados.
   - dados/radares_ssa_extra.csv: redutores e pontos de radar portátil da Transalvador,
@@ -211,15 +212,21 @@ OVERPASS = ["https://overpass-api.de/api/interpreter",
 
 def radares_osm():
     # Bahia (exceto Salvador, que tem lista oficial) + Distrito Federal (Brasília e regiões administrativas)
+    # + Minas Gerais (o DER-MG só publica rodovia + km, impreciso demais para avisar a 200 m)
     q = ('[out:json][timeout:180];area["ISO3166-2"="BR-BA"]->.ba;'
          'area["name"="Salvador"]["admin_level"="8"]->.ssa;area["ISO3166-2"="BR-DF"]->.df;'
+         'area["ISO3166-2"="BR-MG"]->.mg;'
          '((node(area.ba)[highway=speed_camera]; - node(area.ssa)[highway=speed_camera];);'
-         'node(area.df)[highway=speed_camera];);out meta;')
+         'node(area.df)[highway=speed_camera];node(area.mg)[highway=speed_camera];);out meta;')
     dados = urllib.parse.urlencode({"data": q}).encode()
     erro = None
     for servidor in OVERPASS:
         try:
-            elementos = json.loads(baixar(servidor, dados))["elements"]
+            resposta = json.loads(baixar(servidor, dados))
+            elementos = resposta["elements"]
+            # Consulta interrompida vem com HTTP 200, lista parcial e um "remark"
+            if resposta.get("remark") or not elementos:
+                raise RuntimeError(resposta.get("remark") or "resposta vazia")
             break
         except Exception as e:
             erro = e
@@ -274,7 +281,7 @@ def main():
     fontes = [("ANTT", "federais concedidas", radares_antt),
               ("Transalvador", "Salvador", radares_transalvador),
               ("SEINFRA-BA", "estaduais da Bahia", bahia_atualizada),
-              ("OpenStreetMap", "Bahia exceto Salvador + Distrito Federal, não oficial", radares_osm)]
+              ("OpenStreetMap", "Bahia exceto Salvador + Distrito Federal + Minas Gerais, não oficial", radares_osm)]
     radares, resumo = [], []
     for nome, descricao, funcao in fontes:
         try:
