@@ -8,6 +8,12 @@ Fontes:
     "Mapa-Radar_*.rar" mais recente da página, extrai o KML (precisa do 7-Zip) e
     salva por cima de dados/radares_ba_seinfra.kml.
   - Transalvador (Prefeitura de Salvador), mapa oficial de radares.
+  - Prefeitura de Belo Horizonte, "Fiscalização Eletrônica" (dados abertos, CC-BY), só os
+    controladores de velocidade. https://dados.pbh.gov.br/dataset/fiscalizacao-eletronica
+  - DNIT, "Controle de Velocidade" (PNCV, dados abertos): rodovias federais sem concessão,
+    todo o Brasil. A planilha não traz o limite; usa-se o do ponto do OpenStreetMap que
+    estiver a menos de 60 m, quando houver.
+    https://servicos.dnit.gov.br/dadosabertos/dataset/controle-de-velocidade
   - OpenStreetMap (colaborativo, NÃO oficial): radares mapeados na Bahia, exceto Salvador
     (que tem a lista oficial da Transalvador), e no Distrito Federal (Brasília e regiões
     administrativas; os dados oficiais do Detran-DF/DER-DF não abrem fora do Brasil) e em Minas Gerais
@@ -37,9 +43,13 @@ import zipfile
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
+from datetime import datetime, timezone
 from urllib.parse import urljoin
 
 TRANSALVADOR = "https://transonline.salvador.ba.gov.br/geral_sistema/web/index.php/mapa/mapa-porticos"
+DNIT_API = "https://servicos.dnit.gov.br/dadosabertos/api/3/action/package_show?id=controle-de-velocidade"
+PBH_WFS = ("https://bhmap.pbh.gov.br/v2/api/idebhgeo/wfs?service=WFS&version=2.0.0&request=GetFeature"
+           "&typeNames=ide_bhgeo:FISCALIZACAO_ELETRONICA&outputFormat=application/json&srsName=EPSG:4326")
 SEINFRA_MAPAS = "https://www.ba.gov.br/infraestrutura/12046/mapas"
 ANTT_API = "https://dados.antt.gov.br/api/3/action/package_show?id=radar"
 PASTA = os.path.dirname(os.path.abspath(__file__))
@@ -179,6 +189,91 @@ def atualizar_kml_bahia():
         shutil.copyfile(kml, KML_BA)
 
 
+def linhas_xlsx(bruto):
+    """Linhas da 1ª aba de um .xlsx (sem depender de bibliotecas externas)."""
+    ns = "{http://schemas.openxmlformats.org/spreadsheetml/2006/main}"
+    with zipfile.ZipFile(io.BytesIO(bruto)) as z:
+        textos = []
+        if "xl/sharedStrings.xml" in z.namelist():
+            textos = ["".join(t.text or "" for t in si.iter(ns + "t"))
+                      for si in ET.fromstring(z.read("xl/sharedStrings.xml"))]
+        aba = sorted(n for n in z.namelist() if n.startswith("xl/worksheets/sheet"))[0]
+        for linha in ET.fromstring(z.read(aba)).iter(ns + "row"):
+            celulas = {}
+            for c in linha.iter(ns + "c"):
+                v = c.find(ns + "v")
+                x = v.text if v is not None else "".join(t.text or "" for t in c.iter(ns + "t"))
+                if c.get("t") == "s" and x:
+                    x = textos[int(x)]
+                celulas[re.match("[A-Z]+", c.get("r")).group()] = (x or "").strip()
+            yield celulas
+
+
+def radares_dnit():
+    recursos = json.loads(baixar(DNIT_API))["result"]["resources"]
+    # Cada edição é um arquivo novo, com mês e ano no nome: ..._07_2026.xlsx
+    edicoes = []
+    for r in recursos:
+        m = re.search(r"(\d{2})_(\d{4})\.xlsx$", r["url"])
+        if m:
+            edicoes.append((m.group(2), m.group(1), r["url"]))
+    ano, mes, url = max(edicoes)
+    print("DNIT:", url)
+    linhas = linhas_xlsx(baixar(url))
+    colunas = {nome: letra for letra, nome in next(linhas).items()}
+    for l in linhas:
+        campo = lambda nome: l.get(colunas[nome], "")
+        m = re.fullmatch(r"\s*(-?[\d.,]+)\s*/\s*(-?[\d.,]+)\s*", campo("Coordenadas (Lat/Long)"))
+        if not m:
+            continue
+        lat, lon = numero(m.group(1)), numero(m.group(2))
+        if not (-34 < lat < 6 and -74 < lon < -34):  # fora do Brasil = coordenada inválida
+            continue
+        try:
+            km = f"{numero(campo('Km')):.2f}"
+        except ValueError:
+            km = ""
+        yield {
+            "lat": round(lat, 6),
+            "lon": round(lon, 6),
+            "limite": 0,  # a planilha não informa
+            "rodovia": f"BR-{campo('Rodovia')} ({campo('UF')})",
+            "km": km,
+            "sentido": "",
+            # Sem data de início: provavelmente ainda em instalação quando a planilha saiu
+            "fonte": "DNIT" if campo("Início Operação") else "DNIT (sem data de início)",
+        }
+
+
+def radares_bh():
+    # Um registro por faixa: junta os que estão na mesma posição com o mesmo limite
+    vistos = set()
+    for f in json.loads(baixar(PBH_WFS))["features"]:
+        p = f["properties"]
+        # Fora: detectores de avanço de semáforo, conversão proibida e faixa exclusiva
+        if not (p.get("DESC_TIPO_CONTROLADOR_TRANSITO") or "").startswith("Controlador Eletr"):
+            continue
+        lon, lat = f["geometry"]["coordinates"][:2]
+        if not (-20.1 < lat < -19.7 and -44.1 < lon < -43.8):  # fora de Belo Horizonte
+            continue
+        limite = int(p.get("VELOCIDADE_REGULAMENTAR") or 0)
+        if not 10 <= limite <= 120:  # erro de digitação na origem (ex.: 260): limite desconhecido
+            limite = 0
+        chave = (round(lat, 4), round(lon, 4), limite)
+        if chave in vistos:
+            continue
+        vistos.add(chave)
+        yield {
+            "lat": round(lat, 6),
+            "lon": round(lon, 6),
+            "limite": limite,
+            "rodovia": (p.get("DESC_LOC_CONTROLADOR_TRANSITO") or "").strip(),
+            "km": "",
+            "sentido": (p.get("SENTIDO") or "").strip(),
+            "fonte": "PBH",
+        }
+
+
 def radares_bahia():
     caminho = KML_BA
     if not os.path.exists(caminho):
@@ -228,6 +323,11 @@ def radares_osm():
             # Consulta interrompida vem com HTTP 200, lista parcial e um "remark"
             if resposta.get("remark") or not elementos:
                 raise RuntimeError(resposta.get("remark") or "resposta vazia")
+            # Servidor de reserva pode estar meses atrasado: usá-lo apagaria radares recentes
+            base = resposta["osm3s"]["timestamp_osm_base"]
+            idade = datetime.now(timezone.utc) - datetime.fromisoformat(base.replace("Z", "+00:00"))
+            if idade.days > 7:
+                raise RuntimeError(f"mapa desatualizado ({base})")
             break
         except Exception as e:
             erro = e
@@ -282,18 +382,33 @@ def main():
     fontes = [("ANTT", "federais concedidas", radares_antt),
               ("Transalvador", "Salvador", radares_transalvador),
               ("SEINFRA-BA", "estaduais da Bahia", bahia_atualizada),
+              ("PBH", "Belo Horizonte", radares_bh),
+              ("DNIT", "federais sem concessão", radares_dnit),
               ("OpenStreetMap", "Bahia exceto Salvador + Distrito Federal + Minas Gerais + Espírito Santo, não oficial", radares_osm)]
     radares, resumo = [], []
     for nome, descricao, funcao in fontes:
         try:
             lista = list(funcao())
-            if nome == "OpenStreetMap":  # só o que as fontes oficiais não cobrem
+            if nome == "DNIT":  # só o que as outras fontes oficiais (com limite) não cobrem
                 lista = [r for r in lista if not any(perto(r, o, 60) for o in radares)]
+                limites = {(o["lat"], o["lon"]): o["limite"] for f in antigos if f.startswith("DNIT") for o in antigos[f]}
+                for r in lista:  # limite já aproveitado do OpenStreetMap em execução anterior
+                    r["limite"] = int(limites.get((str(r["lat"]), str(r["lon"])), 0))
+            if nome == "OpenStreetMap":  # só o que as fontes oficiais não cobrem
+                restantes = []
+                for r in lista:
+                    vizinhos = [o for o in radares if perto(r, o, 60)]
+                    for o in vizinhos:
+                        if o["fonte"].startswith("DNIT") and r["limite"]:
+                            o["limite"] = r["limite"]
+                    if not vizinhos:
+                        restantes.append(r)
+                lista = restantes
             if not lista and nome != "OpenStreetMap":
                 raise RuntimeError("nenhum radar lido")
             situacao = "atualizada"
         except Exception as e:
-            lista = antigos.get(nome, [])
+            lista = [r for f in antigos if f == nome or (nome == "DNIT" and f.startswith("DNIT")) for r in antigos[f]]
             situacao = f"FALHOU ({e}); mantidos os dados anteriores"
         radares += lista
         resumo.append((nome, descricao, lista, situacao))
@@ -317,7 +432,7 @@ def main():
 
     linhas = ["| Fonte | Radares | Situação |", "|---|---:|---|"]
     for nome, descricao, _, situacao in resumo:
-        n = sum(1 for r in unicos if r["fonte"] == nome)
+        n = sum(1 for r in unicos if r["fonte"] == nome or (nome == "DNIT" and r["fonte"].startswith("DNIT")))
         linhas.append(f"| {nome} ({descricao}) | {n} | {situacao} |")
     linhas.append(f"| **Total** | **{len(unicos)}** | |")
     tabela = "\n".join(linhas)

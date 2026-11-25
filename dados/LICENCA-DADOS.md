@@ -8,6 +8,8 @@ coluna `fonte`.
 | `ANTT` | [Dados abertos da ANTT — Radar](https://dados.antt.gov.br/dataset/radar) | Creative Commons Atribuição (CC-BY) |
 | `SEINFRA-BA` | [SEINFRA-BA — Mapas](https://www.ba.gov.br/infraestrutura/12046/mapas) | Dado público (Resolução CONTRAN 798/2020) |
 | `Transalvador`, `Transalvador (redutor)`, `Transalvador (portátil)` | [Mapa de radares da Transalvador](https://transonline.salvador.ba.gov.br/geral_sistema/web/index.php/mapa/mapa-porticos) | Dado público (Resolução CONTRAN 798/2020) |
+| `DNIT`, `DNIT (sem data de início)` | [DNIT — Controle de Velocidade (PNCV)](https://servicos.dnit.gov.br/dadosabertos/dataset/controle-de-velocidade) | Dados abertos ("Other (Open)"). Parte dos limites vem do OpenStreetMap (ODbL) |
+| `PBH` | [PBH — Fiscalização Eletrônica](https://dados.pbh.gov.br/dataset/fiscalizacao-eletronica) | Creative Commons Atribuição (CC-BY) |
 | `OpenStreetMap` | [OpenStreetMap](https://www.openstreetmap.org), via Overpass API | **ODbL 1.0** |
 
 ## OpenStreetMap
