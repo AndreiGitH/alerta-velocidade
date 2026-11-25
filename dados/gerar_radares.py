@@ -14,6 +14,9 @@ Fontes:
     todo o Brasil. A planilha não traz o limite; usa-se o do ponto do OpenStreetMap que
     estiver a menos de 60 m, quando houver.
     https://servicos.dnit.gov.br/dadosabertos/dataset/controle-de-velocidade
+  - Detran-DF, vias urbanas (radares e lombadas; sem limite, como o DNIT). O servidor só
+    responde a navegador: dados/radares_df_detran.json é salvo à mão a partir de
+    https://geoservicos.detran.df.gov.br/geoserver/Detran/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Detran:equipamentos_eletronico&maxFeatures=1000&outputFormat=application/json&srsName=EPSG:4326
   - OpenStreetMap (colaborativo, NÃO oficial): radares mapeados na Bahia, exceto Salvador
     (que tem a lista oficial da Transalvador), e no Distrito Federal (Brasília e regiões
     administrativas; os dados oficiais do Detran-DF/DER-DF não abrem fora do Brasil) e em Minas Gerais
@@ -56,6 +59,7 @@ PASTA = os.path.dirname(os.path.abspath(__file__))
 SAIDA = os.path.join(PASTA, "radares.csv")
 KML_BA = os.path.join(PASTA, "radares_ba_seinfra.kml")
 # "atualizado" = data da última edição do ponto (só OpenStreetMap). "fonte" fica sempre por último.
+SEM_LIMITE = ("DNIT", "Detran-DF")  # fontes sem velocidade: usa a do OpenStreetMap ao lado
 CAMPOS = ["lat", "lon", "limite", "rodovia", "km", "sentido", "atualizado", "fonte"]
 TIMEOUT = 280  # o portal da ANTT costuma ser lento
 
@@ -245,6 +249,27 @@ def radares_dnit():
         }
 
 
+def radares_detran_df():
+    with open(os.path.join(PASTA, "radares_df_detran.json"), encoding="utf-8") as arq:
+        equipamentos = json.load(arq)["features"]
+    for f in equipamentos:
+        p = f["properties"]
+        if not re.search("RADAR|LOMBADA", p["tp_equipamento"]):  # fora: avanço de sinal
+            continue
+        lon, lat = f["geometry"]["coordinates"][:2]
+        if not (-16.1 < lat < -15.4 and -48.4 < lon < -47.2):  # fora do DF
+            continue
+        yield {
+            "lat": round(lat, 6),
+            "lon": round(lon, 6),
+            "limite": 0,  # o Detran-DF não informa
+            "rodovia": (p["endereco_ponto"] or "").strip(),
+            "km": "",
+            "sentido": p["ponto_detran"] or "",
+            "fonte": "Detran-DF",
+        }
+
+
 def radares_bh():
     # Um registro por faixa: junta os que estão na mesma posição com o mesmo limite
     vistos = set()
@@ -384,6 +409,7 @@ def main():
               ("SEINFRA-BA", "estaduais da Bahia", bahia_atualizada),
               ("PBH", "Belo Horizonte", radares_bh),
               ("DNIT", "federais sem concessão", radares_dnit),
+              ("Detran-DF", "vias urbanas do DF, arquivo salvo à mão", radares_detran_df),
               ("OpenStreetMap", "Bahia exceto Salvador + Distrito Federal + Minas Gerais + Espírito Santo, não oficial", radares_osm)]
     radares, resumo = [], []
     for nome, descricao, funcao in fontes:
@@ -391,7 +417,8 @@ def main():
             lista = list(funcao())
             if nome == "DNIT":  # só o que as outras fontes oficiais (com limite) não cobrem
                 lista = [r for r in lista if not any(perto(r, o, 60) for o in radares)]
-                limites = {(o["lat"], o["lon"]): o["limite"] for f in antigos if f.startswith("DNIT") for o in antigos[f]}
+            if nome in SEM_LIMITE:
+                limites = {(o["lat"], o["lon"]): o["limite"] for f in antigos if f.startswith(nome) for o in antigos[f]}
                 for r in lista:  # limite já aproveitado do OpenStreetMap em execução anterior
                     r["limite"] = int(limites.get((str(r["lat"]), str(r["lon"])), 0))
             if nome == "OpenStreetMap":  # só o que as fontes oficiais não cobrem
@@ -399,7 +426,7 @@ def main():
                 for r in lista:
                     vizinhos = [o for o in radares if perto(r, o, 60)]
                     for o in vizinhos:
-                        if o["fonte"].startswith("DNIT") and r["limite"]:
+                        if o["fonte"].startswith(SEM_LIMITE) and r["limite"]:
                             o["limite"] = r["limite"]
                     if not vizinhos:
                         restantes.append(r)

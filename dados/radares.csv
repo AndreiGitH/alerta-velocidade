@@ -1491,323 +1491,6 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -10.010705,-67.845244,0,BR-364 (AC),131.42,,,DNIT (sem data de início)
 -9.965592,-67.8545,0,BR-364 (AC),136.92,,,DNIT (sem data de início)
 -9.96128,-67.856482,0,BR-364 (AC),137.41,,,DNIT (sem data de início)
--12.684387,-45.930663,0,BR-020 (BA),144.97,,,DNIT (sem data de início)
--14.14047,-39.351085,0,BR-101 (BA),422.45,,,DNIT (sem data de início)
--15.949784,-39.559064,0,BR-101 (BA),661.76,,,DNIT (sem data de início)
--12.349829,-39.091047,0,BR-116 (BA),441.35,,,DNIT (sem data de início)
--12.355618,-39.096419,0,BR-116 (BA),442.20,,,DNIT (sem data de início)
--13.005891,-39.956125,0,BR-116 (BA),570.23,,,DNIT (sem data de início)
--13.012055,-39.957754,0,BR-116 (BA),570.91,,,DNIT (sem data de início)
--13.86706,-40.112862,60,BR-116 (BA),673.80,,,DNIT (sem data de início)
--13.871752,-40.11537,60,BR-116 (BA),674.45,,,DNIT (sem data de início)
--14.053164,-40.203987,0,BR-116 (BA),698.11,,,DNIT (sem data de início)
--14.058696,-40.204841,0,BR-116 (BA),698.75,,,DNIT (sem data de início)
--14.642749,-40.454536,0,BR-116 (BA),773.27,,,DNIT (sem data de início)
--14.649143,-40.456999,0,BR-116 (BA),774.00,,,DNIT (sem data de início)
--14.822324,-40.816336,60,BR-116 (BA),817.55,,,DNIT (sem data de início)
--14.895315,-40.865295,40,BR-116 (BA),828.28,,,DNIT (sem data de início)
--15.229869,-41.099469,0,BR-116 (BA),873.14,,,DNIT (sem data de início)
--15.235177,-41.102582,0,BR-116 (BA),873.83,,,DNIT (sem data de início)
--15.512107,-41.236667,40,BR-116 (BA),909.60,,,DNIT (sem data de início)
--15.515401,-41.238157,40,BR-116 (BA),910.00,,,DNIT (sem data de início)
--12.502268,-40.429665,0,BR-242 (BA),221.96,,,DNIT (sem data de início)
--12.465931,-41.416303,0,BR-242 (BA),341.11,,,DNIT (sem data de início)
--12.443979,-42.176988,0,BR-242 (BA),441.38,,,DNIT (sem data de início)
--12.135975,-43.351179,0,BR-242 (BA),600.12,,,DNIT (sem data de início)
--12.337404,-38.84901,0,BR-324 (BA),530.10,,,DNIT (sem data de início)
--12.362564,-38.821952,0,BR-324 (BA),534.20,,,DNIT (sem data de início)
--12.375451,-38.805513,0,BR-324 (BA),536.55,,,DNIT (sem data de início)
--12.380194,-38.798901,0,BR-324 (BA),537.50,,,DNIT (sem data de início)
--12.91176,-38.459364,0,BR-324 (BA),619.70,,,DNIT (sem data de início)
--12.929463,-38.4696,0,BR-324 (BA),622.02,,,DNIT (sem data de início)
--6.005202,-40.284251,0,BR-020 (CE),83.10,,,DNIT (sem data de início)
--5.127072,-39.737424,0,BR-020 (CE),203.10,,,DNIT (sem data de início)
--5.118508,-39.728573,0,BR-020 (CE),204.50,,,DNIT (sem data de início)
--4.099444,-39.057677,0,BR-020 (CE),348.25,,,DNIT (sem data de início)
--3.876627,-38.50018,0,BR-116 (CE),14.80,,,DNIT (sem data de início)
--3.878207,-38.500383,0,BR-116 (CE),14.95,,,DNIT (sem data de início)
--3.891561,-38.502323,0,BR-116 (CE),16.50,,,DNIT (sem data de início)
--3.894545,-38.502674,0,BR-116 (CE),16.76,,,DNIT (sem data de início)
--3.974136,-38.514541,0,BR-116 (CE),25.80,,,DNIT (sem data de início)
--3.975045,-38.514206,0,BR-116 (CE),25.90,,,DNIT (sem data de início)
--4.095263,-38.503704,0,BR-116 (CE),39.80,,,DNIT (sem data de início)
--4.096546,-38.503156,0,BR-116 (CE),40.05,,,DNIT (sem data de início)
--4.114645,-38.489202,0,BR-116 (CE),42.59,,,DNIT (sem data de início)
--4.117492,-38.48834,0,BR-116 (CE),42.90,,,DNIT (sem data de início)
--4.952122,-37.99522,0,BR-116 (CE),164.05,,,DNIT (sem data de início)
--7.305819,-38.920989,0,BR-116 (CE),479.28,,,DNIT (sem data de início)
--7.489198,-38.984042,0,BR-116 (CE),502.20,,,DNIT (sem data de início)
--7.495939,-38.984559,0,BR-116 (CE),502.95,,,DNIT (sem data de início)
--3.706787,-39.621245,0,BR-222 (CE),128.22,,,DNIT (sem data de início)
--3.710237,-39.626838,0,BR-222 (CE),128.94,,,DNIT (sem data de início)
--15.73084,-48.181392,60,BR-080 (DF),11.40,,,DNIT (sem data de início)
--15.690677,-48.205719,60,BR-080 (DF),17.30,,,DNIT (sem data de início)
--15.646572,-48.201565,0,BR-080 (DF),22.20,,,DNIT (sem data de início)
--15.645338,-48.20154,0,BR-080 (DF),22.30,,,DNIT (sem data de início)
--19.501498,-40.618833,0,BR-259 (ES),51.50,,,DNIT (sem data de início)
--19.530519,-40.691153,0,BR-259 (ES),61.42,,,DNIT (sem data de início)
--20.347018,-41.104653,0,BR-262 (ES),100.40,,,DNIT (sem data de início)
--20.336732,-41.185281,60,BR-262 (ES),110.45,,,DNIT (sem data de início)
--20.320507,-41.22163,0,BR-262 (ES),115.29,,,DNIT (sem data de início)
--20.748159,-41.485651,40,BR-482 (ES),76.54,,,DNIT (sem data de início)
--15.229591,-47.172478,0,BR-020 (GO),62.30,,,DNIT (sem data de início)
--14.240087,-46.35337,0,BR-020 (GO),214.60,,,DNIT (sem data de início)
--16.763013,-49.327893,0,BR-060 (GO),40.60,,,DNIT (sem data de início)
--16.777682,-49.295523,0,BR-060 (GO),44.53,,,DNIT (sem data de início)
--16.777734,-49.294312,0,BR-060 (GO),44.61,,,DNIT (sem data de início)
--16.784439,-49.271198,0,BR-060 (GO),47.23,,,DNIT (sem data de início)
--16.784327,-49.269695,0,BR-060 (GO),47.31,,,DNIT (sem data de início)
--17.306244,-51.884691,0,BR-158 (GO),199.76,,,DNIT (sem data de início)
--2.620957,-44.318071,0,BR-135 (MA),6.74,,,DNIT (sem data de início)
--2.620809,-44.318226,0,BR-135 (MA),6.76,,,DNIT (sem data de início)
--18.89203,-48.25403,0,BR-050 (MG),70.36,,,DNIT (sem data de início)
--16.755152,-41.502173,60,BR-116 (MG),137.50,,,DNIT (sem data de início)
--17.29905,-41.517541,0,BR-116 (MG),206.93,,,DNIT (sem data de início)
--17.60117,-41.492481,0,BR-116 (MG),245.00,,,DNIT (sem data de início)
--19.48018,-42.527643,40,BR-458 (MG),145.93,,,DNIT (sem data de início)
--19.532467,-54.043437,0,BR-060 (MS),197.95,,,DNIT (sem data de início)
--20.944105,-54.966738,0,BR-060 (MS),427.10,,,DNIT (sem data de início)
--22.275142,-53.370556,0,BR-376 (MS),170.72,,,DNIT (sem data de início)
--22.61891,-55.60972,0,BR-463 (MS),99.15,,,DNIT (sem data de início)
--22.619313,-55.610558,0,BR-463 (MS),99.25,,,DNIT (sem data de início)
--5.446628,-48.905255,0,BR-230 (PA),92.81,,,DNIT (sem data de início)
--5.370194,-49.044944,0,BR-230 (PA),112.00,,,DNIT (sem data de início)
--7.083779,-34.980403,0,BR-101 (PB),74.05,,,DNIT (sem data de início)
--7.225427,-34.915778,0,BR-101 (PB),95.20,,,DNIT (sem data de início)
--7.008144,-37.283543,0,BR-230 (PB),335.00,,,DNIT (sem data de início)
--6.891903,-37.722418,0,BR-230 (PB),387.35,,,DNIT (sem data de início)
--6.893963,-38.541111,0,BR-230 (PB),499.90,,,DNIT (sem data de início)
--7.559362,-34.991005,0,BR-101 (PE),7.07,,,DNIT (sem data de início)
--7.81931,-34.917179,0,BR-101 (PE),40.00,,,DNIT (sem data de início)
--7.861531,-34.908047,0,BR-101 (PE),44.65,,,DNIT (sem data de início)
--7.890484,-34.903881,0,BR-101 (PE),47.85,,,DNIT (sem data de início)
--7.896513,-34.903005,0,BR-101 (PE),48.52,,,DNIT (sem data de início)
--7.91381,-34.899606,0,BR-101 (PE),50.55,,,DNIT (sem data de início)
--7.963438,-34.915976,0,BR-101 (PE),56.90,,,DNIT (sem data de início)
--7.965346,-34.916878,0,BR-101 (PE),57.10,,,DNIT (sem data de início)
--7.975817,-34.923961,0,BR-101 (PE),58.70,,,DNIT (sem data de início)
--7.981874,-34.931832,0,BR-101 (PE),59.70,,,DNIT (sem data de início)
--7.987322,-34.933788,0,BR-101 (PE),60.56,,,DNIT (sem data de início)
--8.012348,-34.938516,0,BR-101 (PE),63.40,,,DNIT (sem data de início)
--8.030126,-34.943007,0,BR-101 (PE),65.50,,,DNIT (sem data de início)
--8.070548,-34.939778,0,BR-101 (PE),70.20,,,DNIT (sem data de início)
--8.079112,-34.943226,0,BR-101 (PE),70.90,,,DNIT (sem data de início)
--8.086852,-34.946284,0,BR-101 (PE),71.90,,,DNIT (sem data de início)
--8.089979,-34.946939,0,BR-101 (PE),72.27,,,DNIT (sem data de início)
--8.096842,-34.950003,0,BR-101 (PE),73.12,,,DNIT (sem data de início)
--8.099616,-34.94987,0,BR-101 (PE),73.45,,,DNIT (sem data de início)
--8.10748,-34.948116,0,BR-101 (PE),74.50,,,DNIT (sem data de início)
--8.113016,-34.945587,0,BR-101 (PE),75.00,,,DNIT (sem data de início)
--8.130669,-34.945033,0,BR-101 (PE),77.10,,,DNIT (sem data de início)
--8.139768,-34.947099,0,BR-101 (PE),78.10,,,DNIT (sem data de início)
--8.15175,-34.942931,0,BR-101 (PE),80.00,,,DNIT (sem data de início)
--8.690543,-35.604084,0,BR-101 (PE),188.80,,,DNIT (sem data de início)
--8.080104,-36.043534,0,BR-104 (PE),39.10,,,DNIT (sem data de início)
--8.243181,-35.975485,0,BR-104 (PE),60.90,,,DNIT (sem data de início)
--8.245656,-35.974866,0,BR-104 (PE),61.20,,,DNIT (sem data de início)
--8.286655,-35.983854,0,BR-104 (PE),66.00,,,DNIT (sem data de início)
--8.295444,-35.987404,0,BR-104 (PE),67.00,,,DNIT (sem data de início)
--8.693402,-36.022908,0,BR-104 (PE),118.90,,,DNIT (sem data de início)
--8.697975,-36.021072,0,BR-104 (PE),119.45,,,DNIT (sem data de início)
--8.071059,-39.133796,0,BR-116 (PE),26.16,,,DNIT (sem data de início)
--8.079124,-39.131152,0,BR-116 (PE),27.10,,,DNIT (sem data de início)
--8.302264,-36.002465,0,BR-232 (PE),131.10,,,DNIT (sem data de início)
--8.343292,-36.420722,0,BR-232 (PE),179.10,,,DNIT (sem data de início)
--8.42332,-37.051945,0,BR-232 (PE),250.81,,,DNIT (sem data de início)
--8.430164,-37.062374,0,BR-232 (PE),252.16,,,DNIT (sem data de início)
--8.429767,-37.067124,0,BR-232 (PE),252.75,,,DNIT (sem data de início)
--8.086088,-37.640264,0,BR-232 (PE),331.74,,,DNIT (sem data de início)
--8.060006,-39.105957,0,BR-232 (PE),505.29,,,DNIT (sem data de início)
--8.061441,-39.117006,0,BR-232 (PE),506.50,,,DNIT (sem data de início)
--8.065115,-39.131041,0,BR-232 (PE),508.20,,,DNIT (sem data de início)
--7.593422,-40.494341,0,BR-316 (PE),25.90,,,DNIT (sem data de início)
--7.747923,-35.234187,0,BR-408 (PE),44.68,,,DNIT (sem data de início)
--7.845172,-35.238685,0,BR-408 (PE),56.14,,,DNIT (sem data de início)
--8.85169,-36.461941,0,BR-423 (PE),90.48,,,DNIT (sem data de início)
--8.878816,-36.480634,0,BR-423 (PE),95.55,,,DNIT (sem data de início)
--8.881132,-36.49135,0,BR-423 (PE),96.55,,,DNIT (sem data de início)
--8.960251,-36.725746,0,BR-423 (PE),127.20,,,DNIT (sem data de início)
--8.962761,-36.762409,0,BR-423 (PE),131.60,,,DNIT (sem data de início)
--8.774236,-36.627703,0,BR-424 (PE),68.50,,,DNIT (sem data de início)
--8.89176,-36.504204,0,BR-424 (PE),88.31,,,DNIT (sem data de início)
--8.922828,-36.489818,0,BR-424 (PE),94.35,,,DNIT (sem data de início)
--5.81479,-42.514973,0,BR-316 (PI),95.03,,,DNIT (sem data de início)
--6.825623,-41.73747,0,BR-316 (PI),258.45,,,DNIT (sem data de início)
--6.951447,-41.727004,0,BR-316 (PI),274.10,,,DNIT (sem data de início)
--6.968556,-41.651843,0,BR-316 (PI),285.10,,,DNIT (sem data de início)
--7.025205,-41.560651,0,BR-316 (PI),297.72,,,DNIT (sem data de início)
--7.077779,-41.499217,0,BR-316 (PI),307.30,,,DNIT (sem data de início)
--7.080739,-41.45866,0,BR-316 (PI),311.96,,,DNIT (sem data de início)
--7.078078,-41.43962,0,BR-316 (PI),314.50,,,DNIT (sem data de início)
--7.080784,-41.426054,0,BR-316 (PI),316.00,,,DNIT (sem data de início)
--7.409837,-40.714274,0,BR-316 (PI),410.60,,,DNIT (sem data de início)
--5.080776,-42.759383,0,BR-343 (PI),1.05,,,DNIT (sem data de início)
--5.081652,-42.768927,0,BR-343 (PI),2.16,,,DNIT (sem data de início)
--5.081497,-42.774031,0,BR-343 (PI),2.71,,,DNIT (sem data de início)
--2.896555,-41.705025,0,BR-343 (PI),5.60,,,DNIT (sem data de início)
--2.897973,-41.713957,0,BR-343 (PI),6.90,,,DNIT (sem data de início)
--3.162061,-41.820514,0,BR-343 (PI),42.20,,,DNIT (sem data de início)
--4.12987,-41.782583,0,BR-343 (PI),166.70,,,DNIT (sem data de início)
--25.611072,-50.701289,0,BR-153 (PR),349.60,,,DNIT (sem data de início)
--26.137389,-52.657818,0,BR-158 (PR),526.80,,,DNIT (sem data de início)
--26.030279,-53.733094,0,BR-163 (PR),39.90,,,DNIT (sem data de início)
--23.275503,-51.06003,0,BR-369 (PR),139.15,,,DNIT (sem data de início)
--23.275646,-51.060699,0,BR-369 (PR),139.20,,,DNIT (sem data de início)
--23.551619,-51.448883,0,BR-376 (PR),4.60,,,DNIT (sem data de início)
--25.908717,-50.444817,0,BR-476 (PR),285.10,,,DNIT (sem data de início)
--21.25365,-41.7823,0,BR-356 (RJ),49.00,,,DNIT (sem data de início)
--6.201743,-35.803702,0,BR-226 (RN),83.76,,,DNIT (sem data de início)
--12.70448,-60.120126,0,BR-174 (RO),17.55,,,DNIT (sem data de início)
--12.73127,-60.16859,0,BR-364 (RO),17.21,,,DNIT (sem data de início)
--12.725943,-60.191282,0,BR-364 (RO),19.76,,,DNIT (sem data de início)
--10.897911,-61.930397,0,BR-364 (RO),340.07,,,DNIT (sem data de início)
--10.897074,-61.93064,0,BR-364 (RO),340.22,,,DNIT (sem data de início)
--10.88545,-61.934805,0,BR-364 (RO),341.50,,,DNIT (sem data de início)
--10.885028,-61.935758,0,BR-364 (RO),341.60,,,DNIT (sem data de início)
--10.876266,-61.94878,0,BR-364 (RO),343.36,,,DNIT (sem data de início)
--10.87633,-61.949228,0,BR-364 (RO),343.38,,,DNIT (sem data de início)
--8.777642,-63.889707,0,BR-364 (RO),714.25,,,DNIT (sem data de início)
--28.673889,-51.063233,0,BR-116 (RS),64.20,,,DNIT (sem data de início)
--29.508444,-51.098889,0,BR-116 (RS),210.80,,,DNIT (sem data de início)
--27.655461,-52.268378,0,BR-153 (RS),49.81,,,DNIT (sem data de início)
--28.635424,-50.547273,0,BR-285 (RS),74.10,,,DNIT (sem data de início)
--28.63576,-50.550279,0,BR-285 (RS),74.52,,,DNIT (sem data de início)
--28.593321,-50.751698,0,BR-285 (RS),97.00,,,DNIT (sem data de início)
--28.590648,-50.755103,0,BR-285 (RS),97.46,,,DNIT (sem data de início)
--28.34349,-51.14937,0,BR-285 (RS),151.10,,,DNIT (sem data de início)
--28.339589,-51.15344,0,BR-285 (RS),151.70,,,DNIT (sem data de início)
--28.319153,-51.246456,0,BR-285 (RS),161.90,,,DNIT (sem data de início)
--28.319638,-51.249215,0,BR-285 (RS),162.15,,,DNIT (sem data de início)
--28.212317,-51.510533,0,BR-285 (RS),197.34,,,DNIT (sem data de início)
--28.205567,-51.519183,0,BR-285 (RS),198.51,,,DNIT (sem data de início)
--28.317614,-52.805809,0,BR-285 (RS),340.60,,,DNIT (sem data de início)
--28.31799,-52.809464,0,BR-285 (RS),340.96,,,DNIT (sem data de início)
--28.409844,-53.903539,0,BR-285 (RS),458.70,,,DNIT (sem data de início)
--28.41845,-53.916033,0,BR-285 (RS),460.68,,,DNIT (sem data de início)
--28.418667,-53.91635,0,BR-285 (RS),460.72,,,DNIT (sem data de início)
--30.820304,-55.588757,0,BR-293 (RS),347.03,,,DNIT (sem data de início)
--27.81448,-53.04176,0,BR-386 (RS),113.10,,,DNIT (sem data de início)
--27.815465,-53.039484,0,BR-386 (RS),113.35,,,DNIT (sem data de início)
--29.72963,-53.80197,0,BR-392 (RS),350.84,,,DNIT (sem data de início)
--27.866494,-53.331427,0,BR-468 (RS),3.71,,,DNIT (sem data de início)
--27.86678,-53.33376,0,BR-468 (RS),3.94,,,DNIT (sem data de início)
--27.673562,-51.454946,0,BR-470 (RS),11.26,,,DNIT (sem data de início)
--27.676088,-51.454646,0,BR-470 (RS),11.53,,,DNIT (sem data de início)
--27.68145,-51.45665,0,BR-470 (RS),11.97,,,DNIT (sem data de início)
--27.686323,-51.458476,0,BR-470 (RS),12.75,,,DNIT (sem data de início)
--28.81988,-51.59047,0,BR-470 (RS),160.51,,,DNIT (sem data de início)
--27.85633,-54.51167,0,BR-472 (RS),176.00,,,DNIT (sem data de início)
--30.20082,-57.50618,0,BR-472 (RS),651.27,,,DNIT (sem data de início)
--26.756532,-53.500457,0,BR-163 (SC),67.33,,,DNIT (sem data de início)
--26.755237,-53.500623,0,BR-163 (SC),67.47,,,DNIT (sem data de início)
--26.746622,-53.500885,0,BR-163 (SC),68.42,,,DNIT (sem data de início)
--26.737314,-53.502784,0,BR-163 (SC),69.49,,,DNIT (sem data de início)
--26.735012,-53.505919,0,BR-163 (SC),69.98,,,DNIT (sem data de início)
--26.733011,-53.509236,0,BR-163 (SC),70.33,,,DNIT (sem data de início)
--26.731655,-53.510388,0,BR-163 (SC),70.53,,,DNIT (sem data de início)
--26.234228,-48.622878,0,BR-280 (SC),1.51,,,DNIT (sem data de início)
--26.273456,-48.642882,0,BR-280 (SC),7.29,,,DNIT (sem data de início)
--26.30418,-48.64067,0,BR-280 (SC),10.96,,,DNIT (sem data de início)
--26.333429,-48.652734,0,BR-280 (SC),14.43,,,DNIT (sem data de início)
--26.37882,-48.721442,0,BR-280 (SC),24.30,,,DNIT (sem data de início)
--26.408723,-48.750642,0,BR-280 (SC),28.70,,,DNIT (sem data de início)
--26.42608,-48.788064,0,BR-280 (SC),33.10,,,DNIT (sem data de início)
--26.457364,-49.183432,0,BR-280 (SC),75.33,,,DNIT (sem data de início)
--26.456794,-49.185757,0,BR-280 (SC),75.57,,,DNIT (sem data de início)
--26.417472,-49.255138,0,BR-280 (SC),84.80,,,DNIT (sem data de início)
--26.398133,-49.29877,0,BR-280 (SC),91.98,,,DNIT (sem data de início)
--26.378598,-49.315586,0,BR-280 (SC),95.51,,,DNIT (sem data de início)
--26.310249,-49.388289,0,BR-280 (SC),111.30,,,DNIT (sem data de início)
--27.60023,-48.57635,0,BR-282 (SC),0.64,,,DNIT (sem data de início)
--27.597264,-48.600778,0,BR-282 (SC),3.47,,,DNIT (sem data de início)
--27.597037,-48.600822,0,BR-282 (SC),3.49,,,DNIT (sem data de início)
--27.666122,-48.688512,0,BR-282 (SC),16.95,,,DNIT (sem data de início)
--27.688967,-48.718872,0,BR-282 (SC),21.01,,,DNIT (sem data de início)
--27.68942,-48.732443,0,BR-282 (SC),22.36,,,DNIT (sem data de início)
--27.688782,-48.735632,0,BR-282 (SC),22.71,,,DNIT (sem data de início)
--27.673005,-48.774504,0,BR-282 (SC),27.40,,,DNIT (sem data de início)
--27.687789,-48.791,0,BR-282 (SC),30.05,,,DNIT (sem data de início)
--27.701633,-48.800902,0,BR-282 (SC),32.06,,,DNIT (sem data de início)
--27.70781,-48.844663,0,BR-282 (SC),37.16,,,DNIT (sem data de início)
--27.7213,-48.908575,0,BR-282 (SC),44.02,,,DNIT (sem data de início)
--27.683322,-49.106572,0,BR-282 (SC),72.09,,,DNIT (sem data de início)
--27.681359,-49.113378,0,BR-282 (SC),73.00,,,DNIT (sem data de início)
--27.667383,-49.159484,0,BR-282 (SC),79.44,,,DNIT (sem data de início)
--27.662727,-49.160399,0,BR-282 (SC),80.06,,,DNIT (sem data de início)
--27.663872,-49.203895,0,BR-282 (SC),86.67,,,DNIT (sem data de início)
--27.665347,-49.205401,0,BR-282 (SC),86.98,,,DNIT (sem data de início)
--27.695927,-49.331951,0,BR-282 (SC),103.77,,,DNIT (sem data de início)
--27.733273,-49.368846,0,BR-282 (SC),111.07,,,DNIT (sem data de início)
--27.803801,-49.487471,0,BR-282 (SC),127.95,,,DNIT (sem data de início)
--27.804014,-49.49016,0,BR-282 (SC),128.22,,,DNIT (sem data de início)
--27.773302,-50.200279,0,BR-282 (SC),206.90,,,DNIT (sem data de início)
--27.774065,-50.204295,0,BR-282 (SC),207.30,,,DNIT (sem data de início)
--27.800107,-50.362123,0,BR-282 (SC),222.91,,,DNIT (sem data de início)
--27.799346,-50.36461,0,BR-282 (SC),223.18,,,DNIT (sem data de início)
--27.605738,-50.722279,0,BR-282 (SC),274.51,,,DNIT (sem data de início)
--27.50091,-50.949985,0,BR-282 (SC),305.11,,,DNIT (sem data de início)
--27.495868,-50.953683,0,BR-282 (SC),306.12,,,DNIT (sem data de início)
--27.39403,-51.189516,0,BR-282 (SC),339.25,,,DNIT (sem data de início)
--27.392669,-51.195859,0,BR-282 (SC),339.90,,,DNIT (sem data de início)
--27.390067,-51.213842,0,BR-282 (SC),341.87,,,DNIT (sem data de início)
--27.388956,-51.228022,0,BR-282 (SC),343.32,,,DNIT (sem data de início)
--27.388438,-51.230168,0,BR-282 (SC),343.54,,,DNIT (sem data de início)
--27.382174,-51.239163,0,BR-282 (SC),344.67,,,DNIT (sem data de início)
--27.284224,-51.434198,0,BR-282 (SC),368.75,,,DNIT (sem data de início)
--27.27649,-51.440885,0,BR-282 (SC),369.89,,,DNIT (sem data de início)
--27.273681,-51.442508,0,BR-282 (SC),370.25,,,DNIT (sem data de início)
--27.243715,-51.447838,0,BR-282 (SC),373.80,,,DNIT (sem data de início)
--27.218839,-51.462893,0,BR-282 (SC),377.06,,,DNIT (sem data de início)
--27.198325,-51.507244,0,BR-282 (SC),383.58,,,DNIT (sem data de início)
--27.202725,-51.510004,0,BR-282 (SC),384.17,,,DNIT (sem data de início)
--27.204174,-51.51124,0,BR-282 (SC),384.37,,,DNIT (sem data de início)
--26.855485,-52.255868,0,BR-282 (SC),487.52,,,DNIT (sem data de início)
--26.857833,-52.264324,0,BR-282 (SC),488.40,,,DNIT (sem data de início)
--26.860185,-52.267571,0,BR-282 (SC),488.82,,,DNIT (sem data de início)
--26.880481,-52.357699,0,BR-282 (SC),498.98,,,DNIT (sem data de início)
--26.883047,-52.402538,0,BR-282 (SC),503.57,,,DNIT (sem data de início)
--26.883143,-52.406237,0,BR-282 (SC),503.99,,,DNIT (sem data de início)
--26.885169,-52.432406,0,BR-282 (SC),506.66,,,DNIT (sem data de início)
--26.886414,-52.440934,0,BR-282 (SC),507.52,,,DNIT (sem data de início)
--26.915984,-52.490555,0,BR-282 (SC),514.25,,,DNIT (sem data de início)
--26.917998,-52.493751,0,BR-282 (SC),514.68,,,DNIT (sem data de início)
--26.964246,-52.551258,0,BR-282 (SC),523.38,,,DNIT (sem data de início)
--26.965676,-52.55385,0,BR-282 (SC),523.68,,,DNIT (sem data de início)
--26.905367,-48.939325,0,BR-470 (SC),32.77,,,DNIT (sem data de início)
--26.906349,-48.94075,0,BR-470 (SC),32.94,,,DNIT (sem data de início)
--26.960962,-49.326147,0,BR-470 (SC),82.07,,,DNIT (sem data de início)
--26.962054,-49.370933,0,BR-470 (SC),88.95,,,DNIT (sem data de início)
--27.031307,-49.384,0,BR-470 (SC),97.54,,,DNIT (sem data de início)
--27.041796,-49.396265,0,BR-470 (SC),99.30,,,DNIT (sem data de início)
--27.09928,-49.460077,0,BR-470 (SC),111.10,,,DNIT (sem data de início)
--27.098871,-49.462002,0,BR-470 (SC),111.33,,,DNIT (sem data de início)
--27.095709,-49.528088,0,BR-470 (SC),120.84,,,DNIT (sem data de início)
--27.098427,-49.529662,0,BR-470 (SC),121.47,,,DNIT (sem data de início)
--27.105002,-49.523118,0,BR-470 (SC),122.42,,,DNIT (sem data de início)
--27.109166,-49.525135,0,BR-470 (SC),123.11,,,DNIT (sem data de início)
--27.125364,-49.537616,0,BR-470 (SC),125.35,,,DNIT (sem data de início)
--27.161706,-49.556654,0,BR-470 (SC),130.25,,,DNIT (sem data de início)
--27.2006,-49.632284,0,BR-470 (SC),139.33,,,DNIT (sem data de início)
--27.201423,-49.632566,0,BR-470 (SC),139.41,,,DNIT (sem data de início)
--27.204633,-49.638601,0,BR-470 (SC),140.13,,,DNIT (sem data de início)
--27.216632,-49.653946,0,BR-470 (SC),142.55,,,DNIT (sem data de início)
--27.239855,-49.684815,0,BR-470 (SC),146.53,,,DNIT (sem data de início)
--27.285977,-49.78348,0,BR-470 (SC),158.37,,,DNIT (sem data de início)
--27.26577,-49.879694,0,BR-470 (SC),168.55,,,DNIT (sem data de início)
--27.26543,-49.882543,0,BR-470 (SC),168.83,,,DNIT (sem data de início)
--27.257161,-49.933703,0,BR-470 (SC),174.29,,,DNIT (sem data de início)
--27.254531,-50.04059,0,BR-470 (SC),185.25,,,DNIT (sem data de início)
--27.29441,-50.077842,0,BR-470 (SC),192.00,,,DNIT (sem data de início)
--27.303347,-50.079547,0,BR-470 (SC),193.54,,,DNIT (sem data de início)
--27.301469,-50.081325,0,BR-470 (SC),194.06,,,DNIT (sem data de início)
--27.307931,-50.134132,0,BR-470 (SC),199.52,,,DNIT (sem data de início)
--10.911086,-37.158147,0,BR-101 (SE),94.80,,,DNIT (sem data de início)
--11.001306,-37.306102,0,BR-101 (SE),114.60,,,DNIT (sem data de início)
--10.725976,-37.415819,0,BR-235 (SE),48.10,,,DNIT (sem data de início)
--22.85782,-45.247863,0,BR-488 (SP),3.67,,,DNIT (sem data de início)
--22.858321,-45.249257,0,BR-488 (SP),3.82,,,DNIT (sem data de início)
--10.235704,-48.311694,0,BR-010 (TO),463.85,,,DNIT (sem data de início)
--6.412822,-48.543734,0,BR-153 (TO),1.70,,,DNIT (sem data de início)
 -9.244096,-35.757673,0,BR-101 (AL),50.80,,,DNIT
 -9.396002,-35.83886,0,BR-101 (AL),74.32,,,DNIT
 -9.904153,-36.222693,0,BR-101 (AL),159.63,,,DNIT
@@ -1883,6 +1566,7 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 0.07781,-51.06873,0,BR-210 (AP),0.50,,,DNIT
 0.08193,-51.07629,0,BR-210 (AP),1.50,,,DNIT
 0.082013,-51.076583,0,BR-210 (AP),2.80,,,DNIT
+-12.684387,-45.930663,0,BR-020 (BA),144.97,,,DNIT (sem data de início)
 -11.53915,-37.85687,0,BR-101 (BA),6.68,,,DNIT
 -12.148499,-38.395721,40,BR-101 (BA),107.47,,,DNIT
 -12.156051,-38.406514,0,BR-101 (BA),108.95,,,DNIT
@@ -1920,6 +1604,7 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -14.018145,-39.431316,50,BR-101 (BA),405.10,,,DNIT
 -14.133478,-39.35903,0,BR-101 (BA),421.12,,,DNIT
 -14.137961,-39.354832,0,BR-101 (BA),421.90,,,DNIT
+-14.14047,-39.351085,0,BR-101 (BA),422.45,,,DNIT (sem data de início)
 -14.173041,-39.323478,0,BR-101 (BA),428.50,,,DNIT
 -14.30772,-39.32259,40,BR-101 (BA),443.94,,,DNIT
 -14.30891,-39.32165,40,BR-101 (BA),444.10,,,DNIT
@@ -1931,6 +1616,7 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -15.25564,-39.453208,0,BR-101 (BA),566.60,,,DNIT
 -15.369904,-39.493797,60,BR-101 (BA),581.70,,,DNIT
 -15.613328,-39.432544,40,BR-101 (BA),614.81,,,DNIT
+-15.949784,-39.559064,0,BR-101 (BA),661.76,,,DNIT (sem data de início)
 -16.263694,-39.585258,0,BR-101 (BA),703.30,,,DNIT
 -16.312109,-39.597743,0,BR-101 (BA),709.00,,,DNIT
 -16.337474,-39.581247,40,BR-101 (BA),713.88,,,DNIT
@@ -1978,9 +1664,25 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -12.199676,-38.96571,0,BR-116 (BA),420.00,,,DNIT
 -12.200427,-38.965128,0,BR-116 (BA),420.07,,,DNIT
 -12.224384,-38.965215,0,BR-116 (BA),422.37,,,DNIT
+-12.349829,-39.091047,0,BR-116 (BA),441.35,,,DNIT (sem data de início)
+-12.355618,-39.096419,0,BR-116 (BA),442.20,,,DNIT (sem data de início)
 -12.530323,-39.412158,0,BR-116 (BA),481.80,,,DNIT
 -12.533343,-39.417652,0,BR-116 (BA),482.50,,,DNIT
+-13.005891,-39.956125,0,BR-116 (BA),570.23,,,DNIT (sem data de início)
+-13.012055,-39.957754,0,BR-116 (BA),570.91,,,DNIT (sem data de início)
+-13.86706,-40.112862,60,BR-116 (BA),673.80,,,DNIT (sem data de início)
+-13.871752,-40.11537,60,BR-116 (BA),674.45,,,DNIT (sem data de início)
+-14.053164,-40.203987,0,BR-116 (BA),698.11,,,DNIT (sem data de início)
+-14.058696,-40.204841,0,BR-116 (BA),698.75,,,DNIT (sem data de início)
+-14.642749,-40.454536,0,BR-116 (BA),773.27,,,DNIT (sem data de início)
+-14.649143,-40.456999,0,BR-116 (BA),774.00,,,DNIT (sem data de início)
+-14.822324,-40.816336,60,BR-116 (BA),817.55,,,DNIT (sem data de início)
 -14.828649,-40.828148,0,BR-116 (BA),819.00,,,DNIT
+-14.895315,-40.865295,40,BR-116 (BA),828.28,,,DNIT (sem data de início)
+-15.229869,-41.099469,0,BR-116 (BA),873.14,,,DNIT (sem data de início)
+-15.235177,-41.102582,0,BR-116 (BA),873.83,,,DNIT (sem data de início)
+-15.512107,-41.236667,40,BR-116 (BA),909.60,,,DNIT (sem data de início)
+-15.515401,-41.238157,40,BR-116 (BA),910.00,,,DNIT (sem data de início)
 -11.377076,-44.916449,0,BR-135 (BA),78.43,,,DNIT
 -11.766056,-44.905492,0,BR-135 (BA),125.34,,,DNIT
 -11.83396,-44.855913,0,BR-135 (BA),135.40,,,DNIT
@@ -1988,15 +1690,19 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -9.453751,-40.480351,40,BR-235 (BA),345.91,,,DNIT
 -9.451213,-40.484222,40,BR-235 (BA),346.49,,,DNIT
 -9.439701,-40.495895,40,BR-235 (BA),349.37,,,DNIT
+-12.502268,-40.429665,0,BR-242 (BA),221.96,,,DNIT (sem data de início)
 -12.445127,-40.875646,0,BR-242 (BA),275.78,,,DNIT
 -12.505597,-41.213772,30,BR-242 (BA),315.39,,,DNIT
 -12.493973,-41.328133,50,BR-242 (BA),329.15,,,DNIT
+-12.465931,-41.416303,0,BR-242 (BA),341.11,,,DNIT (sem data de início)
 -12.42737,-41.769167,40,BR-242 (BA),391.97,,,DNIT
 -12.428015,-41.774003,40,BR-242 (BA),392.53,,,DNIT
 -12.428823,-41.781246,50,BR-242 (BA),393.27,,,DNIT
 -12.430288,-41.791282,0,BR-242 (BA),394.52,,,DNIT
 -12.443694,-42.17234,0,BR-242 (BA),440.73,,,DNIT
+-12.443979,-42.176988,0,BR-242 (BA),441.38,,,DNIT (sem data de início)
 -12.087388,-43.15808,0,BR-242 (BA),571.55,,,DNIT
+-12.135975,-43.351179,0,BR-242 (BA),600.12,,,DNIT (sem data de início)
 -12.199862,-43.669899,0,BR-242 (BA),639.92,,,DNIT
 -12.226036,-43.831353,0,BR-242 (BA),658.30,,,DNIT
 -12.229315,-43.835568,0,BR-242 (BA),658.96,,,DNIT
@@ -2014,6 +1720,10 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -12.318141,-38.87507,0,BR-324 (BA),526.35,,,DNIT
 -12.321267,-38.870584,0,BR-324 (BA),526.99,,,DNIT
 -12.336575,-38.850752,0,BR-324 (BA),529.90,,,DNIT
+-12.337404,-38.84901,0,BR-324 (BA),530.10,,,DNIT (sem data de início)
+-12.362564,-38.821952,0,BR-324 (BA),534.20,,,DNIT (sem data de início)
+-12.375451,-38.805513,0,BR-324 (BA),536.55,,,DNIT (sem data de início)
+-12.380194,-38.798901,0,BR-324 (BA),537.50,,,DNIT (sem data de início)
 -12.418416,-38.749352,0,BR-324 (BA),544.99,,,DNIT
 -12.419263,-38.747894,0,BR-324 (BA),545.15,,,DNIT
 -12.449212,-38.711989,0,BR-324 (BA),550.40,,,DNIT
@@ -2025,7 +1735,9 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -12.870863,-38.426789,0,BR-324 (BA),613.72,,,DNIT
 -12.871393,-38.426817,0,BR-324 (BA),613.78,,,DNIT
 -12.910074,-38.458233,0,BR-324 (BA),619.50,,,DNIT
+-12.91176,-38.459364,0,BR-324 (BA),619.70,,,DNIT (sem data de início)
 -12.920712,-38.466442,0,BR-324 (BA),621.00,,,DNIT
+-12.929463,-38.4696,0,BR-324 (BA),622.02,,,DNIT (sem data de início)
 -12.945356,-38.469938,0,BR-324 (BA),623.98,,,DNIT
 -12.954744,-38.471488,0,BR-324 (BA),625.14,,,DNIT
 -13.867972,-40.059999,0,BR-330 (BA),787.75,,,DNIT
@@ -2054,6 +1766,26 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -14.818574,-39.303164,0,BR-415 (BA),48.30,,,DNIT
 -14.836734,-39.325097,0,BR-415 (BA),51.40,,,DNIT
 -13.522499,-39.969086,0,BR-420 (BA),340.80,,,DNIT
+-6.005202,-40.284251,0,BR-020 (CE),83.10,,,DNIT (sem data de início)
+-5.127072,-39.737424,0,BR-020 (CE),203.10,,,DNIT (sem data de início)
+-5.118508,-39.728573,0,BR-020 (CE),204.50,,,DNIT (sem data de início)
+-4.099444,-39.057677,0,BR-020 (CE),348.25,,,DNIT (sem data de início)
+-3.876627,-38.50018,0,BR-116 (CE),14.80,,,DNIT (sem data de início)
+-3.878207,-38.500383,0,BR-116 (CE),14.95,,,DNIT (sem data de início)
+-3.891561,-38.502323,0,BR-116 (CE),16.50,,,DNIT (sem data de início)
+-3.894545,-38.502674,0,BR-116 (CE),16.76,,,DNIT (sem data de início)
+-3.974136,-38.514541,0,BR-116 (CE),25.80,,,DNIT (sem data de início)
+-3.975045,-38.514206,0,BR-116 (CE),25.90,,,DNIT (sem data de início)
+-4.095263,-38.503704,0,BR-116 (CE),39.80,,,DNIT (sem data de início)
+-4.096546,-38.503156,0,BR-116 (CE),40.05,,,DNIT (sem data de início)
+-4.114645,-38.489202,0,BR-116 (CE),42.59,,,DNIT (sem data de início)
+-4.117492,-38.48834,0,BR-116 (CE),42.90,,,DNIT (sem data de início)
+-4.952122,-37.99522,0,BR-116 (CE),164.05,,,DNIT (sem data de início)
+-7.305819,-38.920989,0,BR-116 (CE),479.28,,,DNIT (sem data de início)
+-7.489198,-38.984042,0,BR-116 (CE),502.20,,,DNIT (sem data de início)
+-7.495939,-38.984559,0,BR-116 (CE),502.95,,,DNIT (sem data de início)
+-3.706787,-39.621245,0,BR-222 (CE),128.22,,,DNIT (sem data de início)
+-3.710237,-39.626838,0,BR-222 (CE),128.94,,,DNIT (sem data de início)
 -4.57496,-37.765143,0,BR-304 (CE),49.86,,,DNIT
 -4.572822,-37.761143,0,BR-304 (CE),50.36,,,DNIT
 -4.57352,-37.737478,0,BR-304 (CE),53.23,,,DNIT
@@ -2080,8 +1812,12 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -15.78903,-48.22114,0,BR-070 (DF),19.30,,,DNIT
 -15.729319,-48.123057,0,BR-080 (DF),4.90,,,DNIT
 -15.729242,-48.125013,0,BR-080 (DF),5.10,,,DNIT
+-15.73084,-48.181392,60,BR-080 (DF),11.40,,,DNIT (sem data de início)
 -15.713418,-48.198399,0,BR-080 (DF),14.60,,,DNIT
 -15.711105,-48.19924,0,BR-080 (DF),14.90,,,DNIT
+-15.690677,-48.205719,60,BR-080 (DF),17.30,,,DNIT (sem data de início)
+-15.646572,-48.201565,0,BR-080 (DF),22.20,,,DNIT (sem data de início)
+-15.645338,-48.20154,0,BR-080 (DF),22.30,,,DNIT (sem data de início)
 -15.962518,-47.661431,0,BR-251 (DF),22.80,,,DNIT
 -15.937443,-47.755913,0,BR-251 (DF),34.00,,,DNIT
 -15.938698,-47.761018,0,BR-251 (DF),34.60,,,DNIT
@@ -2102,11 +1838,13 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -19.5531,-40.4981,0,BR-259 (ES),35.10,,,DNIT
 -19.534431,-40.570935,0,BR-259 (ES),44.40,,,DNIT
 -19.532359,-40.57352,0,BR-259 (ES),44.75,,,DNIT
+-19.501498,-40.618833,0,BR-259 (ES),51.50,,,DNIT (sem data de início)
 -19.5107,-40.656,0,BR-259 (ES),56.53,,,DNIT
 -19.520987,-40.665116,40,BR-259 (ES),58.10,,,DNIT
 -19.524336,-40.672584,60,BR-259 (ES),59.05,,,DNIT
 -19.5312,-40.6824,0,BR-259 (ES),60.30,,,DNIT
 -19.532471,-40.68803,0,BR-259 (ES),61.00,,,DNIT
+-19.530519,-40.691153,0,BR-259 (ES),61.42,,,DNIT (sem data de início)
 -19.5084,-40.9228,0,BR-259 (ES),91.00,,,DNIT
 -19.5082,-40.9251,0,BR-259 (ES),91.20,,,DNIT
 -20.386918,-40.474078,0,BR-262 (ES),17.15,,,DNIT
@@ -2138,12 +1876,15 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -20.374757,-41.057183,0,BR-262 (ES),93.76,,,DNIT
 -20.365634,-41.060888,40,BR-262 (ES),95.06,,,DNIT
 -20.364402,-41.06369,60,BR-262 (ES),95.38,,,DNIT
+-20.347018,-41.104653,0,BR-262 (ES),100.40,,,DNIT (sem data de início)
 -20.325719,-41.143154,0,BR-262 (ES),105.85,,,DNIT
 -20.326245,-41.144323,60,BR-262 (ES),105.98,,,DNIT
 -20.329927,-41.153313,0,BR-262 (ES),107.00,,,DNIT
 -20.331195,-41.156399,0,BR-262 (ES),107.35,,,DNIT
 -20.335894,-41.172542,60,BR-262 (ES),109.15,,,DNIT
+-20.336732,-41.185281,60,BR-262 (ES),110.45,,,DNIT (sem data de início)
 -20.325538,-41.210431,60,BR-262 (ES),113.95,,,DNIT
+-20.320507,-41.22163,0,BR-262 (ES),115.29,,,DNIT (sem data de início)
 -20.31844,-41.225628,0,BR-262 (ES),115.80,,,DNIT
 -20.293485,-41.22942,0,BR-262 (ES),120.95,,,DNIT
 -20.215458,-41.447895,60,BR-262 (ES),150.80,,,DNIT
@@ -2173,6 +1914,7 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -20.3471,-40.3313,0,BR-447 (ES),14.70,,,DNIT
 -20.344477,-40.329713,0,BR-447 (ES),15.05,,,DNIT
 -20.746425,-41.483983,40,BR-482 (ES),76.28,,,DNIT
+-20.748159,-41.485651,40,BR-482 (ES),76.54,,,DNIT (sem data de início)
 -20.7617,-41.5427,0,BR-482 (ES),85.35,,,DNIT
 -20.7544,-41.5589,0,BR-482 (ES),87.90,,,DNIT
 -20.763009,-41.558979,0,BR-482 (ES),89.70,,,DNIT
@@ -2180,10 +1922,12 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -20.777816,-41.666936,0,BR-482 (ES),105.10,,,DNIT
 -15.54776,-47.166695,0,BR-020 (GO),21.20,,,DNIT
 -15.546255,-47.162656,0,BR-020 (GO),21.70,,,DNIT
+-15.229591,-47.172478,0,BR-020 (GO),62.30,,,DNIT (sem data de início)
 -14.44278,-46.461743,0,BR-020 (GO),185.00,,,DNIT
 -14.439651,-46.460202,0,BR-020 (GO),185.40,,,DNIT
 -14.347922,-46.439867,0,BR-020 (GO),196.00,,,DNIT
 -14.328011,-46.441878,0,BR-020 (GO),198.00,,,DNIT
+-14.240087,-46.35337,0,BR-020 (GO),214.60,,,DNIT (sem data de início)
 -13.966253,-46.193194,0,BR-020 (GO),251.30,,,DNIT
 -16.04968,-47.981315,0,BR-040 (GO),0.10,,,DNIT
 -16.052716,-47.981917,0,BR-040 (GO),0.20,,,DNIT
@@ -2209,8 +1953,13 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -16.243793,-47.907711,0,BR-040 (GO),24.00,,,DNIT
 -16.245167,-47.906278,0,BR-040 (GO),24.20,,,DNIT
 -16.539333,-47.797611,0,BR-040 (GO),62.50,,,DNIT
+-16.763013,-49.327893,0,BR-060 (GO),40.60,,,DNIT (sem data de início)
+-16.777682,-49.295523,0,BR-060 (GO),44.53,,,DNIT (sem data de início)
+-16.777734,-49.294312,0,BR-060 (GO),44.61,,,DNIT (sem data de início)
 -16.781245,-49.282651,0,BR-060 (GO),45.94,,,DNIT
 -16.780857,-49.28252,0,BR-060 (GO),45.95,,,DNIT
+-16.784439,-49.271198,0,BR-060 (GO),47.23,,,DNIT (sem data de início)
+-16.784327,-49.269695,0,BR-060 (GO),47.31,,,DNIT (sem data de início)
 -16.705332,-49.344587,0,BR-060 (GO),162.40,,,DNIT
 -16.70579,-49.345927,0,BR-060 (GO),162.58,,,DNIT
 -16.710017,-49.352929,0,BR-060 (GO),163.45,,,DNIT
@@ -2238,6 +1987,7 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -15.752046,-48.325353,0,BR-070 (GO),14.10,,,DNIT
 -16.025126,-49.777448,0,BR-070 (GO),189.80,,,DNIT
 -15.208783,-48.698532,0,BR-080 (GO),94.12,,,DNIT
+-17.306244,-51.884691,0,BR-158 (GO),199.76,,,DNIT (sem data de início)
 -16.111064,-47.492381,0,BR-251 (GO),25.42,,,DNIT
 -16.082087,-47.522644,0,BR-251 (GO),30.00,,,DNIT
 -16.066807,-47.531611,0,BR-251 (GO),32.00,,,DNIT
@@ -2249,6 +1999,8 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -2.613845,-44.252018,0,BR-135 (MA),3.88,,,DNIT
 -2.625519,-44.260896,0,BR-135 (MA),5.60,,,DNIT
 -2.628158,-44.262626,0,BR-135 (MA),5.80,,,DNIT
+-2.620957,-44.318071,0,BR-135 (MA),6.74,,,DNIT (sem data de início)
+-2.620809,-44.318226,0,BR-135 (MA),6.76,,,DNIT (sem data de início)
 -2.639065,-44.270565,0,BR-135 (MA),7.42,,,DNIT
 -2.597965,-44.327776,0,BR-135 (MA),9.40,,,DNIT
 -2.597784,-44.32796,0,BR-135 (MA),9.41,,,DNIT
@@ -2275,6 +2027,7 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -4.88614,-43.37707,0,BR-316 (MA),548.50,,,DNIT
 -5.088364,-42.835873,0,BR-316 (MA),615.34,,,DNIT
 -5.129466,-42.82131,0,BR-316 (MA),620.30,,,DNIT
+-18.89203,-48.25403,0,BR-050 (MG),70.36,,,DNIT (sem data de início)
 -15.717594,-41.340571,0,BR-116 (MG),2.00,,,DNIT
 -15.726286,-41.343786,0,BR-116 (MG),3.00,,,DNIT
 -15.870057,-41.429533,60,BR-116 (MG),24.70,,,DNIT
@@ -2287,12 +2040,15 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -16.572184,-41.505537,0,BR-116 (MG),116.60,,,DNIT
 -16.689305,-41.501207,0,BR-116 (MG),129.90,,,DNIT
 -16.750379,-41.503986,60,BR-116 (MG),136.90,,,DNIT
+-16.755152,-41.502173,60,BR-116 (MG),137.50,,,DNIT (sem data de início)
 -16.913957,-41.467856,0,BR-116 (MG),157.60,,,DNIT
 -17.06744,-41.480786,60,BR-116 (MG),178.00,,,DNIT
 -17.079661,-41.48522,0,BR-116 (MG),179.50,,,DNIT
 -17.183,-41.4868,0,BR-116 (MG),193.50,,,DNIT
+-17.29905,-41.517541,0,BR-116 (MG),206.93,,,DNIT (sem data de início)
 -17.513,-41.4862,0,BR-116 (MG),233.39,,,DNIT
 -17.594474,-41.491325,0,BR-116 (MG),244.20,,,DNIT
+-17.60117,-41.492481,0,BR-116 (MG),245.00,,,DNIT (sem data de início)
 -17.839087,-41.512926,0,BR-116 (MG),274.70,,,DNIT
 -17.841874,-41.51389,40,BR-116 (MG),275.00,,,DNIT
 -17.850632,-41.514908,40,BR-116 (MG),276.00,,,DNIT
@@ -2386,12 +2142,15 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -17.382029,-44.969621,60,BR-365 (MG),168.50,,,DNIT
 -17.285723,-42.822433,0,BR-367 (MG),443.70,,,DNIT
 -17.28655,-42.82884,0,BR-367 (MG),444.60,,,DNIT
+-19.48018,-42.527643,40,BR-458 (MG),145.93,,,DNIT (sem data de início)
 -19.974118,-44.939235,60,BR-494 (MG),11.89,,,DNIT
 -20.17542,-44.921307,0,BR-494 (MG),37.00,,,DNIT
 -20.604541,-44.853186,0,BR-494 (MG),88.90,,,DNIT
 -20.623868,-44.852621,0,BR-494 (MG),91.20,,,DNIT
 -21.072067,-44.302112,0,BR-494 (MG),187.30,,,DNIT
+-19.532467,-54.043437,0,BR-060 (MS),197.95,,,DNIT (sem data de início)
 -20.900605,-54.925897,0,BR-060 (MS),420.30,,,DNIT
+-20.944105,-54.966738,0,BR-060 (MS),427.10,,,DNIT (sem data de início)
 -21.176146,-55.635452,0,BR-060 (MS),515.54,,,DNIT
 -21.485748,-56.150975,0,BR-060 (MS),592.97,,,DNIT
 -20.781791,-51.665838,0,BR-262 (MS),4.97,,,DNIT
@@ -2435,8 +2194,11 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -21.482633,-56.143289,0,BR-267 (MS),481.40,,,DNIT
 -22.390901,-54.480937,0,BR-376 (MS),31.27,,,DNIT
 -22.286625,-53.380146,0,BR-376 (MS),169.10,,,DNIT
+-22.275142,-53.370556,0,BR-376 (MS),170.72,,,DNIT (sem data de início)
 -22.25905,-54.816644,0,BR-463 (MS),1.30,,,DNIT
 -22.38227,-55.26617,0,BR-463 (MS),53.00,,,DNIT
+-22.61891,-55.60972,0,BR-463 (MS),99.15,,,DNIT (sem data de início)
+-22.619313,-55.610558,0,BR-463 (MS),99.25,,,DNIT (sem data de início)
 -22.620813,-55.624049,0,BR-463 (MS),100.77,,,DNIT
 -22.589907,-55.674631,0,BR-463 (MS),107.15,,,DNIT
 -15.877905,-52.294806,0,BR-070 (MT),4.95,,,DNIT
@@ -2501,7 +2263,9 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -1.627238,-47.481444,0,BR-010 (PA),320.91,,,DNIT
 -1.605338,-47.485035,0,BR-010 (PA),323.66,,,DNIT
 -5.447167,-48.904223,0,BR-230 (PA),92.68,,,DNIT
+-5.446628,-48.905255,0,BR-230 (PA),92.81,,,DNIT (sem data de início)
 -5.413387,-48.94259,0,BR-230 (PA),98.38,,,DNIT
+-5.370194,-49.044944,0,BR-230 (PA),112.00,,,DNIT (sem data de início)
 -5.365307,-49.064224,0,BR-230 (PA),113.19,,,DNIT
 -5.363908,-49.068988,0,BR-230 (PA),114.58,,,DNIT
 -5.35022,-49.10222,0,BR-230 (PA),118.56,,,DNIT
@@ -2548,12 +2312,14 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -1.291848,-47.871888,0,BR-316 (PA),69.37,,,DNIT
 -1.316431,-47.508716,0,BR-316 (PA),111.50,,,DNIT
 -1.219247,-47.172305,0,BR-316 (PA),152.20,,,DNIT
+-7.083779,-34.980403,0,BR-101 (PB),74.05,,,DNIT (sem data de início)
 -7.126183,-34.94294,0,BR-101 (PB),81.26,,,DNIT
 -7.127044,-34.940964,0,BR-101 (PB),81.50,,,DNIT
 -7.177282,-34.899594,0,BR-101 (PB),89.30,,,DNIT
 -7.181826,-34.900881,0,BR-101 (PB),89.90,,,DNIT
 -7.200568,-34.907082,0,BR-101 (PB),92.00,,,DNIT
 -7.203526,-34.907956,0,BR-101 (PB),92.36,,,DNIT
+-7.225427,-34.915778,0,BR-101 (PB),95.20,,,DNIT (sem data de início)
 -7.257472,-34.935349,0,BR-101 (PB),99.20,,,DNIT
 -7.261558,-34.936004,0,BR-101 (PB),99.64,,,DNIT
 -7.352533,-34.949345,0,BR-101 (PB),110.06,,,DNIT
@@ -2614,6 +2380,7 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -6.93656,-37.094171,0,BR-230 (PB),310.90,,,DNIT
 -7.018318,-37.258654,0,BR-230 (PB),334.20,,,DNIT
 -7.017685,-37.260026,0,BR-230 (PB),334.25,,,DNIT
+-7.008144,-37.283543,0,BR-230 (PB),335.00,,,DNIT (sem data de início)
 -7.00682,-37.293674,0,BR-230 (PB),336.10,,,DNIT
 -7.006701,-37.297192,0,BR-230 (PB),336.44,,,DNIT
 -7.006292,-37.299245,0,BR-230 (PB),336.62,,,DNIT
@@ -2622,6 +2389,7 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -6.904993,-37.515927,0,BR-230 (PB),363.97,,,DNIT
 -6.905396,-37.530572,0,BR-230 (PB),365.62,,,DNIT
 -6.909444,-37.594918,0,BR-230 (PB),372.88,,,DNIT
+-6.891903,-37.722418,0,BR-230 (PB),387.35,,,DNIT (sem data de início)
 -6.888942,-37.729338,0,BR-230 (PB),388.15,,,DNIT
 -6.786793,-38.075907,0,BR-230 (PB),442.24,,,DNIT
 -6.774772,-38.201125,0,BR-230 (PB),456.34,,,DNIT
@@ -2631,17 +2399,89 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -6.780982,-38.254344,0,BR-230 (PB),464.90,,,DNIT
 -6.835134,-38.315389,0,BR-230 (PB),472.60,,,DNIT
 -6.84449,-38.350853,0,BR-230 (PB),476.43,,,DNIT
+-6.893963,-38.541111,0,BR-230 (PB),499.90,,,DNIT (sem data de início)
 -6.899027,-38.548022,0,BR-230 (PB),500.84,,,DNIT
 -6.901211,-38.558674,0,BR-230 (PB),502.03,,,DNIT
 -6.90237,-38.565171,0,BR-230 (PB),502.76,,,DNIT
 -7.036519,-37.314641,0,BR-361 (PB),6.50,,,DNIT
+-7.559362,-34.991005,0,BR-101 (PE),7.07,,,DNIT (sem data de início)
+-7.81931,-34.917179,0,BR-101 (PE),40.00,,,DNIT (sem data de início)
 -7.82154,-34.916335,0,BR-101 (PE),40.25,,,DNIT
+-7.861531,-34.908047,0,BR-101 (PE),44.65,,,DNIT (sem data de início)
 -7.871518,-34.906578,0,BR-101 (PE),45.70,,,DNIT
 -7.890131,-34.903529,0,BR-101 (PE),47.80,,,DNIT
+-7.890484,-34.903881,0,BR-101 (PE),47.85,,,DNIT (sem data de início)
+-7.896513,-34.903005,0,BR-101 (PE),48.52,,,DNIT (sem data de início)
+-7.91381,-34.899606,0,BR-101 (PE),50.55,,,DNIT (sem data de início)
+-7.963438,-34.915976,0,BR-101 (PE),56.90,,,DNIT (sem data de início)
+-7.965346,-34.916878,0,BR-101 (PE),57.10,,,DNIT (sem data de início)
+-7.975817,-34.923961,0,BR-101 (PE),58.70,,,DNIT (sem data de início)
+-7.981874,-34.931832,0,BR-101 (PE),59.70,,,DNIT (sem data de início)
+-7.987322,-34.933788,0,BR-101 (PE),60.56,,,DNIT (sem data de início)
+-8.012348,-34.938516,0,BR-101 (PE),63.40,,,DNIT (sem data de início)
+-8.030126,-34.943007,0,BR-101 (PE),65.50,,,DNIT (sem data de início)
+-8.070548,-34.939778,0,BR-101 (PE),70.20,,,DNIT (sem data de início)
+-8.079112,-34.943226,0,BR-101 (PE),70.90,,,DNIT (sem data de início)
+-8.086852,-34.946284,0,BR-101 (PE),71.90,,,DNIT (sem data de início)
+-8.089979,-34.946939,0,BR-101 (PE),72.27,,,DNIT (sem data de início)
+-8.096842,-34.950003,0,BR-101 (PE),73.12,,,DNIT (sem data de início)
+-8.099616,-34.94987,0,BR-101 (PE),73.45,,,DNIT (sem data de início)
+-8.10748,-34.948116,0,BR-101 (PE),74.50,,,DNIT (sem data de início)
+-8.113016,-34.945587,0,BR-101 (PE),75.00,,,DNIT (sem data de início)
+-8.130669,-34.945033,0,BR-101 (PE),77.10,,,DNIT (sem data de início)
+-8.139768,-34.947099,0,BR-101 (PE),78.10,,,DNIT (sem data de início)
+-8.15175,-34.942931,0,BR-101 (PE),80.00,,,DNIT (sem data de início)
+-8.690543,-35.604084,0,BR-101 (PE),188.80,,,DNIT (sem data de início)
+-8.080104,-36.043534,0,BR-104 (PE),39.10,,,DNIT (sem data de início)
+-8.243181,-35.975485,0,BR-104 (PE),60.90,,,DNIT (sem data de início)
+-8.245656,-35.974866,0,BR-104 (PE),61.20,,,DNIT (sem data de início)
+-8.286655,-35.983854,0,BR-104 (PE),66.00,,,DNIT (sem data de início)
+-8.295444,-35.987404,0,BR-104 (PE),67.00,,,DNIT (sem data de início)
+-8.693402,-36.022908,0,BR-104 (PE),118.90,,,DNIT (sem data de início)
+-8.697975,-36.021072,0,BR-104 (PE),119.45,,,DNIT (sem data de início)
+-8.071059,-39.133796,0,BR-116 (PE),26.16,,,DNIT (sem data de início)
+-8.079124,-39.131152,0,BR-116 (PE),27.10,,,DNIT (sem data de início)
+-8.302264,-36.002465,0,BR-232 (PE),131.10,,,DNIT (sem data de início)
+-8.343292,-36.420722,0,BR-232 (PE),179.10,,,DNIT (sem data de início)
+-8.42332,-37.051945,0,BR-232 (PE),250.81,,,DNIT (sem data de início)
+-8.430164,-37.062374,0,BR-232 (PE),252.16,,,DNIT (sem data de início)
+-8.429767,-37.067124,0,BR-232 (PE),252.75,,,DNIT (sem data de início)
+-8.086088,-37.640264,0,BR-232 (PE),331.74,,,DNIT (sem data de início)
+-8.060006,-39.105957,0,BR-232 (PE),505.29,,,DNIT (sem data de início)
+-8.061441,-39.117006,0,BR-232 (PE),506.50,,,DNIT (sem data de início)
+-8.065115,-39.131041,0,BR-232 (PE),508.20,,,DNIT (sem data de início)
+-7.593422,-40.494341,0,BR-316 (PE),25.90,,,DNIT (sem data de início)
+-7.747923,-35.234187,0,BR-408 (PE),44.68,,,DNIT (sem data de início)
+-7.845172,-35.238685,0,BR-408 (PE),56.14,,,DNIT (sem data de início)
+-8.85169,-36.461941,0,BR-423 (PE),90.48,,,DNIT (sem data de início)
+-8.878816,-36.480634,0,BR-423 (PE),95.55,,,DNIT (sem data de início)
+-8.881132,-36.49135,0,BR-423 (PE),96.55,,,DNIT (sem data de início)
+-8.960251,-36.725746,0,BR-423 (PE),127.20,,,DNIT (sem data de início)
+-8.962761,-36.762409,0,BR-423 (PE),131.60,,,DNIT (sem data de início)
+-8.774236,-36.627703,0,BR-424 (PE),68.50,,,DNIT (sem data de início)
+-8.89176,-36.504204,0,BR-424 (PE),88.31,,,DNIT (sem data de início)
+-8.922828,-36.489818,0,BR-424 (PE),94.35,,,DNIT (sem data de início)
 -7.093232,-43.511695,0,BR-135 (PI),47.53,,,DNIT
 -9.474214,-44.605626,0,BR-135 (PI),415.65,,,DNIT
 -5.76055,-42.614973,0,BR-316 (PI),82.30,,,DNIT
+-5.81479,-42.514973,0,BR-316 (PI),95.03,,,DNIT (sem data de início)
+-6.825623,-41.73747,0,BR-316 (PI),258.45,,,DNIT (sem data de início)
+-6.951447,-41.727004,0,BR-316 (PI),274.10,,,DNIT (sem data de início)
+-6.968556,-41.651843,0,BR-316 (PI),285.10,,,DNIT (sem data de início)
+-7.025205,-41.560651,0,BR-316 (PI),297.72,,,DNIT (sem data de início)
+-7.077779,-41.499217,0,BR-316 (PI),307.30,,,DNIT (sem data de início)
 -7.07792,-41.489989,0,BR-316 (PI),308.50,,,DNIT
+-7.080739,-41.45866,0,BR-316 (PI),311.96,,,DNIT (sem data de início)
+-7.078078,-41.43962,0,BR-316 (PI),314.50,,,DNIT (sem data de início)
+-7.080784,-41.426054,0,BR-316 (PI),316.00,,,DNIT (sem data de início)
+-7.409837,-40.714274,0,BR-316 (PI),410.60,,,DNIT (sem data de início)
+-5.080776,-42.759383,0,BR-343 (PI),1.05,,,DNIT (sem data de início)
+-5.081652,-42.768927,0,BR-343 (PI),2.16,,,DNIT (sem data de início)
+-5.081497,-42.774031,0,BR-343 (PI),2.71,,,DNIT (sem data de início)
+-2.896555,-41.705025,0,BR-343 (PI),5.60,,,DNIT (sem data de início)
+-2.897973,-41.713957,0,BR-343 (PI),6.90,,,DNIT (sem data de início)
+-3.162061,-41.820514,0,BR-343 (PI),42.20,,,DNIT (sem data de início)
+-4.12987,-41.782583,0,BR-343 (PI),166.70,,,DNIT (sem data de início)
 -4.289805,-41.766011,0,BR-343 (PI),186.00,,,DNIT
 -4.81933,-42.15893,0,BR-343 (PI),263.03,,,DNIT
 -4.839768,-42.185309,0,BR-343 (PI),267.50,,,DNIT
@@ -2658,6 +2498,7 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -25.477332,-50.639722,0,BR-153 (PR),332.86,,,DNIT
 -25.492093,-50.646212,0,BR-153 (PR),334.65,,,DNIT
 -25.521049,-50.654191,0,BR-153 (PR),338.00,,,DNIT
+-25.611072,-50.701289,0,BR-153 (PR),349.60,,,DNIT (sem data de início)
 -25.624939,-50.711017,0,BR-153 (PR),351.45,,,DNIT
 -25.706194,-50.783456,0,BR-153 (PR),364.10,,,DNIT
 -25.737457,-50.802063,0,BR-153 (PR),368.40,,,DNIT
@@ -2679,6 +2520,7 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -26.058793,-52.629024,0,BR-158 (PR),512.50,,,DNIT
 -26.060898,-52.632073,0,BR-158 (PR),512.90,,,DNIT
 -26.094029,-52.645182,0,BR-158 (PR),517.20,,,DNIT
+-26.137389,-52.657818,0,BR-158 (PR),526.80,,,DNIT (sem data de início)
 -26.200479,-52.676354,0,BR-158 (PR),530.70,,,DNIT
 -26.233338,-52.690141,0,BR-158 (PR),535.00,,,DNIT
 -26.247363,-53.634745,0,BR-163 (PR),10.00,,,DNIT
@@ -2687,6 +2529,7 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -26.08274,-53.716508,0,BR-163 (PR),32.70,,,DNIT
 -26.068501,-53.720958,0,BR-163 (PR),34.40,,,DNIT
 -26.038902,-53.730305,0,BR-163 (PR),38.60,,,DNIT
+-26.030279,-53.733094,0,BR-163 (PR),39.90,,,DNIT (sem data de início)
 -25.851133,-53.747518,0,BR-163 (PR),62.10,,,DNIT
 -25.844606,-53.753836,0,BR-163 (PR),63.25,,,DNIT
 -25.686022,-53.789232,0,BR-163 (PR),86.45,,,DNIT
@@ -2700,6 +2543,8 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -26.223501,-53.147179,0,BR-280 (PR),270.85,,,DNIT
 -26.249161,-53.34232,0,BR-280 (PR),293.45,,,DNIT
 -24.060266,-52.387407,0,BR-369 (PR),3.50,,,DNIT
+-23.275503,-51.06003,0,BR-369 (PR),139.15,,,DNIT (sem data de início)
+-23.275646,-51.060699,0,BR-369 (PR),139.20,,,DNIT (sem data de início)
 -23.288393,-51.080201,0,BR-369 (PR),141.68,,,DNIT
 -23.302285,-51.353745,0,BR-369 (PR),171.10,,,DNIT
 -23.530019,-51.451105,0,BR-369 (PR),200.25,,,DNIT
@@ -2711,6 +2556,7 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -26.004149,-52.564277,0,BR-373 (PR),480.50,,,DNIT
 -23.39669,-51.975249,0,BR-376 (PR),1.90,,,DNIT
 -23.551668,-51.449087,0,BR-376 (PR),4.60,,,DNIT
+-23.551619,-51.448883,0,BR-376 (PR),4.60,,,DNIT (sem data de início)
 -23.366667,-52.07,0,BR-376 (PR),161.00,,,DNIT
 -24.967567,-49.085713,0,BR-476 (PR),55.20,,,DNIT
 -24.987371,-49.086857,0,BR-476 (PR),57.60,,,DNIT
@@ -2743,6 +2589,7 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -25.872388,-50.393836,0,BR-476 (PR),277.54,,,DNIT
 -25.870499,-50.40367,0,BR-476 (PR),278.80,,,DNIT
 -25.873265,-50.414487,0,BR-476 (PR),279.93,,,DNIT
+-25.908717,-50.444817,0,BR-476 (PR),285.10,,,DNIT (sem data de início)
 -25.992686,-50.578156,0,BR-476 (PR),301.80,,,DNIT
 -26.024326,-50.670486,0,BR-476 (PR),312.00,,,DNIT
 -26.092664,-50.773923,0,BR-476 (PR),325.17,,,DNIT
@@ -2755,6 +2602,7 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -21.176656,-42.013733,0,BR-356 (RJ),19.65,,,DNIT
 -21.185286,-41.930051,0,BR-356 (RJ),28.60,,,DNIT
 -21.187586,-41.911896,0,BR-356 (RJ),30.50,,,DNIT
+-21.25365,-41.7823,0,BR-356 (RJ),49.00,,,DNIT (sem data de início)
 -21.382222,-41.688611,0,BR-356 (RJ),70.05,,,DNIT
 -21.43149,-41.690373,0,BR-356 (RJ),76.40,,,DNIT
 -21.77574,-41.286335,0,BR-356 (RJ),147.80,,,DNIT
@@ -2812,6 +2660,7 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -5.218344,-37.32832,0,BR-110 (RN),49.25,,,DNIT
 -5.821135,-35.251922,0,BR-226 (RN),3.00,,,DNIT
 -5.820971,-35.255526,0,BR-226 (RN),3.44,,,DNIT
+-6.201743,-35.803702,0,BR-226 (RN),83.76,,,DNIT (sem data de início)
 -6.258192,-36.502606,0,BR-226 (RN),174.26,,,DNIT
 -6.258379,-36.513235,0,BR-226 (RN),175.52,,,DNIT
 -5.067799,-37.330911,0,BR-304 (RN),24.34,,,DNIT
@@ -2855,6 +2704,16 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -6.482036,-37.059245,0,BR-427 (RN),94.10,,,DNIT
 -6.454444,-37.054444,0,BR-427 (RN),97.50,,,DNIT
 -6.430748,-37.082595,0,BR-427 (RN),103.63,,,DNIT
+-12.70448,-60.120126,0,BR-174 (RO),17.55,,,DNIT (sem data de início)
+-12.73127,-60.16859,0,BR-364 (RO),17.21,,,DNIT (sem data de início)
+-12.725943,-60.191282,0,BR-364 (RO),19.76,,,DNIT (sem data de início)
+-10.897911,-61.930397,0,BR-364 (RO),340.07,,,DNIT (sem data de início)
+-10.897074,-61.93064,0,BR-364 (RO),340.22,,,DNIT (sem data de início)
+-10.88545,-61.934805,0,BR-364 (RO),341.50,,,DNIT (sem data de início)
+-10.885028,-61.935758,0,BR-364 (RO),341.60,,,DNIT (sem data de início)
+-10.876266,-61.94878,0,BR-364 (RO),343.36,,,DNIT (sem data de início)
+-10.87633,-61.949228,0,BR-364 (RO),343.38,,,DNIT (sem data de início)
+-8.777642,-63.889707,0,BR-364 (RO),714.25,,,DNIT (sem data de início)
 -0.856194,-60.522472,0,BR-174 (RR),0.40,,,DNIT
 -0.551639,-60.630056,0,BR-174 (RR),36.30,,,DNIT
 2.433387,-60.919415,0,BR-174 (RR),447.60,,,DNIT
@@ -2867,6 +2726,7 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -28.5215,-50.94284,0,BR-116 (RS),40.48,,,DNIT
 -28.583436,-51.026461,0,BR-116 (RS),52.14,,,DNIT
 -28.587636,-51.027639,0,BR-116 (RS),52.80,,,DNIT
+-28.673889,-51.063233,0,BR-116 (RS),64.20,,,DNIT (sem data de início)
 -28.788188,-51.095751,0,BR-116 (RS),78.80,,,DNIT
 -28.794281,-51.095679,0,BR-116 (RS),79.57,,,DNIT
 -28.797739,-51.095682,0,BR-116 (RS),79.95,,,DNIT
@@ -2902,6 +2762,7 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -29.446233,-51.137167,0,BR-116 (RS),193.93,,,DNIT
 -29.467883,-51.1524,0,BR-116 (RS),197.21,,,DNIT
 -29.4714,-51.149867,0,BR-116 (RS),197.69,,,DNIT
+-29.508444,-51.098889,0,BR-116 (RS),210.80,,,DNIT (sem data de início)
 -29.53684,-51.08088,0,BR-116 (RS),215.90,,,DNIT
 -29.618239,-51.121554,0,BR-116 (RS),229.41,,,DNIT
 -29.619918,-51.122869,0,BR-116 (RS),229.65,,,DNIT
@@ -2919,6 +2780,7 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -27.640945,-52.243736,0,BR-153 (RS),46.84,,,DNIT
 -27.643606,-52.247044,0,BR-153 (RS),47.27,,,DNIT
 -27.650633,-52.256617,0,BR-153 (RS),48.48,,,DNIT
+-27.655461,-52.268378,0,BR-153 (RS),49.81,,,DNIT (sem data de início)
 -27.65624,-52.27604,0,BR-153 (RS),50.60,,,DNIT
 -30.877,-53.613612,0,BR-153 (RS),555.58,,,DNIT
 -29.707508,-53.852162,0,BR-158 (RS),0.07,,,DNIT
@@ -2948,14 +2810,24 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -30.852141,-55.490024,0,BR-158 (RS),562.10,,,DNIT
 -28.652847,-50.425153,0,BR-285 (RS),61.23,,,DNIT
 -28.65276,-50.43736,0,BR-285 (RS),62.19,,,DNIT
+-28.635424,-50.547273,0,BR-285 (RS),74.10,,,DNIT (sem data de início)
+-28.63576,-50.550279,0,BR-285 (RS),74.52,,,DNIT (sem data de início)
+-28.593321,-50.751698,0,BR-285 (RS),97.00,,,DNIT (sem data de início)
+-28.590648,-50.755103,0,BR-285 (RS),97.46,,,DNIT (sem data de início)
 -28.513617,-50.908233,0,BR-285 (RS),117.27,,,DNIT
 -28.512117,-50.911433,0,BR-285 (RS),117.63,,,DNIT
 -28.499389,-50.951072,0,BR-285 (RS),123.02,,,DNIT
 -28.498529,-50.951778,0,BR-285 (RS),123.10,,,DNIT
 -28.3574,-51.10695,0,BR-285 (RS),145.98,,,DNIT
 -28.35624,-51.108607,0,BR-285 (RS),146.20,,,DNIT
+-28.34349,-51.14937,0,BR-285 (RS),151.10,,,DNIT (sem data de início)
+-28.339589,-51.15344,0,BR-285 (RS),151.70,,,DNIT (sem data de início)
+-28.319153,-51.246456,0,BR-285 (RS),161.90,,,DNIT (sem data de início)
+-28.319638,-51.249215,0,BR-285 (RS),162.15,,,DNIT (sem data de início)
 -28.297204,-51.460142,0,BR-285 (RS),185.92,,,DNIT
 -28.295817,-51.462504,0,BR-285 (RS),186.20,,,DNIT
+-28.212317,-51.510533,0,BR-285 (RS),197.34,,,DNIT (sem data de início)
+-28.205567,-51.519183,0,BR-285 (RS),198.51,,,DNIT (sem data de início)
 -28.20398,-51.52383,0,BR-285 (RS),199.00,,,DNIT
 -28.274417,-51.684717,0,BR-285 (RS),218.18,,,DNIT
 -28.27244,-51.69005,0,BR-285 (RS),218.75,,,DNIT
@@ -2969,12 +2841,17 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -28.229217,-52.44255,0,BR-285 (RS),299.80,,,DNIT
 -28.3182,-52.770007,0,BR-285 (RS),335.38,,,DNIT
 -28.317567,-52.773017,0,BR-285 (RS),335.68,,,DNIT
+-28.317614,-52.805809,0,BR-285 (RS),340.60,,,DNIT (sem data de início)
+-28.31799,-52.809464,0,BR-285 (RS),340.96,,,DNIT (sem data de início)
 -28.33604,-53.6654,0,BR-285 (RS),432.22,,,DNIT
 -28.337083,-53.6666,0,BR-285 (RS),432.38,,,DNIT
 -28.36415,-53.77099,0,BR-285 (RS),443.37,,,DNIT
 -28.365,-53.77543,0,BR-285 (RS),443.82,,,DNIT
 -28.38406,-53.88671,0,BR-285 (RS),455.79,,,DNIT
 -28.38569,-53.88886,0,BR-285 (RS),456.07,,,DNIT
+-28.409844,-53.903539,0,BR-285 (RS),458.70,,,DNIT (sem data de início)
+-28.41845,-53.916033,0,BR-285 (RS),460.68,,,DNIT (sem data de início)
+-28.418667,-53.91635,0,BR-285 (RS),460.72,,,DNIT (sem data de início)
 -28.374633,-54.164417,0,BR-285 (RS),486.22,,,DNIT
 -28.374267,-54.1672,0,BR-285 (RS),486.50,,,DNIT
 -28.37844,-54.28353,0,BR-285 (RS),500.43,,,DNIT
@@ -3017,6 +2894,7 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -31.7486,-52.480333,0,BR-293 (RS),15.72,,,DNIT
 -31.466104,-53.66186,0,BR-293 (RS),137.53,,,DNIT
 -31.463795,-53.665376,0,BR-293 (RS),137.94,,,DNIT
+-30.820304,-55.588757,0,BR-293 (RS),347.03,,,DNIT (sem data de início)
 -30.799178,-55.639914,0,BR-293 (RS),352.50,,,DNIT
 -30.760648,-55.735246,0,BR-293 (RS),362.60,,,DNIT
 -27.188317,-53.26265,0,BR-386 (RS),4.65,,,DNIT
@@ -3036,6 +2914,8 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -27.659617,-53.316717,0,BR-386 (RS),71.51,,,DNIT
 -27.681083,-53.308083,0,BR-386 (RS),74.23,,,DNIT
 -27.68315,-53.307883,0,BR-386 (RS),74.46,,,DNIT
+-27.81448,-53.04176,0,BR-386 (RS),113.10,,,DNIT (sem data de início)
+-27.815465,-53.039484,0,BR-386 (RS),113.35,,,DNIT (sem data de início)
 -27.946578,-52.930818,0,BR-386 (RS),133.18,,,DNIT
 -32.116504,-52.111385,0,BR-392 (RS),0.56,,,DNIT
 -32.121772,-52.111338,0,BR-392 (RS),1.14,,,DNIT
@@ -3044,9 +2924,12 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -30.08196,-53.640001,0,BR-392 (RS),307.74,,,DNIT
 -29.99645,-53.685554,0,BR-392 (RS),319.13,,,DNIT
 -29.763734,-53.785357,0,BR-392 (RS),347.26,,,DNIT
+-29.72963,-53.80197,0,BR-392 (RS),350.84,,,DNIT (sem data de início)
 -29.719711,-53.808043,0,BR-392 (RS),352.14,,,DNIT
 -29.71917,-53.8081,0,BR-392 (RS),352.16,,,DNIT
 -28.1248,-54.72869,0,BR-392 (RS),661.37,,,DNIT
+-27.866494,-53.331427,0,BR-468 (RS),3.71,,,DNIT (sem data de início)
+-27.86678,-53.33376,0,BR-468 (RS),3.94,,,DNIT (sem data de início)
 -27.760583,-53.82315,0,BR-468 (RS),63.77,,,DNIT
 -27.736717,-53.838733,0,BR-468 (RS),67.03,,,DNIT
 -27.73355,-53.8426,0,BR-468 (RS),67.56,,,DNIT
@@ -3061,7 +2944,12 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -27.619117,-51.485733,0,BR-470 (RS),3.74,,,DNIT
 -27.623787,-51.471508,0,BR-470 (RS),5.30,,,DNIT
 -27.628366,-51.468042,0,BR-470 (RS),5.92,,,DNIT
+-27.673562,-51.454946,0,BR-470 (RS),11.26,,,DNIT (sem data de início)
+-27.676088,-51.454646,0,BR-470 (RS),11.53,,,DNIT (sem data de início)
+-27.68145,-51.45665,0,BR-470 (RS),11.97,,,DNIT (sem data de início)
+-27.686323,-51.458476,0,BR-470 (RS),12.75,,,DNIT (sem data de início)
 -28.77407,-51.6141,0,BR-470 (RS),154.02,,,DNIT
+-28.81988,-51.59047,0,BR-470 (RS),160.51,,,DNIT (sem data de início)
 -28.926433,-51.541419,0,BR-470 (RS),174.66,,,DNIT
 -28.927391,-51.541913,0,BR-470 (RS),174.78,,,DNIT
 -29.15965,-51.53042,0,BR-470 (RS),214.93,,,DNIT
@@ -3084,6 +2972,7 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -32.676303,-52.594455,0,BR-471 (RS),540.54,,,DNIT
 -27.84129,-54.434681,0,BR-472 (RS),156.67,,,DNIT
 -27.84195,-54.434833,0,BR-472 (RS),156.73,,,DNIT
+-27.85633,-54.51167,0,BR-472 (RS),176.00,,,DNIT (sem data de início)
 -29.393017,-56.66995,0,BR-472 (RS),512.07,,,DNIT
 -29.394017,-56.671383,0,BR-472 (RS),512.24,,,DNIT
 -29.471733,-56.684717,0,BR-472 (RS),521.92,,,DNIT
@@ -3092,15 +2981,79 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -29.763717,-57.047733,0,BR-472 (RS),574.15,,,DNIT
 -29.762836,-57.055821,0,BR-472 (RS),581.60,,,DNIT
 -29.7784,-57.06129,0,BR-472 (RS),584.27,,,DNIT
+-30.20082,-57.50618,0,BR-472 (RS),651.27,,,DNIT (sem data de início)
 -26.819824,-51.72133,0,BR-153 (SC),35.02,,,DNIT
 -26.823211,-51.725544,0,BR-153 (SC),35.77,,,DNIT
 -26.968296,-51.851407,0,BR-153 (SC),58.31,,,DNIT
 -26.970882,-51.856423,0,BR-153 (SC),58.90,,,DNIT
+-26.756532,-53.500457,0,BR-163 (SC),67.33,,,DNIT (sem data de início)
+-26.755237,-53.500623,0,BR-163 (SC),67.47,,,DNIT (sem data de início)
+-26.746622,-53.500885,0,BR-163 (SC),68.42,,,DNIT (sem data de início)
+-26.737314,-53.502784,0,BR-163 (SC),69.49,,,DNIT (sem data de início)
+-26.735012,-53.505919,0,BR-163 (SC),69.98,,,DNIT (sem data de início)
+-26.733011,-53.509236,0,BR-163 (SC),70.33,,,DNIT (sem data de início)
+-26.731655,-53.510388,0,BR-163 (SC),70.53,,,DNIT (sem data de início)
+-26.234228,-48.622878,0,BR-280 (SC),1.51,,,DNIT (sem data de início)
+-26.273456,-48.642882,0,BR-280 (SC),7.29,,,DNIT (sem data de início)
+-26.30418,-48.64067,0,BR-280 (SC),10.96,,,DNIT (sem data de início)
+-26.333429,-48.652734,0,BR-280 (SC),14.43,,,DNIT (sem data de início)
+-26.37882,-48.721442,0,BR-280 (SC),24.30,,,DNIT (sem data de início)
+-26.408723,-48.750642,0,BR-280 (SC),28.70,,,DNIT (sem data de início)
+-26.42608,-48.788064,0,BR-280 (SC),33.10,,,DNIT (sem data de início)
 -26.469622,-49.115827,0,BR-280 (SC),68.32,,,DNIT
 -26.458987,-49.15792,0,BR-280 (SC),72.80,,,DNIT
+-26.457364,-49.183432,0,BR-280 (SC),75.33,,,DNIT (sem data de início)
+-26.456794,-49.185757,0,BR-280 (SC),75.57,,,DNIT (sem data de início)
 -26.442756,-49.211123,0,BR-280 (SC),78.74,,,DNIT
 -26.437054,-49.239134,0,BR-280 (SC),81.70,,,DNIT
+-26.417472,-49.255138,0,BR-280 (SC),84.80,,,DNIT (sem data de início)
+-26.398133,-49.29877,0,BR-280 (SC),91.98,,,DNIT (sem data de início)
+-26.378598,-49.315586,0,BR-280 (SC),95.51,,,DNIT (sem data de início)
+-26.310249,-49.388289,0,BR-280 (SC),111.30,,,DNIT (sem data de início)
 -26.308092,-49.388932,0,BR-280 (SC),111.57,,,DNIT
+-27.60023,-48.57635,0,BR-282 (SC),0.64,,,DNIT (sem data de início)
+-27.597264,-48.600778,0,BR-282 (SC),3.47,,,DNIT (sem data de início)
+-27.597037,-48.600822,0,BR-282 (SC),3.49,,,DNIT (sem data de início)
+-27.666122,-48.688512,0,BR-282 (SC),16.95,,,DNIT (sem data de início)
+-27.688967,-48.718872,0,BR-282 (SC),21.01,,,DNIT (sem data de início)
+-27.68942,-48.732443,0,BR-282 (SC),22.36,,,DNIT (sem data de início)
+-27.688782,-48.735632,0,BR-282 (SC),22.71,,,DNIT (sem data de início)
+-27.673005,-48.774504,0,BR-282 (SC),27.40,,,DNIT (sem data de início)
+-27.687789,-48.791,0,BR-282 (SC),30.05,,,DNIT (sem data de início)
+-27.701633,-48.800902,0,BR-282 (SC),32.06,,,DNIT (sem data de início)
+-27.70781,-48.844663,0,BR-282 (SC),37.16,,,DNIT (sem data de início)
+-27.7213,-48.908575,0,BR-282 (SC),44.02,,,DNIT (sem data de início)
+-27.683322,-49.106572,0,BR-282 (SC),72.09,,,DNIT (sem data de início)
+-27.681359,-49.113378,0,BR-282 (SC),73.00,,,DNIT (sem data de início)
+-27.667383,-49.159484,0,BR-282 (SC),79.44,,,DNIT (sem data de início)
+-27.662727,-49.160399,0,BR-282 (SC),80.06,,,DNIT (sem data de início)
+-27.663872,-49.203895,0,BR-282 (SC),86.67,,,DNIT (sem data de início)
+-27.665347,-49.205401,0,BR-282 (SC),86.98,,,DNIT (sem data de início)
+-27.695927,-49.331951,0,BR-282 (SC),103.77,,,DNIT (sem data de início)
+-27.733273,-49.368846,0,BR-282 (SC),111.07,,,DNIT (sem data de início)
+-27.803801,-49.487471,0,BR-282 (SC),127.95,,,DNIT (sem data de início)
+-27.804014,-49.49016,0,BR-282 (SC),128.22,,,DNIT (sem data de início)
+-27.773302,-50.200279,0,BR-282 (SC),206.90,,,DNIT (sem data de início)
+-27.774065,-50.204295,0,BR-282 (SC),207.30,,,DNIT (sem data de início)
+-27.800107,-50.362123,0,BR-282 (SC),222.91,,,DNIT (sem data de início)
+-27.799346,-50.36461,0,BR-282 (SC),223.18,,,DNIT (sem data de início)
+-27.605738,-50.722279,0,BR-282 (SC),274.51,,,DNIT (sem data de início)
+-27.50091,-50.949985,0,BR-282 (SC),305.11,,,DNIT (sem data de início)
+-27.495868,-50.953683,0,BR-282 (SC),306.12,,,DNIT (sem data de início)
+-27.39403,-51.189516,0,BR-282 (SC),339.25,,,DNIT (sem data de início)
+-27.392669,-51.195859,0,BR-282 (SC),339.90,,,DNIT (sem data de início)
+-27.390067,-51.213842,0,BR-282 (SC),341.87,,,DNIT (sem data de início)
+-27.388956,-51.228022,0,BR-282 (SC),343.32,,,DNIT (sem data de início)
+-27.388438,-51.230168,0,BR-282 (SC),343.54,,,DNIT (sem data de início)
+-27.382174,-51.239163,0,BR-282 (SC),344.67,,,DNIT (sem data de início)
+-27.284224,-51.434198,0,BR-282 (SC),368.75,,,DNIT (sem data de início)
+-27.27649,-51.440885,0,BR-282 (SC),369.89,,,DNIT (sem data de início)
+-27.273681,-51.442508,0,BR-282 (SC),370.25,,,DNIT (sem data de início)
+-27.243715,-51.447838,0,BR-282 (SC),373.80,,,DNIT (sem data de início)
+-27.218839,-51.462893,0,BR-282 (SC),377.06,,,DNIT (sem data de início)
+-27.198325,-51.507244,0,BR-282 (SC),383.58,,,DNIT (sem data de início)
+-27.202725,-51.510004,0,BR-282 (SC),384.17,,,DNIT (sem data de início)
+-27.204174,-51.51124,0,BR-282 (SC),384.37,,,DNIT (sem data de início)
 -26.970396,-51.852427,0,BR-282 (SC),436.89,,,DNIT
 -26.966164,-51.854802,0,BR-282 (SC),437.49,,,DNIT
 -26.915642,-51.90336,0,BR-282 (SC),445.60,,,DNIT
@@ -3108,11 +3061,51 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -26.872356,-52.018925,0,BR-282 (SC),460.80,,,DNIT
 -26.86626,-52.022855,0,BR-282 (SC),461.55,,,DNIT
 -26.856357,-52.031307,0,BR-282 (SC),462.96,,,DNIT
+-26.855485,-52.255868,0,BR-282 (SC),487.52,,,DNIT (sem data de início)
+-26.857833,-52.264324,0,BR-282 (SC),488.40,,,DNIT (sem data de início)
+-26.860185,-52.267571,0,BR-282 (SC),488.82,,,DNIT (sem data de início)
+-26.880481,-52.357699,0,BR-282 (SC),498.98,,,DNIT (sem data de início)
+-26.883047,-52.402538,0,BR-282 (SC),503.57,,,DNIT (sem data de início)
+-26.883143,-52.406237,0,BR-282 (SC),503.99,,,DNIT (sem data de início)
+-26.885169,-52.432406,0,BR-282 (SC),506.66,,,DNIT (sem data de início)
+-26.886414,-52.440934,0,BR-282 (SC),507.52,,,DNIT (sem data de início)
+-26.915984,-52.490555,0,BR-282 (SC),514.25,,,DNIT (sem data de início)
+-26.917998,-52.493751,0,BR-282 (SC),514.68,,,DNIT (sem data de início)
+-26.964246,-52.551258,0,BR-282 (SC),523.38,,,DNIT (sem data de início)
+-26.965676,-52.55385,0,BR-282 (SC),523.68,,,DNIT (sem data de início)
 -26.982462,-52.598154,0,BR-282 (SC),529.18,,,DNIT
 -26.982834,-52.59864,0,BR-282 (SC),529.25,,,DNIT
 -26.985345,-52.604468,0,BR-282 (SC),529.94,,,DNIT
 -26.986973,-52.606278,0,BR-282 (SC),530.22,,,DNIT
 -26.896464,-52.918153,0,BR-282 (SC),569.81,,,DNIT
+-26.905367,-48.939325,0,BR-470 (SC),32.77,,,DNIT (sem data de início)
+-26.906349,-48.94075,0,BR-470 (SC),32.94,,,DNIT (sem data de início)
+-26.960962,-49.326147,0,BR-470 (SC),82.07,,,DNIT (sem data de início)
+-26.962054,-49.370933,0,BR-470 (SC),88.95,,,DNIT (sem data de início)
+-27.031307,-49.384,0,BR-470 (SC),97.54,,,DNIT (sem data de início)
+-27.041796,-49.396265,0,BR-470 (SC),99.30,,,DNIT (sem data de início)
+-27.09928,-49.460077,0,BR-470 (SC),111.10,,,DNIT (sem data de início)
+-27.098871,-49.462002,0,BR-470 (SC),111.33,,,DNIT (sem data de início)
+-27.095709,-49.528088,0,BR-470 (SC),120.84,,,DNIT (sem data de início)
+-27.098427,-49.529662,0,BR-470 (SC),121.47,,,DNIT (sem data de início)
+-27.105002,-49.523118,0,BR-470 (SC),122.42,,,DNIT (sem data de início)
+-27.109166,-49.525135,0,BR-470 (SC),123.11,,,DNIT (sem data de início)
+-27.125364,-49.537616,0,BR-470 (SC),125.35,,,DNIT (sem data de início)
+-27.161706,-49.556654,0,BR-470 (SC),130.25,,,DNIT (sem data de início)
+-27.2006,-49.632284,0,BR-470 (SC),139.33,,,DNIT (sem data de início)
+-27.201423,-49.632566,0,BR-470 (SC),139.41,,,DNIT (sem data de início)
+-27.204633,-49.638601,0,BR-470 (SC),140.13,,,DNIT (sem data de início)
+-27.216632,-49.653946,0,BR-470 (SC),142.55,,,DNIT (sem data de início)
+-27.239855,-49.684815,0,BR-470 (SC),146.53,,,DNIT (sem data de início)
+-27.285977,-49.78348,0,BR-470 (SC),158.37,,,DNIT (sem data de início)
+-27.26577,-49.879694,0,BR-470 (SC),168.55,,,DNIT (sem data de início)
+-27.26543,-49.882543,0,BR-470 (SC),168.83,,,DNIT (sem data de início)
+-27.257161,-49.933703,0,BR-470 (SC),174.29,,,DNIT (sem data de início)
+-27.254531,-50.04059,0,BR-470 (SC),185.25,,,DNIT (sem data de início)
+-27.29441,-50.077842,0,BR-470 (SC),192.00,,,DNIT (sem data de início)
+-27.303347,-50.079547,0,BR-470 (SC),193.54,,,DNIT (sem data de início)
+-27.301469,-50.081325,0,BR-470 (SC),194.06,,,DNIT (sem data de início)
+-27.307931,-50.134132,0,BR-470 (SC),199.52,,,DNIT (sem data de início)
 -10.377366,-36.91404,0,BR-101 (SE),22.30,,,DNIT
 -10.779813,-37.139956,0,BR-101 (SE),77.80,,,DNIT
 -10.807808,-37.140085,0,BR-101 (SE),81.00,,,DNIT
@@ -3120,11 +3113,13 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -10.901717,-37.136073,0,BR-101 (SE),92.00,,,DNIT
 -10.900999,-37.138301,0,BR-101 (SE),92.30,,,DNIT
 -10.905907,-37.149933,0,BR-101 (SE),93.80,,,DNIT
+-10.911086,-37.158147,0,BR-101 (SE),94.80,,,DNIT (sem data de início)
 -10.911638,-37.158433,0,BR-101 (SE),94.90,,,DNIT
 -10.952152,-37.218031,0,BR-101 (SE),102.90,,,DNIT
 -10.958323,-37.243398,0,BR-101 (SE),105.80,,,DNIT
 -10.963078,-37.261214,0,BR-101 (SE),107.80,,,DNIT
 -11.000858,-37.305878,0,BR-101 (SE),114.50,,,DNIT
+-11.001306,-37.306102,0,BR-101 (SE),114.60,,,DNIT (sem data de início)
 -11.234513,-37.428124,0,BR-101 (SE),147.55,,,DNIT
 -11.262474,-37.44142,0,BR-101 (SE),151.00,,,DNIT
 -11.270009,-37.444066,0,BR-101 (SE),151.91,,,DNIT
@@ -3143,6 +3138,7 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -10.802525,-37.26778,0,BR-235 (SE),26.50,,,DNIT
 -10.764504,-37.322252,0,BR-235 (SE),35.10,,,DNIT
 -10.76169,-37.388349,0,BR-235 (SE),42.75,,,DNIT
+-10.725976,-37.415819,0,BR-235 (SE),48.10,,,DNIT (sem data de início)
 -10.683809,-37.440799,0,BR-235 (SE),53.20,,,DNIT
 -10.541825,-37.563635,0,BR-235 (SE),76.10,,,DNIT
 -10.35837,-37.699196,0,BR-235 (SE),108.15,,,DNIT
@@ -3159,6 +3155,8 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -22.852415,-45.239011,0,BR-488 (SP),2.47,,,DNIT
 -22.854836,-45.243089,0,BR-488 (SP),3.02,,,DNIT
 -22.855132,-45.243455,0,BR-488 (SP),3.07,,,DNIT
+-22.85782,-45.247863,0,BR-488 (SP),3.67,,,DNIT (sem data de início)
+-22.858321,-45.249257,0,BR-488 (SP),3.82,,,DNIT (sem data de início)
 -22.860427,-45.253881,0,BR-488 (SP),4.43,,,DNIT
 -22.860796,-45.25409,0,BR-488 (SP),4.48,,,DNIT
 -22.863434,-45.255713,0,BR-488 (SP),4.84,,,DNIT
@@ -3167,6 +3165,8 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -22.868597,-45.256657,0,BR-488 (SP),5.25,,,DNIT
 -10.296581,-48.297567,0,BR-010 (TO),453.50,,,DNIT
 -10.28754,-48.297421,0,BR-010 (TO),457.70,,,DNIT
+-10.235704,-48.311694,0,BR-010 (TO),463.85,,,DNIT (sem data de início)
+-6.412822,-48.543734,0,BR-153 (TO),1.70,,,DNIT (sem data de início)
 -7.115249,-48.188104,0,BR-153 (TO),131.90,,,DNIT
 -7.1166,-48.188882,0,BR-153 (TO),132.60,,,DNIT
 -7.177353,-48.221209,0,BR-153 (TO),140.23,,,DNIT
@@ -3192,6 +3192,279 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -11.107178,-48.921028,0,BR-153 (TO),599.60,,,DNIT
 -6.563049,-47.472506,0,BR-226 (TO),1.75,,,DNIT
 -6.710662,-47.756247,0,BR-226 (TO),39.39,,,DNIT
+-15.821991,-47.908879,60,EIXO W SUL ALT SQS 110 PROXIMO AO BLOCO J SENTIDO?NORTE/SUL,,DTR007,,Detran-DF
+-15.822639,-47.909572,60,EIXO W SUL ALT SQS 110 PROXIMO AO BLOCO J SENTIDO SUL/NORTE,,DTR008,,Detran-DF
+-15.811859,-47.893698,0,EIXO L SUL SQS 205 PROXIMO A DELEGACIA DA MULHER SENTIDO SUL/NORTE,,DTR012,,Detran-DF
+-15.811574,-47.893566,0,EIXO L SUL SQS 205 PROXIMO A DELEGACIA DA MULHER SENTIDO NORTE/SUL,,DTR013,,Detran-DF
+-15.779743,-47.881385,0,EIXO W NORTE EQN Q 102/103 SENT NORTE/SUL,,DTR046,,Detran-DF
+-15.779991,-47.881236,0,EIXO W NORTE EQN Q 102/103 SENT SUL/NORTE,,DTR047,,Detran-DF
+-15.756581,-47.886647,0,EIXO W NORTE Q 110 (SENT. NORTE/SUL),,DTR048,,Detran-DF
+-15.756554,-47.886528,0,EIXO W NORTE Q 110 (SENT. SUL/NORTE),,DTR049,,Detran-DF
+-15.782533,-47.879935,0,EIXO L NORTE QUADRA 202 SENTIDO NORTE/SUL,,DTR130,,Detran-DF
+-15.782549,-47.87982,0,EIXO L NORTE QUADRA 202 SENTIDO SUL/NORTE,,DTR131,,Detran-DF
+-15.755323,-47.88569,0,EIXO L SQN 210 (SENT NORTE/SUL),,DTR132,,Detran-DF
+-15.755287,-47.885569,0,EIXO L SQN 210 (SENT SUL/NORTE),,DTR133,,Detran-DF
+-15.767856,-47.881788,0,EIXO L NORTE SQN 206 SENT NORTE/SUL,,DTR134,,Detran-DF
+-15.767661,-47.881702,0,EIXO L NORTE SQN 206 SENT SUL/ NORTE,,DTR135,,Detran-DF
+-15.742715,-47.88973,0,EIXO L NORTE Q 214 PROX BLOCO H SENT NORTE/SUL,,DTR136,,Detran-DF
+-15.743244,-47.889448,0,EIXO L NORTE Q 214 PROX AO BLOCO H SENTIDO SUL / NORTE,,DTR137,,Detran-DF
+-15.806657,-47.890782,0,EIXO W SQS 103(SENT NORTE/SUL),,DTR170,,Detran-DF
+-15.806818,-47.890769,0,EIXO W SQS 103 (SENT SUL/NORTE),,DTR171,,Detran-DF
+-15.814069,-47.89817,0,EIXO W SUL ALTURA EQS 106/107 PROX AO CINE BRASILIA SENT NORTE/SUL,,DTR174,,Detran-DF
+-15.81497,-47.899104,0,EIXO W SUL ALTURA EQS 106/107 PROX AO CINE BRASILIA SENT SUL/NORTE,,DTR175,,Detran-DF
+-15.829318,-47.919009,0,EIXO W SUL ALTURA EQS 114/115 PROX AO MCDONALDS SENT NORTE/SUL,,DTR176,,Detran-DF
+-15.830632,-47.920602,0,EIXO W SUL ALTURA EQS 114/115 PROX AO MCDONALDS SUL/NORTE,,DTR177,,Detran-DF
+-15.768178,-47.883064,0,EIXO W SQN 106 (SENT NORTE/SUL),,DTR178,,Detran-DF
+-15.768157,-47.882952,0,EIXO W NORTE SQN 106 (SENT. SUL/NORTE),,DTR179,,Detran-DF
+-15.756198,-47.896493,0,W4 NORTE Q 711/911 PROXIMO A IGREJA DE JESUS CRISTO SENT SUL/NORTE,,DTR180,,Detran-DF
+-15.744536,-47.900239,0,W4 NORTE ALTURA DA HCGN 715 SENT SUL/NORTE,,DTR182,,Detran-DF
+-15.776313,-47.891538,0,W5 SGAN 904 (SENT NORTE/SUL),,DTR183,,Detran-DF
+-15.823542,-47.934683,0,SETOR POLICIAL SUL FRENTE QCG PM SENT. CRUZEIRO,,DTR184,,Detran-DF
+-15.781036,-47.920516,60,VIA N1 E. MONUM ALT SMU (SENT SHOPPING POPULAR),,DTR195,,Detran-DF
+-15.778508,-47.934452,60,VIA S1 E. MONUM CRUZ VELHO (SENT CONGRESSO),,DTR203,,Detran-DF
+-15.820339,-47.904385,60,EIXO L SQS 209 (SENT NORTE/SUL),,DTR205,,Detran-DF
+-15.820442,-47.904332,60,EIXO L SQS 209 (SENT SUL/NORTE),,DTR206,,Detran-DF
+-15.819198,-47.832844,60,VIA JK ENTRADA DA PONTE JK (SENT PLANO PILOTO/LAGO SUL),,DTR224,,Detran-DF
+-15.750806,-47.880902,0,L2 NORTE ALT SQN 411 SENTIDO NORTE/SUL,,DTR234,,Detran-DF
+-15.750836,-47.880767,0,L2 NORTE ALT SGAN 611 SENTIDO SUL/NORTE,,DTR235,,Detran-DF
+-15.736919,-47.907586,0,VIA TERMINAL NORTE 320m ANTES DO 2:CBM SENT DF003(EPIA)/W3 NORTE,,DTR236,,Detran-DF
+-15.776534,-47.890995,0,W4 NORTE HCGN 704 PROX BLOCO I SENT SUL/NORTE,,DTR240,,Detran-DF
+-15.801719,-47.854543,60,VIA N1 EIXO MONUM PROX PAVILHAO DAS METAS (MEC) SENT CONGRESSO/PAL DA ALVORADA,,DTR247,,Detran-DF
+-15.801702,-47.854265,60,VIA N1 EIXO MONUM A 130 DA ENTR DO 1? BAT DE INC(CBM) SENT PAL DA ALVORADA/CONG,,DTR248,,Detran-DF
+-15.814613,-47.88154,0,VIA DE LIG L2-PONTE COSTA E SILVA A 70m DO VIAD. DA L3 SENT P. PILOTO/LAGO SUL,,DTR249,,Detran-DF
+-15.805397,-47.887983,0,EIXO L SUL SQS 202 PROX BL H SENT NORTE/SUL,,DTR260,,Detran-DF
+-15.805695,-47.888082,0,EIXO L SUL SQS 202 PROX BL L SENTIDO SUL/NORTE,,DTR261,,Detran-DF
+-15.761039,-47.874943,0,AV L3 NORTE Q 608 FRENTE POSTO BR DA UNB SENT NORTE/SUL,,DTR266,,Detran-DF
+-15.776367,-47.871568,0,AV L3 NORTE PROX A FINATEC SENT SUL/NORTE,,DTR267,,Detran-DF
+-15.819247,-47.832696,60,VIA JK SAIDA DA PONTE JK (SENT. PLANO PILOTO),,DTR273,,Detran-DF
+-15.826648,-47.913107,60,EIXO L SUL ALTURA SQS 212 PROXIMO A IGREJA UNIVERSAL SENT NORTE/SUL,,DTR283,,Detran-DF
+-15.828225,-47.91509,0,EIXO L SUL ALTURA SQS 212 PROXIMO A IGREJA UNIVERSAL SENT SUL/NORTE,,DTR284,,Detran-DF
+-15.776478,-47.921178,50,AVENIDA DO EXERCITO PROXIMO AO QG SENTIDO NORTE/SUL,,DTR305,,Detran-DF
+-15.776791,-47.921144,50,AVENIDA DOS EXERCITO PROXIMO AO QG SENTIDO SUL/ NORTE,,DTR310,,Detran-DF
+-15.818317,-47.914529,0,AVENIDA W3 SUL ALTURA DA SHIGS 711 SENTNORTE/SUL,,DTR343,,Detran-DF
+-15.822209,-47.919914,0,AVENIDA W3 SUL ALTURA DA SHIGS 713 SENTNORTE/SUL,,DTR344,,Detran-DF
+-15.739731,-47.898776,0,AV. W-3 NORTE ALT DA SCLRN 716 SENT SUL,,DTR347,,Detran-DF
+-15.76924,-47.907182,0,AV. W-7 NORTE SQNW 102 NOROESTE SENT. SUL/NORTE,,DTR363,,Detran-DF
+-15.768988,-47.907264,0,AV. W-7 NORTE SQNW 102 NOROESTE SENT. NORTE/SUL,,DTR364,,Detran-DF
+-15.756561,-47.908207,0,AV. W-7 NORTE SQNW 106 NOROESTE SENT. SUL/NORTE,,DTR365,,Detran-DF
+-15.756362,-47.908279,0,AV. W-7 NORTE SQNW 106 NOROESTE SENT. NORTE/SUL,,DTR366,,Detran-DF
+-15.817632,-47.937031,60,SETOR POLICIAL SUL EM FRENTE ABIN SENT. CRUZEIRO,,DTR370,,Detran-DF
+-15.817666,-47.937201,60,SETOR POLICIAL SUL FRENTE ABIN SENT. ASA SUL,,DTR371,,Detran-DF
+-15.834749,-47.900266,50,VIA DE LIGACAO PONTE DAS GARCAS SENT PLANO PILOTO/ LAGO SUL,,LDT120,,Detran-DF
+-15.818573,-47.88013,0,VIA DE LIGA??O L-2 / PONTE COSTA E SILVA SENT. PLANO PILOTO/LAGO SUL,,LDT122,,Detran-DF
+-15.7486,-47.898956,40,VIA W4 NORTE SHCGN 713/714 SENT. SUL/NORTE,,LDT053,,Detran-DF
+-15.768955,-47.872613,0,VIA L-3 NORTE ALTURA DA FACULDADE DE EDUCA??O/UNB SENT. SUL/NORTE,,LDT001,,Detran-DF
+-15.767297,-47.873204,0,VIA L-3 NORTE ALTURA DA SGAN 606 PROX. CASA THOMAS JEFERSON SENT. NORTE/SUL,,LDT002,,Detran-DF
+-15.816778,-47.835923,60,VIA JK PROX. PONTE JK SENT. PLANO PILOTO / LAGO SUL,,LDT133,,Detran-DF
+-15.76447,-47.89562,0,SGAN 908 PROX ACESSO VIA W5 SENT. OESTE/LESTE,,LDT093,,Detran-DF
+-15.734755,-47.901145,0,VIA TERMINAL NORTE A 200m DA 2? DP ASA NORTE PLANO PILOTO SENT. W-3 NORTE/DF-003,,DTR376,,Detran-DF
+-15.828391,-47.9285,0,AV. W-3 SUL ALT. SHLS Q. 716 LT. 2 ASA SUL PLANO PILOTO SENT. NORTE/SUL,,DTR378,,Detran-DF
+-15.739189,-47.898746,0,AV. W-3 NORTE ALT. SEPN Q. 516 LT. 10 ASA NORTE PLANO PILOTO SENT SUL/NORTE,,DTR377,,Detran-DF
+-15.766318,-47.917771,0,AVENIDA DO EX?RCITO PROX. A QUADRA RESIDENCIAL DE GENERAIS - DF,,DTR382,,Detran-DF
+-16.028379,-48.064553,0,AV DOS PIONEIROS Q3 ST SUL GAMA SENT OESTE/LESTE,,DTR065,,Detran-DF
+-16.00337,-48.059531,0,AV BOMBEIROS Q. 01 PROX CBM GAMA(SENT SUL/NORTE),,DTR160,,Detran-DF
+-16.004009,-48.059676,0,AV BOMBEIROS Q. 02 PROX CBM GAMA(SENT NORTE/SUL),,DTR161,,Detran-DF
+-16.013971,-48.060017,0,AVENIDA DO BOMBEIRO DO GAMA QI 01 PROX AO ESTADIO BEZERRAO SENT SUL/NORTE,,DTR162,,Detran-DF
+-16.011358,-48.060048,0,AVENIDA DO BOMBEIRO DO GAMA PROX AO ESTADIO BEZERRAO SENT NORTE/SUL,,DTR163,,Detran-DF
+-16.009311,-48.060922,0,AV CENTRAL NORTE Q 01 AE SETOR NORTE GAMA PROX AO FORUM SENT SESI,,DTR311,,Detran-DF
+-16.011488,-48.06506,0,AV CENTRAL NORTE AREA ESPECIAL 1/8 SETOR CENTRAL GAMA PROX SESI SENT FORUM,,DTR312,,Detran-DF
+-16.031187,-48.059695,0,AV SUL QUADRA 36 LOTE 5/6 SENTIDO LESTE/OESTE - GAMA,,LDT108,,Detran-DF
+-16.030934,-48.060406,0,AV SC 5/AV DOS PIONEIROS QD 05 CONJ F LT 27  GAMA SENT OESTE/LESTE,,LDT107,,Detran-DF
+-16.026123,-48.06789,0,VIA SC5/AV. DOS PIONEIROS Q 45 GAMA SENT. LESTE/OESTE,,LDT026,,Detran-DF
+-16.02567,-48.068977,0,VIA SC 05/AV. DOS PIONEIROS Q 01 CONJ. G LT. 23 GAMA SENT. OESTE/LESTE,,LDT025,,Detran-DF
+-16.010712,-48.082488,0,AV. CONTORNO SETOR OESTE ALT. QD. 24 SENT. NORTE(BRT) - GAMA,,LDT140,,Detran-DF
+-16.009477,-48.053514,0,SETOR INDUSTRIAL QD. 07 LOTE 830 SENT. NORTE/SUL - GAMA,,LDT110,,Detran-DF
+-16.008865,-48.053646,0,VIA LESTE INDUSTRIAL/AV ITAMARACA QI 07 LT 830 GAMA SENT NORTE/SUL,,LDT109,,Detran-DF
+-16.005949,-48.053357,0,VIA LESTE INDUSTRIAL/AV. ITAMARACA EQ 3/5 UBS 3 GAMA SENT. SUL/NORTE,,LDT111,,Detran-DF
+-16.005152,-48.053468,0,VIA LESTE INDUSTRIAL/AV. ITAMARACA QI 07 LOTE 1240 GAMA SENT. NORTE/SUL,,LDT112,,Detran-DF
+-16.014189,-48.067391,0,VIA SCN QD. 54 LT. 07 SETOR CENTRAL GAMA SENT. LESTE/OESTE,,LDT157,,Detran-DF
+-16.00525,-48.081402,0,AV. CONTORNO SETOR OESTE PROX. QD. 14 GAMA SENT. NORTE/SUL,,LDT159,,Detran-DF
+-15.999827,-48.059484,0,AV DOS BOMBEIROS Q. 02 PROX RESIDENCIAL GAMAGGIORE GAMA SENT NORTE/SUL,,LDT160,,Detran-DF
+-15.841618,-48.075534,0,VIA RIBEIR?O  LIGA??O  TAG-SAMAM PROX.  CORR TAG (SENT. NORTE/SUL),,DTR158,,Detran-DF
+-15.845505,-48.07509,0,VIA DE LIG TAG-SAMAM PROX.  CORREGO TAGUATINGA (SENT. SUL/NORTE),,DTR159,,Detran-DF
+-15.797928,-48.109727,0,VIA M3 M NORTE CEIL QNM 40 PROX CONJ F2 SENT HELIO PRATES/SETOR O,,DTR263,,Detran-DF
+-15.851598,-48.046413,0,AV SANDU SUL QSD 45 SENTIDO TAGUATINGA NORTE - TAGUATINGA,,DTR324,,Detran-DF
+-15.851559,-48.046483,0,AV SANDU SUL QSD 26 PROX CASA 05 SENTIDO BR-060 -  TAGUATINGA,,DTR325,,Detran-DF
+-15.836544,-48.066486,50,AV. ELMO SEREJO PROX. KIREYBARA SENT. OESTE/LESTE,,LDT139,,Detran-DF
+-15.835889,-48.064042,50,AV ELMO SEREJO PROX. A CH?CARA ONOYAMA TAGUATINGA SENT. LESTE/OESTE,,LDT090,,Detran-DF
+-15.832263,-48.077286,40,VIA LJ-1 QNL 2 BL A TAGUATINGA SENT SUL/NORTE,,LDT126,,Detran-DF
+-15.830417,-48.078131,0,VIA LJ-1 QNL 1 CENTRO EDUCACIONAL 06 TAGUATINGA SENT. NORTE/SUL,,LDT135,,Detran-DF
+-15.829784,-48.083347,0,VIA LJ-2 QNL 01 BLOCO J SENT. HELIO PRATES/TAGUATINGA,,LDT014,,Detran-DF
+-15.828844,-48.083871,0,"VIA LJ2 QNL11 BLOCO ""G"" TAGUATINGA SENT. ELMO SEREJO",,LDT013,,Detran-DF
+-15.814414,-48.088579,0,VIA LJ-2 QNJ 58 BL. E TAGUATINGA SENT SUL/NORTE,,LDT127,,Detran-DF
+-15.813104,-48.089236,0,VIA LJ-2 QNL 23 BL. A TAGUATINGA SENT. NORTE/SUL,,LDT138,,Detran-DF
+-15.805584,-48.09359,0,VIA M4 QNM 34 CONJ. K SENT. BR-070 - CEIL?NDIA,,LDT098,,Detran-DF
+-15.805247,-48.094558,0,VIA M4 QNM 36 CONJ. K SENT. HELIO PRATES CEIL?NDIA,,LDT097,,Detran-DF
+-15.798989,-48.103431,0,VIA M4 QNM 38 CONJ. G SENT. BR-070 - CEIL?NDIA,,LDT096,,Detran-DF
+-15.798648,-48.104373,0,VIA M4 QNM 40 CONJ. E CEIL?NDIA SENT. NORTE/SUL,,LDT095,,Detran-DF
+-15.821049,-48.081315,0,VIA LJ-1 QNL 07 BL. B TAGUATINGA SENTIDO NORTE/SUL,,DTR374,,Detran-DF
+-15.825043,-48.07975,0,VIA LJ-1 QNL 08 BL. B TAGUATINGA SENTIDO SUL/NORTE,,DTR375,,Detran-DF
+-15.686712,-48.200778,0,VIA LW1 BRAZLANDIA PROX CH 1A SUL SETOR SUL SENT DF180/CENTRO,,DTR221,,Detran-DF
+-15.649705,-47.787033,0,RUA 5 QD. CENTRAL FRT ED TOPHILL SOBRADINHO (SENT RODOVI?RIA / HRS),,DTR082,,Detran-DF
+-15.649675,-47.787048,0,RUA  5 QD. CENTRAL  FRT ED TOPHILL SOBRADINHO (SENT HRS/RODOVI?RIA),,DTR083,,Detran-DF
+-15.648407,-47.785445,0,RUA 3 QD. 13 ALT. CONJ. B PROX. SUPERMERCADO SAMPAIO SOBRADINHO,,LDT055,,Detran-DF
+-15.648388,-47.785947,0,RUA 3 QD. 12 AE PROX.  AO CENTRO EDUCACIONAL 02 SOBRADINHO,,LDT054,,Detran-DF
+-15.644119,-47.797202,0,QD 10 CONJ B PROX. AO CENTRO DE ENSINO 05 SENT. OESTE/LESTE SOBRADINHO I,,LDT057,,Detran-DF
+-15.643941,-47.798423,0,QD. 08 CL 08 LOTE 03 PROX. CENTRO DE ENSINO 05 SENT. LESTE/OESTE SOBRADINHO,,LDT056,,Detran-DF
+-15.620762,-47.666327,0,AV GOIAS Q2 PLANALTINA (SENT OESTE/LESTE),,DTR032,,Detran-DF
+-15.620724,-47.666323,0,AV GOIAS N100 PLANALTINA (SENT LESTE/OESTE),,DTR033,,Detran-DF
+-15.637072,-47.651258,0,AV ERASMO DE CASTRO EM FRENTE AO LAR FABIANO DE CRISTO SENT. ARAPOANGA PLANALTINA,,LDT058,,Detran-DF
+-15.622274,-47.650247,0,VIA NS 1 QD 04 CONJUNTO J PLANALTINA SENT SUL/ NORTE,,LDT069,,Detran-DF
+-15.620666,-47.650526,0,VIA NS 1 QD. 01 FEIRA PLANALTINA SENT. NORTE/ SUL,,LDT068,,Detran-DF
+-15.616132,-47.655109,0,AV INDEPENDENCIA QD 18 SENT. NORTE/SUL PLANALTINA,,LDT066,,Detran-DF
+-15.604805,-47.65436,0,AV. INDEPENDENCIA SR JARDIM RORIZ QD 01 CONJ 1A PLANALTINA SENT SUL/NORTE,,LDT128,,Detran-DF
+-15.601791,-47.654187,0,AV INDEPENDENCIA SR JARDIM RORIZ QD 01 CONJ. 1H PLANALTINA SENT. SUL/NORTE,,LDT064,,Detran-DF
+-15.622257,-47.655288,0,"AV. INDEPENDENCIA SETOR COMERCIAL QUADRA 02, BLOCO H, PLANALTINA SENT. SUL/NORTE",,LDT162,,Detran-DF
+-15.601793,-47.654366,0,AV INDEPEND?NCIA QD H CJ H5 VILA NOSSA SENHORA DE F?TIMA SENT NORTE/SUL,,LDT165,,Detran-DF
+-15.764318,-47.780326,0,AV PARANOA QD. 29 CONJ. 21 PARANOA SENT. NORTE/SUL,,LDT074,,Detran-DF
+-15.765504,-47.779999,0,AV. PARANOA QD. 26 CONJ. 20 LT 16 PARANOA SENT. SUL/NORTE,,LDT075,,Detran-DF
+-15.771434,-47.779698,40,AV PARANOA QD17 CONJ. 11 LT 08 PARANOA SENT NORTE/ SUL,,LDT076,,Detran-DF
+-15.772525,-47.779594,40,AV PARANOA QD.12 CONJ. 10 LT 09 PARANOA SENT SUL/ NORTE,,LDT077,,Detran-DF
+-15.782019,-47.77899,0,AV ALTA TENSAO QD. 02 CONJ. B LOTE 18 SENT. NORTE/SUL - PARANOA,,LDT079,,Detran-DF
+-15.843421,-48.103556,60,AV. ELMO SEREJO ALT QNN26 ( SENT CEIL/TAG),,DTR011,,Detran-DF
+-15.832033,-48.096468,0,Via M1 QNM 07 CONJUNTO O CEILANDIA SUL PROX CENTRO DE SAUDE N 03 SENT ELMO SEREJO,,DTR016,,Detran-DF
+-15.83196,-48.096309,0,Via M1 QNM 07 CONJUNTO O CEILANDIA SUL PROX CENTRO DE SAUDE N 03 SENT HELIO PRATES,,DTR025,,Detran-DF
+-15.812642,-48.104161,0,Via M2 QNM 12 PROX LOTE 38 CEILANDIA NORTE SENTIDO HELIO PRATES,,DTR059,,Detran-DF
+-15.811527,-48.104786,0,Via M2 QNM 20 PROX CONJ A CEILANDIA NORTE SENT SETOR O,,DTR060,,Detran-DF
+-15.83098,-48.114696,0,VIA N3 QNN 28 CEILANDIA SENT. SETOR O / ELMO SEREJO,,DTR072,,Detran-DF
+-15.83719,-48.10974,0,VIA N3 QNN 24 CEIL(SENT E. SEREJO/SET O),,DTR073,,Detran-DF
+-15.824012,-48.114448,0,VIA N2 QNN 18 PROX CONJ A CEILANDIA SENT HELIO PRATES/ELMO SEREJO,,DTR077,,Detran-DF
+-15.80711,-48.108155,0,VIA M2 CEIL QNM 22 CONJ A FRENTE LT 13 SENT SUL/NORTE,,DTR216,,Detran-DF
+-15.80528,-48.116431,0,VIA MN2 CEIL QNN 07 CONJ A FRENTE LT 14 SENT. NORTE/SUL,,DTR218,,Detran-DF
+-15.805289,-48.116214,0,VIA MN2 CEIL QNM 08 CONJ A FRENTE LT 21 SENT. SUL/NORTE,,DTR219,,Detran-DF
+-15.812909,-48.107163,0,VIA M1 CEIL QNM 04 CONJ O FRENTE LT 14 SENT NORTE/SUL,,DTR258,,Detran-DF
+-15.812871,-48.106989,0,VIA M1 CEILANDIA ALT DA QNM 12  SENT SUL/NORTE,,DTR259,,Detran-DF
+-15.824465,-48.093545,0,VIA M3 CEIL QNM 29 PROX APAED SENT ELMO SEREJO /HELIO PRATES,,DTR262,,Detran-DF
+-15.821986,-48.094683,0,VIA M3 SUL QNM 21 PROXIMO AO CONJ P SENTIDO ELMO SEREJO,,DTR279,,Detran-DF
+-15.818715,-48.095932,0,VIA M3 QNM 19 PROX CONJ O CEILANDIA SUL SENTIDO ELMO SEREJO,,DTR280,,Detran-DF
+-15.820277,-48.09515,0,VIA M3 QNM 27 PROX COORD REGIONAL DE ENSINO DE CEILANDIA SENT SUL/NORTE,,DTR289,,Detran-DF
+-15.804749,-48.104513,0,VIA M3 QNM 30 MOD F CEILANDIA NORTE PROX CENTRO ASSIST MARIA CARMEM SENT SUL/ NORTE,,DTR296,,Detran-DF
+-15.811304,-48.099507,0,VIA M3 NORTE QNM 28 MODULO A PROXIMO A ASSEMBLEIA DE DEUS SENT. SUL/NORTE,,DTR297,,Detran-DF
+-15.831913,-48.090872,60,VIA M3 SUL QNM 23 PROX AO CONJ P SENT NORTE/SUL,,DTR298,,Detran-DF
+-15.810112,-48.100645,0,VIA M3 NORTE QNM 20 PROX AO CONJUNTO O SENTIDO HELIO PRATES,,DTR301,,Detran-DF
+-15.833887,-48.089936,60,VIA M3 SUL QNM 25 PROXIMO AO CLUBE DO FLAMENGO SENTIDO HELIO PRATES,,DTR304,,Detran-DF
+-15.849806,-48.112707,0,AV ELMO SEREJO QNP 20 ALT. CONJ. J CEIL?NDIA SENT. LESTE/OESTE,,LDT105,,Detran-DF
+-15.848228,-48.115123,0,VIA P3 QNP 20 CONJ. L CEIL?NDIA SENT. SUL/NORTE,,LDT100,,Detran-DF
+-15.847577,-48.115847,0,VIA P3 QNP 30 CONJ. B CEIL?NDIA SENT. NORTE/SUL,,LDT099,,Detran-DF
+-15.845678,-48.11161,0,VIA P2 QNP 18 CONJ. L CEIL?NDIA SENT. SUL/NORTE,,LDT103,,Detran-DF
+-15.845051,-48.112325,0,VIA P2 QNP 16 CONJ. B SENT. ELMO SEREJO CEIL?NDIA,,LDT104,,Detran-DF
+-15.828515,-48.116566,0,VIA N3 QNN 28 PROX AO SUPERCEI SENT. ELMO SEREJO CEILANDIA,,LDT011,,Detran-DF
+-15.829035,-48.115966,0,"VIA N3 QNN 20 CONJ ""O"" SENT. HELIO PRATES CEILANDIA",,LDT012,,Detran-DF
+-15.830225,-48.10958,0,"VIA N2 QNN 14 AREA ESPECIAL EM FRENTE ""C.E.P."" CEIL?NDIA SENT. HELIO PRATES",,LDT015,,Detran-DF
+-15.829426,-48.110419,0,"VIA N2 QNN 20 CONJ ""B"" CEIL?NDIA SENT. ELMO SEREJO",,LDT016,,Detran-DF
+-15.836231,-48.099145,0,VIA MN2 QNN 08 CONJUNTO B SENT. ELMO SEREJO CEIL?NDIA,,LDT020,,Detran-DF
+-15.826782,-48.097322,0,"VIA M2 QNM 21 CONJ ""A"" CEILANDIA SENTIDO HELIO PRATES",,LDT045,,Detran-DF
+-15.826023,-48.097812,0,VIA M2 QNM 13  PROX. CENTRO DE ENSINO 03 SENT. ELMO SEREJO CEILANDIA,,LDT046,,Detran-DF
+-15.819949,-48.120996,0,VIA N-3 QNN 19 CONJ O CEIL?NDIA SENT. BR-070,,LDT010,,Detran-DF
+-15.818622,-48.121683,0,VIA N-3 QNN 27 LOTE C PROX SESC SENT. HELIO PRATES CEILANDIA,,LDT009,,Detran-DF
+-15.806392,-48.126185,0,VIA N-3 QNN 23 CONJ P SENT. BR-070 CEILANDIA,,LDT008,,Detran-DF
+-15.806618,-48.126299,0,VIA N3 QNN 31 AREA ESPECIAL PROX COLEGIO SALESIANO CEIL?NDIA SENT. HELIO PRATES,,LDT007,,Detran-DF
+-15.79787,-48.129436,0,VIA N-3 QNO 11 CONJ B SENT.  BR-070 CEIL?NDIA,,LDT006,,Detran-DF
+-15.797387,-48.129864,0,VIA N-3 QNO 10 LOTE A PROX AO CAIC  CEIL?NDIA SENT. HELIO PRATES,,LDT005,,Detran-DF
+-15.802519,-48.117739,0,VIA MN2 QNM 08 CONJ. B LT 46 CEILANDIA SENT. SUL/NORTE,,LDT021,,Detran-DF
+-15.801658,-48.118456,0,VIA MN-2 QNN 09 CONJ. A LT. 46 CEILANDIA SENT. NORTE/SUL,,LDT022,,Detran-DF
+-15.812522,-48.112179,0,"VIA MN-2 QNM 04 CONJ ""B"" SENT. BR-070 CEILANDIA",,LDT023,,Detran-DF
+-15.811454,-48.112965,0,"VIA MN2 QNM 05 CONJ ""A"" SENT. HELIO PRATES PROX. SUPERM. ESPIRITO SANTO CEILANDIA",,LDT024,,Detran-DF
+-15.807848,-48.109788,0,VIA M1 QNM 14 AREA ESPECIAL PROX CENTRO ENSINO 02 CEIL?NDIA SENT. BR-070,,LDT003,,Detran-DF
+-15.807014,-48.110462,0,VIA M1 QNM 06 CONJ P CEIL?NDIA SENT. HELIO PRATES,,LDT004,,Detran-DF
+-15.803144,-48.111183,0,VIA M2 QNM 24 CONJ. A SENT. BR-070 CEILANDIA,,LDT043,,Detran-DF
+-15.802664,-48.111805,0,VIA M-2 QNM 16 AE F EM FRENTE AO CENTRO 05 SENT HELIO PRATES CEILANDIA,,LDT044,,Detran-DF
+-15.792784,-48.118207,0,SETOR O NORTE QNO 4 CONJUNTO L CEILANDIA SENTIDO NORTE/SUL,,DTR372,,Detran-DF
+-15.791903,-48.118095,0,SETOR O NORTE QNO 4 CONJUNTO M CEILANDIA SENTIDO SUL/NORTE,,DTR373,,Detran-DF
+-15.850555,-48.113456,0,AV. ELMO SEREJO QNP ALT. ADE QD. 3 CONJ. H LOTE 19 - CEIL?NDIA,,LDT106,,Detran-DF
+-15.832193,-48.101179,0,VIA MN2 QNM 07 CONJ. A LT. 46 CEIL?NDIA SENT. SUL/NORTE,,LDT154,,Detran-DF
+-15.82241,-48.106654,0,VIA MN2 QNM 03 CONJ. A CEIL?NDIA SENT. SUL/NORTE,,LDT155,,Detran-DF
+-15.821522,-48.107383,0,VIA MN2 QNM 02 CONJ. A CEIL?NDIA SENT. NORTE/SUL,,LDT156,,Detran-DF
+-15.803217,-48.128359,0,VIA NM3 ST. O QNN33 CEIL?NDIA - DF SENT. OESTE/LESTE,,DTR379,,Detran-DF
+-15.802328,-48.126994,0,VIA NM3 ST. O QNO 9 CEIL?NDIA - DF SENT. LESTE/OESTE,,DTR380,,Detran-DF
+-15.810652,-48.124539,0,VIA N3 EQNN 21/23 CEIL?NDIA SENTIDO SUL/NORTE,,LDT163,,Detran-DF
+-15.80963,-48.125132,0,VIA N3 QNN 31 UNIVERSIDADE IESB CEIL?NDIA SENTIDO NORTE/SUL,,LDT164,,Detran-DF
+-15.828333,-47.986508,0,AV. CONTORNO GUARA II QE 24 PROXIMO A ESTACAO GUARA DO METRO SENT ANTI-HORARIO,,DTR152,,Detran-DF
+-15.845593,-47.979772,0,AV CONT GUARA II QE 30 PROXIMO A IGREJA ASSEMBLEIA DE DEUS SENT HORARIO,,DTR153,,Detran-DF
+-15.835686,-47.968964,0,AV CONTORNO QE 21 GUARA II ( SENT ANTI-HORARIO),,DTR156,,Detran-DF
+-15.836155,-47.973277,60,AV CONTORNO QE 19 GUARA II ( SENT HORARIO),,DTR157,,Detran-DF
+-15.85053,-47.975083,50,SRIA QE 38 GUAR? II SENT. GUAR? II,,LDT153,,Detran-DF
+-15.849494,-47.975292,50,VIA BERNARDO SAY?O SRIA QE 38/40 POLO DE MODA GUAR? II SENT. NORTE/SUL,,LDT152,,Detran-DF
+-15.846054,-47.971401,0,"VIA CONTORNO DO GUARA II QE 34 CONJ ""A"" SENT. HOR?RIO",,LDT050,,Detran-DF
+-15.846358,-47.972173,0,AV. CONTORNO GUARA II QE 38 AREA ESPECIAL SENT. ANTIHORARIO,,LDT049,,Detran-DF
+-15.830129,-47.974247,0,AV. CONTORNO QE 23/25 PROX. CAVE GUAR? II SENT. ANTI-HOR?RIO,,LDT151,,Detran-DF
+-15.831306,-47.974609,0,AV. CONTORNO QE 15 CONJ. E GUAR? II SENT. HOR?RIO,,LDT150,,Detran-DF
+-15.789703,-47.932704,0,EPCB (AV. DAS JAQUEIRAS) PROX Q 1311 SENT.  NORTE/SUL,,DTR212,,Detran-DF
+-15.7944,-47.933398,0,EPCB (AV. DAS JAQUEIRAS QRSW 1/2 PROX A IGREJA SAO PIO DE PIETRELCINA SENT SUL/NORTE,,DTR213,,Detran-DF
+-15.803225,-47.939611,50,VIA HCE 1 TERRA?O SHOPPING SENT. OCTOGONAL/EPIA,,LDT118,,Detran-DF
+-15.882099,-48.082892,0,2? AVENIDA SUL QR 302 PROXIMO AO FORUM DE SAMAMBAIA SENTIDO LESTE/OESTE,,DTR062,,Detran-DF
+-15.8773,-48.066056,0,2? AV SUL QN 514 SENT  OESTE/LESTE,,DTR063,,Detran-DF
+-15.877002,-48.066174,0,2? AV SUL QS 314 SAMAMBAIA SENT LESTE/OESTE,,DTR092,,Detran-DF
+-15.880616,-48.076937,0,2? AV SUL QN 506 SAMAM SENT OESTE/LESTE,,DTR093,,Detran-DF
+-15.860969,-48.073905,0,1? AV NORTE QS 412 SAMAMBAIA (SENT LESTE/OESTE),,DTR108,,Detran-DF
+-15.861317,-48.073771,0,1? AV NORTE QN 212 SAMAMBAIA (SENT OESTE/LESTE),,DTR109,,Detran-DF
+-15.87142,-48.066055,0,1? AV SUL QS 116 SAMAMBAIA (SENT LESTE/OESTE),,DTR114,,Detran-DF
+-15.871738,-48.066044,0,1? AV SUL QN 316 SAMAMBAIA (SENT OESTE/LESTE),,DTR115,,Detran-DF
+-15.855521,-48.076371,0,2? AVENIDA NORTE QN 412 PROX AO CONJ G SENT OESTE/LESTE,,DTR123,,Detran-DF
+-15.865276,-48.056646,0,AV LESTE SAMAMBAIA ALT VIAD METRO SENT NORTE/SUL,,DTR268,,Detran-DF
+-15.868335,-48.055723,0,AV LESTE SAMAMBAIA ALT VIAD METRO SENT SUL/NORTE,,DTR269,,Detran-DF
+-15.880965,-48.086674,0,VIA T-1 / AV. CENTRAL QD. 301 PROX. A ADMINISTRA??O SAMAMBAIA SENT. SUL/NORTE,,LDT144,,Detran-DF
+-15.880088,-48.087312,0,CENTRO URBANO ALT. QD. 301 EM FRENTE A ADMINISTRA??O SENT. SUL - SAMAMBAIA,,LDT145,,Detran-DF
+-15.874705,-48.075753,0,1? AVENIDA SUL QN 308 CONJ 04 SENT. OESTE/LESTE SAMAMBAIA,,LDT034,,Detran-DF
+-15.8741,-48.074839,0,1? AVENIDA SUL QS110 CONJ 08 SENT. LESTE/OESTE SAMAMBAIA,,LDT033,,Detran-DF
+-15.870553,-48.062149,0,1? AVENIDA SUL QN 320 CONJ 01 SAMAMBAIA SENT. OESTE/LESTE,,LDT036,,Detran-DF
+-15.870511,-48.06009,0,1? AVENIDA SUL QS120/122 SAMAMBAIA SENT. LESTE/OESTE,,LDT035,,Detran-DF
+-15.864278,-48.079579,0,1? AV. NORTE QN 208 CONJ D SENTIDO OESTE/LESTE - SAMAMBAIA,,LDT032,,Detran-DF
+-15.862887,-48.078075,0,1? AV. NORTE ALT. QS 410/408 SENTIDO LESTE/OESTE -SAMAMBAIA,,LDT031,,Detran-DF
+-15.862621,-48.087964,0,2? AV. NORTE QN 404 CONJ. D SAMAMBAIA SENT. OESTE / LESTE,,LDT147,,Detran-DF
+-15.861907,-48.087545,0,2? AV. NORTE QS 604 PROX. EC 604 SAMAMBAIA SENT. LESTE/OESTE,,LDT146,,Detran-DF
+-15.85748,-48.080641,0,2? AV. NORTE QN 410 CONJ J SENTIDO OESTE/LESTE - SAMAMBAIA,,LDT029,,Detran-DF
+-15.856492,-48.079412,0,2? AVENIDA NORTE QS 610 SENT. LESTE/OESTE - SAMAMBAIA,,LDT030,,Detran-DF
+-15.85475,-48.074729,0,2? AVENIDA NORTE QR 412/414 SENT. OESTE/LESTE - SAMAMBAIA,,LDT114,,Detran-DF
+-15.853948,-48.073859,0,2? AVENIDA NORTE QR 614 PR?X. AO HRSAM SENT. LESTE/OESTE SAMAMBAIA,,LDT113,,Detran-DF
+-16.022991,-48.027132,0,AV ALAGADOS CL 107 SANTA MARIA (SENT NORTE/SUL),,DTR104,,Detran-DF
+-16.023734,-48.027997,0,AV ALAGADOS QR 207 SANTA MARIA (SENT SUL/NORTE),,DTR105,,Detran-DF
+-16.015154,-48.005121,0,AV. SANTA MARIA CL 312 LT E SANTA MARIA SENT. LESTE/OESTE,,LDT117,,Detran-DF
+-16.014582,-48.005981,0,AV. SANTA MARIA QC 03 CL 410 PROX. VILA OL?MPICA SANTA MARIA SENT. OESTE/LESTE,,LDT116,,Detran-DF
+-16.01671,-48.017254,0,AV. ALAGADOS QC 1 CONJ D PR?X ADMINISTRA??O SANTA MARIA SENT. OESTE/LESTE,,LDT087,,Detran-DF
+-16.015474,-48.016611,60,AV ALAGADOS QC 1 ALT DF-483 SANTA MARIA SENTIDO LESTE/OESTE,,LDT086,,Detran-DF
+-16.006102,-47.999271,0,AV. ALAGADOS CL 214 SANTA MARIA SENT OESTE/LESTE,,LDT089,,Detran-DF
+-16.005628,-47.998158,0,AV. ALAGADOS ALTURA CL 115 SENTIDO LESTE/OESTE SANTA MARIA,,LDT088,,Detran-DF
+-16.040638,-48.034104,0,AV. ALAGADOS CL 202 PROX. HOSPITAL REGIONAL DE SANTA MARIA SENT. SUL/NORTE,,LDT158,,Detran-DF
+-15.897004,-47.785194,60,AV SAO SEBASTIAO ALT Q 11 CONJ A SENT LESTE/OESTE,,DTR264,,Detran-DF
+-15.897253,-47.786017,60,AV SAO SEBASTIAO ALT Q 11 CONJ A SENT OESTE/LESTE,,DTR265,,Detran-DF
+-15.891729,-47.78271,0,AV EUCALIPTOS ALTURA QD 01 PROX A VILA OLIMPICA - SAO SEBASTIAO SENT NORTE/SUL,,DTR321,,Detran-DF
+-15.892184,-47.783101,0,AV EUCALIPTOS ALT QD 01 PROX. A VILA OLIMPICA - SAO SEBASTIAO SENT SUL/NORTE,,DTR322,,Detran-DF
+-15.888379,-47.820285,60,AV. MANGUEIRAL A 120 METROS DA ENTRADA DA VIA SENT. SAO SEBASTIAO,,DTR368,,Detran-DF
+-15.901122,-47.778448,0,AV. S?O SEBASTI?O QD 102 CONJ 04 S?O SEBASTI?O SENT. LESTE/OESTE,,LDT080,,Detran-DF
+-15.900191,-47.779883,0,AV. S?O SEBASTI?O QD 203 CONJ. 01 S?O SEBASTI?O SENT. OESTE/LESTE,,LDT081,,Detran-DF
+-15.896201,-47.776267,0,AV. COMERCIAL ALT. LOTE 1401 PROX. AO BANCO DO BRASIL SENT. NORTE/SUL - S?O SEBASTI?O,,LDT082,,Detran-DF
+-15.903764,-48.069724,0,AV RECANTO DAS EMAS Q 104 AO LADO CASTELO FORTE (SENT. LESTE/OESTE),,DTR270,,Detran-DF
+-15.903917,-48.069893,0,AV RECANTO DAS EMAS Q 206 AO LADO CASTELO FORTE (SENT OESTE/LESTE),,DTR271,,Detran-DF
+-15.906292,-48.081108,0,AV. RECANTO DAS EMAS Q 106 SENT. LESTE/OESTE - RECANTO DAS EMAS,,LDT040,,Detran-DF
+-15.906815,-48.082116,0,AV. RECANTO DAS EMAS Q 300 SENT. EPCT - RECANTO  DAS EMAS,,LDT039,,Detran-DF
+-15.902301,-48.059217,0,AV. RECANTO DAS EMAS ALT. Q 201 LOTE 17 SENTIDO OESTE/LESTE - RECANTO DAS EMAS,,LDT042,,Detran-DF
+-15.901852,-48.058286,0,AV. RECANTO DAS EMAS Q 101 LOTE 17 SENT. LESTE/OESTE - RECANTO DAS EMAS,,LDT041,,Detran-DF
+-15.852605,-47.879739,0,VIA DOM ORIONE QI 15 PROX ENTRADA DAS CHAC DE 07 A 12  LAGO SUL  SENT D.ORIONE/AEROPORTO,,DTR052,,Detran-DF
+-15.852643,-47.879764,0,VIA DOM ORIONE QI 15 PROX ENTR DAS CHAC DE 07 A 12 LAGO SUL SENT AEROPORTO/DOM ORIONE,,DTR053,,Detran-DF
+-15.829288,-47.826984,0,VIA JK ENTRADA DA PONTE JK (SENT LAGO SUL/PLANO PILOTO),,DTR225,,Detran-DF
+-15.856329,-47.910529,0,SHIS QI 03 FRENTE A VILA NPV LAGO SULSENTIDO DF-025(EPDB)/QI 15,,DTR232,,Detran-DF
+-15.856205,-47.91049,0,SHIS QI 03 FRENTE A VILA NPV LAGO SULSENTIDO QI 15/DF-025(EPDB),,DTR233,,Detran-DF
+-15.83011,-47.826764,60,VIA JK SAIDA DA PONTE SENTIDO LAGO SUL,,DTR272,,Detran-DF
+-15.858691,-47.918867,0,SHIS QI 01 PROX AO CONJUNTO 01 SENT EPDB/VI COMAR,,DTR285,,Detran-DF
+-15.85885,-47.91859,0,SHIS QI 03 PROX AO CONJUNTO 01 SENT VI COMAR/EPDB,,DTR306,,Detran-DF
+-15.841419,-47.897661,50,VIA DE LIGACAO PONTE DAS GAR?AS SENT LAGO SUL/ PLANO PILOTO,,LDT121,,Detran-DF
+-15.826432,-47.874571,0,VIA DE LIG EPDB / PONTE COSTA E SILVA SENT LAGO SUL/ P. PILOTO,,LDT123,,Detran-DF
+-15.831465,-47.825649,60,VIA JK PROX. A PONTE JK SENT. LAGO SUL / PLANO PILOTO,,LDT134,,Detran-DF
+-15.837243,-48.038734,50,AV DAS ARAUCARIAS PROX AO CRUZAMENTO COM RUA 35 SENT OESTE/LESTE,,DTR015,,Detran-DF
+-15.837789,-48.023573,50,AV. CASTANHEIRAS RUA 18 NORTE PR?X. AO POSTO DE GASOLINA SENT. TAGUATINGA,,DTR319,,Detran-DF
+-15.807134,-47.937207,60,VIA HCE FRENTE AOS 01 (SENT OCT/EPIG),,DTR094,,Detran-DF
+-15.794994,-47.917383,0,1? AVENIDA SUDOESTE QMSW 05 LT. 02 PROX. BL. C SENT. NORTE/SUL,,DTR275,,Detran-DF
+-15.8102,-47.942542,0,VIA AO1 AOS 4/5 SENT. HORARIO - OCTOGONAL,,LDT048,,Detran-DF
+-15.810213,-47.943372,0,VIA AO1 AOS 4/5 ALT BLOCO C SENT. ANTI HORARIO - OCTOGONAL,,LDT047,,Detran-DF
+-15.801942,-47.941123,0,VIA HCE 1 TERRA?O SHOPPING SENT. OCTOGONAL/ EPIG,,LDT119,,Detran-DF
+-15.805168,-47.929783,0,SQSW 105 PROX. COND. EDIFICIO VIA ROMA SUDOESTE - DF,,DTR381,,Detran-DF
+-15.783576,-47.997828,0,AVENIDA CENTRAL PROX A ESCOLA CLASSE 02 CIDADE ESTRUTURAL SENTIDO LESTE/OESTE,,DTR323,,Detran-DF
+-15.662895,-47.829592,0,AV CONDOMINIO JARDIM AMERICA ALT CHACARA 02 - SOBRADINHO SENT DF150,,DTR277,,Detran-DF
+-15.662941,-47.829647,0,AV CONDOMINIO JARDIM AMERICA ALT CHACARA 02 ? SOBRADINHO SENT BR 020,,DTR278,,Detran-DF
+-15.896206,-47.797484,0,AV. MANGUEIRAL ALT. QC 14 JARDIM BOTANICO SENT. OESTE/LESTE,,LDT149,,Detran-DF
+-15.894632,-47.800415,0,AV. MANGUEIRAL ALT. QC 10 JARDIM BOTANICO SENT. OESTE/LESTE,,LDT148,,Detran-DF
+-15.879426,-47.804971,0,AV. DO SOL PROX RUA 101 COND. QUINTAS DO SOL JARDIM BOT?NICO SENT. SUL/NORTE,,LDT161,,Detran-DF
 -19.888914,-43.967382,60,,,,2026-01-23,OpenStreetMap
 -19.888753,-43.929168,60,,,,2023-02-14,OpenStreetMap
 -19.863041,-43.957837,60,,,,2021-10-13,OpenStreetMap
@@ -3210,7 +3483,6 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -15.824901,-47.876723,60,,,,2026-01-17,OpenStreetMap
 -15.810911,-47.940838,60,,,,2020-07-31,OpenStreetMap
 -19.930443,-44.078844,60,,,,2026-01-23,OpenStreetMap
--15.836523,-48.066439,50,,,,2024-07-19,OpenStreetMap
 -15.876331,-48.027637,60,,,,2026-01-17,OpenStreetMap
 -19.778639,-44.080942,30,,,,2021-08-04,OpenStreetMap
 -20.478193,-40.353012,80,,,,2022-04-28,OpenStreetMap
@@ -3245,7 +3517,6 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -19.892925,-43.964509,60,,,,2026-01-23,OpenStreetMap
 -19.937649,-44.058325,0,,,,2016-12-27,OpenStreetMap
 -19.920374,-44.07633,60,,,,2021-07-07,OpenStreetMap
--15.83002,-47.826826,60,,,,2026-01-22,OpenStreetMap
 -15.828758,-47.827159,60,,,,2026-01-17,OpenStreetMap
 -21.606493,-45.580098,60,,,,2022-12-05,OpenStreetMap
 -19.947857,-43.935165,0,,,,2023-02-11,OpenStreetMap
@@ -3279,7 +3550,6 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -19.489953,-44.277105,60,,,,2023-07-03,OpenStreetMap
 -15.827669,-48.031184,80,,,,2020-03-16,OpenStreetMap
 -19.868203,-43.937078,80,,,,2022-05-31,OpenStreetMap
--15.835897,-48.064048,50,,,,2022-09-25,OpenStreetMap
 -19.797935,-43.943782,60,,,,2026-01-23,OpenStreetMap
 -20.468129,-45.948965,40,,,,2017-06-30,OpenStreetMap
 -18.113568,-43.518337,60,,,,2021-09-23,OpenStreetMap
@@ -3290,7 +3560,6 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -19.929916,-44.007277,70,,,,2017-06-04,OpenStreetMap
 -15.786427,-48.004543,80,,,,2023-03-20,OpenStreetMap
 -19.920313,-44.076121,60,,,,2021-07-07,OpenStreetMap
--15.836061,-47.973433,60,,,,2020-07-31,OpenStreetMap
 -20.172012,-40.186348,60,,,,2026-01-17,OpenStreetMap
 -15.877283,-48.020257,80,,,,2026-01-17,OpenStreetMap
 -21.624145,-43.328528,0,,,,2021-01-04,OpenStreetMap
@@ -3322,7 +3591,6 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -21.595169,-45.795926,0,,,,2020-04-29,OpenStreetMap
 -20.272987,-42.040626,50,,,,2020-08-05,OpenStreetMap
 -20.246736,-42.153798,50,,,,2026-09-12,OpenStreetMap
--15.83144,-47.825645,60,,,,2021-10-12,OpenStreetMap
 -15.854572,-47.858331,0,,,,2021-03-16,OpenStreetMap
 -15.859358,-47.870629,0,,,,2020-03-13,OpenStreetMap
 -15.85953,-47.870975,0,,,,2013-01-23,OpenStreetMap
@@ -3431,7 +3699,6 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -20.33629,-41.124794,60,,,,2020-08-05,OpenStreetMap
 -19.954573,-44.144853,30,,,,2025-08-10,OpenStreetMap
 -19.954845,-44.145058,30,,,,2025-08-10,OpenStreetMap
--15.832242,-48.07727,40,,,,2020-03-13,OpenStreetMap
 -19.952333,-44.007164,70,,,,2026-01-23,OpenStreetMap
 -19.975318,-43.988687,70,,,,2026-01-23,OpenStreetMap
 -19.997089,-43.961382,70,,,,2026-01-23,OpenStreetMap
@@ -3517,7 +3784,6 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -20.030009,-40.397835,40,,,,2026-11-18,OpenStreetMap
 -15.774395,-47.938277,60,,,,2017-11-24,OpenStreetMap
 -21.6075,-45.553611,60,,,,2022-12-05,OpenStreetMap
--15.778453,-47.934552,60,,,,2017-11-24,OpenStreetMap
 -15.781334,-47.925479,60,,,,2016-10-03,OpenStreetMap
 -15.85239,-48.040512,60,,,,2016-10-06,OpenStreetMap
 -15.826313,-48.054099,60,,,,2016-10-12,OpenStreetMap
@@ -3623,19 +3889,14 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -15.778667,-47.938735,80,,,,2017-11-24,OpenStreetMap
 -15.777509,-47.931724,60,,,,2017-11-25,OpenStreetMap
 -20.68184,-44.192052,60,,,,2025-02-04,OpenStreetMap
--15.781103,-47.920315,60,,,,2017-12-01,OpenStreetMap
 -15.784934,-47.914051,60,,,,2017-12-11,OpenStreetMap
 -15.785395,-47.913952,0,,,,2017-12-11,OpenStreetMap
 -15.786233,-47.900731,60,,,,2017-12-12,OpenStreetMap
 -15.785267,-47.906387,60,,,,2017-12-12,OpenStreetMap
 -15.785047,-47.912229,0,,,,2017-12-12,OpenStreetMap
 -15.778882,-47.90986,60,,,,2017-12-13,OpenStreetMap
--15.816776,-47.835954,60,,,,2026-01-17,OpenStreetMap
--15.819232,-47.832628,60,,,,2026-01-17,OpenStreetMap
--15.819232,-47.832774,60,,,,2023-01-07,OpenStreetMap
 -20.084369,-43.052426,60,,,,2018-01-14,OpenStreetMap
 -20.209195,-42.915112,0,,,,2017-12-23,OpenStreetMap
--15.748561,-47.898968,40,,,,2023-06-09,OpenStreetMap
 -19.874899,-43.87636,60,,,,2026-01-23,OpenStreetMap
 -19.919483,-43.161166,40,,,,2026-06-01,OpenStreetMap
 -12.735309,-39.183819,60,,,,2023-02-18,OpenStreetMap
@@ -3721,10 +3982,7 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -20.689934,-44.812637,60,,,,2022-11-29,OpenStreetMap
 -20.697937,-44.809513,40,,,,2020-02-29,OpenStreetMap
 -15.82304,-47.935095,60,,,,2026-01-17,OpenStreetMap
--15.897214,-47.78574,60,,,,2020-08-02,OpenStreetMap
--15.897042,-47.785744,60,,,,2020-08-02,OpenStreetMap
 -15.84467,-47.920928,80,,,,2026-06-03,OpenStreetMap
--15.820543,-47.904474,60,,,,2020-08-01,OpenStreetMap
 -15.715234,-47.871706,40,,,,2020-07-31,OpenStreetMap
 -15.82985,-48.007174,60,,,,2021-03-18,OpenStreetMap
 -19.850597,-45.411632,60,,,,2025-02-04,OpenStreetMap
@@ -3774,36 +4032,23 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -15.764838,-47.915497,70,,,,2020-07-29,OpenStreetMap
 -15.680857,-47.850097,80,,,,2020-07-29,OpenStreetMap
 -15.678386,-47.847294,80,,,,2020-07-29,OpenStreetMap
--15.833678,-48.089996,60,,,,2020-07-30,OpenStreetMap
--15.831683,-48.09096,60,,,,2020-07-30,OpenStreetMap
 -15.799032,-47.914308,60,,,,2020-07-31,OpenStreetMap
 -15.800865,-47.917813,60,,,,2020-07-31,OpenStreetMap
 -15.806778,-47.933564,60,,,,2020-07-31,OpenStreetMap
 -15.80775,-47.931919,60,,,,2026-05-22,OpenStreetMap
--15.807091,-47.937251,60,,,,2020-07-31,OpenStreetMap
--15.803499,-47.939412,50,,,,2020-07-31,OpenStreetMap
--15.81784,-47.937205,60,,,,2024-07-19,OpenStreetMap
--15.817883,-47.937001,60,,,,2024-07-19,OpenStreetMap
 -15.831257,-47.909241,60,,,,2020-07-31,OpenStreetMap
 -15.830921,-47.909068,60,,,,2020-07-31,OpenStreetMap
 -15.838152,-47.918864,60,,,,2020-07-31,OpenStreetMap
 -15.837903,-47.918752,60,,,,2020-07-31,OpenStreetMap
 -15.845329,-47.926142,80,,,,2020-07-31,OpenStreetMap
 -16.048908,-48.023573,60,,,,2020-07-31,OpenStreetMap
--16.015248,-48.016337,60,,,,2020-07-31,OpenStreetMap
 -15.984953,-48.041471,80,,,,2020-07-31,OpenStreetMap
 -15.984423,-48.041413,80,,,,2020-07-31,OpenStreetMap
 -15.83597,-47.971344,60,,,,2021-03-15,OpenStreetMap
--15.821951,-47.908838,60,,,,2026-01-17,OpenStreetMap
--15.822336,-47.909124,60,,,,2020-07-31,OpenStreetMap
 -15.837623,-47.929554,60,,,,2020-07-31,OpenStreetMap
 -15.715007,-47.874129,40,,,,2020-07-31,OpenStreetMap
 -15.691445,-47.866,70,,,,2021-12-09,OpenStreetMap
 -15.703735,-47.887906,80,,,,2021-12-09,OpenStreetMap
--15.834534,-47.900372,50,,,,2020-08-01,OpenStreetMap
--15.841492,-47.897621,50,,,,2020-08-01,OpenStreetMap
--15.820474,-47.904551,60,,,,2020-08-01,OpenStreetMap
--15.826605,-47.913043,60,,,,2021-07-19,OpenStreetMap
 -15.863605,-47.983538,60,,,,2021-07-26,OpenStreetMap
 -15.861515,-47.985474,60,,,,2021-07-26,OpenStreetMap
 -15.866545,-47.984473,60,,,,2021-03-11,OpenStreetMap
@@ -3878,10 +4123,8 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -15.826294,-48.00877,60,,,,2021-03-18,OpenStreetMap
 -15.837921,-48.015809,50,,,,2021-07-22,OpenStreetMap
 -15.83498,-48.017056,50,,,,2021-03-18,OpenStreetMap
--15.837795,-48.023562,50,,,,2025-12-11,OpenStreetMap
 -15.841593,-48.029798,50,,,,2021-07-22,OpenStreetMap
 -15.838406,-48.029715,50,,,,2021-07-22,OpenStreetMap
--15.837232,-48.038743,50,,,,2021-07-22,OpenStreetMap
 -15.834801,-48.036325,50,,,,2020-08-17,OpenStreetMap
 -19.474664,-44.29194,70,,,,2026-11-22,OpenStreetMap
 -21.774015,-42.53343,50,,,,2026-11-20,OpenStreetMap
@@ -4005,7 +4248,6 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -18.007917,-39.861337,40,,,,2022-12-15,OpenStreetMap
 -20.018014,-40.403505,60,,,,2026-11-14,OpenStreetMap
 -20.002073,-40.413209,60,,,,2023-01-23,OpenStreetMap
--15.888391,-47.820124,60,,,,2023-02-10,OpenStreetMap
 -19.947816,-43.935258,0,,,,2023-02-11,OpenStreetMap
 -19.947112,-43.935255,0,,,,2023-02-11,OpenStreetMap
 -19.947147,-43.935158,0,,,,2023-02-11,OpenStreetMap
@@ -4087,7 +4329,6 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -19.476449,-44.287614,40,,,,2026-01-17,OpenStreetMap
 -19.438088,-44.254416,60,,,,2023-04-16,OpenStreetMap
 -21.383968,-46.532327,0,,,,2023-05-14,OpenStreetMap
--15.636671,-47.651294,0,,,,2023-12-12,OpenStreetMap
 -19.772672,-43.856961,40,,,,2023-07-02,OpenStreetMap
 -19.480139,-44.267576,60,,,,2026-01-23,OpenStreetMap
 -19.480179,-44.267529,60,,,,2026-01-23,OpenStreetMap
@@ -4106,8 +4347,6 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -20.077192,-44.205721,60,,,,2023-10-23,OpenStreetMap
 -20.134898,-44.199002,60,,,,2026-01-24,OpenStreetMap
 -19.955472,-44.066638,40,,,,2026-07-30,OpenStreetMap
--15.771448,-47.779694,40,,,,2023-11-09,OpenStreetMap
--15.772599,-47.77958,40,,,,2023-11-09,OpenStreetMap
 -19.798105,-44.295199,60,,,,2023-11-10,OpenStreetMap
 -19.780322,-43.907697,0,,,,2023-11-13,OpenStreetMap
 -19.542705,-44.655791,60,,,,2026-01-17,OpenStreetMap
@@ -4145,7 +4384,6 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -18.635249,-46.488266,60,,,,2024-07-29,OpenStreetMap
 -18.635296,-46.488354,60,,,,2024-07-29,OpenStreetMap
 -15.625425,-47.72427,60,,,,2026-01-17,OpenStreetMap
--15.843432,-48.103564,60,,,,2024-08-26,OpenStreetMap
 -21.686984,-45.920796,40,,,,2024-10-14,OpenStreetMap
 -21.440686,-45.948077,0,,,,2024-11-01,OpenStreetMap
 -21.439513,-45.947736,0,,,,2024-11-01,OpenStreetMap
@@ -4211,7 +4449,6 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -18.608703,-46.471052,60,,,,2026-06-18,OpenStreetMap
 -18.614179,-46.512412,0,,,,2024-12-21,OpenStreetMap
 -18.638903,-46.49102,0,,,,2024-12-21,OpenStreetMap
--15.776857,-47.921219,50,,,,2024-12-23,OpenStreetMap
 -22.123228,-45.071312,40,,,,2025-01-10,OpenStreetMap
 -22.12415,-45.084469,40,,,,2024-12-28,OpenStreetMap
 -22.189422,-45.321598,60,,,,2024-12-28,OpenStreetMap
@@ -4399,8 +4636,6 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -21.071562,-44.214745,60,,,,2025-04-23,OpenStreetMap
 -15.838364,-48.047303,60,,,,2026-01-23,OpenStreetMap
 -18.759427,-47.688707,60,,,,2025-05-30,OpenStreetMap
--15.850673,-47.975078,50,,,,2025-06-25,OpenStreetMap
--15.849407,-47.975319,50,,,,2025-06-25,OpenStreetMap
 -20.32768,-43.463192,40,,,,2025-08-07,OpenStreetMap
 -20.327684,-43.463371,0,,,,2025-08-07,OpenStreetMap
 -20.737491,-42.907536,60,,,,2025-08-08,OpenStreetMap
@@ -4467,7 +4702,6 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -15.758606,-47.928727,0,,,,2025-11-21,OpenStreetMap
 -15.909904,-48.1518,0,,,,2025-11-21,OpenStreetMap
 -15.803438,-48.057725,0,,,,2025-11-21,OpenStreetMap
--15.73461,-47.900655,0,,,,2025-11-21,OpenStreetMap
 -15.787625,-47.988042,0,,,,2025-11-21,OpenStreetMap
 -15.83831,-48.047788,0,,,,2025-11-21,OpenStreetMap
 -15.878331,-48.052335,0,,,,2025-11-21,OpenStreetMap
@@ -4480,7 +4714,6 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -19.297275,-48.907783,0,,,,2025-11-21,OpenStreetMap
 -15.829969,-48.051583,0,,,,2025-11-21,OpenStreetMap
 -15.733073,-47.891016,0,,,,2025-11-21,OpenStreetMap
--15.736913,-47.907641,0,,,,2025-11-21,OpenStreetMap
 -15.791415,-48.049064,0,,,,2025-11-21,OpenStreetMap
 -15.747615,-47.921883,0,,,,2025-11-21,OpenStreetMap
 -15.78794,-47.947556,0,,,,2025-11-21,OpenStreetMap
@@ -4536,7 +4769,6 @@ lat,lon,limite,rodovia,km,sentido,atualizado,fonte
 -15.831769,-47.813666,70,,,,2026-05-19,OpenStreetMap
 -15.834947,-47.818517,70,,,,2026-05-19,OpenStreetMap
 -15.79641,-47.853403,80,,,,2026-05-27,OpenStreetMap
--15.801692,-47.854597,60,,,,2026-05-27,OpenStreetMap
 -15.809576,-47.861539,60,,,,2026-06-02,OpenStreetMap
 -15.808029,-47.858548,60,,,,2026-06-02,OpenStreetMap
 -15.806465,-47.855489,60,,,,2026-06-02,OpenStreetMap

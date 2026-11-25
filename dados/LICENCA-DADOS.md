@@ -10,6 +10,7 @@ coluna `fonte`.
 | `Transalvador`, `Transalvador (redutor)`, `Transalvador (portátil)` | [Mapa de radares da Transalvador](https://transonline.salvador.ba.gov.br/geral_sistema/web/index.php/mapa/mapa-porticos) | Dado público (Resolução CONTRAN 798/2020) |
 | `DNIT`, `DNIT (sem data de início)` | [DNIT — Controle de Velocidade (PNCV)](https://servicos.dnit.gov.br/dadosabertos/dataset/controle-de-velocidade) | Dados abertos ("Other (Open)"). Parte dos limites vem do OpenStreetMap (ODbL) |
 | `PBH` | [PBH — Fiscalização Eletrônica](https://dados.pbh.gov.br/dataset/fiscalizacao-eletronica) | Creative Commons Atribuição (CC-BY) |
+| `Detran-DF` | [Detran-DF — Equipamentos Eletrônicos](https://www.detran.df.gov.br/equipamentos-eletronicos) (serviço de mapa, 24/11/2026) | Dado público (Resolução CONTRAN 798/2020); o serviço não indica licença. Parte dos limites vem do OpenStreetMap (ODbL) |
 | `OpenStreetMap` | [OpenStreetMap](https://www.openstreetmap.org), via Overpass API | **ODbL 1.0** |
 
 ## OpenStreetMap

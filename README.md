@@ -63,16 +63,17 @@ Os limites e as Configurações só podem ser alterados com o alerta **parado**.
 - Quando um radar **à sua frente** chega a **200 m**, o app fala
   **"Radar 200 metros"** seguido do limite do radar (ex.: "sessenta").
 - Cada radar é avisado uma vez; o do sentido oposto, ao lado, não repete o aviso.
-- Fontes incluídas (cerca de 4.730 radares):
+- Fontes incluídas (cerca de 4.960 radares):
 
 | Fonte | Cobertura |
 |---|---|
 | ANTT | Rodovias federais concedidas (pedagiadas), todo o Brasil |
 | DNIT | Rodovias federais sem concessão, todo o Brasil (a lista não traz a velocidade) |
 | PBH | Belo Horizonte: controladores de velocidade |
+| Detran-DF | Vias urbanas do DF: radares e lombadas (sem velocidade; `dados/radares_df_detran.json` é salvo à mão) |
 | SEINFRA-BA | Rodovias estaduais da Bahia |
 | Transalvador | Cidade de Salvador (fixos, redutores e pontos de radar portátil) |
-| OpenStreetMap (não oficial) | Bahia, exceto Salvador: rodovias federais sem concessão e cidades sem lista oficial. **Distrito Federal**: Brasília e regiões administrativas (Taguatinga, Ceilândia, Gama, Sobradinho…). **Minas Gerais**: todo o estado, com cobertura parcial nas rodovias do DER-MG. **Espírito Santo**: cobertura parcial; a cidade de Vitória ainda não tem radares |
+| OpenStreetMap (não oficial) | Bahia, exceto Salvador: rodovias federais sem concessão e cidades sem lista oficial. **Distrito Federal**: pontos que o Detran-DF não lista, como rodovias do DER-DF. **Minas Gerais**: todo o estado, com cobertura parcial nas rodovias do DER-MG. **Espírito Santo**: cobertura parcial; a cidade de Vitória ainda não tem radares |
 
 > Os radares do OpenStreetMap aparecem como "Radar (não oficial, 2022)": o ano é a data da
 > última edição do ponto. Fora da Bahia, do DF, de MG e do ES, só há os radares da ANTT e do DNIT.
